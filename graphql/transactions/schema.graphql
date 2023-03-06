@@ -1,0 +1,93 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: TransactionReferenceQuery
+}
+
+type BankCategory {
+    "Banks"
+    banks: [FinancialInstitution]
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Name."
+    name: String!
+}
+
+type FinancialInstitution {
+    "Active."
+    active: Boolean!
+    "Category"
+    category: BankCategory
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Id."
+    name: String!
+    "Unique Id."
+    unique_id: String!
+}
+
+type Merchant {
+    "Active."
+    active: Boolean!
+    "Category"
+    category: MerchantCategory
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Id."
+    name: String!
+    "Unique Id."
+    unique_id: String!
+}
+
+type MerchantCategory {
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Name."
+    name: String!
+    "Services"
+    services: [Merchant]
+}
+
+type TransactionReferenceNumber {
+    " Id."
+    amount: Decimal
+    "Banks"
+    bank: FinancialInstitution
+    " Bank Id."
+    bank_id: String!
+    "Created At."
+    created_at: DateTime
+    " Customer Reference."
+    customer_ref: String!
+    " Id."
+    id: Int!
+    "merchant"
+    merchant: Merchant
+    " Service Id."
+    service_id: String!
+    " TRN."
+    trn: String!
+    " Used."
+    used: Boolean!
+}
+
+type TransactionReferenceQuery {
+    bankTransactionRefPaginated(bankRef: String, page: Int, size: Int): [TransactionReferenceNumber]
+    customerTransactionRefPaginated(customerRef: String, page: Int, size: Int): [TransactionReferenceNumber]
+    merchantTransactionRefPaginated(merchantRef: String, page: Int, size: Int): [TransactionReferenceNumber]
+    unusedTransactionRefPaginated(page: Int, size: Int): [TransactionReferenceNumber]
+    usedTransactionRefPaginated(page: Int, size: Int): [TransactionReferenceNumber]
+}
+
+"The `DateTime` scalar type represents a date and time. `DateTime` expects timestamps to be formatted in accordance with the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard."
+scalar DateTime
+
+scalar Decimal

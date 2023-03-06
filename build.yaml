@@ -1,0 +1,25 @@
+targets:
+  $default:
+    sources:
+      - lib/transactions/**
+      - graphql/transactions/**
+      - schema.graphql
+    builders:
+      graphql_codegen:
+        options:
+          outputDirectory: ../../lib/graphql
+          assetsPath: graphql/**
+          clients:
+            - graphql
+          scalars:
+            ISODateTime:
+              type: DateTime
+            JSON:
+              type: Map<String, dynamic>
+      artemis:
+        options:
+          generate_helpers: true
+          schema_mapping:
+            - schema: schema.graphql
+              queries_glob: graphql/*.graphql
+              output: lib/graphql/graphql_api.dart

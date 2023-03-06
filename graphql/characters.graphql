@@ -1,0 +1,11 @@
+# characters.graphql
+
+query getCharacters($page: Int){
+    characters(page: $page) {
+        results {
+            id
+            name
+            status
+        }
+    }
+}

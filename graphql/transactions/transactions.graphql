@@ -1,0 +1,107 @@
+query getBankTransactionPaginated($bankRef: Int, $page: Int, $size: Int){
+    bankTransactionRefPaginated(bankRef: $bankRef, page: $page, size: $size){
+         trn
+         customer_ref
+         used
+         amount
+         service_id
+         bank_id
+         created_at
+         merchant {
+             name
+             unique_id
+             id
+         }
+         bank {
+             name
+             unique_id
+             id
+         }
+    }
+}
+query getCustomerTransactionPaginated($customerRef: String, $page: Int, $size: Int){
+    customerTransactionRefPaginated(customerRef: $customerRef, page: $page, size: $size){
+        trn
+        customer_ref
+        used
+        amount
+        service_id
+        bank_id
+        created_at
+        merchant {
+            name
+            unique_id
+            id
+        }
+        bank {
+            name
+            unique_id
+            id
+        }
+    }
+}
+query getMerchantTransactionPaginated($merchantRef: Int, $page: Int, $size: Int){
+    merchantTransactionRefPaginated(merchantRef: $merchantRef, page: $page, size: $size){
+        trn
+        customer_ref
+        used
+        amount
+        service_id
+        bank_id
+        created_at
+        merchant {
+            name
+            unique_id
+            id
+        }
+        bank {
+            name
+            unique_id
+            id
+        }
+    }
+}
+
+query getUnusedTransactionRefPaginated($page: Int, $size: Int){
+    unusedTransactionRefPaginated(page: $page, size: $size){
+        trn
+        customer_ref
+        used
+        amount
+        service_id
+        bank_id
+        created_at
+        merchant {
+            name
+            unique_id
+            id
+        }
+        bank {
+            name
+            unique_id
+            id
+        }
+    }
+}
+
+query getUsedTransactionRefPaginated($page: Int, $size: Int){
+    usedTransactionRefPaginated(page: $page, size: $size){
+        trn
+        customer_ref
+        used
+        amount
+        service_id
+        bank_id
+        created_at
+        merchant {
+            name
+            unique_id
+            id
+        }
+        bank {
+            name
+            unique_id
+            id
+        }
+    }
+}

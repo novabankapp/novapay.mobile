@@ -1,0 +1,38 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: BankCategoryQuery
+}
+
+type BankCategory {
+    "Banks"
+    banks: [FinancialInstitution]
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Name."
+    name: String!
+}
+
+type BankCategoryQuery {
+    bankCategoriesPaginated(page: Int, size: Int): [BankCategory]
+}
+
+type FinancialInstitution {
+    "Active."
+    active: Boolean!
+    "Category"
+    category: BankCategory
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Id."
+    name: String!
+    "Unique Id."
+    unique_id: String!
+}
+
+"The `DateTime` scalar type represents a date and time. `DateTime` expects timestamps to be formatted in accordance with the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard."
+scalar DateTime

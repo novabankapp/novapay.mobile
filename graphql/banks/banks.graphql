@@ -1,0 +1,26 @@
+query getBanksPaginated($page:Int, $size:Int){
+    banksPaginated(page: $page, size: $size){
+         id
+        unique_id
+        created_at
+        active
+        name
+        category {
+            id
+            name
+        }
+    }
+}
+query getBanksByCategoryPaginated($page:Int,$size:Int,$categoryId:Int){
+    banksByCategoryPaginated(page: $page,size: $size,categoryId: $categoryId){
+        id
+        unique_id
+        created_at
+        active
+        name
+        category {
+            id
+            name
+        }
+    }
+}

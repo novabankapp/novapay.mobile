@@ -1,0 +1,12 @@
+query getBankCategoriesPaginated($page:Int, $size:Int){
+    bankCategoriesPaginated(page:$page,size: $size){
+         id
+         name
+         created_at
+         banks{
+             id
+             name
+             unique_id
+         }
+    }
+}

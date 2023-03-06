@@ -1,0 +1,39 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: ServiceQuery
+}
+
+type Merchant {
+    "Active."
+    active: Boolean!
+    "Category"
+    category: MerchantCategory
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Id."
+    name: String!
+    "Unique Id."
+    unique_id: String!
+}
+
+type MerchantCategory {
+    " Created At."
+    created_at: DateTime
+    " Id."
+    id: Int!
+    " Name."
+    name: String!
+    "Services"
+    services: [Merchant]
+}
+
+type ServiceQuery {
+    servicesByCategoryPaginated(categoryId: Int, page: Int, size: Int): [Merchant]
+    servicesPaginated(page: Int, size: Int): [Merchant]
+}
+
+"The `DateTime` scalar type represents a date and time. `DateTime` expects timestamps to be formatted in accordance with the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard."
+scalar DateTime

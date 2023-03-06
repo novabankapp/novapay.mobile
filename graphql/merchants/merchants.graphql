@@ -1,0 +1,28 @@
+query getServicesPaginated($page:Int,$size:Int){
+    servicesPaginated(page: $page,size: $size){
+         name
+         id
+         unique_id
+         created_at
+         active
+         category {
+             name
+             id
+             created_at
+         }
+    }
+}
+query getServicesByCategoryPaginated($page:Int,$size:Int,$categoryId:Int){
+    servicesByCategoryPaginated(page: $page,size: $size, categoryId: $categoryId){
+        name
+        id
+        unique_id
+        created_at
+        active
+        category {
+            name
+            id
+            created_at
+        }
+    }
+}
