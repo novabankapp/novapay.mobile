@@ -1,16 +1,9 @@
-# nave_app
+# nova_pay_integrator
 
-A Mobile Application for NaveApp
+A Mobile Application for NovaPay Integrator
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is an application that allows a customer to generate and manage TRNs.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
