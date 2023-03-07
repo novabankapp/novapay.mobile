@@ -3,7 +3,9 @@
 
 
 import 'package:injectable/injectable.dart';
+import 'package:nave_app/data/graphQL/bank_graphql.dart';
 import 'package:nave_app/data/hive/user_hive.dart';
+import 'package:nave_app/data/remote/clients/api_constants.dart';
 import 'package:nave_app/infrastructure/constants/constants.dart';
 import 'package:nave_app/infrastructure/routing/router.gr.dart';
 import 'package:path/path.dart';
@@ -32,6 +34,9 @@ abstract class AppModule{
 
   @injectable
   LocalStorage get storage => LocalStorage(Constants.LOCALSTORAGE);
+
+  @injectable
+  BankGraphQLService get bankGraphQLService => BankGraphQLService("${ApiConstants.API_BASEURL}${ApiConstants.BANK_GRAPH_ENDPOINT}");
 
 
 }

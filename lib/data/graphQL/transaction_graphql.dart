@@ -1,6 +1,8 @@
 import 'package:graphql/client.dart';
 import 'package:nave_app/graphql/transactions/transactions.graphql.dart';
 
+
+
 class TransactionGraphQLService {
   GraphQLClient? _client;
   final String url;

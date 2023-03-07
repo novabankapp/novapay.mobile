@@ -1,4 +1,4 @@
-query getBankTransactionPaginated($bankRef: Int, $page: Int, $size: Int){
+query getBankTransactionPaginated($bankRef: String, $page: Int, $size: Int){
     bankTransactionRefPaginated(bankRef: $bankRef, page: $page, size: $size){
          trn
          customer_ref
@@ -40,7 +40,7 @@ query getCustomerTransactionPaginated($customerRef: String, $page: Int, $size: I
         }
     }
 }
-query getMerchantTransactionPaginated($merchantRef: Int, $page: Int, $size: Int){
+query getMerchantTransactionPaginated($merchantRef: String, $page: Int, $size: Int){
     merchantTransactionRefPaginated(merchantRef: $merchantRef, page: $page, size: $size){
         trn
         customer_ref
