@@ -1,8 +1,8 @@
-# nova_pay_integrator
+# Nova Pay Integrator
 
 A Mobile Application for NovaPay Integrator
 
-## Getting Started
+## Description
 
 This project is an application that allows a customer to generate and manage TRNs.
 
