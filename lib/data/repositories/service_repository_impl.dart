@@ -4,7 +4,7 @@ import 'package:nave_app/domain/entities/Service.dart';
 import 'package:nave_app/domain/entities/Service_category.dart';
 import 'package:nave_app/domain/repositories/service_repository.dart';
 
-@Injectable(as: ServiceRepository)
+//@Injectable(as: ServiceRepository)
 class ServiceRepositoryImpl implements ServiceRepository {
   final MerchantGraphQLService _service;
 

@@ -6,54 +6,55 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nave_app/app/blocs/common/data_event.dart';
 import 'package:nave_app/app/blocs/common/data_state.dart';
-import 'package:nave_app/domain/entities/Bank.dart';
-import 'package:nave_app/domain/repositories/bank_repository.dart';
+import 'package:nave_app/domain/entities/Service.dart';
+import 'package:nave_app/domain/repositories/service_repository.dart';
 
 
 enum FetchType{
   normal,
   byCategory,
 }
+
 @injectable
-class BankBloc extends Bloc<DataEvent, DataState> {
-  List<Bank>? myList;
+class MerchantBloc extends Bloc<DataEvent, DataState> {
+  List<Service>? myList;
   int size = 10;
   int start = 0;
   int? categoryId;
   FetchType fetchType = FetchType.normal;
-  final BankRepository _repository;
+  final ServiceRepository _repository;
 
-  BankBloc(this._repository) : super(const DataState()){
-      on<DataLoad>(
-      _onBanksFetch,
+  MerchantBloc(this._repository) : super(const DataState()){
+    on<DataLoad>(
+      _onServicesFetch,
       transformer: droppable(),
-      );
-      on<DataByCategoryLoad>(
-        _onBanksByCategory,
-      );
-      // Refresh Event
-      on<DataRefresh>(
-      _onBanksRefresh,
+    );
+    on<DataByCategoryLoad>(
+      _onServicesByCategory,
+    );
+    // Refresh Event
+    on<DataRefresh>(
+      _onServicesRefresh,
       transformer: droppable(),
-      );
+    );
   }
-  FutureOr<void> _onBanksByCategory(DataByCategoryLoad event, Emitter<DataState> emit) async{
+  FutureOr<void> _onServicesByCategory(DataByCategoryLoad event, Emitter<DataState> emit) async{
     try {
 
       if (state.hasReachedMax) return;
       if (state.status == DataStatus.initial) {
-        final banks = await _repository.getBanksByCategory(categoryId: event.categoryId,page: start, size: size);
+        final services = await _repository.getServicesByCategory(categoryId: event.categoryId,page: start, size: size);
         return emit(
           state.copyWith(
-            myList: banks,
+            myList: services,
             hasReachedMax: false,
             status: DataStatus.success,
           ),
         );
       }
 
-      final banks = await _repository.getBanksByCategory(categoryId: event.categoryId,page: state.myList.length, size: size);
-      if (banks == null || banks.isEmpty) {
+      final services = await _repository.getServicesByCategory(categoryId: event.categoryId,page: state.myList.length, size: size);
+      if (services == null || services.isEmpty) {
         return emit(state.copyWith(hasReachedMax: true));
       } else {
         return emit(
@@ -68,22 +69,22 @@ class BankBloc extends Bloc<DataEvent, DataState> {
       return emit(state.copyWith(status: DataStatus.error));
     }
   }
-  FutureOr<void> _onBanksFetch(DataLoad event, Emitter<DataState> emit) async {
+  FutureOr<void> _onServicesFetch(DataLoad event, Emitter<DataState> emit) async {
     try {
       if (state.hasReachedMax) return;
       if (state.status == DataStatus.initial) {
-        final banks = await _repository.getBanks(page: start, size: size);
+        final services = await _repository.getServices(page: start, size: size);
         return emit(
           state.copyWith(
-            myList: banks,
+            myList: services,
             hasReachedMax: false,
             status: DataStatus.success,
           ),
         );
       }
 
-      final banks = await _repository.getBanks(page: state.myList.length, size: size);
-      if (banks == null || banks.isEmpty) {
+      final services = await _repository.getServices(page: state.myList.length, size: size);
+      if (services == null || services.isEmpty) {
         return emit(state.copyWith(hasReachedMax: true));
       } else {
         return emit(
@@ -99,14 +100,14 @@ class BankBloc extends Bloc<DataEvent, DataState> {
     }
   }
 
-  FutureOr<void> _onBanksRefresh(DataRefresh event, Emitter<DataState> emit) async {
+  FutureOr<void> _onServicesRefresh(DataRefresh event, Emitter<DataState> emit) async {
     emit(const DataState());
     await Future.delayed(const Duration(seconds: 1));
     if(fetchType == FetchType.normal)
       add(const DataLoad());
     else if(fetchType == FetchType.byCategory) {
       if(event.categoryId != null)
-          add(DataByCategoryLoad(event.categoryId!));
+        add(DataByCategoryLoad(event.categoryId!));
     }
   }
 }
