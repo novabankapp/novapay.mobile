@@ -16,6 +16,7 @@ type BankCategory {
 }
 
 type BankQuery {
+    bankCategoriesPaginated(page: Int, size: Int): [BankCategory]
     banksByCategoryPaginated(categoryId: Int, page: Int, size: Int): [FinancialInstitution]
     banksPaginated(page: Int, size: Int): [FinancialInstitution]
 }

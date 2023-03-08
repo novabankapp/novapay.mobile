@@ -1,5 +1,4 @@
 import 'package:graphql/client.dart';
-import 'package:nave_app/graphql/bank_categories/categories.graphql.dart';
 import 'package:nave_app/graphql/banks/banks.graphql.dart';
 
 class BankGraphQLService {

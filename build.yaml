@@ -1,8 +1,8 @@
 targets:
   $default:
     sources:
-      - lib/transactions/**
-      - graphql/transactions/**
+      - lib/banks/**
+      - graphql/banks/**
       - schema.graphql
     builders:
       graphql_codegen:

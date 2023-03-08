@@ -15,6 +15,8 @@ type Merchant {
     id: Int!
     " Id."
     name: String!
+    " Short Code."
+    short_code: String!
     "Unique Id."
     unique_id: String!
 }
@@ -31,6 +33,7 @@ type MerchantCategory {
 }
 
 type ServiceQuery {
+    serviceCategoriesPaginated(page: Int, size: Int): [MerchantCategory]
     servicesByCategoryPaginated(categoryId: Int, page: Int, size: Int): [Merchant]
     servicesPaginated(page: Int, size: Int): [Merchant]
 }

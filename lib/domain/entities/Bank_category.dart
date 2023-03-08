@@ -1,6 +1,6 @@
 import 'package:nave_app/domain/entities/Bank.dart';
 import 'package:nave_app/domain/entities/base_entity.dart';
-import 'package:nave_app/graphql/bank_categories/categories.graphql.dart';
+import 'package:nave_app/graphql/banks/banks.graphql.dart';
 
 
 class BankCategory extends BaseEntity {

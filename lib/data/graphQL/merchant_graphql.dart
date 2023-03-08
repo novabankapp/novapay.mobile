@@ -1,5 +1,4 @@
 import 'package:graphql/client.dart';
-import 'package:nave_app/graphql/merchant_categories/categories.graphql.dart';
 import 'package:nave_app/graphql/merchants/merchants.graphql.dart';
 
 class MerchantGraphQLService {

@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "https://d2c7-102-70-3-112.in.ngrok.io/api/bankql",
+        "url": "https://5b66-102-70-3-142.in.ngrok.io/api/bankql",
         "headers": {
           "user-agent": "JS GraphQL"
         },

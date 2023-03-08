@@ -4,6 +4,8 @@
 
 import 'package:injectable/injectable.dart';
 import 'package:nave_app/data/graphQL/bank_graphql.dart';
+import 'package:nave_app/data/graphQL/merchant_graphql.dart';
+import 'package:nave_app/data/graphQL/transaction_graphql.dart';
 import 'package:nave_app/data/hive/user_hive.dart';
 import 'package:nave_app/data/remote/clients/api_constants.dart';
 import 'package:nave_app/infrastructure/constants/constants.dart';
@@ -37,6 +39,12 @@ abstract class AppModule{
 
   @injectable
   BankGraphQLService get bankGraphQLService => BankGraphQLService("${ApiConstants.API_BASEURL}${ApiConstants.BANK_GRAPH_ENDPOINT}");
+
+  @injectable
+  MerchantGraphQLService get merchantGraphQLService => MerchantGraphQLService("${ApiConstants.API_BASEURL}${ApiConstants.SERVICE_GRAPH_ENDPOINT}");
+
+  @injectable
+  TransactionGraphQLService get transGraphQLService => TransactionGraphQLService("${ApiConstants.API_BASEURL}${ApiConstants.TRANS_GRAPH_ENDPOINT}");
 
 
 }
