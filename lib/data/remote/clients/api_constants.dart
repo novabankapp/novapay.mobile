@@ -6,4 +6,5 @@ class ApiConstants {
   static const String TRANS_GRAPH_ENDPOINT = "api/transql";
   static const String SIGNUP ="api/User/signup";
   static const String GENERATETRN ="api/User/signup";
+  static const String GET_REFERENCE ="api/User/signup";
 }
