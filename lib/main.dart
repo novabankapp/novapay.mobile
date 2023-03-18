@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:nave_app/infrastructure/constants/colors.dart';
 import 'package:provider/provider.dart';
 
 import 'infrastructure/constants/constants.dart';
@@ -48,9 +49,9 @@ class MyApp extends StatelessWidget {
               title: Constants.TITLE,
               theme: ThemeData(
 
-                primarySwatch: Colors.lightBlue,
-                backgroundColor: Colors.black,
-                scaffoldBackgroundColor: Colors.black,
+                primarySwatch:  Colors.lightBlue,
+                backgroundColor: ColorConstants.kSecondaryColor,
+                scaffoldBackgroundColor: ColorConstants.kGrayColor,
                 visualDensity: VisualDensity.adaptivePlatformDensity,
               ),
               builder: (context, child) => Scaffold(

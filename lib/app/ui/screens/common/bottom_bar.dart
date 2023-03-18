@@ -1,16 +1,31 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:nave_app/infrastructure/constants/colors.dart';
 
-Container makeBottomBar({ required List<Widget> widgets, Color? bgColor, double? height}){
-  return Container(
-    height: height ?? 55.0,
-    child: BottomAppBar(
-      color: bgColor ?? Color.fromRGBO(58, 66, 86, 1.0),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: widgets,
+BottomNavigationBar makeBottomBar(){
+  return BottomNavigationBar(
+      items: const <BottomNavigationBarItem>[
+        BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label:"Home"
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.account_balance_wallet),
+          label: "My Account"
+        ),
+      ],
+      type: BottomNavigationBarType.shifting,
+      currentIndex: 0,
+      selectedItemColor: ColorConstants.kPrimaryColor,
+      unselectedItemColor: ColorConstants.kBlueGrayColor,
+      unselectedLabelStyle: const TextStyle(
+          color: ColorConstants.kBlueGrayColor,
       ),
-    ),
+      showSelectedLabels: true,
+      showUnselectedLabels: true,
+      iconSize: 32,
+      onTap: (i) {},
+      elevation: 5
   );
 }

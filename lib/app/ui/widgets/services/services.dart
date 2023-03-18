@@ -58,15 +58,15 @@ class _ServicesState extends State<Services> {
     Size size = MediaQuery.of(context).size;
 
     ListTile makeListTile(Service service, int number) => ListTile(
-        tileColor: ColorConstants.kPrimaryLightColor,
+        tileColor: ColorConstants.kPrimaryDarkColor,
         contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         leading: Container(
           padding: const EdgeInsets.only(right: 12.0),
           decoration: const BoxDecoration(
               border: Border(
-                  right: BorderSide(width: 1.0, color: Colors.white24))),
-          child: Text("$number",style: TextStyle(
-              color: Colors.white,
+                  right: BorderSide(width: 1.0, color: ColorConstants.kPrimaryColor))),
+              child: Text("$number",style: TextStyle(
+              color: ColorConstants.kPrimaryColor,
               fontSize: 16.sp,
               fontWeight: FontWeight.bold)
           ),
@@ -74,12 +74,13 @@ class _ServicesState extends State<Services> {
 
         title: Text(
           service.name!,
-          style: TextStyle(color: Colors.white,
+          style: TextStyle(color: ColorConstants.kPrimaryColor,
               fontSize: 16.sp,
               fontWeight: FontWeight.bold),
         ),
         trailing:
-        const Icon(Icons.keyboard_arrow_right, color: Colors.white, size: 30.0),
+        const Icon(Icons.keyboard_arrow_right,
+            color: ColorConstants.kPrimaryColor, size: 30.0),
         onTap: () async{
            //save in hive
           var box = await Hive.openBox(ApiConstants.GENERATETRN);
@@ -95,7 +96,7 @@ class _ServicesState extends State<Services> {
       elevation: 8.0,
       margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       child: Container(
-        decoration: const BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
+        decoration: const BoxDecoration(color: ColorConstants.kWhiteColor),
         child: makeListTile(service,number),
       ),
     );

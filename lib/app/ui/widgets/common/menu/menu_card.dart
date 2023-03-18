@@ -1,25 +1,39 @@
 import 'package:flutter/material.dart';
+import 'package:nave_app/infrastructure/constants/colors.dart';
 
 SizedBox makeMenuCard({required String text, required IconData iconData, double height = 150, double width = 150}){
   return SizedBox(
-      height: height, width: width,
-      //square box; equal height and width so that it won't look like oval
+      height: height,
+      width: width,
       child: Card(
-        shadowColor: const Color.fromARGB(255, 255, 255, 255),
-    elevation: 8.0,
-    child: Container(
-      decoration: const BoxDecoration(color: Color.fromRGBO(64, 75, 96, .9)),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(iconData, color: Colors.white, size: width/3,),
+        shadowColor: ColorConstants.kWhiteColor,
+        elevation: 8.0,
+        child: Container(
+          decoration: BoxDecoration(
+              color: ColorConstants.kWhiteColor,
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: const [
+              BoxShadow(
+                  color: Colors.black54, // shadow color
+                  blurRadius: 6, // shadow radius
+                  offset: Offset(2, 3), // shadow offset
+                  spreadRadius:0.1, // The amount the box should be inflated prior to applying the blur
+                  blurStyle: BlurStyle.normal // set blur style
+              ),
+            ],
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(iconData, color: ColorConstants.kPrimaryDarkColor,
+                   size: width/3,),
 
-            Text(text,
-              style: const TextStyle(fontWeight: FontWeight.bold,
-              color: Colors.white, fontSize: 24),)
-          ],
+                Text(text,
+                  style: const TextStyle(fontWeight: FontWeight.bold,
+                  color: ColorConstants.kPrimaryDarkColor, fontSize: 24),)
+              ],
 
-      ),
-    ),
+          ),
+        ),
   ));
 }
