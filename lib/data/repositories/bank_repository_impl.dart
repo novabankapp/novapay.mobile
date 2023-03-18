@@ -4,7 +4,7 @@ import 'package:nave_app/domain/entities/Bank.dart';
 import 'package:nave_app/domain/entities/Bank_category.dart';
 import 'package:nave_app/domain/repositories/bank_repository.dart';
 
-@Injectable(as: BankRepository)
+//@Injectable(as: BankRepository)
 class BankRepositoryImpl implements BankRepository{
   final BankGraphQLService _service;
 

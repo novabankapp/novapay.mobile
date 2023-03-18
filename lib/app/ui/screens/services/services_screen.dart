@@ -8,6 +8,7 @@ import 'package:nave_app/app/blocs/merchants/bloc.dart';
 import 'package:nave_app/app/ui/screens/common/bottom_bar.dart';
 import 'package:nave_app/app/ui/screens/common/top_bar.dart';
 import 'package:nave_app/app/ui/widgets/common/list_tile.dart';
+import 'package:nave_app/app/ui/widgets/common/menu/menu.dart';
 import 'package:nave_app/app/ui/widgets/common/menu/menu_card.dart';
 import 'package:nave_app/app/ui/widgets/services/services.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
@@ -24,7 +25,10 @@ class ServicesScreen extends StatelessWidget {
         bottomNavigationBar: makeBottomBar(),
         body: BlocProvider<MerchantBloc>(
         create: (context) =>  locator<MerchantBloc>()..add(const DataLoad()),
-        child: const Services()
+        child: Container(
+            padding: const EdgeInsets.fromLTRB(2, 24, 2, 6),
+            child: const Services()
+        )
         )
     );
   }
