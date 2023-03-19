@@ -19,6 +19,7 @@ class TransactionRepositoryTestImpl extends TransactionRepository{
         tr.TransactionRef(
               recordId: 1234,
               trn: "1234",
+              used: true,
               customerReference: "1234",
               amount: 123000.00,
               serviceUniqueIdentifier: "1234",
@@ -37,6 +38,7 @@ class TransactionRepositoryTestImpl extends TransactionRepository{
       tr.TransactionRef(
           recordId: 1234,
           trn: "1234",
+          used: false,
           customerReference: "1234",
           amount: 12300.00,
           serviceUniqueIdentifier: "1234",
@@ -55,6 +57,7 @@ class TransactionRepositoryTestImpl extends TransactionRepository{
       tr.TransactionRef(
           recordId: 1234,
           trn: "1234",
+          used: false,
           customerReference: "1234",
           amount: 1000.00,
           serviceUniqueIdentifier: "1234",
@@ -67,6 +70,44 @@ class TransactionRepositoryTestImpl extends TransactionRepository{
           bank: tr.Bank(
               id: 1234,
               name: "National Bank",
+              uniqueId: "1234"
+          )
+      ),
+      tr.TransactionRef(
+          recordId: 1234,
+          trn: "1234",
+          used: true,
+          customerReference: "1234",
+          amount: 1000.00,
+          serviceUniqueIdentifier: "1234",
+          financialServiceUniqueIdentifier: "1234",
+          merchant:  tr.Merchant(
+              id: 1234,
+              name: "Airtel",
+              uniqueId: "1234"
+          ),
+          bank: tr.Bank(
+              id: 1234,
+              name: "National Bank",
+              uniqueId: "1234"
+          )
+      ),
+      tr.TransactionRef(
+          recordId: 1234,
+          trn: "1234",
+          used: true,
+          customerReference: "1234",
+          amount: 1000.00,
+          serviceUniqueIdentifier: "1234",
+          financialServiceUniqueIdentifier: "1234",
+          merchant:  tr.Merchant(
+              id: 1234,
+              name: "Mpamba",
+              uniqueId: "1234"
+          ),
+          bank: tr.Bank(
+              id: 1234,
+              name: "Mpamba",
               uniqueId: "1234"
           )
       )

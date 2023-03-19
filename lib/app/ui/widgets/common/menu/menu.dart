@@ -1,12 +1,15 @@
 
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:nave_app/app/blocs/common/data_state.dart';
+import 'package:intl/intl.dart';
 import 'package:nave_app/app/blocs/transactions/events.dart';
 import 'package:nave_app/app/blocs/transactions/states.dart';
 import 'package:nave_app/app/blocs/transactions/transaction_bloc.dart';
+import 'package:nave_app/app/ui/icons/nova_icons_icons.dart';
 import 'package:nave_app/app/ui/widgets/common/menu/menu_card.dart';
 import 'package:nave_app/domain/entities/Transaction_ref.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
@@ -23,48 +26,60 @@ class Menu extends StatefulWidget{
 }
 class _MenuState extends State<Menu> {
   Widget content = const Text("");
-  ListTile makeListTile(TransactionRef transaction, int number) => ListTile(
-      tileColor: ColorConstants.kPrimaryDarkColor,
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-      leading: Container(
-        padding: const EdgeInsets.only(right: 12.0),
-        decoration: const BoxDecoration(
-            border: Border(
-                right: BorderSide(width: 1.0, color: ColorConstants.kPrimaryColor))),
-        child: const Icon(Icons.monetization_on_outlined,
-               color: ColorConstants.kPrimaryColor,),
-      ),
+  ListTile makeListTile(TransactionRef transaction, int number) {
+    var used = transaction.used!;
+    var leadIcon = used ? NovaIcons.ok : NovaIcons.cancel;
+    return ListTile(
+        tileColor: ColorConstants.kPrimaryDarkColor,
+        contentPadding: const EdgeInsets.symmetric(
+            horizontal: 20.0, vertical: 10.0),
+        leading: Container(
+          padding: const EdgeInsets.only(right: 12.0),
+          decoration: const BoxDecoration(
+              border: Border(
+                  right: BorderSide(
+                      width: 1.0, color: ColorConstants.kPrimaryColor))),
+          child: Icon(
+            leadIcon,
+            color: ColorConstants.kPrimaryColor,),
+        ),
 
-      title: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            transaction.merchant!.name!,
-            style: TextStyle(color: ColorConstants.kPrimaryColor,
-                fontSize: 16.sp,
-                fontWeight: FontWeight.bold),
-          ),
-          Text(
-            transaction.bank!.name!,
-            style: TextStyle(color: ColorConstants.kPrimaryLightColor,
-                fontSize: 12.sp,
-                fontWeight: FontWeight.normal),
-          ),
-        ],
-      ),
-      trailing:
-      Text(
-        "K${transaction.amount.toString()}",
-        style: TextStyle(color: ColorConstants.kPrimaryColor,
-            fontSize: 16.sp,
-            fontWeight: FontWeight.bold),
-      ),
-      onTap: () async{
+        title: Row(
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  transaction.merchant!.name!,
+                  style: TextStyle(color: ColorConstants.kPrimaryColor,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.bold),
+                ),
+                Text(
+                  transaction.bank!.name!,
+                  style: TextStyle(color: ColorConstants.kPrimaryLightColor,
+                      fontSize: 12.sp,
+                      fontWeight: FontWeight.normal),
+                ),
+              ],
+            ),
 
-        //route
+          ],
+        ),
+        trailing:
 
-      }
-  );
+        Text(
+          "K${formatCurrency.format(transaction.amount).replaceAll("\$", "")}",
+          style: TextStyle(color: ColorConstants.kPrimaryColor,
+              fontSize: 16.sp,
+              fontWeight: FontWeight.bold),
+        ),
+        onTap: () async {
+          //route
+
+        }
+    );
+  }
   Card makeListItem(TransactionRef transaction,int number) => Card(
     elevation: 8.0,
     margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
@@ -85,6 +100,8 @@ class _MenuState extends State<Menu> {
       child: makeListTile(transaction,number),
     ),
   );
+
+  final formatCurrency = NumberFormat.simpleCurrency(locale: Platform.localeName,name: "");
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TransactionBloc, TransactionState>(
@@ -116,7 +133,7 @@ class _MenuState extends State<Menu> {
                 )
               ),
                 Container(
-                  padding: EdgeInsets.all(10),
+                  padding: const EdgeInsets.all(10),
                   child: Text(
                     "Past Transactions",
                     style: TextStyle(color: ColorConstants.kPrimaryColor,
