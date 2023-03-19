@@ -1,5 +1,55 @@
 import 'package:nave_app/graphql/transactions/transactions.graphql.dart';
 
+
+
+class Bank {
+
+  Bank({
+    this.id,
+    this.uniqueId,
+    this.name,
+  });
+  int? id;
+  String? uniqueId;
+  String? name;
+  Bank.fromJson(dynamic json) {
+    id = json['id'];
+    uniqueId = json['uniqueId'];
+    name = json['name'];
+  }
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['uniqueId'] = uniqueId;
+    map['name'] = name;
+    return map;
+  }
+
+}
+class Merchant {
+
+  Merchant({
+    this.id,
+    this.uniqueId,
+    this.name,
+  });
+  int? id;
+  String? uniqueId;
+  String? name;
+  Merchant.fromJson(dynamic json) {
+    id = json['id'];
+    uniqueId = json['uniqueId'];
+    name = json['name'];
+  }
+  Map<String, dynamic> toJson() {
+    final map = <String, dynamic>{};
+    map['id'] = id;
+    map['uniqueId'] = uniqueId;
+    map['name'] = name;
+    return map;
+  }
+
+}
 class TransactionRef {
   TransactionRef({
       this.recordId, 
@@ -9,7 +59,9 @@ class TransactionRef {
       this.used, 
       this.serviceUniqueIdentifier, 
       this.financialServiceUniqueIdentifier, 
-      this.createdAt,});
+      this.createdAt,
+      this.merchant,
+      this.bank});
 
   TransactionRef.fromJson(dynamic json) {
     recordId = json['recordId'];
@@ -20,6 +72,8 @@ class TransactionRef {
     serviceUniqueIdentifier = json['serviceUniqueIdentifier'];
     financialServiceUniqueIdentifier = json['financialServiceUniqueIdentifier'];
     createdAt = json['createdAt'];
+    bank = Bank.fromJson("bank");
+    merchant = Merchant.fromJson("merchant");
   }
   TransactionRef.getCustomerTransactionPaginated(Query$getCustomerTransactionPaginated$customerTransactionRefPaginated transRef){
     //recordId = transRef.;
@@ -30,6 +84,16 @@ class TransactionRef {
     serviceUniqueIdentifier = transRef.service_id;
     financialServiceUniqueIdentifier = transRef.bank_id;
     createdAt = transRef.created_at;
+    bank = Bank(
+       id : transRef.bank?.id,
+      name: transRef.bank?.name,
+      uniqueId: transRef.bank?.unique_id
+    );
+    merchant = Merchant(
+       id: transRef.merchant?.id,
+       name: transRef.merchant?.name,
+       uniqueId: transRef.merchant?.unique_id
+    );
   }
   int? recordId;
   String? trn;
@@ -39,6 +103,8 @@ class TransactionRef {
   String? serviceUniqueIdentifier;
   String? financialServiceUniqueIdentifier;
   String? createdAt;
+  Merchant? merchant;
+  Bank? bank;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};
@@ -50,6 +116,8 @@ class TransactionRef {
     map['serviceUniqueIdentifier'] = serviceUniqueIdentifier;
     map['financialServiceUniqueIdentifier'] = financialServiceUniqueIdentifier;
     map['createdAt'] = createdAt;
+    map['bank'] = bank;
+    map["merchant"] = merchant;
     return map;
   }
 

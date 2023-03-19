@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
 
 
-AppBar makeTopBar({required String title, required List<Widget> widgets, Color? bgColor, double elevation = 0.1}) {
+AppBar makeTopBar({required String title, List<Widget>? widgets, Color? bgColor, double elevation = 0.1}) {
   return AppBar(
     elevation: elevation,
     centerTitle: true,
@@ -14,14 +14,8 @@ AppBar makeTopBar({required String title, required List<Widget> widgets, Color? 
   );
 }
 
-AppBar makeHomeTopBar({required String title}){
+AppBar makeHomeTopBar({required String title, List<Widget>? widgets}){
   return makeTopBar(title: title,
       bgColor: ColorConstants.kPrimaryColor,
-      widgets: <Widget>[
-        IconButton(
-          color: ColorConstants.kWhiteColor,
-          icon: const Icon(Icons.list),
-          onPressed: () {},
-        )
-      ]);
+      widgets: widgets);
 }

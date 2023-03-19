@@ -22,29 +22,35 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
       _onTransactionFetch,
       transformer: droppable(),
     );
+
+    on<TransactionLoad>(
+      _onTransactionLoad,
+      transformer: droppable(),
+    );
     // Refresh Event
     on<TransactionRefresh>(
       _onTransactionRefresh,
       transformer: droppable(),
     );
+
   }
 
   FutureOr<void> _onTransactionFetch(TransactionByCustomerRefLoad event, Emitter<TransactionState> emit) async {
     try {
       if (state.hasReachedMax) return;
       if (state.status == TransactionStatus.initial) {
-        final services = await _repository.getTransactionReferencesByCustomerRef(page: start, size: size, customerRef: event.ref);
+        final transactions = await _repository.getTransactionReferencesByCustomerRef(page: start, size: size, customerRef: event.ref);
         return emit(
           state.copyWith(
-            myList: services,
+            myList: transactions,
             hasReachedMax: false,
             status: TransactionStatus.success,
           ),
         );
       }
 
-      final services = await _repository.getTransactionReferencesByCustomerRef(customerRef: event.ref,page: state.myList.length, size: size);
-      if (services == null || services.isEmpty) {
+      final transactions = await _repository.getTransactionReferencesByCustomerRef(customerRef: event.ref,page: state.myList.length, size: size);
+      if (transactions == null || transactions.isEmpty) {
         return emit(state.copyWith(hasReachedMax: true));
       } else {
         return emit(
@@ -65,5 +71,8 @@ class TransactionBloc extends Bloc<TransactionEvent, TransactionState> {
     await Future.delayed(const Duration(seconds: 1));
     add(TransactionByCustomerRefLoad(event.ref!));
 
+  }
+
+  FutureOr<void> _onTransactionLoad(TransactionLoad event, Emitter<TransactionState> emit) {
   }
 }
