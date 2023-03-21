@@ -1,6 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:nave_app/app/ui/screens/authentication/login/login_screen.dart';
 import 'package:nave_app/app/ui/screens/home/home_screen.dart';
+import 'package:nave_app/app/ui/screens/landing_page_screen.dart';
 import 'package:nave_app/app/ui/screens/services/services_screen.dart';
 
 @MaterialAutoRouter(
@@ -13,10 +14,14 @@ import 'package:nave_app/app/ui/screens/services/services_screen.dart';
     ),
     AutoRoute(
       page: HomeScreen,
-      initial: true,
+      initial: false,
     ),
     AutoRoute(
       page: LoginScreen
+    ),
+    AutoRoute(
+        page: LandingScreen,
+        initial: true,
     ),
   ],
 )

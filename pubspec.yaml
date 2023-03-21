@@ -63,6 +63,7 @@ dependencies:
   graphql_codegen: ^0.12.0-beta.7
   bloc_concurrency: ^0.2.1
   intl: ^0.18.0
+  flutter_native_splash: ^2.2.16
 
 dev_dependencies:
   flutter_test:
