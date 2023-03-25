@@ -47,7 +47,6 @@ dependencies:
   hexcolor:
   sqflite:
   path:
-  flutter_secure_storage:
   shared_preferences:
   validators:
   connectivity_plus: ^2.3.6+1
@@ -64,6 +63,7 @@ dependencies:
   bloc_concurrency: ^0.2.1
   intl: ^0.18.0
   flutter_native_splash: ^2.2.16
+  dropdown_search:
 
 dev_dependencies:
   flutter_test:

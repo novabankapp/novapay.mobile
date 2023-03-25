@@ -5,6 +5,7 @@ import 'package:nave_app/app/blocs/transactions/transaction_bloc.dart';
 import 'package:nave_app/app/ui/screens/common/bottom_bar.dart';
 import 'package:nave_app/app/ui/screens/common/top_bar.dart';
 import 'package:nave_app/app/ui/widgets/common/menu/menu.dart';
+import 'package:nave_app/app/ui/widgets/transactions/generate_trn.dart';
 import 'package:nave_app/infrastructure/di/injection.dart';
 
 class HomeScreen extends StatelessWidget {
