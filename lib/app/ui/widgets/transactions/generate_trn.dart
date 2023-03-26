@@ -61,7 +61,7 @@ class _GenerateTRNState extends State<GenerateTRN> {
                          builder:    (merchantContext, merchantState) {
                            return Container(
                              color:  ColorConstants.kGrayColor,
-                             padding: const EdgeInsets.symmetric(vertical: 10),
+                             margin: const EdgeInsets.symmetric(vertical: 10),
                              child: DropdownSearch<Service>(
                                items: merchantState.myList.cast<Service>(),
                                itemAsString: (Service s) => s.name!,
@@ -95,7 +95,7 @@ class _GenerateTRNState extends State<GenerateTRN> {
                          builder:    (bankContext, bankState) {
                            return Container(
                              color:  ColorConstants.kGrayColor,
-                             padding: const EdgeInsets.symmetric(vertical: 10),
+                             margin: const EdgeInsets.symmetric(vertical: 10),
                              child: DropdownSearch<Bank>(
                                items: bankState.myList.cast<Bank>(),
                                itemAsString: (Bank s) => s.name!,
