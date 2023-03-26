@@ -59,27 +59,31 @@ class _GenerateTRNState extends State<GenerateTRN> {
 
                          },
                          builder:    (merchantContext, merchantState) {
-                           return DropdownSearch<Service>(
-                             items: merchantState.myList.cast<Service>(),
-                             itemAsString: (Service s) => s.name!,
-                             dropdownBuilder: (context, i) => Text("${i?.name}"),
-                             dropdownDecoratorProps: const DropDownDecoratorProps(
-                               dropdownSearchDecoration: InputDecoration(
+                           return Container(
+                             color:  ColorConstants.kGrayColor,
+                             padding: const EdgeInsets.symmetric(vertical: 10),
+                             child: DropdownSearch<Service>(
+                               items: merchantState.myList.cast<Service>(),
+                               itemAsString: (Service s) => s.name!,
+                               dropdownBuilder: (context, i) => Text("${i?.name}"),
+                               dropdownDecoratorProps: const DropDownDecoratorProps(
+                                 dropdownSearchDecoration: InputDecoration(
 
-                                 hintStyle: TextStyle(
-                                     color : ColorConstants.kBlackColor
+                                   hintStyle: TextStyle(
+                                       color : ColorConstants.kBlackColor
+                                   ),
+                                   labelStyle: TextStyle(
+                                       color: ColorConstants.kPrimaryColor
+                                   ),
+                                   hintText: "Select Service",
+                                   labelText: "Select Service",
+                                   border: InputBorder.none,
                                  ),
-                                 labelStyle: TextStyle(
-                                     color: ColorConstants.kPrimaryColor
-                                 ),
-                                 hintText: "Select Service",
-                                 labelText: "Select Service",
-                                 border: InputBorder.none,
                                ),
-                             ),
-                             popupProps: const PopupPropsMultiSelection.modalBottomSheet(
-                                 showSearchBox: true
-                               //disabledItemFn: (int i) => i <= 3,
+                               popupProps: const PopupPropsMultiSelection.modalBottomSheet(
+                                   showSearchBox: true
+                                 //disabledItemFn: (int i) => i <= 3,
+                               ),
                              ),
                            );
                          }
@@ -89,27 +93,31 @@ class _GenerateTRNState extends State<GenerateTRN> {
 
                          },
                          builder:    (bankContext, bankState) {
-                           return DropdownSearch<Bank>(
-                             items: bankState.myList.cast<Bank>(),
-                             itemAsString: (Bank s) => s.name!,
-                             dropdownBuilder: (context, i) => Text("${i?.name}"),
-                             dropdownDecoratorProps: const DropDownDecoratorProps(
-                               dropdownSearchDecoration: InputDecoration(
+                           return Container(
+                             color:  ColorConstants.kGrayColor,
+                             padding: const EdgeInsets.symmetric(vertical: 10),
+                             child: DropdownSearch<Bank>(
+                               items: bankState.myList.cast<Bank>(),
+                               itemAsString: (Bank s) => s.name!,
+                               dropdownBuilder: (context, i) => Text("${i?.name}"),
+                               dropdownDecoratorProps: const DropDownDecoratorProps(
+                                 dropdownSearchDecoration: InputDecoration(
 
-                                 hintStyle: TextStyle(
-                                     color : ColorConstants.kBlackColor
+                                   hintStyle: TextStyle(
+                                       color : ColorConstants.kBlackColor
+                                   ),
+                                   labelStyle: TextStyle(
+                                       color: ColorConstants.kPrimaryColor
+                                   ),
+                                   hintText: "Select Bank",
+                                   labelText: "Select Bank",
+                                   border: InputBorder.none,
                                  ),
-                                 labelStyle: TextStyle(
-                                     color: ColorConstants.kPrimaryColor
-                                 ),
-                                 hintText: "Select Bank",
-                                 labelText: "Select Bank",
-                                 border: InputBorder.none,
                                ),
-                             ),
-                             popupProps: const PopupPropsMultiSelection.modalBottomSheet(
-                                 showSearchBox: true
-                               //disabledItemFn: (int i) => i <= 3,
+                               popupProps: const PopupPropsMultiSelection.modalBottomSheet(
+                                   showSearchBox: true
+                                 //disabledItemFn: (int i) => i <= 3,
+                               ),
                              ),
                            );
                          }

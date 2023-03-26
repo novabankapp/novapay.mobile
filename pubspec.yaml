@@ -38,7 +38,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   pull_to_refresh:
   protobuf:
-  dio:
+  dio: ^5.0.0
   http:
   confirm_dialog:
   hydrated_bloc:
