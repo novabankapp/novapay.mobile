@@ -28,6 +28,11 @@ import 'package:nave_app/app/ui/screens/transactions/generate_trn_screen.dart';
       page: GenerateTRNScreen,
       initial: true,
     ),
+    AutoRoute(
+      path: "/generate-trn/:categoryId",
+      page: GenerateTRNScreen,
+      initial: false,
+    ),
   ],
 )
 class $AppRouter {}
