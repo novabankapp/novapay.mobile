@@ -1,6 +1,7 @@
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nave_app/app/blocs/bank_bloc/bloc.dart';
 import 'package:nave_app/app/blocs/common/data_state.dart';
 import 'package:nave_app/app/blocs/merchants/bloc.dart';
@@ -62,13 +63,14 @@ class _GenerateTRNState extends State<GenerateTRN> {
                            return Container(
                              color:  ColorConstants.kGrayColor,
                              margin: const EdgeInsets.symmetric(vertical: 10),
+                             padding: const EdgeInsets.symmetric(vertical: 10),
                              child: DropdownSearch<Service>(
                                items: merchantState.myList.cast<Service>(),
                                itemAsString: (Service s) => s.name!,
                                dropdownBuilder: (context, i) => Text("${i?.name}"),
                                dropdownDecoratorProps: const DropDownDecoratorProps(
                                  dropdownSearchDecoration: InputDecoration(
-
+                                   contentPadding: EdgeInsets.fromLTRB(10, 4, 0, 0),
                                    hintStyle: TextStyle(
                                        color : ColorConstants.kBlackColor
                                    ),
@@ -96,18 +98,19 @@ class _GenerateTRNState extends State<GenerateTRN> {
                            return Container(
                              color:  ColorConstants.kGrayColor,
                              margin: const EdgeInsets.symmetric(vertical: 10),
+                             padding: const EdgeInsets.symmetric(vertical: 10),
                              child: DropdownSearch<Bank>(
                                items: bankState.myList.cast<Bank>(),
                                itemAsString: (Bank s) => s.name!,
                                dropdownBuilder: (context, i) => Text("${i?.name}"),
                                dropdownDecoratorProps: const DropDownDecoratorProps(
                                  dropdownSearchDecoration: InputDecoration(
-
+                                   contentPadding: EdgeInsets.fromLTRB(10, 4, 0, 0),
                                    hintStyle: TextStyle(
                                        color : ColorConstants.kBlackColor
                                    ),
                                    labelStyle: TextStyle(
-                                       color: ColorConstants.kPrimaryColor
+                                       color: ColorConstants.kPrimaryColor,
                                    ),
                                    hintText: "Select Bank",
                                    labelText: "Select Bank",
