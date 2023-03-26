@@ -13,30 +13,31 @@ import 'package:shared_preferences/shared_preferences.dart' as _i13;
 import 'package:sqflite/sqflite.dart' as _i8;
 
 import '../../app/blocs/bank_bloc/bloc.dart' as _i19;
-import '../../app/blocs/login_bloc/bloc.dart' as _i28;
-import '../../app/blocs/merchants/bloc.dart' as _i22;
-import '../../app/blocs/transactions/transaction_bloc.dart' as _i24;
+import '../../app/blocs/login_bloc/bloc.dart' as _i29;
+import '../../app/blocs/merchants/bloc.dart' as _i23;
+import '../../app/blocs/transactions/generate_trn_cubit.dart' as _i22;
+import '../../app/blocs/transactions/transaction_bloc.dart' as _i25;
 import '../../data/graphQL/bank_graphql.dart' as _i4;
 import '../../data/graphQL/merchant_graphql.dart' as _i10;
 import '../../data/graphQL/transaction_graphql.dart' as _i14;
 import '../../data/hive/user_hive.dart' as _i17;
 import '../../data/remote/clients/base/base_client.dart' as _i20;
 import '../../data/remote/clients/http_client.dart' as _i21;
-import '../../data/remote/services/authentication_api_provider.dart' as _i25;
-import '../../data/remote/services/transaction_api_provider.dart' as _i23;
-import '../../data/repositories/authentication_repository_impl.dart' as _i27;
+import '../../data/remote/services/authentication_api_provider.dart' as _i26;
+import '../../data/remote/services/transaction_api_provider.dart' as _i24;
+import '../../data/repositories/authentication_repository_impl.dart' as _i28;
 import '../../data/repositories/mocks/bank_repository_test_impl.dart' as _i6;
 import '../../data/repositories/mocks/service_repository_test_impl.dart'
     as _i12;
 import '../../data/repositories/mocks/transaction_repository_test_impl.dart'
     as _i16;
 import '../../data/repositories/user_repository.dart' as _i18;
-import '../../domain/repositories/authentication_repository.dart' as _i26;
+import '../../domain/repositories/authentication_repository.dart' as _i27;
 import '../../domain/repositories/bank_repository.dart' as _i5;
 import '../../domain/repositories/service_repository.dart' as _i11;
 import '../../domain/repositories/transaction_repository.dart' as _i15;
 import '../routing/router.gr.dart' as _i3;
-import 'app.module.dart' as _i29; // ignore_for_file: unnecessary_lambdas
+import 'app.module.dart' as _i30; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -63,19 +64,21 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
       () async => _i18.UserRepository(await get.getAsync<_i8.Database>()));
   gh.factory<_i19.BankBloc>(() => _i19.BankBloc(get<_i5.BankRepository>()));
   gh.factory<_i20.BaseClient>(() => _i21.HttpClient(get<_i7.Client>()));
-  gh.factory<_i22.MerchantBloc>(
-      () => _i22.MerchantBloc(get<_i11.ServiceRepository>()));
-  gh.factory<_i23.TransactionApiProvider>(
-      () => _i23.TransactionApiProvider(get<_i20.BaseClient>()));
-  gh.factory<_i24.TransactionBloc>(
-      () => _i24.TransactionBloc(get<_i15.TransactionRepository>()));
-  gh.factory<_i25.AuthenticationApiProvider>(
-      () => _i25.AuthenticationApiProvider(get<_i20.BaseClient>()));
-  gh.factory<_i26.AuthenticationRepository>(() =>
-      _i27.AuthenticationRepositoryImpl(get<_i25.AuthenticationApiProvider>()));
-  gh.factory<_i28.LoginBloc>(
-      () => _i28.LoginBloc(get<_i26.AuthenticationRepository>()));
+  gh.factory<_i22.GenerateTRNCubit>(
+      () => _i22.GenerateTRNCubit(get<_i15.TransactionRepository>()));
+  gh.factory<_i23.MerchantBloc>(
+      () => _i23.MerchantBloc(get<_i11.ServiceRepository>()));
+  gh.factory<_i24.TransactionApiProvider>(
+      () => _i24.TransactionApiProvider(get<_i20.BaseClient>()));
+  gh.factory<_i25.TransactionBloc>(
+      () => _i25.TransactionBloc(get<_i15.TransactionRepository>()));
+  gh.factory<_i26.AuthenticationApiProvider>(
+      () => _i26.AuthenticationApiProvider(get<_i20.BaseClient>()));
+  gh.factory<_i27.AuthenticationRepository>(() =>
+      _i28.AuthenticationRepositoryImpl(get<_i26.AuthenticationApiProvider>()));
+  gh.factory<_i29.LoginBloc>(
+      () => _i29.LoginBloc(get<_i27.AuthenticationRepository>()));
   return get;
 }
 
-class _$AppModule extends _i29.AppModule {}
+class _$AppModule extends _i30.AppModule {}

@@ -75,7 +75,10 @@ class _LoginState extends State<Login> {
               RoundedInputField(
                 hintText: "Your Email",
                 textInputAction : TextInputAction.next,
-                icon : Icons.email,
+                icon :  const Icon(
+                  Icons.email,
+                  color: ColorConstants.kPrimaryColor,
+                ),
                 onChanged: (value) {},
                 controller : _emailController,
                 validator: (value) {

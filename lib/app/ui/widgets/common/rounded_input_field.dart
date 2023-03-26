@@ -9,8 +9,9 @@ class RoundedInputField extends StatelessWidget {
 
 
   final String? hintText;
+  final String? labelText;
   final FocusNode? focusNode;
-  final IconData icon;
+  final Icon? icon;
   final ValueChanged<String>? onChanged;
   final bool isPassword;
   final bool isEmail;
@@ -25,6 +26,8 @@ class RoundedInputField extends StatelessWidget {
   final TextInputAction? textInputAction;
   final TextInputType?  keyboardType;
   final int? maxLines;
+  final double? width;
+  final Color? background;
   final void Function()? onTap;
 
   const RoundedInputField({
@@ -34,29 +37,34 @@ class RoundedInputField extends StatelessWidget {
     this.textInputAction = TextInputAction.none,
     this.onFieldSubmitted,
     this.hintText,
+    this.labelText,
     this.focusNode,
-    this.icon = Icons.person,
+    this.icon,
     this.onChanged,
     this.isEmail = false,
     this.isPassword = false,
     this.maxLines = 1,
+    this.width,
     this.onSaved,
     this.validator,
     this.borderRadius = 10,
     this.suffixIcon,
     this.controller,
     this.readOnly = false,
-    this.onTap
+    this.onTap,
+    this.background
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFieldContainer(
+      width: width,
+      background: background,
       borderRadius: borderRadius,
       child: TextFormField(
         autofocus: autoFocus,
         style: TextStyle(
-            color: Colors.white,
+            color: ColorConstants.kBlackColor,
             fontSize: 12.sp
         ),
         textInputAction: textInputAction,
@@ -69,19 +77,16 @@ class RoundedInputField extends StatelessWidget {
         controller : controller,
         maxLines: maxLines,
         decoration: InputDecoration(
-          icon: Icon(
-            icon,
-            color: ColorConstants.kPrimaryColor,
-          ),
+          icon: icon,
           hintStyle: const TextStyle(
-              color : Colors.black12
+              color : ColorConstants.kBlackColor
           ),
           labelStyle: const TextStyle(
               color: ColorConstants.kPrimaryColor
           ),
           suffixIcon: suffixIcon,
           hintText:hintText,
-          labelText: hintText,
+          labelText: labelText,
           border: InputBorder.none,
         ),
         obscureText: isPassword ? true : false,
