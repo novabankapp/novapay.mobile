@@ -11,8 +11,8 @@ class DioClient extends BaseClient{
   DioClient(){
     var options = BaseOptions(
       baseUrl: "https://${ApiConstants.API_BASEURL}/",
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+      connectTimeout: const Duration( milliseconds: 5000),
+      receiveTimeout: const Duration( milliseconds:3000),
     );
     dio = Dio(options);
   }
@@ -27,7 +27,7 @@ class DioClient extends BaseClient{
       );
       return response;
     }on DioError  catch (ex) {
-      if(ex.type == DioErrorType.connectTimeout){
+      if(ex.type == DioErrorType.connectionTimeout){
         throw Exception("Connection  Timeout Exception");
       }
       throw Exception(ex.message);
@@ -54,7 +54,7 @@ class DioClient extends BaseClient{
 
 
     }on DioError  catch (ex) {
-      if(ex.type == DioErrorType.connectTimeout){
+      if(ex.type == DioErrorType.connectionTimeout){
         throw Exception("Connection  Timeout Exception");
       }
       throw Exception(ex.message);
@@ -73,7 +73,7 @@ class DioClient extends BaseClient{
       );
       return response;
     }on DioError  catch (ex) {
-      if(ex.type == DioErrorType.connectTimeout){
+      if(ex.type == DioErrorType.connectionTimeout){
         throw Exception("Connection  Timeout Exception");
       }
       throw Exception(ex.message);
@@ -90,7 +90,7 @@ class DioClient extends BaseClient{
 
       return response;
     }on DioError  catch (ex) {
-      if(ex.type == DioErrorType.connectTimeout){
+      if(ex.type == DioErrorType.connectionTimeout){
         throw Exception("Connection  Timeout Exception");
       }
       throw Exception(ex.message);
