@@ -68,6 +68,9 @@ class _GenerateTRNState extends State<GenerateTRN> {
                                items: merchantState.myList.cast<Service>(),
                                itemAsString: (Service s) => s.name!,
                                dropdownBuilder: (context, i) => Text("${i?.name}"),
+                               validator: (Service? service){
+
+                               },
                                dropdownDecoratorProps: const DropDownDecoratorProps(
                                  dropdownSearchDecoration: InputDecoration(
                                    contentPadding: EdgeInsets.fromLTRB(10, 4, 0, 0),
@@ -103,6 +106,9 @@ class _GenerateTRNState extends State<GenerateTRN> {
                                items: bankState.myList.cast<Bank>(),
                                itemAsString: (Bank s) => s.name!,
                                dropdownBuilder: (context, i) => Text("${i?.name}"),
+                               validator: (Bank? bank){
+
+                               },
                                dropdownDecoratorProps: const DropDownDecoratorProps(
                                  dropdownSearchDecoration: InputDecoration(
                                    contentPadding: EdgeInsets.fromLTRB(10, 4, 0, 0),
