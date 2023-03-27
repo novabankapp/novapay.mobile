@@ -30,6 +30,7 @@ class RoundedInputField extends StatelessWidget {
   final Color? background;
   final List<TextInputFormatter>? inputFormatters;
   final void Function()? onTap;
+  final String? initialValue;
 
   const RoundedInputField({
     Key? key,
@@ -39,7 +40,8 @@ class RoundedInputField extends StatelessWidget {
     this.onFieldSubmitted,
     this.hintText,
     this.labelText,
-    this.inputFormatters = null,
+    this.inputFormatters,
+    this.initialValue,
     this.focusNode,
     this.icon,
     this.onChanged,
@@ -64,6 +66,7 @@ class RoundedInputField extends StatelessWidget {
       background: background,
       borderRadius: borderRadius,
       child: TextFormField(
+        initialValue: initialValue,
         autofocus: autoFocus,
         inputFormatters: inputFormatters,
         style: TextStyle(

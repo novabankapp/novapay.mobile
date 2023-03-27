@@ -31,7 +31,7 @@ class GenerateTRN extends StatefulWidget{
 }
 
 class _GenerateTRNState extends State<GenerateTRN> {
-  final _amountController = TextEditingController();
+  final _amountController = TextEditingController(text: "0.00");
   final _formKey = GlobalKey<FormState>();
   final _refController = TextEditingController();
   bool _isButtonDisabled = false;
@@ -169,6 +169,7 @@ class _GenerateTRNState extends State<GenerateTRN> {
                                var numDots = newText.allMatches(".").length;
                                if(numDots > 1){
                                  return oldValue;
+
                                }
                                if(!regExp.hasMatch(newValue.text)) {
                                  print("no match ${newValue.text}");
