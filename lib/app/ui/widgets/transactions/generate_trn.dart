@@ -172,7 +172,10 @@ class _GenerateTRNState extends State<GenerateTRN> {
                                }
                                if(!regExp.hasMatch(newValue.text)) {
                                  print("no match ${newValue.text}");
-                                 var a = double.parse(newValue.text);
+                                 var a = double.tryParse(newValue.text);
+                                 if(a == null){
+                                      return oldValue;
+                                 }
                                  var n = formatCurrency.format(a).replaceAll(
                                      "\$", "").replaceAll(",", "");
                                  return TextEditingValue(
