@@ -40,6 +40,7 @@ dependencies:
   protobuf:
   dio: ^5.0.0
   http:
+  rflutter_alert:
   confirm_dialog:
   hydrated_bloc:
   hive:

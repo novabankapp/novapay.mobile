@@ -102,6 +102,7 @@ class _MenuState extends State<Menu> {
   );
 
   final formatCurrency = NumberFormat.simpleCurrency(locale: Platform.localeName,name: "");
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<TransactionBloc, TransactionState>(

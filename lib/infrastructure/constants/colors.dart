@@ -16,5 +16,5 @@ class ColorConstants{
   static const kGrayColor = Color(0xFFF2F2F2);
   static const kTealColor = Color(0xFF009688);
   static const kBlueGrayColor = Color(0xFF607D8B);
-  static const kErrorColor = "";
+  static const kErrorColor = Color(0xFF607D8B);
 }
