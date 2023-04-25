@@ -36,14 +36,21 @@ import '../../domain/repositories/authentication_repository.dart' as _i27;
 import '../../domain/repositories/bank_repository.dart' as _i5;
 import '../../domain/repositories/service_repository.dart' as _i11;
 import '../../domain/repositories/transaction_repository.dart' as _i15;
-import '../routing/router.gr.dart' as _i3;
+import '../routing/router.dart' as _i3;
 import 'app.module.dart' as _i30; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
-_i1.GetIt $initGetIt(_i1.GetIt get,
-    {String? environment, _i2.EnvironmentFilter? environmentFilter}) {
-  final gh = _i2.GetItHelper(get, environment, environmentFilter);
+_i1.GetIt $initGetIt(
+  _i1.GetIt get, {
+  String? environment,
+  _i2.EnvironmentFilter? environmentFilter,
+}) {
+  final gh = _i2.GetItHelper(
+    get,
+    environment,
+    environmentFilter,
+  );
   final appModule = _$AppModule();
   gh.factory<_i3.AppRouter>(() => appModule.appRouter);
   gh.factory<_i4.BankGraphQLService>(() => appModule.bankGraphQLService);

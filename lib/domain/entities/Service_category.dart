@@ -19,6 +19,7 @@ class ServiceCategory {
        recordId: e?.id,
        name: e?.name,
        uniqueIdentifier: e?.unique_id,
+       hasValidation: e?.has_validation
     )).toList();
   }
   int? recordId;

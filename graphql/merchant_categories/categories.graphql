@@ -5,6 +5,7 @@ query getServiceCategoriesPaginated($page:Int,$size:Int){
         services {
             name
             unique_id
+            has_validation
             id
             created_at
             active

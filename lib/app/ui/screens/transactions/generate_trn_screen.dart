@@ -12,7 +12,7 @@ import 'package:nave_app/infrastructure/constants/colors.dart';
 import 'package:nave_app/infrastructure/di/injection.dart';
 
 
-
+@RoutePage()
 class GenerateTRNScreen extends StatelessWidget {
   const GenerateTRNScreen({Key? key, @PathParam('categoryId') this.categoryId}) : super(key: key);
   final String? categoryId;

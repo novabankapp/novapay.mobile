@@ -4,6 +4,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:nave_app/app/ui/widgets/common/google_rounded_button.dart';
+import 'package:nave_app/infrastructure/helpers/authentication.dart';
 import 'package:nave_app/infrastructure/routing/router.gr.dart';
 import 'package:validators/validators.dart' as validator;
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -127,6 +129,7 @@ class _LoginState extends State<Login> {
                       _isButtonDisabled = true;
                     }
                     return  RoundedLoadingButton(
+                      borderRadius: 10,
                       width: size.width * 0.8,
                       color: ColorConstants.kPrimaryColor,
                       controller: _btnController,
@@ -139,11 +142,38 @@ class _LoginState extends State<Login> {
                         }
 
                       },
-                      child: const Text('Login', style: TextStyle( color:  ColorConstants.kTealColor),),
+                      child: const Text('Login', style: TextStyle( color:  ColorConstants.kWhiteColor),),
                     );
                   }
               ),
               SizedBox(height: size.height * 0.03),
+
+              FutureBuilder(
+                future: Authentication.initializeFirebase(context: context),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Error initializing Firebase ${snapshot.error}');
+                  } else if (snapshot.connectionState == ConnectionState.done) {
+                    return  GoogleRoundedButton(
+                      text: "Login with Google",
+                      press: () async{
+                        var user = await Authentication.signInWithGoogle(context: context);
+                        var email = user?.email;
+                        var name = user?.displayName;
+                        var phoneNumber = user?.phoneNumber;
+                        var isverified = user?.emailVerified;
+
+                      },
+                    );
+                  }
+                  return const CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      ColorConstants.kPrimaryColor,
+                    ),
+                  );
+                },
+              ),
+
               AlreadyHaveAnAccountCheck(
                 press: () {
                   //Navigator.pushNamed(context, RouteGenerator.signupPage);

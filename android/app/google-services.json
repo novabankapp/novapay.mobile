@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "508280912762",
+    "project_id": "novapay-mobile-2dcd8",
+    "storage_bucket": "novapay-mobile-2dcd8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:508280912762:android:37c9a7d88fdeb92c2b34c3",
+        "android_client_info": {
+          "package_name": "com.nave.nave_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "508280912762-quvvbfa13estdhihebb9pffrtrrv4c3c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHNUqRkBhMTbSD15obE73SoU6t_mE3nv4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "508280912762-quvvbfa13estdhihebb9pffrtrrv4c3c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

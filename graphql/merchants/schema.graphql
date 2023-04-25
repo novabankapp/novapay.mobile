@@ -11,6 +11,8 @@ type Merchant {
     category: MerchantCategory
     " Created At."
     created_at: DateTime
+    "HasValidation."
+    has_validation: Boolean!
     " Id."
     id: Int!
     " Id."

@@ -338,6 +338,12 @@ const documentNodeQuerygetServicesPaginated = DocumentNode(definitions: [
                   directives: [],
                   selectionSet: null),
               FieldNode(
+                  name: NameNode(value: 'has_validation'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
+              FieldNode(
                   name: NameNode(value: 'category'),
                   alias: null,
                   arguments: [],
@@ -492,6 +498,7 @@ class Query$getServicesPaginated$servicesPaginated {
       required this.unique_id,
       this.created_at,
       required this.active,
+      required this.has_validation,
       this.category,
       required this.$__typename});
 
@@ -502,6 +509,7 @@ class Query$getServicesPaginated$servicesPaginated {
     final l$unique_id = json['unique_id'];
     final l$created_at = json['created_at'];
     final l$active = json['active'];
+    final l$has_validation = json['has_validation'];
     final l$category = json['category'];
     final l$$__typename = json['__typename'];
     return Query$getServicesPaginated$servicesPaginated(
@@ -510,6 +518,7 @@ class Query$getServicesPaginated$servicesPaginated {
         unique_id: (l$unique_id as String),
         created_at: (l$created_at as String?),
         active: (l$active as bool),
+        has_validation: (l$has_validation as bool),
         category: l$category == null
             ? null
             : Query$getServicesPaginated$servicesPaginated$category.fromJson(
@@ -527,6 +536,8 @@ class Query$getServicesPaginated$servicesPaginated {
 
   final bool active;
 
+  final bool has_validation;
+
   final Query$getServicesPaginated$servicesPaginated$category? category;
 
   final String $__typename;
@@ -543,6 +554,8 @@ class Query$getServicesPaginated$servicesPaginated {
     _resultData['created_at'] = l$created_at;
     final l$active = active;
     _resultData['active'] = l$active;
+    final l$has_validation = has_validation;
+    _resultData['has_validation'] = l$has_validation;
     final l$category = category;
     _resultData['category'] = l$category?.toJson();
     final l$$__typename = $__typename;
@@ -557,6 +570,7 @@ class Query$getServicesPaginated$servicesPaginated {
     final l$unique_id = unique_id;
     final l$created_at = created_at;
     final l$active = active;
+    final l$has_validation = has_validation;
     final l$category = category;
     final l$$__typename = $__typename;
     return Object.hashAll([
@@ -565,6 +579,7 @@ class Query$getServicesPaginated$servicesPaginated {
       l$unique_id,
       l$created_at,
       l$active,
+      l$has_validation,
       l$category,
       l$$__typename
     ]);
@@ -604,6 +619,11 @@ class Query$getServicesPaginated$servicesPaginated {
     if (l$active != lOther$active) {
       return false;
     }
+    final l$has_validation = has_validation;
+    final lOther$has_validation = other.has_validation;
+    if (l$has_validation != lOther$has_validation) {
+      return false;
+    }
     final l$category = category;
     final lOther$category = other.category;
     if (l$category != lOther$category) {
@@ -641,6 +661,7 @@ abstract class CopyWith$Query$getServicesPaginated$servicesPaginated<TRes> {
       String? unique_id,
       String? created_at,
       bool? active,
+      bool? has_validation,
       Query$getServicesPaginated$servicesPaginated$category? category,
       String? $__typename});
   CopyWith$Query$getServicesPaginated$servicesPaginated$category<TRes>
@@ -664,6 +685,7 @@ class _CopyWithImpl$Query$getServicesPaginated$servicesPaginated<TRes>
           Object? unique_id = _undefined,
           Object? created_at = _undefined,
           Object? active = _undefined,
+          Object? has_validation = _undefined,
           Object? category = _undefined,
           Object? $__typename = _undefined}) =>
       _then(Query$getServicesPaginated$servicesPaginated(
@@ -680,6 +702,9 @@ class _CopyWithImpl$Query$getServicesPaginated$servicesPaginated<TRes>
           active: active == _undefined || active == null
               ? _instance.active
               : (active as bool),
+          has_validation: has_validation == _undefined || has_validation == null
+              ? _instance.has_validation
+              : (has_validation as bool),
           category: category == _undefined
               ? _instance.category
               : (category
@@ -710,6 +735,7 @@ class _CopyWithStubImpl$Query$getServicesPaginated$servicesPaginated<TRes>
           String? unique_id,
           String? created_at,
           bool? active,
+          bool? has_validation,
           Query$getServicesPaginated$servicesPaginated$category? category,
           String? $__typename}) =>
       _res;
@@ -1245,6 +1271,12 @@ const documentNodeQuerygetServicesByCategoryPaginated =
                   directives: [],
                   selectionSet: null),
               FieldNode(
+                  name: NameNode(value: 'has_validation'),
+                  alias: null,
+                  arguments: [],
+                  directives: [],
+                  selectionSet: null),
+              FieldNode(
                   name: NameNode(value: 'created_at'),
                   alias: null,
                   arguments: [],
@@ -1415,6 +1447,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
       {required this.name,
       required this.id,
       required this.unique_id,
+      required this.has_validation,
       this.created_at,
       required this.active,
       this.category,
@@ -1425,6 +1458,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
     final l$name = json['name'];
     final l$id = json['id'];
     final l$unique_id = json['unique_id'];
+    final l$has_validation = json['has_validation'];
     final l$created_at = json['created_at'];
     final l$active = json['active'];
     final l$category = json['category'];
@@ -1433,6 +1467,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
         name: (l$name as String),
         id: (l$id as int),
         unique_id: (l$unique_id as String),
+        has_validation: (l$has_validation as bool),
         created_at: (l$created_at as String?),
         active: (l$active as bool),
         category: l$category == null
@@ -1447,6 +1482,8 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
   final int id;
 
   final String unique_id;
+
+  final bool has_validation;
 
   final String? created_at;
 
@@ -1465,6 +1502,8 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
     _resultData['id'] = l$id;
     final l$unique_id = unique_id;
     _resultData['unique_id'] = l$unique_id;
+    final l$has_validation = has_validation;
+    _resultData['has_validation'] = l$has_validation;
     final l$created_at = created_at;
     _resultData['created_at'] = l$created_at;
     final l$active = active;
@@ -1481,6 +1520,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
     final l$name = name;
     final l$id = id;
     final l$unique_id = unique_id;
+    final l$has_validation = has_validation;
     final l$created_at = created_at;
     final l$active = active;
     final l$category = category;
@@ -1489,6 +1529,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
       l$name,
       l$id,
       l$unique_id,
+      l$has_validation,
       l$created_at,
       l$active,
       l$category,
@@ -1519,6 +1560,11 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
     final l$unique_id = unique_id;
     final lOther$unique_id = other.unique_id;
     if (l$unique_id != lOther$unique_id) {
+      return false;
+    }
+    final l$has_validation = has_validation;
+    final lOther$has_validation = other.has_validation;
+    if (l$has_validation != lOther$has_validation) {
       return false;
     }
     final l$created_at = created_at;
@@ -1571,6 +1617,7 @@ abstract class CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryP
       {String? name,
       int? id,
       String? unique_id,
+      bool? has_validation,
       String? created_at,
       bool? active,
       Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category?
@@ -1600,6 +1647,7 @@ class _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPagin
           {Object? name = _undefined,
           Object? id = _undefined,
           Object? unique_id = _undefined,
+          Object? has_validation = _undefined,
           Object? created_at = _undefined,
           Object? active = _undefined,
           Object? category = _undefined,
@@ -1612,6 +1660,9 @@ class _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPagin
           unique_id: unique_id == _undefined || unique_id == null
               ? _instance.unique_id
               : (unique_id as String),
+          has_validation: has_validation == _undefined || has_validation == null
+              ? _instance.has_validation
+              : (has_validation as bool),
           created_at: created_at == _undefined
               ? _instance.created_at
               : (created_at as String?),
@@ -1650,6 +1701,7 @@ class _CopyWithStubImpl$Query$getServicesByCategoryPaginated$servicesByCategoryP
           {String? name,
           int? id,
           String? unique_id,
+          bool? has_validation,
           String? created_at,
           bool? active,
           Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category?
@@ -2169,6 +2221,12 @@ const documentNodeQuerygetServiceCategoriesPaginated =
                         directives: [],
                         selectionSet: null),
                     FieldNode(
+                        name: NameNode(value: 'has_validation'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null),
+                    FieldNode(
                         name: NameNode(value: 'unique_id'),
                         alias: null,
                         arguments: [],
@@ -2533,6 +2591,7 @@ class _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPag
 class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
   Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
       {required this.name,
+      required this.has_validation,
       required this.unique_id,
       required this.id,
       this.created_at,
@@ -2542,6 +2601,7 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
   factory Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
+    final l$has_validation = json['has_validation'];
     final l$unique_id = json['unique_id'];
     final l$id = json['id'];
     final l$created_at = json['created_at'];
@@ -2549,6 +2609,7 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
     final l$$__typename = json['__typename'];
     return Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
         name: (l$name as String),
+        has_validation: (l$has_validation as bool),
         unique_id: (l$unique_id as String),
         id: (l$id as int),
         created_at: (l$created_at as String?),
@@ -2557,6 +2618,8 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
   }
 
   final String name;
+
+  final bool has_validation;
 
   final String unique_id;
 
@@ -2572,6 +2635,8 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
     final _resultData = <String, dynamic>{};
     final l$name = name;
     _resultData['name'] = l$name;
+    final l$has_validation = has_validation;
+    _resultData['has_validation'] = l$has_validation;
     final l$unique_id = unique_id;
     _resultData['unique_id'] = l$unique_id;
     final l$id = id;
@@ -2588,13 +2653,21 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
   @override
   int get hashCode {
     final l$name = name;
+    final l$has_validation = has_validation;
     final l$unique_id = unique_id;
     final l$id = id;
     final l$created_at = created_at;
     final l$active = active;
     final l$$__typename = $__typename;
-    return Object.hashAll(
-        [l$name, l$unique_id, l$id, l$created_at, l$active, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$has_validation,
+      l$unique_id,
+      l$id,
+      l$created_at,
+      l$active,
+      l$$__typename
+    ]);
   }
 
   @override
@@ -2610,6 +2683,11 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
     final l$name = name;
     final lOther$name = other.name;
     if (l$name != lOther$name) {
+      return false;
+    }
+    final l$has_validation = has_validation;
+    final lOther$has_validation = other.has_validation;
+    if (l$has_validation != lOther$has_validation) {
       return false;
     }
     final l$unique_id = unique_id;
@@ -2666,6 +2744,7 @@ abstract class CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPag
 
   TRes call(
       {String? name,
+      bool? has_validation,
       String? unique_id,
       int? id,
       String? created_at,
@@ -2692,6 +2771,7 @@ class _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginat
 
   TRes call(
           {Object? name = _undefined,
+          Object? has_validation = _undefined,
           Object? unique_id = _undefined,
           Object? id = _undefined,
           Object? created_at = _undefined,
@@ -2702,6 +2782,10 @@ class _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginat
               name: name == _undefined || name == null
                   ? _instance.name
                   : (name as String),
+              has_validation:
+                  has_validation == _undefined || has_validation == null
+                      ? _instance.has_validation
+                      : (has_validation as bool),
               unique_id: unique_id == _undefined || unique_id == null
                   ? _instance.unique_id
                   : (unique_id as String),
@@ -2729,6 +2813,7 @@ class _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPag
 
   call(
           {String? name,
+          bool? has_validation,
           String? unique_id,
           int? id,
           String? created_at,

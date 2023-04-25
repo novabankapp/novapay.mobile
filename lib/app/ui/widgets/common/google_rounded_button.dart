@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
 
-class RoundedButton extends StatelessWidget {
+class GoogleRoundedButton extends StatelessWidget {
   final String? text;
-  final Function()? press;
+  final VoidCallback? press;
   final Color color, textColor, hoverColor;
-  const RoundedButton({
+  const GoogleRoundedButton({
     Key? key,
     this.text,
-    this.press,
+    required this.press,
     this.color = ColorConstants.kPrimaryColor,
     this.hoverColor = ColorConstants.kPrimaryLightColor,
     this.textColor = Colors.white,
@@ -21,17 +23,11 @@ class RoundedButton extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
       child: ClipRRect(
-        //borderRadius: BorderRadius.circular(0),
-        child: TextButton(
-          style : TextButton.styleFrom(
-             foregroundColor: hoverColor, backgroundColor: color,
-             padding : const EdgeInsets.symmetric(vertical: 20, horizontal: 40),
-          ),
-          onPressed: press,
-          child: Text(
-            text!,
-            style: TextStyle(color: textColor),
-          ),
+        borderRadius: BorderRadius.circular(10),
+        child: SignInButton(
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          Buttons.Google,
+          onPressed: press != null ? press! : (){},
         ),
       ),
     );

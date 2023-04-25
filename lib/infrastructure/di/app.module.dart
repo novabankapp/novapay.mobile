@@ -9,7 +9,7 @@ import 'package:nave_app/data/graphQL/transaction_graphql.dart';
 import 'package:nave_app/data/hive/user_hive.dart';
 import 'package:nave_app/data/remote/clients/api_constants.dart';
 import 'package:nave_app/infrastructure/constants/constants.dart';
-import 'package:nave_app/infrastructure/routing/router.gr.dart';
+import 'package:nave_app/infrastructure/routing/router.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:sqflite/sqflite.dart';
@@ -20,6 +20,7 @@ import 'package:http/http.dart' show Client;
 abstract class AppModule{
   @injectable
   AppRouter get appRouter => AppRouter();
+
 
   @Singleton()
   @injectable

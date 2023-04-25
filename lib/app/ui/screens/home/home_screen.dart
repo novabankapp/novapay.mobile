@@ -1,3 +1,4 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nave_app/app/blocs/transactions/events.dart';
@@ -8,6 +9,7 @@ import 'package:nave_app/app/ui/widgets/common/menu/menu.dart';
 import 'package:nave_app/app/ui/widgets/transactions/generate_trn.dart';
 import 'package:nave_app/infrastructure/di/injection.dart';
 
+@RoutePage()
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 

@@ -1,7 +1,9 @@
+import 'package:auto_route/annotations.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:nave_app/app/ui/widgets/slider_layout_view.dart';
 
+@RoutePage()
 class LandingScreen extends StatefulWidget {
 
 

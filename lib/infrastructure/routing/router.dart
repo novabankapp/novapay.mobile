@@ -1,39 +1,45 @@
 import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:nave_app/app/ui/screens/authentication/login/login_screen.dart';
 import 'package:nave_app/app/ui/screens/home/home_screen.dart';
 import 'package:nave_app/app/ui/screens/landing_page_screen.dart';
 import 'package:nave_app/app/ui/screens/services/services_screen.dart';
 import 'package:nave_app/app/ui/screens/transactions/generate_trn_screen.dart';
+import 'package:nave_app/infrastructure/routing/router.gr.dart';
 
-@MaterialAutoRouter(
-  replaceInRouteName: 'Screen,Route',
-  routes: [
 
+@AutoRouterConfig(replaceInRouteName: 'Screen,Route')
+class AppRouter extends $AppRouter {
+
+  @override
+  List<AutoRoute> get routes => [
+    /// routes go here
     AutoRoute(
-        page: ServicesScreen,
-        initial: false,
-    ),
-    AutoRoute(
-      page: HomeScreen,
+      page: ServicesRoute.page,
       initial: false,
     ),
     AutoRoute(
-      page: LoginScreen
+      page: HomeRoute.page,
+      initial: false,
     ),
     AutoRoute(
-        page: LandingScreen,
-        initial: false,
+        page: LoginRoute.page,
+        initial: true
     ),
     AutoRoute(
-      page: GenerateTRNScreen,
-      initial: true,
+      page: LandingRoute.page,
+      initial: false,
+    ),
+    AutoRoute(
+      page: GenerateTRNRoute.page,
+      initial: false,
     ),
     AutoRoute(
       path: "/generate-trn/:categoryId",
-      page: GenerateTRNScreen,
+      page: GenerateTRNRoute.page,
       initial: false,
     ),
-  ],
-)
-class $AppRouter {}
+  ];
+}
+
 

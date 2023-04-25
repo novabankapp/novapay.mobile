@@ -34,6 +34,7 @@ dependencies:
   bloc: ^8.0.1
   equatable: ^2.0.3
   json_annotation: ^4.4.0
+  flutter_signin_button:
   auto_route:
   flutter_bloc: ^8.1.1
   pull_to_refresh:
@@ -60,11 +61,15 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   graphql: ^5.1.2
+  #flutter packages pub run build_runner build
   graphql_codegen: ^0.12.0-beta.7
   bloc_concurrency: ^0.2.1
   intl: ^0.18.0
   flutter_native_splash: ^2.2.16
   dropdown_search:
+  google_sign_in: ^6.1.0
+  firebase_core: ^2.10.0
+  firebase_auth: ^4.2.2
 
 dev_dependencies:
   flutter_test:

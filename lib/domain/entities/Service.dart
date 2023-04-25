@@ -4,7 +4,8 @@ class Service {
   Service({
       this.recordId, 
       this.shortCode, 
-      this.uniqueIdentifier, 
+      this.uniqueIdentifier,
+      this.hasValidation,
       this.name, 
       this.isActive, 
       this.serviceName, 
@@ -15,6 +16,7 @@ class Service {
     shortCode = json['shortCode'];
     uniqueIdentifier = json['uniqueIdentifier'];
     name = json['name'];
+    hasValidation = json["hasValidation"];
     isActive = json['isActive'];
     serviceName = json['serviceName'];
     createdAt = json['createdAt'];
@@ -24,6 +26,7 @@ class Service {
     recordId = service.id;
     shortCode = service.unique_id;
     uniqueIdentifier = service.unique_id;
+    hasValidation = service.has_validation;
     name = service.name;
     isActive = service.active;
     serviceName = service.name;
@@ -33,6 +36,7 @@ class Service {
     recordId = service.id;
     shortCode = service.unique_id;
     uniqueIdentifier = service.unique_id;
+    hasValidation = service.has_validation;
     name = service.name;
     isActive = service.active;
     serviceName = service.name;
@@ -42,6 +46,7 @@ class Service {
   int? recordId;
   String? shortCode;
   String? uniqueIdentifier;
+  bool? hasValidation;
   String? name;
   bool? isActive;
   String? serviceName;
@@ -55,6 +60,7 @@ class Service {
     map['uniqueIdentifier'] = uniqueIdentifier;
     map['name'] = name;
     map['isActive'] = isActive;
+    map['hasValidation'] = hasValidation;
     map['serviceName'] = serviceName;
     map['createdAt'] = createdAt;
     return map;

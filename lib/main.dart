@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
+import 'package:nave_app/infrastructure/routing/router.dart';
 import 'package:provider/provider.dart';
 
 import 'infrastructure/constants/constants.dart';
@@ -65,6 +66,7 @@ class MyApp extends StatelessWidget {
                 ),
               ),
               debugShowCheckedModeBanner: false,
+              //routerConfig: _appRouter.config(),
               routeInformationParser: _appRouter.defaultRouteParser(),
               routerDelegate: _appRouter.delegate(),
             )
