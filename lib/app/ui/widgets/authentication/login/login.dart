@@ -157,11 +157,21 @@ class _LoginState extends State<Login> {
                     return  GoogleRoundedButton(
                       text: "Login with Google",
                       press: () async{
-                        var user = await Authentication.signInWithGoogle(context: context);
-                        var email = user?.email;
-                        var name = user?.displayName;
-                        var phoneNumber = user?.phoneNumber;
-                        var isverified = user?.emailVerified;
+                        try {
+                          var user = await Authentication.signInWithGoogle(
+                              context: context);
+                          var email = user?.email;
+                          var name = user?.displayName;
+                          var phoneNumber = user?.phoneNumber;
+                          var token = user?.refreshToken;
+                          var isverified = user?.emailVerified;
+                          var tenantId = user?.tenantId;
+                          var photo = user?.photoURL;
+                          var id = user?.uid;
+                        }
+                        catch(e){
+
+                        }
 
                       },
                     );

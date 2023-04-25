@@ -6,9 +6,8 @@ import '../entities/user.dart';
 
 abstract class AuthenticationRepository {
 
-  Future<void> register(
-      {required String firstName,
-      required String lastName,
+  Future<bool?> register(
+      {required String fullName,
       required String email,
       required String phoneNumber,
       required String password});

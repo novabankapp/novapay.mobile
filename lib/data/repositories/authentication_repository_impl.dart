@@ -44,17 +44,17 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
   }
 
   @override
-  Future<void> register({
-    required String firstName,
-    required String lastName,
+  Future<bool?> register({
+    required String fullName,
     required String email,
     required String phoneNumber,
     required String password}) async {
-      _authenticationApiProvider.register(RegistrationRequest(
-          fullName: "$firstName $lastName",
+      var response = await _authenticationApiProvider.register(RegistrationRequest(
+          fullName: fullName,
           email: email,
           password: password,
           phoneNumber: phoneNumber));
+      return response.success;
   }
 
 }
