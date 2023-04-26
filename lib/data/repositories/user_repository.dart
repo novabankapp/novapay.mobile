@@ -13,8 +13,7 @@ class UserRepository extends SQLiteRepository<User>{
   @override
   User fromMap(Map<String, Object?> map) {
      return User(
-        firstName : map["firstName"].toString(),
-        lastName: map["lastName"].toString(),
+        fullName : map["fullName"].toString(),
         uid: map["id"].toString(),
         email: map["email"].toString()
      );
@@ -24,8 +23,7 @@ class UserRepository extends SQLiteRepository<User>{
   Map<String, Object?> toMap(User item) {
        return {
          'id' : item.uid,
-         'firsName' : item.firstName,
-         'lastName' : item.lastName,
+         'fullName' : item.fullName,
          'email' : item.email
 
        };

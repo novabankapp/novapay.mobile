@@ -3,6 +3,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nave_app/app/blocs/registration_bloc/states.dart';
+import 'package:nave_app/data/hive/user_hive.dart';
+import 'package:nave_app/domain/entities/user.dart';
 import 'package:nave_app/domain/repositories/authentication_repository.dart';
 import 'package:nave_app/infrastructure/helpers/shared_preferences_helper.dart';
 
@@ -11,8 +13,9 @@ import 'events.dart';
 @injectable
 class RegistrationBloc extends Bloc<RegistrationEvent,RegistrationState>{
   final AuthenticationRepository _repository;
+  final UserHive _userHive;
   final SharedPreferenceHelper _sharedPreferenceHelper;
-  RegistrationBloc(this._repository, this._sharedPreferenceHelper) : super(const RegistrationInitial()){
+  RegistrationBloc(this._repository, this._sharedPreferenceHelper, this._userHive) : super(const RegistrationInitial()){
     on<RegistrationEvent>(_onRegistrationPressed);
   }
   Future<void> _onRegistrationPressed(RegistrationEvent event, Emitter<RegistrationState> emit)async {
@@ -26,6 +29,7 @@ class RegistrationBloc extends Bloc<RegistrationEvent,RegistrationState>{
         _sharedPreferenceHelper.saveIsRegistration(true);
         _sharedPreferenceHelper.saveToken(response.response.token);
         _sharedPreferenceHelper.saveRefreshToken(response.response.token);
+        _userHive.addType(User(fullName: event.fullName, uid: response.response.user?.id ?? "", email: event.email));
         emit(const RegistrationSuccess());
       } else {
         emit(const RegistrationFailure());
