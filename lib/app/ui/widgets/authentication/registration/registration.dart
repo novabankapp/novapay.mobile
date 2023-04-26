@@ -198,6 +198,10 @@ class _RegistrationState extends State<Registration> {
                     else if(state is RegistrationInitial){
                       _btnController.success();
                     }
+                    else if(state is RegistrationSuccess){
+                      _btnController.success();
+                      context.pushRoute(const EnterCodeRoute());
+                    }
                   },
                   builder: (context, state) {
                     if (state is RegistrationLoading) {
@@ -235,6 +239,9 @@ class _RegistrationState extends State<Registration> {
                         }
                         else if(state is GoogleRegistrationInitial){
 
+                        }
+                        else if(state is GoogleRegistrationSuccess){
+                          context.pushRoute(const EnterCodeRoute());
                         }
                       },
                       builder: (context, state) {

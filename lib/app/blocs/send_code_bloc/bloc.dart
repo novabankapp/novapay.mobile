@@ -18,7 +18,7 @@ class SendCodeBloc extends Bloc<SendCodeEvent, SendCodeState> {
   Future<void> _sendCodePressed(SendCodeEvent event,Emitter<SendCodeState> emit) async {
     emit(const SendCodeLoading());
     try {
-      var response = await _repository.sendCode(event.code);
+      var response = await _repository.verifyCode(event.code);
 
       if (response.success ?? false) {
         emit(const SendCodeSuccess());

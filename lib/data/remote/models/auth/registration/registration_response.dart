@@ -1,13 +1,15 @@
 class RegistrationResponse {
   bool success = false;
   String token = '';
+  String refreshToken = '';
   User? user ;
 
-  RegistrationResponse({required this.success, required this.token, required this.user});
+  RegistrationResponse({required this.success, required this.refreshToken, required this.token, required this.user});
 
   RegistrationResponse.fromJson(Map<String, dynamic> json) {
     success = json['success'];
     token = json['token'];
+    refreshToken = json['refreshToken'];
     user = json['user'] != null ? new User.fromJson(json['user']) : null;
   }
 
@@ -15,6 +17,7 @@ class RegistrationResponse {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['success'] = success;
     data['token'] = token;
+    data['refreshToken'] = refreshToken;
     if (user != null) {
       data['user'] = user?.toJson();
     }

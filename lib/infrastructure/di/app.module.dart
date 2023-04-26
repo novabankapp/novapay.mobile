@@ -9,6 +9,7 @@ import 'package:nave_app/data/graphQL/transaction_graphql.dart';
 import 'package:nave_app/data/hive/user_hive.dart';
 import 'package:nave_app/data/remote/clients/api_constants.dart';
 import 'package:nave_app/infrastructure/constants/constants.dart';
+import 'package:nave_app/infrastructure/helpers/shared_preferences_helper.dart';
 import 'package:nave_app/infrastructure/routing/router.dart';
 import 'package:path/path.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -17,7 +18,7 @@ import 'package:localstorage/localstorage.dart';
 import 'package:http/http.dart' show Client;
 
 @module
-abstract class AppModule{
+abstract class RegisterModule{
   @injectable
   AppRouter get appRouter => AppRouter();
 
@@ -26,14 +27,18 @@ abstract class AppModule{
   @injectable
   Client get client => Client();
 
-  @injectable
+  //@injectable
+  @preResolve
   Future<Database> get database =>  initializeDB();
 
   @injectable
   UserHive get userHive => UserHive();
 
-  @injectable
+  //@injectable
+  @preResolve
   Future<SharedPreferences> get prefs => SharedPreferences.getInstance();
+
+
 
   @injectable
   LocalStorage get storage => LocalStorage(Constants.LOCALSTORAGE);
@@ -49,7 +54,6 @@ abstract class AppModule{
 
 
 }
-
 initializeDB() async {
   String path = await getDatabasesPath();
   return openDatabase(join(path, Constants.LOCALSTORAGE),
@@ -60,4 +64,11 @@ initializeDB() async {
     },
     version: 2,
   );
+}
+
+class SharedPreferenceService {
+  static Future<SharedPreferenceService> init() async{
+    await SharedPreferences.getInstance();
+    return SharedPreferenceService();
+  }
 }

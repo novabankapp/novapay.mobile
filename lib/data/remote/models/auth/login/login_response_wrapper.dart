@@ -1,5 +1,7 @@
+import 'package:nave_app/data/remote/models/auth/login/login_response.dart';
+
 class LoginResponseWrapper{
-  dynamic response;
+  LoginResponse response;
   bool? success;
-  LoginResponseWrapper({this.response, this.success});
+  LoginResponseWrapper({required this.response, this.success});
 }

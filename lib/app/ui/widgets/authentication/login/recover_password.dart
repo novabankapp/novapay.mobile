@@ -139,6 +139,6 @@ class _RecoverPasswordState extends State<RecoverPassword> {
   }
 
   void _sendEmailButtonPressed(BuildContext context, String email) {
-    context.read<RecoverPasswordCubit>().sendEmail(email);
+    context.read<RecoverPasswordCubit>().sendCodeToEmail(email);
   }
 }

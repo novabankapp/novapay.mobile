@@ -14,7 +14,7 @@ import 'package:nave_app/domain/entities/user.dart';
 import '../../domain/repositories/authentication_repository.dart';
 
 
-@Injectable(as: AuthenticationRepository)
+
 class AuthenticationRepositoryImpl implements AuthenticationRepository{
   final AuthenticationApiProvider _authenticationApiProvider;
 
@@ -27,9 +27,8 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
   }
 
   @override
-  Future<void> forgotPassword(String email) {
-    // TODO: implement forgotPassword
-    throw UnimplementedError();
+  Future<GeneralResponse> forgotPassword(String email) {
+    return _authenticationApiProvider.sendEmailAddress(email);
   }
 
   @override
@@ -55,8 +54,8 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
     required String fullName,
     required String email,
     required String phoneNumber,
-    required String password}) async {
-      return await _authenticationApiProvider.register(RegistrationRequest(
+    required String password})  {
+      return  _authenticationApiProvider.register(RegistrationRequest(
           fullName: fullName,
           email: email,
           password: password,
@@ -72,19 +71,19 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
       required bool emailVerified,
       required String token,
       required String photo}
-      ) async {
-       return await _authenticationApiProvider.googleLogin(GoogleLoginRequest(email: email,
+      )  {
+       return _authenticationApiProvider.googleLogin(GoogleLoginRequest(email: email,
            phoneNumber: phoneNumber, fullName: fullName, emailVerified: emailVerified, token: token, photo: photo));
 
   }
 
   @override
-  Future<SendCodeResponse> sendCode(SendCodeRequest request) {
+  Future<SendCodeResponse> verifyCode(SendCodeRequest request) {
      return _authenticationApiProvider.sendCode(request);
   }
 
   @override
-  Future<GeneralResponse> sendEmailAddress(String email) {
+  Future<GeneralResponse> sendCodeToEmail(String email) {
      return _authenticationApiProvider.sendEmailAddress(email);
   }
 

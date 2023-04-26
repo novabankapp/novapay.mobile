@@ -11,7 +11,7 @@ import '../entities/user.dart';
 
 abstract class AuthenticationRepository {
 
-  Future<GeneralResponse> sendEmailAddress(String email);
+  Future<GeneralResponse> sendCodeToEmail(String email);
 
   Future<RegistrationResponseWrapper> register(
       {required String fullName,
@@ -30,7 +30,7 @@ abstract class AuthenticationRepository {
   Future<LoginResponseWrapper> authenticate(
       {required String email, required String password});
 
-  Future<SendCodeResponse> sendCode(SendCodeRequest request);
+  Future<SendCodeResponse> verifyCode(SendCodeRequest request);
 
   Future<bool> isAuthenticated();
 
@@ -38,7 +38,7 @@ abstract class AuthenticationRepository {
   Future<User> getCurrentUser();
 
 
-  Future<void> forgotPassword(String email);
+  Future<GeneralResponse> forgotPassword(String email);
 
 
   Future<void> logout();

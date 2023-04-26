@@ -37,7 +37,7 @@ class InTransitScreen extends StatelessWidget {
           }else{
              if(isLoggedIn){
                  //go to home
-                toRoute = const HomeRoute();
+               AutoRouter.of(context).replaceAll([const HomeRoute()]);
              }
              else{
                  if(isRegistered){

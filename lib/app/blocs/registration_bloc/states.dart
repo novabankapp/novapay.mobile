@@ -14,6 +14,9 @@ class RegistrationInitial extends RegistrationState {
 class RegistrationLoading extends RegistrationState {
   const RegistrationLoading();
 }
+class RegistrationSuccess extends RegistrationState {
+  const RegistrationSuccess();
+}
 
 class RegistrationFailure extends RegistrationState {
   const RegistrationFailure();
@@ -35,4 +38,7 @@ class GoogleRegistrationLoading extends GoogleRegistrationState {
 }
 class GoogleRegistrationFailure extends GoogleRegistrationState {
   const GoogleRegistrationFailure();
+}
+class GoogleRegistrationSuccess extends GoogleRegistrationState {
+  const GoogleRegistrationSuccess();
 }

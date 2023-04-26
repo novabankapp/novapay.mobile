@@ -1,6 +1,7 @@
 
 
 
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,6 +12,7 @@ import 'package:nave_app/app/ui/widgets/common/background.dart';
 import 'package:nave_app/app/ui/widgets/common/rounded_input_field.dart';
 import 'package:nave_app/data/remote/models/auth/send_code_request.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
+import 'package:nave_app/infrastructure/routing/router.gr.dart';
 import 'package:validators/validators.dart' as validator;
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
@@ -43,7 +45,7 @@ class _EnterCodeState extends State<EnterCode> {
           }
           else if(state is SendCodeSuccess){
             _btnController.success();
-
+            AutoRouter.of(context).replaceAll([const HomeRoute()]);
           }
         },
         builder: (context, state) {
@@ -54,9 +56,13 @@ class _EnterCodeState extends State<EnterCode> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                    Text(
+                    const Text(
                       "ENTER CODE",
                       style: TextStyle(fontWeight: FontWeight.bold, color: ColorConstants.kPrimaryColor),
+                    ),
+                    const Text(
+                      "enter the code you received in your mail to finish registration",
+                      style: TextStyle( color: ColorConstants.kPrimaryColor),
                     ),
                     SizedBox(height: size.height * 0.03),
                     SvgPicture.asset(

@@ -6,6 +6,7 @@ AppBar makeTopBar({required String title, List<Widget>? widgets, Color? bgColor,
   return AppBar(
     elevation: elevation,
     centerTitle: true,
+    foregroundColor: ColorConstants.kWhiteColor,
     backgroundColor: bgColor,
     title: Text(title,style: const TextStyle(
        color: ColorConstants.kWhiteColor

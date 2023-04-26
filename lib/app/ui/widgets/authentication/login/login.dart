@@ -128,6 +128,10 @@ class _LoginState extends State<Login> {
                     else if(state is LoginInitial){
                       _btnController.success();
                     }
+                    else if(state is LoginSuccess){
+                      _btnController.success();
+                      AutoRouter.of(context).replaceAll([const HomeRoute()]);
+                    }
                   },
                   builder: (context, state) {
                     if (state is LoginLoading) {
@@ -165,6 +169,9 @@ class _LoginState extends State<Login> {
                         }
                         else if(state is GoogleRegistrationInitial){
 
+                        }
+                        else if(state is GoogleRegistrationSuccess){
+                          AutoRouter.of(context).replaceAll([const HomeRoute()]);
                         }
                       },
                       builder: (context, state) {

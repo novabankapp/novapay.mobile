@@ -9,12 +9,12 @@ class RecoverPasswordCubit extends Cubit<GeneralResponse> {
   final AuthenticationRepository _repository;
   RecoverPasswordCubit(this._repository) : super(GeneralResponse());
 
-  void sendEmail(String email) async {
-    var response = await _repository.sendEmailAddress(email);
+  void sendCodeToEmail(String email) async {
+    var response = await _repository.sendCodeToEmail(email);
     emit(response);
   }
   void changePassword(String password) async {
-    var response = await _repository.sendEmailAddress(password);
+    var response = await _repository.sendCodeToEmail(password);
     emit(response);
   }
 
