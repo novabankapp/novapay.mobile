@@ -1,6 +1,13 @@
 
 import 'package:injectable/injectable.dart';
-import 'package:nave_app/data/remote/models/auth/registration_request.dart';
+import 'package:nave_app/data/remote/models/auth/login/google_login_request.dart';
+import 'package:nave_app/data/remote/models/auth/login/login_request.dart';
+import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
+import 'package:nave_app/data/remote/models/auth/registration/registration_request.dart';
+import 'package:nave_app/data/remote/models/auth/registration/registration_response_wrapper.dart';
+import 'package:nave_app/data/remote/models/auth/send_code_request.dart';
+import 'package:nave_app/data/remote/models/auth/send_code_response.dart';
+import 'package:nave_app/data/remote/models/general_response.dart';
 import 'package:nave_app/data/remote/services/authentication_api_provider.dart';
 import 'package:nave_app/domain/entities/user.dart';
 
@@ -14,9 +21,9 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
   AuthenticationRepositoryImpl(this._authenticationApiProvider);
 
   @override
-  Future<bool> authenticate({required String email,required String password}) {
-    // TODO: implement authenticate
-    throw UnimplementedError();
+  Future<LoginResponseWrapper> authenticate({required String email,required String password}) {
+      return _authenticationApiProvider.login(LoginRequest(email: email, password: password));
+
   }
 
   @override
@@ -44,17 +51,41 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
   }
 
   @override
-  Future<bool?> register({
+  Future<RegistrationResponseWrapper> register({
     required String fullName,
     required String email,
     required String phoneNumber,
     required String password}) async {
-      var response = await _authenticationApiProvider.register(RegistrationRequest(
+      return await _authenticationApiProvider.register(RegistrationRequest(
           fullName: fullName,
           email: email,
           password: password,
           phoneNumber: phoneNumber));
-      return response.success;
+
+  }
+
+  @override
+  Future<LoginResponseWrapper> socialSignin(
+      {required String email,
+      required phoneNumber,
+      required fullName,
+      required bool emailVerified,
+      required String token,
+      required String photo}
+      ) async {
+       return await _authenticationApiProvider.googleLogin(GoogleLoginRequest(email: email,
+           phoneNumber: phoneNumber, fullName: fullName, emailVerified: emailVerified, token: token, photo: photo));
+
+  }
+
+  @override
+  Future<SendCodeResponse> sendCode(SendCodeRequest request) {
+     return _authenticationApiProvider.sendCode(request);
+  }
+
+  @override
+  Future<GeneralResponse> sendEmailAddress(String email) {
+     return _authenticationApiProvider.sendEmailAddress(email);
   }
 
 }

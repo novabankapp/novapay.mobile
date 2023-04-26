@@ -24,6 +24,14 @@ class AppRouter extends $AppRouter {
     ),
     AutoRoute(
         page: LoginRoute.page,
+        initial: false
+    ),
+    AutoRoute(
+        page: RegistrationRoute.page,
+        initial: false
+    ),
+    AutoRoute(
+        page: EnterCodeRoute.page,
         initial: true
     ),
     AutoRoute(

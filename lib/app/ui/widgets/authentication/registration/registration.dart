@@ -4,6 +4,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:nave_app/app/blocs/registration_bloc/bloc.dart';
 import 'package:nave_app/app/blocs/registration_bloc/events.dart';
 import 'package:nave_app/app/blocs/registration_bloc/states.dart';
@@ -22,26 +23,32 @@ import 'package:nave_app/app/ui/widgets/common/rounded_input_field.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
-class Login extends StatefulWidget {
+class Registration extends StatefulWidget {
 
 
-  const Login({
+  const Registration({
     Key? key,
 
   }) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Registration> createState() => _RegistrationState();
 }
 
-class _LoginState extends State<Login> {
+class _RegistrationState extends State<Registration> {
 
   final _formKey = GlobalKey<FormState>();
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+  final _fullNameController = TextEditingController();
+  final _phoneNumberController = TextEditingController();
   bool _isButtonDisabled = false;
   String _password = '';
   String _username= '';
+  String _fullName = '';
+  String _confirmPassword = '';
+  String _phoneNumber = '';
 
   final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
   @override
@@ -68,13 +75,13 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const Text(
-                "LOGIN",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24, color: ColorConstants.kPrimaryColor),
+                "Register",
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24,color: ColorConstants.kPrimaryColor),
               ),
               SizedBox(height: size.height * 0.03),
               SvgPicture.asset(
                 "assets/svgs/signup.svg",
-                height: size.height * 0.25,
+                height: size.height * 0.15,
               ),
               SizedBox(height: size.height * 0.03),
               RoundedInputField(
@@ -100,18 +107,58 @@ class _LoginState extends State<Login> {
                 },
               ),
               RoundedInputField(
+                hintText: "Your fullname",
+                textInputAction : TextInputAction.next,
+                icon :  const Icon(
+                  Icons.person,
+                  color: ColorConstants.kPrimaryColor,
+                ),
                 onChanged: (value) {},
+                controller : _fullNameController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter your fullname';
+                  }
+
+                  return null;
+                },
+                onSaved: (String? value) {
+                  _fullName = value!;
+                },
+              ),
+              RoundedInputField(
+                hintText: "Your Phone number",
+                textInputAction : TextInputAction.next,
+                icon :  const Icon(
+                  Icons.phone,
+                  color: ColorConstants.kPrimaryColor,
+                ),
+                onChanged: (value) {},
+                controller : _phoneNumberController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please enter your phone number';
+                  }
+
+                  return null;
+                },
+                onSaved: (String? value) {
+                  _phoneNumber = value!;
+                },
+              ),
+              RoundedInputField(
                 icon :  const Icon(
                   Icons.password,
                   color: ColorConstants.kPrimaryColor,
                 ),
+                onChanged: (value) {},
                 textInputAction : TextInputAction.done,
                 hintText:"Your Password",
                 isPassword: true,
                 controller: _passwordController,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please enter your email address';
+                    return 'Please enter password';
                   }
                   return null;
                 },
@@ -119,18 +166,41 @@ class _LoginState extends State<Login> {
                   _password = value!;
                 },
               ),
+              RoundedInputField(
+                icon :  const Icon(
+                  Icons.password_outlined,
+                  color: ColorConstants.kPrimaryColor,
+                ),
+                onChanged: (value) {},
+                textInputAction : TextInputAction.done,
+                hintText:"Confirm Password",
+                isPassword: true,
+                controller: _confirmPasswordController,
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Please confirm password';
+                  }
+                  if(_passwordController.text != value){
+                    return "Password should match";
+                  }
+                  return null;
+                },
+                onSaved: (String? value) {
+                  _confirmPassword = value!;
+                },
+              ),
 
-              BlocConsumer<LoginBloc, LoginState>(
+              BlocConsumer<RegistrationBloc, RegistrationState>(
                   listener: (context, state) {
-                    if (state is LoginFailure) {
+                    if (state is RegistrationFailure) {
                       _btnController.error();
                     }
-                    else if(state is LoginInitial){
+                    else if(state is RegistrationInitial){
                       _btnController.success();
                     }
                   },
                   builder: (context, state) {
-                    if (state is LoginLoading) {
+                    if (state is RegistrationLoading) {
                       //return const CircularProgressIndicator();
                       //_btnController.stop();
                       _isButtonDisabled = true;
@@ -142,14 +212,14 @@ class _LoginState extends State<Login> {
                       controller: _btnController,
                       onPressed: _isButtonDisabled  ? null : () {
                         if (_formKey.currentState!.validate()) {
-                          _loginButtonPressed(context);
+                          _registerButtonPressed(context);
                         }
                         else{
                           _btnController.stop();
                         }
 
                       },
-                      child: const Text('Login', style: TextStyle( color:  ColorConstants.kWhiteColor),),
+                      child: const Text('Register', style: TextStyle( color:  ColorConstants.kWhiteColor),),
                     );
                   }
               ),
@@ -179,7 +249,7 @@ class _LoginState extends State<Login> {
                           return Text('Error initializing Firebase ${snapshot.error}');
                         } else if (snapshot.connectionState == ConnectionState.done) {
                           return  GoogleRoundedButton(
-                            text: "Login with Google",
+                            text: "Register with Google",
                             press: state is GoogleRegistrationLoading ? null : () async{
                               try {
                                 var user = await Authentication.signInWithGoogle();
@@ -222,24 +292,14 @@ class _LoginState extends State<Login> {
               ),
 
               AlreadyHaveAnAccountCheck(
+                login: false,
                 press: () {
                   //Navigator.pushNamed(context, RouteGenerator.signupPage);
-                  context.pushRoute(const RegistrationRoute());
+                  context.pushRoute(const LoginRoute());
                 },
               ),
               SizedBox(height: size.height * 0.03),
-              GestureDetector(
-                onTap: (){
-                  //Navigator.pushNamed(context, RouteGenerator.recoverPasswordPage);
-                },
-                child: const Text(
-                  "Forgot Password?",
-                  style: TextStyle(
-                    color: ColorConstants.kPrimaryColor,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              )
+
             ],
           ),
         ),
@@ -251,27 +311,28 @@ class _LoginState extends State<Login> {
 
 
 
- void _googleLoginPressed (
+  void _googleLoginPressed (
       {required BuildContext context,
-       required String email,
-       required phoneNumber,
-       required fullName,
-       required bool emailVerified,
-       required String token,
-       required String photo}
-     ){
-       context.read<GoogleRegistrationBloc>().add(
-         GoogleRegistrationButtonPressed(email: email,
-             phoneNumber: phoneNumber,
-             fullName: fullName,
-             emailVerified: emailVerified,
-             token: token,
-             photo: photo)
-       );
- }
-  void _loginButtonPressed(BuildContext context) {
-    context.read<LoginBloc>().add(
-        LoginButtonPressed(email: _username, password: _password)
+        required String email,
+        required phoneNumber,
+        required fullName,
+        required bool emailVerified,
+        required String token,
+        required String photo}
+      ){
+    context.read<GoogleRegistrationBloc>().add(
+        GoogleRegistrationButtonPressed(email: email,
+            phoneNumber: phoneNumber,
+            fullName: fullName,
+            emailVerified: emailVerified,
+            token: token,
+            photo: photo)
+    );
+  }
+  void _registerButtonPressed(BuildContext context) {
+    context.read<RegistrationBloc>().add(
+        RegistrationButtonPressed(email: _username,
+            password: _password, phoneNumber: _phoneNumber, fullName: _fullName)
     );
 
   }

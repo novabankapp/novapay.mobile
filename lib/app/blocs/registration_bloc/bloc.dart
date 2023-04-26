@@ -18,17 +18,40 @@ class RegistrationBloc extends Bloc<RegistrationEvent,RegistrationState>{
     emit(const RegistrationLoading());
 
     try {
-      final success = await _repository.register(fullName: event.fullName, email: event.email, phoneNumber: event.phoneNumber, password: event.password);
-      if(success == null){
-        emit(const RegistrationFailure());
-      }
-      else if (success) {
+      final response = await _repository.register(fullName: event.fullName, email: event.email, phoneNumber: event.phoneNumber, password: event.password);
+      if (response.success ?? false) {
         emit(const RegistrationInitial());
       } else {
         emit(const RegistrationFailure());
       }
     } on Exception {
       emit(const RegistrationFailure());
+    }
+  }
+
+
+
+}
+
+@injectable
+class GoogleRegistrationBloc extends Bloc<GoogleRegistrationEvent,GoogleRegistrationState>{
+  final AuthenticationRepository _repository;
+
+  GoogleRegistrationBloc(this._repository) : super(const GoogleRegistrationInitial()){
+    on<GoogleRegistrationEvent>(_onRegistrationPressed);
+  }
+  Future<void> _onRegistrationPressed(GoogleRegistrationEvent event, Emitter<GoogleRegistrationState> emit)async {
+    emit(const GoogleRegistrationLoading());
+
+    try {
+      final response = await _repository.socialSignin(fullName: event.fullName, email: event.email, phoneNumber: event.phoneNumber, emailVerified: event.emailVerified, token: event.token, photo: event.photo);
+      if (response.success ?? false) {
+        emit(const GoogleRegistrationInitial());
+      } else {
+        emit(const GoogleRegistrationFailure());
+      }
+    } on Exception {
+      emit(const GoogleRegistrationFailure());
     }
   }
 

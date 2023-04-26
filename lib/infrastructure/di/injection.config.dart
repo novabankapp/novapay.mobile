@@ -13,8 +13,10 @@ import 'package:shared_preferences/shared_preferences.dart' as _i13;
 import 'package:sqflite/sqflite.dart' as _i8;
 
 import '../../app/blocs/bank_bloc/bloc.dart' as _i19;
-import '../../app/blocs/login_bloc/bloc.dart' as _i29;
+import '../../app/blocs/login_bloc/bloc.dart' as _i30;
 import '../../app/blocs/merchants/bloc.dart' as _i23;
+import '../../app/blocs/registration_bloc/bloc.dart' as _i29;
+import '../../app/blocs/send_code_bloc/bloc.dart' as _i31;
 import '../../app/blocs/transactions/generate_trn_cubit.dart' as _i22;
 import '../../app/blocs/transactions/transaction_bloc.dart' as _i25;
 import '../../data/graphQL/bank_graphql.dart' as _i4;
@@ -37,7 +39,7 @@ import '../../domain/repositories/bank_repository.dart' as _i5;
 import '../../domain/repositories/service_repository.dart' as _i11;
 import '../../domain/repositories/transaction_repository.dart' as _i15;
 import '../routing/router.dart' as _i3;
-import 'app.module.dart' as _i30; // ignore_for_file: unnecessary_lambdas
+import 'app.module.dart' as _i32; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -83,9 +85,15 @@ _i1.GetIt $initGetIt(
       () => _i26.AuthenticationApiProvider(get<_i20.BaseClient>()));
   gh.factory<_i27.AuthenticationRepository>(() =>
       _i28.AuthenticationRepositoryImpl(get<_i26.AuthenticationApiProvider>()));
-  gh.factory<_i29.LoginBloc>(
-      () => _i29.LoginBloc(get<_i27.AuthenticationRepository>()));
+  gh.factory<_i29.GoogleRegistrationBloc>(
+      () => _i29.GoogleRegistrationBloc(get<_i27.AuthenticationRepository>()));
+  gh.factory<_i30.LoginBloc>(
+      () => _i30.LoginBloc(get<_i27.AuthenticationRepository>()));
+  gh.factory<_i29.RegistrationBloc>(
+      () => _i29.RegistrationBloc(get<_i27.AuthenticationRepository>()));
+  gh.factory<_i31.SendCodeBloc>(
+      () => _i31.SendCodeBloc(get<_i27.AuthenticationRepository>()));
   return get;
 }
 
-class _$AppModule extends _i30.AppModule {}
+class _$AppModule extends _i32.AppModule {}

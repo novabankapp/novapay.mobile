@@ -18,9 +18,9 @@ class LoginBloc extends Bloc<LoginEvent,LoginState>{
       emit(const LoginLoading());
 
     try {
-      final success = await _repository.authenticate(email: event.email, password:event.password);
+      final response = await _repository.authenticate(email: event.email, password:event.password);
 
-      if (success) {
+      if (response.success ?? false) {
          emit(const LoginInitial());
       } else {
         emit(const LoginFailure());

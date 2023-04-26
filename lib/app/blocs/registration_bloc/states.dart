@@ -25,14 +25,14 @@ abstract class GoogleRegistrationState extends Equatable{
   @override
   List<Object> get props => [];
 }
-class GoogleRegistrationInitial extends RegistrationState {
+class GoogleRegistrationInitial extends GoogleRegistrationState {
   const GoogleRegistrationInitial();
 }
 
 
-class GoogleRegistrationLoading extends RegistrationState {
+class GoogleRegistrationLoading extends GoogleRegistrationState {
   const GoogleRegistrationLoading();
 }
-class GoogleRegistrationFailure extends RegistrationState {
+class GoogleRegistrationFailure extends GoogleRegistrationState {
   const GoogleRegistrationFailure();
 }

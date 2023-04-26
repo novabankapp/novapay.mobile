@@ -22,10 +22,12 @@ class GoogleRoundedButton extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.symmetric(vertical: 10),
       width: size.width * 0.8,
+      height: 50,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: SignInButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          text: text,
           Buttons.Google,
           onPressed: press != null ? press! : (){},
         ),
