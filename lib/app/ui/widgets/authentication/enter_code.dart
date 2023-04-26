@@ -89,7 +89,6 @@ class _EnterCodeState extends State<EnterCode> {
                     SizedBox(height: size.height * 0.03),
                     RoundedLoadingButton(
                       borderRadius: 10,
-                      child: const Text('Submit', style: TextStyle( color:  Colors.white),),
                       width: size.width * 0.8,
                       color: ColorConstants.kPrimaryColor,
                       controller: _btnController,
@@ -104,6 +103,7 @@ class _EnterCodeState extends State<EnterCode> {
                         }
 
                       },
+                      child: const Text('Submit', style: TextStyle( color:  Colors.white),),
                     ),
 
                     SizedBox(height: size.height * 0.05),

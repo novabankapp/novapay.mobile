@@ -7,7 +7,7 @@ import 'package:nave_app/app/ui/widgets/slider_layout_view.dart';
 class LandingScreen extends StatefulWidget {
 
 
-  const LandingScreen();
+  const LandingScreen({super.key});
   @override
   _LandingScreenState createState() => _LandingScreenState();
 }

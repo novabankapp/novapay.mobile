@@ -27,16 +27,26 @@ class AppRouter extends $AppRouter {
         initial: false
     ),
     AutoRoute(
+        path:"/registration-screen",
         page: RegistrationRoute.page,
         initial: false
     ),
     AutoRoute(
         page: EnterCodeRoute.page,
-        initial: true
+        initial: false
     ),
     AutoRoute(
+        page: RecoverPasswordRoute.page,
+        initial: false
+    ),
+    AutoRoute(
+        page: EnterCodeRoute.page,
+        initial: false
+    ),
+    AutoRoute(
+      path: "/landing-page-screen",
       page: LandingRoute.page,
-      initial: false,
+      initial: true,
     ),
     AutoRoute(
       page: GenerateTRNRoute.page,

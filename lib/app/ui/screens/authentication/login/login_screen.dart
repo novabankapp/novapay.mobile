@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
 
                     )
                 ],
-            child:Container(child: const Login()),
+            child:const Login(),
           )
 
     );

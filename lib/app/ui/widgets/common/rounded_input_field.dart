@@ -84,8 +84,8 @@ class RoundedInputField extends StatelessWidget {
         maxLines: maxLines,
         decoration: InputDecoration(
           icon: icon,
-          hintStyle: const TextStyle(
-              color : ColorConstants.kBlackColor
+          hintStyle:  TextStyle(
+              color : ColorConstants.kBlackColor.withOpacity(0.2)
           ),
           labelStyle: const TextStyle(
               color: ColorConstants.kPrimaryColor

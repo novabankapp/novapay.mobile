@@ -130,7 +130,7 @@ class NormalColumn extends StatelessWidget {
             text: "Continue",
             press: () {
              //navigate
-              Routing.navigateTo(context, "/home-screen");
+              Routing.navigateTo(context, "/registration-screen");
             },
           ),
       ],

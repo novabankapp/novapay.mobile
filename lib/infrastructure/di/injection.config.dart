@@ -16,9 +16,10 @@ import '../../app/blocs/bank_bloc/bloc.dart' as _i19;
 import '../../app/blocs/login_bloc/bloc.dart' as _i30;
 import '../../app/blocs/merchants/bloc.dart' as _i23;
 import '../../app/blocs/registration_bloc/bloc.dart' as _i29;
-import '../../app/blocs/send_code_bloc/bloc.dart' as _i31;
+import '../../app/blocs/send_code_bloc/bloc.dart' as _i32;
 import '../../app/blocs/transactions/generate_trn_cubit.dart' as _i22;
 import '../../app/blocs/transactions/transaction_bloc.dart' as _i25;
+import '../../app/cubits/auth/recover_password_cubit.dart' as _i31;
 import '../../data/graphQL/bank_graphql.dart' as _i4;
 import '../../data/graphQL/merchant_graphql.dart' as _i10;
 import '../../data/graphQL/transaction_graphql.dart' as _i14;
@@ -39,7 +40,7 @@ import '../../domain/repositories/bank_repository.dart' as _i5;
 import '../../domain/repositories/service_repository.dart' as _i11;
 import '../../domain/repositories/transaction_repository.dart' as _i15;
 import '../routing/router.dart' as _i3;
-import 'app.module.dart' as _i32; // ignore_for_file: unnecessary_lambdas
+import 'app.module.dart' as _i33; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -89,11 +90,13 @@ _i1.GetIt $initGetIt(
       () => _i29.GoogleRegistrationBloc(get<_i27.AuthenticationRepository>()));
   gh.factory<_i30.LoginBloc>(
       () => _i30.LoginBloc(get<_i27.AuthenticationRepository>()));
+  gh.factory<_i31.RecoverPasswordCubit>(
+      () => _i31.RecoverPasswordCubit(get<_i27.AuthenticationRepository>()));
   gh.factory<_i29.RegistrationBloc>(
       () => _i29.RegistrationBloc(get<_i27.AuthenticationRepository>()));
-  gh.factory<_i31.SendCodeBloc>(
-      () => _i31.SendCodeBloc(get<_i27.AuthenticationRepository>()));
+  gh.factory<_i32.SendCodeBloc>(
+      () => _i32.SendCodeBloc(get<_i27.AuthenticationRepository>()));
   return get;
 }
 
-class _$AppModule extends _i32.AppModule {}
+class _$AppModule extends _i33.AppModule {}

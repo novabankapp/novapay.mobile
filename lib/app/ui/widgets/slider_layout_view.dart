@@ -93,7 +93,7 @@ class _SliderLayoutViewState extends State<SliderLayoutView> {
               text: "Continue",
               press: () {
                 //navigate
-                Routing.navigateTo(context, "/home-screen");
+                Routing.navigateTo(context, "/registration-screen");
               },
             ),
           ),
@@ -152,7 +152,7 @@ class _SliderLayoutViewState extends State<SliderLayoutView> {
                       ) : GestureDetector(
                         onTap: () {
                          //navigate
-                          Routing.navigateTo(context, "/home-screen");
+                          Routing.navigateTo(context, "/registration-screen");
                         },
 
                         child : Text(

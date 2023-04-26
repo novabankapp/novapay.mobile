@@ -231,6 +231,7 @@ class _LoginState extends State<Login> {
               GestureDetector(
                 onTap: (){
                   //Navigator.pushNamed(context, RouteGenerator.recoverPasswordPage);
+                  context.pushRoute(const RecoverPasswordRoute());
                 },
                 child: const Text(
                   "Forgot Password?",
