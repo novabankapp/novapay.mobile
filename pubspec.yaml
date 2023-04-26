@@ -36,6 +36,7 @@ dependencies:
   json_annotation: ^4.4.0
   flutter_signin_button:
   auto_route:
+  path_provider:
   flutter_bloc: ^8.1.1
   pull_to_refresh:
   protobuf:

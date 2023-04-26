@@ -54,12 +54,12 @@ abstract class RegisterModule{
 
 
 }
-initializeDB() async {
+Future<Database> initializeDB() async {
   String path = await getDatabasesPath();
   return openDatabase(join(path, Constants.LOCALSTORAGE),
     onCreate: (database, version) async {
       await database.execute(
-        "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL)",
+        "CREATE TABLE users(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT NOT NULL, email TEXT NOT NULL)",
       );
     },
     version: 2,

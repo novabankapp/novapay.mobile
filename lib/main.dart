@@ -3,16 +3,19 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
 import 'package:nave_app/infrastructure/routing/router.dart';
 import 'package:provider/provider.dart';
-
+import 'package:path_provider/path_provider.dart';
 import 'infrastructure/constants/constants.dart';
 import 'infrastructure/di/injection.dart';
 import 'infrastructure/routing/router.gr.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final appDocumentDirectory = await getApplicationDocumentsDirectory();
+  Hive.init(appDocumentDirectory.path);
   await configureDependencies();
   runApp(MyApp());
 }

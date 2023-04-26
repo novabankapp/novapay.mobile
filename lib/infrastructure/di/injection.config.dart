@@ -63,7 +63,10 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i6.BankGraphQLService>(() => registerModule.bankGraphQLService);
   gh.factory<_i7.BankRepository>(() => _i8.BankRepositoryTestImpl());
   gh.singleton<_i9.Client>(registerModule.client);
-  gh.factoryAsync<_i10.Database>(() => registerModule.database);
+  await gh.factoryAsync<_i10.Database>(
+    () => registerModule.database,
+    preResolve: true,
+  );
   gh.factory<_i11.GoogleRegistrationBloc>(
       () => _i11.GoogleRegistrationBloc(get<_i4.AuthenticationRepository>()));
   gh.factory<_i12.LocalStorage>(() => registerModule.storage);
@@ -83,8 +86,8 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i20.TransactionRepository>(
       () => _i21.TransactionRepositoryTestImpl());
   gh.factory<_i22.UserHive>(() => registerModule.userHive);
-  gh.factoryAsync<_i23.UserRepository>(
-      () async => _i23.UserRepository(await get.getAsync<_i10.Database>()));
+  gh.factory<_i23.UserRepository>(
+      () => _i23.UserRepository(get<_i10.Database>()));
   gh.factory<_i24.BankBloc>(() => _i24.BankBloc(get<_i7.BankRepository>()));
   gh.factory<_i25.BaseClient>(() => _i26.HttpClient(get<_i9.Client>()));
   gh.factory<_i27.GenerateTRNCubit>(
@@ -106,6 +109,7 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i11.RegistrationBloc>(() => _i11.RegistrationBloc(
         get<_i4.AuthenticationRepository>(),
         get<_i29.SharedPreferenceHelper>(),
+        get<_i22.UserHive>(),
       ));
   return get;
 }
