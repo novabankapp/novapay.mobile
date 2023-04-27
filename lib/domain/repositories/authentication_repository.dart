@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
+import 'package:nave_app/data/remote/models/auth/login/reset_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/registration/registration_response_wrapper.dart';
 import 'package:nave_app/data/remote/models/auth/send_code_request.dart';
 import 'package:nave_app/data/remote/models/auth/send_code_response.dart';
@@ -29,6 +30,8 @@ abstract class AuthenticationRepository {
 
   Future<LoginResponseWrapper> authenticate(
       {required String email, required String password});
+
+  Future<LoginResponseWrapper> resetPassword(ResetPasswordRequest request);
 
   Future<SendCodeResponse> verifyCode(SendCodeRequest request);
 

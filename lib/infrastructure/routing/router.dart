@@ -53,6 +53,10 @@ class AppRouter extends $AppRouter {
       initial: false,
     ),
     AutoRoute(
+      page: ResetPasswordRoute.page,
+      initial: false,
+    ),
+    AutoRoute(
       path: "/generate-trn/:categoryId",
       page: GenerateTRNRoute.page,
       initial: false,

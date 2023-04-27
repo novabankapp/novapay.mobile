@@ -111,6 +111,10 @@ Future<_i1.GetIt> $initGetIt(
         get<_i29.SharedPreferenceHelper>(),
         get<_i22.UserHive>(),
       ));
+  gh.factory<_i14.ResetPasswordCubit>(() => _i14.ResetPasswordCubit(
+        get<_i4.AuthenticationRepository>(),
+        get<_i29.SharedPreferenceHelper>(),
+      ));
   return get;
 }
 

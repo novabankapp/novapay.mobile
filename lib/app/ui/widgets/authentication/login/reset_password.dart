@@ -11,6 +11,8 @@ import 'package:nave_app/app/blocs/send_code_bloc/states.dart';
 import 'package:nave_app/app/cubits/auth/recover_password_cubit.dart';
 import 'package:nave_app/app/ui/widgets/common/background.dart';
 import 'package:nave_app/app/ui/widgets/common/rounded_input_field.dart';
+import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
+import 'package:nave_app/data/remote/models/auth/login/reset_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/send_code_request.dart';
 import 'package:nave_app/data/remote/models/general_response.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
@@ -18,17 +20,19 @@ import 'package:nave_app/infrastructure/routing/router.gr.dart';
 import 'package:validators/validators.dart' as validator;
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
-class EnterCode extends StatefulWidget {
-  const EnterCode({super.key});
+class ResetPassword extends StatefulWidget {
+  const ResetPassword({super.key});
 
   @override
-  _EnterCodeState createState() => _EnterCodeState();
+  _ResetPasswordState createState() => _ResetPasswordState();
 }
 
-class _EnterCodeState extends State<EnterCode> {
+class _ResetPasswordState extends State<ResetPassword> {
   final _formKey = GlobalKey<FormState>();
   final _codeController = TextEditingController();
-  final SendCodeRequest _sendCodeRequest = SendCodeRequest();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+  final ResetPasswordRequest _resetPasswordRequest = ResetPasswordRequest();
   final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
   @override
   void dispose() {
@@ -38,16 +42,26 @@ class _EnterCodeState extends State<EnterCode> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocConsumer<SendCodeBloc, SendCodeState>(
+    return BlocConsumer<ResetPasswordCubit, LoginResponseWrapper?>(
         listener:(context, state) {
 
-          if (state is SendCodeFailure) {
-            _btnController.error();
-            _btnController.stop();
-          }
-          else if(state is SendCodeSuccess){
-            _btnController.success();
-            AutoRouter.of(context).replaceAll([const HomeRoute()]);
+          if (State is LoginResponseWrapper) {
+            var response = state;
+            if(response != null){
+                if(response.response.success){
+                  //Future.delayed(Duration.zero, () => "12345");
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(
+                        backgroundColor: ColorConstants.kTealColor,
+                        duration: Duration(seconds: 5),
+                        content: Text("Password reset",
+                          textAlign: TextAlign.center,),
+                      ));
+                  AutoRouter.of(context).replaceAll([const HomeRoute()]);
+                }
+            }
+
+
           }
         },
         builder: (context, state) {
@@ -59,7 +73,7 @@ class _EnterCodeState extends State<EnterCode> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text(
-                      "ENTER CODE",
+                      "RESET PASSWORD",
                       style: TextStyle(fontWeight: FontWeight.bold, color: ColorConstants.kPrimaryColor),
                     ),
                     const Text(
@@ -75,10 +89,10 @@ class _EnterCodeState extends State<EnterCode> {
                     RoundedInputField(
                       hintText: "Enter Code",
                       textInputAction : TextInputAction.done,
-                        icon :  const Icon(
-                          Icons.confirmation_number,
-                          color: ColorConstants.kPrimaryColor,
-                        ),
+                      icon :  const Icon(
+                        Icons.confirmation_number,
+                        color: ColorConstants.kPrimaryColor,
+                      ),
                       onChanged: (value) {},
                       controller : _codeController,
                       validator: (value) {
@@ -91,7 +105,50 @@ class _EnterCodeState extends State<EnterCode> {
                         return null;
                       },
                       onSaved: (String? value) {
-                        _sendCodeRequest.code = value;
+                        _resetPasswordRequest.code = value;
+                      },
+                    ),
+                    RoundedInputField(
+                      onChanged: (value) {},
+                      icon :  const Icon(
+                        Icons.password,
+                        color: ColorConstants.kPrimaryColor,
+                      ),
+                      textInputAction : TextInputAction.done,
+                      hintText:"Your Password",
+                      isPassword: true,
+                      controller: _passwordController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please enter your email address';
+                        }
+                        return null;
+                      },
+                      onSaved: (String? value) {
+                        _resetPasswordRequest.password = value!;
+                      },
+                    ),
+                    RoundedInputField(
+                      icon :  const Icon(
+                        Icons.password_outlined,
+                        color: ColorConstants.kPrimaryColor,
+                      ),
+                      onChanged: (value) {},
+                      textInputAction : TextInputAction.done,
+                      hintText:"Confirm Password",
+                      isPassword: true,
+                      controller: _confirmPasswordController,
+                      validator: (value) {
+                        if (value!.isEmpty) {
+                          return 'Please confirm password';
+                        }
+                        if(_passwordController.text != value){
+                          return "Password should match";
+                        }
+                        return null;
+                      },
+                      onSaved: (String? value) {
+                        //_confirmPassword = value!;
                       },
                     ),
                     SizedBox(height: size.height * 0.03),
@@ -103,8 +160,8 @@ class _EnterCodeState extends State<EnterCode> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          _sendCodeRequest.userId = "user id here";
-                          _sendCodeButtonPressed(context, _sendCodeRequest);
+                          _resetPasswordRequest.userId = "user id here";
+                           _resetPassword(context, _resetPasswordRequest);
                         }
                         else{
                           _btnController.stop();
@@ -121,12 +178,12 @@ class _EnterCodeState extends State<EnterCode> {
                           if (State is GeneralResponse) {
                             var response = state;
                             ScaffoldMessenger.of(context).showSnackBar(
-                                  SnackBar(
-                                    backgroundColor: ColorConstants.kTealColor,
-                                    duration: const Duration(seconds: 5),
-                                    content: Text(response!.message!,
-                                      textAlign: TextAlign.center,),
-                                  ));
+                                SnackBar(
+                                  backgroundColor: ColorConstants.kTealColor,
+                                  duration: const Duration(seconds: 5),
+                                  content: Text(response!.message!,
+                                    textAlign: TextAlign.center,),
+                                ));
 
                           }
                         },
@@ -153,14 +210,10 @@ class _EnterCodeState extends State<EnterCode> {
         }
     );
   }
-  void _sendCodeButtonPressed(BuildContext context, SendCodeRequest request) {
-    context.read<SendCodeBloc>().add(
-        SendCodeButtonPressed(code:request)
-    );
-
+  void _resetPassword(BuildContext context, ResetPasswordRequest request) {
+    context.read<ResetPasswordCubit>().changePassword(request);
   }
   void _resendCode(BuildContext context, String email) {
     context.read<RecoverPasswordCubit>().sendCodeToEmail(email);
   }
-
 }

@@ -10,6 +10,7 @@ class ApiConstants {
 
   static const String SIGNUP ="api/User/signup";
   static const String SIGNIN ="api/User/signin";
+  static const String RESET_PASSWORD ="api/User/resetPassword";
   static const String GOOGLESIGNIN ="api/User/socialSignup";
   static const String SENDCODE = "";
   static const String SENDEMAIL = "";

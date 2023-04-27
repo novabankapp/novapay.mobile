@@ -3,6 +3,7 @@ import 'package:injectable/injectable.dart';
 import 'package:nave_app/data/remote/models/auth/login/google_login_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
+import 'package:nave_app/data/remote/models/auth/login/reset_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/registration/registration_request.dart';
 import 'package:nave_app/data/remote/models/auth/registration/registration_response_wrapper.dart';
 import 'package:nave_app/data/remote/models/auth/send_code_request.dart';
@@ -85,6 +86,11 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
   @override
   Future<GeneralResponse> sendCodeToEmail(String email) {
      return _authenticationApiProvider.sendEmailAddress(email);
+  }
+
+  @override
+  Future<LoginResponseWrapper> resetPassword(ResetPasswordRequest request) {
+    return _authenticationApiProvider.resetPassword(request);
   }
 
 }

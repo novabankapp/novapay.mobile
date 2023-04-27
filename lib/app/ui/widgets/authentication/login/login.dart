@@ -111,7 +111,7 @@ class _LoginState extends State<Login> {
                 controller: _passwordController,
                 validator: (value) {
                   if (value!.isEmpty) {
-                    return 'Please enter your email address';
+                    return 'Please enter your password';
                   }
                   return null;
                 },

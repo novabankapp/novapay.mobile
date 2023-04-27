@@ -7,6 +7,7 @@ import 'package:nave_app/data/remote/models/auth/login/google_login_request.dart
 import 'package:nave_app/data/remote/models/auth/login/login_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
+import 'package:nave_app/data/remote/models/auth/login/reset_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/registration/registration_request.dart';
 import 'package:nave_app/data/remote/models/auth/registration/registration_response.dart';
 import 'package:nave_app/data/remote/models/auth/registration/registration_response_wrapper.dart';
@@ -35,6 +36,19 @@ class AuthenticationApiProvider {
   Future<LoginResponseWrapper> login(LoginRequest request) async {
 
     final response = await _client.post(ApiConstants.SIGNIN,
+        headers : <String,String>{
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json',
+        },
+        body: jsonEncode(request)
+    );
+    var successResponse = LoginResponse.fromJson(json.decode(response));
+    return LoginResponseWrapper(response: successResponse, success: true);
+
+  }
+  Future<LoginResponseWrapper> resetPassword(ResetPasswordRequest request) async {
+
+    final response = await _client.post(ApiConstants.RESET_PASSWORD,
         headers : <String,String>{
           'Content-Type' : 'application/json',
           'Accept': 'application/json',

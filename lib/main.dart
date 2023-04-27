@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:nave_app/domain/entities/user.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
 import 'package:nave_app/infrastructure/routing/router.dart';
 import 'package:provider/provider.dart';
@@ -15,7 +18,11 @@ import 'infrastructure/routing/router.gr.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final appDocumentDirectory = await getApplicationDocumentsDirectory();
-  Hive.init(appDocumentDirectory.path);
+  HydratedBloc.storage = await HydratedStorage.build(
+    storageDirectory: appDocumentDirectory,
+  );
+  await Hive.initFlutter();
+  Hive.registerAdapter(UserAdapter());
   await configureDependencies();
   runApp(MyApp());
 }

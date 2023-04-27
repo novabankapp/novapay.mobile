@@ -43,7 +43,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
             _response = state;
             if (_response?.success == true) {
               _btnController.success();
-              context.pushRoute(const EnterCodeRoute());
+              context.pushRoute(const ResetPasswordRoute());
             }
             else {
               _btnController.error();

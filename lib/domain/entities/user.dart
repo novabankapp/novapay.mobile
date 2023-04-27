@@ -2,6 +2,8 @@
 import 'package:nave_app/domain/entities/base_entity.dart';
 import 'package:hive/hive.dart';
 
+part 'user.g.dart';
+
 @HiveType(typeId: 1)
 class User extends BaseEntity {
 
