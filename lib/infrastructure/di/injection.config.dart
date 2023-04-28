@@ -12,22 +12,24 @@ import 'package:localstorage/localstorage.dart' as _i12;
 import 'package:shared_preferences/shared_preferences.dart' as _i18;
 import 'package:sqflite/sqflite.dart' as _i10;
 
-import '../../app/blocs/bank_bloc/bloc.dart' as _i24;
-import '../../app/blocs/login_bloc/bloc.dart' as _i33;
-import '../../app/blocs/merchants/bloc.dart' as _i28;
+import '../../app/blocs/bank_bloc/bloc.dart' as _i25;
+import '../../app/blocs/login_bloc/bloc.dart' as _i34;
+import '../../app/blocs/merchants/bloc.dart' as _i29;
 import '../../app/blocs/registration_bloc/bloc.dart' as _i11;
 import '../../app/blocs/send_code_bloc/bloc.dart' as _i15;
-import '../../app/blocs/transactions/generate_trn_cubit.dart' as _i27;
-import '../../app/blocs/transactions/transaction_bloc.dart' as _i31;
+import '../../app/blocs/transactions/generate_trn_cubit.dart' as _i28;
+import '../../app/blocs/transactions/transaction_bloc.dart' as _i32;
 import '../../app/cubits/auth/recover_password_cubit.dart' as _i14;
+import '../../app/cubits/transactions/validate_customer_reference_cubit.dart'
+    as _i24;
 import '../../data/graphQL/bank_graphql.dart' as _i6;
 import '../../data/graphQL/merchant_graphql.dart' as _i13;
 import '../../data/graphQL/transaction_graphql.dart' as _i19;
 import '../../data/hive/user_hive.dart' as _i22;
-import '../../data/remote/clients/base/base_client.dart' as _i25;
-import '../../data/remote/clients/http_client.dart' as _i26;
-import '../../data/remote/services/authentication_api_provider.dart' as _i32;
-import '../../data/remote/services/transaction_api_provider.dart' as _i30;
+import '../../data/remote/clients/base/base_client.dart' as _i26;
+import '../../data/remote/clients/http_client.dart' as _i27;
+import '../../data/remote/services/authentication_api_provider.dart' as _i33;
+import '../../data/remote/services/transaction_api_provider.dart' as _i31;
 import '../../data/repositories/mocks/authentication_repository_test_impl.dart'
     as _i5;
 import '../../data/repositories/mocks/bank_repository_test_impl.dart' as _i8;
@@ -40,9 +42,9 @@ import '../../domain/repositories/authentication_repository.dart' as _i4;
 import '../../domain/repositories/bank_repository.dart' as _i7;
 import '../../domain/repositories/service_repository.dart' as _i16;
 import '../../domain/repositories/transaction_repository.dart' as _i20;
-import '../helpers/shared_preferences_helper.dart' as _i29;
+import '../helpers/shared_preferences_helper.dart' as _i30;
 import '../routing/router.dart' as _i3;
-import 'app.module.dart' as _i34; // ignore_for_file: unnecessary_lambdas
+import 'app.module.dart' as _i35; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -88,34 +90,36 @@ Future<_i1.GetIt> $initGetIt(
   gh.factory<_i22.UserHive>(() => registerModule.userHive);
   gh.factory<_i23.UserRepository>(
       () => _i23.UserRepository(get<_i10.Database>()));
-  gh.factory<_i24.BankBloc>(() => _i24.BankBloc(get<_i7.BankRepository>()));
-  gh.factory<_i25.BaseClient>(() => _i26.HttpClient(get<_i9.Client>()));
-  gh.factory<_i27.GenerateTRNCubit>(
-      () => _i27.GenerateTRNCubit(get<_i20.TransactionRepository>()));
-  gh.factory<_i28.MerchantBloc>(
-      () => _i28.MerchantBloc(get<_i16.ServiceRepository>()));
-  gh.factory<_i29.SharedPreferenceHelper>(
-      () => _i29.SharedPreferenceHelper(get<_i18.SharedPreferences>()));
-  gh.factory<_i30.TransactionApiProvider>(
-      () => _i30.TransactionApiProvider(get<_i25.BaseClient>()));
-  gh.factory<_i31.TransactionBloc>(
-      () => _i31.TransactionBloc(get<_i20.TransactionRepository>()));
-  gh.factory<_i32.AuthenticationApiProvider>(
-      () => _i32.AuthenticationApiProvider(get<_i25.BaseClient>()));
-  gh.factory<_i33.LoginBloc>(() => _i33.LoginBloc(
+  gh.factory<_i24.ValidateCustomerReferenceCubit>(() =>
+      _i24.ValidateCustomerReferenceCubit(get<_i20.TransactionRepository>()));
+  gh.factory<_i25.BankBloc>(() => _i25.BankBloc(get<_i7.BankRepository>()));
+  gh.factory<_i26.BaseClient>(() => _i27.HttpClient(get<_i9.Client>()));
+  gh.factory<_i28.GenerateTRNCubit>(
+      () => _i28.GenerateTRNCubit(get<_i20.TransactionRepository>()));
+  gh.factory<_i29.MerchantBloc>(
+      () => _i29.MerchantBloc(get<_i16.ServiceRepository>()));
+  gh.factory<_i30.SharedPreferenceHelper>(
+      () => _i30.SharedPreferenceHelper(get<_i18.SharedPreferences>()));
+  gh.factory<_i31.TransactionApiProvider>(
+      () => _i31.TransactionApiProvider(get<_i26.BaseClient>()));
+  gh.factory<_i32.TransactionBloc>(
+      () => _i32.TransactionBloc(get<_i20.TransactionRepository>()));
+  gh.factory<_i33.AuthenticationApiProvider>(
+      () => _i33.AuthenticationApiProvider(get<_i26.BaseClient>()));
+  gh.factory<_i34.LoginBloc>(() => _i34.LoginBloc(
         get<_i4.AuthenticationRepository>(),
-        get<_i29.SharedPreferenceHelper>(),
+        get<_i30.SharedPreferenceHelper>(),
       ));
   gh.factory<_i11.RegistrationBloc>(() => _i11.RegistrationBloc(
         get<_i4.AuthenticationRepository>(),
-        get<_i29.SharedPreferenceHelper>(),
+        get<_i30.SharedPreferenceHelper>(),
         get<_i22.UserHive>(),
       ));
   gh.factory<_i14.ResetPasswordCubit>(() => _i14.ResetPasswordCubit(
         get<_i4.AuthenticationRepository>(),
-        get<_i29.SharedPreferenceHelper>(),
+        get<_i30.SharedPreferenceHelper>(),
       ));
   return get;
 }
 
-class _$RegisterModule extends _i34.RegisterModule {}
+class _$RegisterModule extends _i35.RegisterModule {}

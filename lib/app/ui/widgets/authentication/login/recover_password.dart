@@ -15,6 +15,8 @@ import 'package:validators/validators.dart' as validator;
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
 class RecoverPassword extends StatefulWidget {
+  const RecoverPassword({super.key});
+
   @override
   _RecoverPasswordState createState() => _RecoverPasswordState();
 }
@@ -37,7 +39,7 @@ class _RecoverPasswordState extends State<RecoverPassword> {
     Size size = MediaQuery
         .of(context)
         .size;
-    return BlocConsumer<RecoverPasswordCubit, GeneralResponse>(
+    return BlocConsumer<RecoverPasswordCubit, GeneralResponse?>(
         listener: (context, state) {
           if (State is GeneralResponse) {
             _response = state;

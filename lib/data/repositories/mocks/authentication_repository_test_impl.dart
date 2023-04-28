@@ -1,4 +1,5 @@
 import 'package:injectable/injectable.dart';
+import 'package:nave_app/data/remote/models/auth/change_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
 import 'package:nave_app/data/remote/models/auth/login/reset_password_request.dart';
@@ -119,6 +120,14 @@ class AuthenticationRepositoryTestImpl implements AuthenticationRepository{
         )
 
     ) );
+  }
+
+  @override
+  Future<GeneralResponse> changePassword(ChangePasswordRequest request) {
+    return Future.delayed(Duration.zero,() => GeneralResponse(
+        success: true,
+        message: "Password Successfully changed"
+    ));
   }
 
 }

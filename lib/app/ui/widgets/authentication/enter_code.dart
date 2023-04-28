@@ -116,7 +116,7 @@ class _EnterCodeState extends State<EnterCode> {
 
                     SizedBox(height: size.height * 0.05),
 
-                    BlocConsumer<RecoverPasswordCubit, GeneralResponse>(
+                    BlocConsumer<RecoverPasswordCubit, GeneralResponse?>(
                         listener: (context, state) {
                           if (State is GeneralResponse) {
                             var response = state;

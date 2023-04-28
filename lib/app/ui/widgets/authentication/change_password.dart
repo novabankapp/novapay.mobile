@@ -11,6 +11,7 @@ import 'package:nave_app/app/blocs/send_code_bloc/states.dart';
 import 'package:nave_app/app/cubits/auth/recover_password_cubit.dart';
 import 'package:nave_app/app/ui/widgets/common/background.dart';
 import 'package:nave_app/app/ui/widgets/common/rounded_input_field.dart';
+import 'package:nave_app/data/remote/models/auth/change_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
 import 'package:nave_app/data/remote/models/auth/login/reset_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/send_code_request.dart';
@@ -20,19 +21,19 @@ import 'package:nave_app/infrastructure/routing/router.gr.dart';
 import 'package:validators/validators.dart' as validator;
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
-class ResetPassword extends StatefulWidget {
-  const ResetPassword({super.key});
+class ChangePassword extends StatefulWidget {
+  const ChangePassword({super.key});
 
   @override
-  _ResetPasswordState createState() => _ResetPasswordState();
+  _ChangePasswordState createState() => _ChangePasswordState();
 }
 
-class _ResetPasswordState extends State<ResetPassword> {
+class _ChangePasswordState extends State<ChangePassword> {
   final _formKey = GlobalKey<FormState>();
-  final _codeController = TextEditingController();
+  final _oldPasswordController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
-  final ResetPasswordRequest _resetPasswordRequest = ResetPasswordRequest();
+  final ChangePasswordRequest _changePasswordRequest = ChangePasswordRequest();
   final RoundedLoadingButtonController _btnController = RoundedLoadingButtonController();
   @override
   void dispose() {
@@ -42,23 +43,23 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return BlocConsumer<ResetPasswordCubit, LoginResponseWrapper?>(
+    return BlocConsumer<RecoverPasswordCubit, GeneralResponse?>(
         listener:(context, state) {
 
-          if (State is LoginResponseWrapper) {
+          if (State is GeneralResponse) {
             var response = state;
             if(response != null){
-                if(response.response.success){
-                  //Future.delayed(Duration.zero, () => "12345");
-                  ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        backgroundColor: ColorConstants.kTealColor,
-                        duration: Duration(seconds: 5),
-                        content: Text("Password reset",
-                          textAlign: TextAlign.center,),
-                      ));
-                  AutoRouter.of(context).replaceAll([const HomeRoute()]);
-                }
+              if(response.success ?? false){
+                //Future.delayed(Duration.zero, () => "12345");
+                ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      backgroundColor: ColorConstants.kTealColor,
+                      duration: const Duration(seconds: 5),
+                      content: Text(response.message ?? "",
+                        textAlign: TextAlign.center,),
+                    ));
+                AutoRouter.of(context).replaceAll([const HomeRoute()]);
+              }
             }
 
 
@@ -73,39 +74,33 @@ class _ResetPasswordState extends State<ResetPassword> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Text(
-                      "RESET PASSWORD",
+                      "CHANGE PASSWORD",
                       style: TextStyle(fontWeight: FontWeight.bold, color: ColorConstants.kPrimaryColor),
-                    ),
-                    const Text(
-                      "enter the code you received in your mail to finish registration",
-                      style: TextStyle( color: ColorConstants.kPrimaryColor),
                     ),
                     SizedBox(height: size.height * 0.03),
                     SvgPicture.asset(
-                      "assets/svgs/enter_code.svg",
+                      "assets/svgs/login.svg",
                       height: size.height * 0.25,
                     ),
                     SizedBox(height: size.height * 0.03),
                     RoundedInputField(
-                      hintText: "Enter Code",
+                      hintText: "Enter Old Password",
                       textInputAction : TextInputAction.done,
                       icon :  const Icon(
                         Icons.confirmation_number,
                         color: ColorConstants.kPrimaryColor,
                       ),
                       onChanged: (value) {},
-                      controller : _codeController,
+                      controller : _oldPasswordController,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Please enter the code you received in your mailbox';
+                          return 'Please enter your old password';
                         }
-                        /*if(!validator.isEmail(value)){
-                        return "Please enter a valid Code";
-                      }*/
+
                         return null;
                       },
                       onSaved: (String? value) {
-                        _resetPasswordRequest.code = value;
+                        _changePasswordRequest.oldPassword = value;
                       },
                     ),
                     RoundedInputField(
@@ -115,17 +110,17 @@ class _ResetPasswordState extends State<ResetPassword> {
                         color: ColorConstants.kPrimaryColor,
                       ),
                       textInputAction : TextInputAction.done,
-                      hintText:"Your Password",
+                      hintText:"Your New Password",
                       isPassword: true,
                       controller: _passwordController,
                       validator: (value) {
                         if (value!.isEmpty) {
-                          return 'Please enter your email address';
+                          return 'Please enter your new Password';
                         }
                         return null;
                       },
                       onSaved: (String? value) {
-                        _resetPasswordRequest.password = value!;
+                        _changePasswordRequest.password = value!;
                       },
                     ),
                     RoundedInputField(
@@ -160,8 +155,8 @@ class _ResetPasswordState extends State<ResetPassword> {
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
                           _formKey.currentState!.save();
-                          _resetPasswordRequest.userId = "user id here";
-                           _resetPassword(context, _resetPasswordRequest);
+                          _changePasswordRequest.userId = "user id here";
+                          _changePassword(context, _changePasswordRequest);
                         }
                         else{
                           _btnController.stop();
@@ -172,36 +167,6 @@ class _ResetPasswordState extends State<ResetPassword> {
                     ),
 
                     SizedBox(height: size.height * 0.05),
-
-                    BlocConsumer<RecoverPasswordCubit, GeneralResponse?>(
-                        listener: (context, state) {
-                          if (State is GeneralResponse) {
-                            var response = state;
-                            ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(
-                                  backgroundColor: ColorConstants.kTealColor,
-                                  duration: const Duration(seconds: 5),
-                                  content: Text(response!.message!,
-                                    textAlign: TextAlign.center,),
-                                ));
-
-                          }
-                        },
-                        builder: (context, state) {
-                          return GestureDetector(
-                            onTap: (){
-                               _resendCode(context, "");
-                            },
-                            child: const Text(
-                              "Resend Code",
-                              style: TextStyle(
-                                color: ColorConstants.kPrimaryColor,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          );
-                        }
-                    )
                   ],
                 ),
               ),
@@ -210,10 +175,8 @@ class _ResetPasswordState extends State<ResetPassword> {
         }
     );
   }
-  void _resetPassword(BuildContext context, ResetPasswordRequest request) {
-    context.read<ResetPasswordCubit>().changePassword(request);
+  void _changePassword(BuildContext context, ChangePasswordRequest request) {
+    context.read<RecoverPasswordCubit>().changePassword(request);
   }
-  void _resendCode(BuildContext context, String email) {
-    context.read<RecoverPasswordCubit>().sendCodeToEmail(email);
-  }
+
 }

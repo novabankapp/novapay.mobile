@@ -2,6 +2,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:nave_app/data/remote/models/auth/change_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
 import 'package:nave_app/data/remote/models/auth/login/reset_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/registration/registration_response_wrapper.dart';
@@ -42,6 +43,8 @@ abstract class AuthenticationRepository {
 
 
   Future<GeneralResponse> forgotPassword(String email);
+
+  Future<GeneralResponse> changePassword(ChangePasswordRequest request);
 
 
   Future<void> logout();

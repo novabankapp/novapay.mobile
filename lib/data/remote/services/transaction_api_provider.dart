@@ -6,6 +6,8 @@ import 'package:nave_app/data/remote/clients/base/base_client.dart';
 import 'package:nave_app/data/remote/models/transaction/Generate_trn_request.dart';
 import 'package:nave_app/data/remote/models/transaction/generate__trn_response.dart';
 import 'package:nave_app/data/remote/models/transaction/transaction_ref_response.dart';
+import 'package:nave_app/data/remote/models/transaction/validate_customer_reference_reference.dart';
+import 'package:nave_app/data/remote/models/transaction/validate_customer_reference_response.dart';
 
 @Injectable()
 class TransactionApiProvider {
@@ -32,5 +34,15 @@ class TransactionApiProvider {
         );
         return TransactionRefResponse.fromJson(response);
    }
+  Future<ValidateCustomerReferenceResponse> validateCustomerReference(ValidateCustomerReferenceRequest request) async{
+    final response = await _client.post("${ApiConstants.VALIDATETRN}/",
+        headers : <String,String>{
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json',
+        },
+        body: jsonEncode(request)
+    );
+    return ValidateCustomerReferenceResponse.fromJson(response);
+  }
 
 }

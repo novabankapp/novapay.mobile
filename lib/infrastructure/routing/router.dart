@@ -53,6 +53,14 @@ class AppRouter extends $AppRouter {
       initial: false,
     ),
     AutoRoute(
+      page: ValidateCustomerReferenceRoute.page,
+      initial: false,
+    ),
+    AutoRoute(
+      page: ChangePasswordRoute.page,
+      initial: false,
+    ),
+    AutoRoute(
       page: ResetPasswordRoute.page,
       initial: false,
     ),

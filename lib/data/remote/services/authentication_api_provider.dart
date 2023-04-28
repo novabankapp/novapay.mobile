@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:injectable/injectable.dart';
 import 'package:nave_app/data/remote/clients/api_constants.dart';
 import 'package:nave_app/data/remote/clients/base/base_client.dart';
+import 'package:nave_app/data/remote/models/auth/change_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/google_login_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response.dart';
@@ -57,6 +58,19 @@ class AuthenticationApiProvider {
     );
     var successResponse = LoginResponse.fromJson(json.decode(response));
     return LoginResponseWrapper(response: successResponse, success: true);
+
+  }
+  Future<GeneralResponse> changePassword(ChangePasswordRequest request) async{
+
+    final response = await _client.post(ApiConstants.CHANGE_PASSWORD,
+        headers : <String,String>{
+          'Content-Type' : 'application/json',
+          'Accept': 'application/json',
+        },
+        body : request
+    );
+
+    return GeneralResponse.fromJson(json.decode(response));
 
   }
   Future<GeneralResponse> sendEmailAddress(String email) async{

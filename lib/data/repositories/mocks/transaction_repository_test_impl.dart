@@ -3,6 +3,8 @@
 import 'package:injectable/injectable.dart';
 import 'package:nave_app/data/remote/models/transaction/Generate_trn_request.dart';
 import 'package:nave_app/data/remote/models/transaction/transaction_ref_response.dart';
+import 'package:nave_app/data/remote/models/transaction/validate_customer_reference_reference.dart';
+import 'package:nave_app/data/remote/models/transaction/validate_customer_reference_response.dart';
 import 'package:nave_app/domain/entities/Transaction_ref.dart' as tr;
 import 'package:nave_app/domain/repositories/transaction_repository.dart';
 
@@ -129,6 +131,11 @@ class TransactionRepositoryTestImpl extends TransactionRepository{
             uniqueId: '1234'
 
         )));
+  }
+
+  @override
+  Future<ValidateCustomerReferenceResponse> validateCustomerReference(ValidateCustomerReferenceRequest request) async{
+    return await Future.delayed(Duration.zero, () => ValidateCustomerReferenceResponse(customerName: "Lewis Msasa", success: true));
   }
 
 }

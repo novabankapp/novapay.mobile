@@ -1,5 +1,6 @@
 
 import 'package:injectable/injectable.dart';
+import 'package:nave_app/data/remote/models/auth/change_password_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/google_login_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_request.dart';
 import 'package:nave_app/data/remote/models/auth/login/login_response_wrapper.dart';
@@ -91,6 +92,11 @@ class AuthenticationRepositoryImpl implements AuthenticationRepository{
   @override
   Future<LoginResponseWrapper> resetPassword(ResetPasswordRequest request) {
     return _authenticationApiProvider.resetPassword(request);
+  }
+
+  @override
+  Future<GeneralResponse> changePassword(ChangePasswordRequest request) {
+    return _authenticationApiProvider.changePassword(request);
   }
 
 }
