@@ -1,9 +1,13 @@
+import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$getBankTransactionPaginated {
-  factory Variables$Query$getBankTransactionPaginated(
-          {int? bankRef, int? page, int? size}) =>
+  factory Variables$Query$getBankTransactionPaginated({
+    String? bankRef,
+    int? page,
+    int? size,
+  }) =>
       Variables$Query$getBankTransactionPaginated._({
         if (bankRef != null) r'bankRef': bankRef,
         if (page != null) r'page': page,
@@ -17,7 +21,7 @@ class Variables$Query$getBankTransactionPaginated {
     final result$data = <String, dynamic>{};
     if (data.containsKey('bankRef')) {
       final l$bankRef = data['bankRef'];
-      result$data['bankRef'] = (l$bankRef as int?);
+      result$data['bankRef'] = (l$bankRef as String?);
     }
     if (data.containsKey('page')) {
       final l$page = data['page'];
@@ -32,7 +36,7 @@ class Variables$Query$getBankTransactionPaginated {
 
   Map<String, dynamic> _$data;
 
-  int? get bankRef => (_$data['bankRef'] as int?);
+  String? get bankRef => (_$data['bankRef'] as String?);
   int? get page => (_$data['page'] as int?);
   int? get size => (_$data['size'] as int?);
   Map<String, dynamic> toJson() {
@@ -54,8 +58,10 @@ class Variables$Query$getBankTransactionPaginated {
 
   CopyWith$Variables$Query$getBankTransactionPaginated<
           Variables$Query$getBankTransactionPaginated>
-      get copyWith =>
-          CopyWith$Variables$Query$getBankTransactionPaginated(this, (i) => i);
+      get copyWith => CopyWith$Variables$Query$getBankTransactionPaginated(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -100,41 +106,48 @@ class Variables$Query$getBankTransactionPaginated {
     return Object.hashAll([
       _$data.containsKey('bankRef') ? l$bankRef : const {},
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getBankTransactionPaginated<TRes> {
   factory CopyWith$Variables$Query$getBankTransactionPaginated(
-          Variables$Query$getBankTransactionPaginated instance,
-          TRes Function(Variables$Query$getBankTransactionPaginated) then) =
-      _CopyWithImpl$Variables$Query$getBankTransactionPaginated;
+    Variables$Query$getBankTransactionPaginated instance,
+    TRes Function(Variables$Query$getBankTransactionPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getBankTransactionPaginated;
 
   factory CopyWith$Variables$Query$getBankTransactionPaginated.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$getBankTransactionPaginated;
 
-  TRes call({int? bankRef, int? page, int? size});
+  TRes call({
+    String? bankRef,
+    int? page,
+    int? size,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getBankTransactionPaginated<TRes>
     implements CopyWith$Variables$Query$getBankTransactionPaginated<TRes> {
   _CopyWithImpl$Variables$Query$getBankTransactionPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getBankTransactionPaginated _instance;
 
   final TRes Function(Variables$Query$getBankTransactionPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? bankRef = _undefined,
-          Object? page = _undefined,
-          Object? size = _undefined}) =>
+  TRes call({
+    Object? bankRef = _undefined,
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
       _then(Variables$Query$getBankTransactionPaginated._({
         ..._instance._$data,
-        if (bankRef != _undefined) 'bankRef': (bankRef as int?),
+        if (bankRef != _undefined) 'bankRef': (bankRef as String?),
         if (page != _undefined) 'page': (page as int?),
         if (size != _undefined) 'size': (size as int?),
       }));
@@ -146,26 +159,34 @@ class _CopyWithStubImpl$Variables$Query$getBankTransactionPaginated<TRes>
 
   TRes _res;
 
-  call({int? bankRef, int? page, int? size}) => _res;
+  call({
+    String? bankRef,
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
 class Query$getBankTransactionPaginated {
-  Query$getBankTransactionPaginated(
-      {this.bankTransactionRefPaginated, required this.$__typename});
+  Query$getBankTransactionPaginated({
+    this.bankTransactionRefPaginated,
+    this.$__typename = 'TransactionReferenceQuery',
+  });
 
   factory Query$getBankTransactionPaginated.fromJson(
       Map<String, dynamic> json) {
     final l$bankTransactionRefPaginated = json['bankTransactionRefPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getBankTransactionPaginated(
-        bankTransactionRefPaginated: (l$bankTransactionRefPaginated
-                as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getBankTransactionPaginated$bankTransactionRefPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      bankTransactionRefPaginated: (l$bankTransactionRefPaginated
+              as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getBankTransactionPaginated$bankTransactionRefPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<Query$getBankTransactionPaginated$bankTransactionRefPaginated?>?
@@ -191,7 +212,7 @@ class Query$getBankTransactionPaginated {
       l$bankTransactionRefPaginated == null
           ? null
           : Object.hashAll(l$bankTransactionRefPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -239,23 +260,26 @@ class Query$getBankTransactionPaginated {
 extension UtilityExtension$Query$getBankTransactionPaginated
     on Query$getBankTransactionPaginated {
   CopyWith$Query$getBankTransactionPaginated<Query$getBankTransactionPaginated>
-      get copyWith =>
-          CopyWith$Query$getBankTransactionPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getBankTransactionPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBankTransactionPaginated<TRes> {
   factory CopyWith$Query$getBankTransactionPaginated(
-          Query$getBankTransactionPaginated instance,
-          TRes Function(Query$getBankTransactionPaginated) then) =
-      _CopyWithImpl$Query$getBankTransactionPaginated;
+    Query$getBankTransactionPaginated instance,
+    TRes Function(Query$getBankTransactionPaginated) then,
+  ) = _CopyWithImpl$Query$getBankTransactionPaginated;
 
   factory CopyWith$Query$getBankTransactionPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getBankTransactionPaginated;
 
-  TRes call(
-      {List<Query$getBankTransactionPaginated$bankTransactionRefPaginated?>?
-          bankTransactionRefPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getBankTransactionPaginated$bankTransactionRefPaginated?>?
+        bankTransactionRefPaginated,
+    String? $__typename,
+  });
   TRes bankTransactionRefPaginated(
       Iterable<Query$getBankTransactionPaginated$bankTransactionRefPaginated?>? Function(
               Iterable<
@@ -266,25 +290,30 @@ abstract class CopyWith$Query$getBankTransactionPaginated<TRes> {
 
 class _CopyWithImpl$Query$getBankTransactionPaginated<TRes>
     implements CopyWith$Query$getBankTransactionPaginated<TRes> {
-  _CopyWithImpl$Query$getBankTransactionPaginated(this._instance, this._then);
+  _CopyWithImpl$Query$getBankTransactionPaginated(
+    this._instance,
+    this._then,
+  );
 
   final Query$getBankTransactionPaginated _instance;
 
   final TRes Function(Query$getBankTransactionPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? bankTransactionRefPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? bankTransactionRefPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBankTransactionPaginated(
-          bankTransactionRefPaginated: bankTransactionRefPaginated == _undefined
-              ? _instance.bankTransactionRefPaginated
-              : (bankTransactionRefPaginated as List<
-                  Query$getBankTransactionPaginated$bankTransactionRefPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        bankTransactionRefPaginated: bankTransactionRefPaginated == _undefined
+            ? _instance.bankTransactionRefPaginated
+            : (bankTransactionRefPaginated as List<
+                Query$getBankTransactionPaginated$bankTransactionRefPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes bankTransactionRefPaginated(
           Iterable<Query$getBankTransactionPaginated$bankTransactionRefPaginated?>? Function(
                   Iterable<
@@ -292,11 +321,13 @@ class _CopyWithImpl$Query$getBankTransactionPaginated<TRes>
                           Query$getBankTransactionPaginated$bankTransactionRefPaginated>?>?)
               _fn) =>
       call(
-          bankTransactionRefPaginated: _fn(_instance.bankTransactionRefPaginated
-              ?.map((e) => e == null
+          bankTransactionRefPaginated:
+              _fn(_instance.bankTransactionRefPaginated?.map((e) => e == null
                   ? null
                   : CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated(
-                      e, (i) => i)))?.toList());
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getBankTransactionPaginated<TRes>
@@ -305,239 +336,308 @@ class _CopyWithStubImpl$Query$getBankTransactionPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getBankTransactionPaginated$bankTransactionRefPaginated?>?
-              bankTransactionRefPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getBankTransactionPaginated$bankTransactionRefPaginated?>?
+        bankTransactionRefPaginated,
+    String? $__typename,
+  }) =>
       _res;
   bankTransactionRefPaginated(_fn) => _res;
 }
 
 const documentNodeQuerygetBankTransactionPaginated = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getBankTransactionPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'bankRef')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'bankTransactionRefPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getBankTransactionPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'bankRef')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'bankTransactionRefPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'bankRef'),
+            value: VariableNode(name: NameNode(value: 'bankRef')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'trn'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'bankRef'),
-                  value: VariableNode(name: NameNode(value: 'bankRef'))),
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'customer_ref'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'used'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'amount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'service_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'merchant'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'trn'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'customer_ref'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'used'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'amount'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'service_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'bank_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'merchant'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: 'bank'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getBankTransactionPaginated _parserFn$Query$getBankTransactionPaginated(
         Map<String, dynamic> data) =>
     Query$getBankTransactionPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getBankTransactionPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getBankTransactionPaginated?,
+);
 
 class Options$Query$getBankTransactionPaginated
     extends graphql.QueryOptions<Query$getBankTransactionPaginated> {
-  Options$Query$getBankTransactionPaginated(
-      {String? operationName,
-      Variables$Query$getBankTransactionPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetBankTransactionPaginated,
-            parserFn: _parserFn$Query$getBankTransactionPaginated);
+  Options$Query$getBankTransactionPaginated({
+    String? operationName,
+    Variables$Query$getBankTransactionPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBankTransactionPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getBankTransactionPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getBankTransactionPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetBankTransactionPaginated,
+          parserFn: _parserFn$Query$getBankTransactionPaginated,
+        );
+
+  final OnQueryComplete$Query$getBankTransactionPaginated? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getBankTransactionPaginated
     extends graphql.WatchQueryOptions<Query$getBankTransactionPaginated> {
-  WatchOptions$Query$getBankTransactionPaginated(
-      {String? operationName,
-      Variables$Query$getBankTransactionPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetBankTransactionPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getBankTransactionPaginated);
+  WatchOptions$Query$getBankTransactionPaginated({
+    String? operationName,
+    Variables$Query$getBankTransactionPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBankTransactionPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetBankTransactionPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getBankTransactionPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getBankTransactionPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getBankTransactionPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getBankTransactionPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetBankTransactionPaginated);
+  FetchMoreOptions$Query$getBankTransactionPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getBankTransactionPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetBankTransactionPaginated,
+        );
 }
 
 extension ClientExtension$Query$getBankTransactionPaginated
@@ -552,26 +652,32 @@ extension ClientExtension$Query$getBankTransactionPaginated
               [WatchOptions$Query$getBankTransactionPaginated? options]) =>
           this.watchQuery(
               options ?? WatchOptions$Query$getBankTransactionPaginated());
-  void writeQuery$getBankTransactionPaginated(
-          {required Query$getBankTransactionPaginated data,
-          Variables$Query$getBankTransactionPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getBankTransactionPaginated({
+    required Query$getBankTransactionPaginated data,
+    Variables$Query$getBankTransactionPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetBankTransactionPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getBankTransactionPaginated? readQuery$getBankTransactionPaginated(
-      {Variables$Query$getBankTransactionPaginated? variables,
-      bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetBankTransactionPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetBankTransactionPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getBankTransactionPaginated? readQuery$getBankTransactionPaginated({
+    Variables$Query$getBankTransactionPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetBankTransactionPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
         : Query$getBankTransactionPaginated.fromJson(result);
@@ -579,17 +685,18 @@ extension ClientExtension$Query$getBankTransactionPaginated
 }
 
 class Query$getBankTransactionPaginated$bankTransactionRefPaginated {
-  Query$getBankTransactionPaginated$bankTransactionRefPaginated(
-      {required this.trn,
-      required this.customer_ref,
-      required this.used,
-      this.amount,
-      required this.service_id,
-      required this.bank_id,
-      this.created_at,
-      this.merchant,
-      this.bank,
-      required this.$__typename});
+  Query$getBankTransactionPaginated$bankTransactionRefPaginated({
+    required this.trn,
+    required this.customer_ref,
+    required this.used,
+    this.amount,
+    required this.service_id,
+    required this.bank_id,
+    this.created_at,
+    this.merchant,
+    this.bank,
+    this.$__typename = 'TransactionReferenceNumber',
+  });
 
   factory Query$getBankTransactionPaginated$bankTransactionRefPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -604,22 +711,23 @@ class Query$getBankTransactionPaginated$bankTransactionRefPaginated {
     final l$bank = json['bank'];
     final l$$__typename = json['__typename'];
     return Query$getBankTransactionPaginated$bankTransactionRefPaginated(
-        trn: (l$trn as String),
-        customer_ref: (l$customer_ref as String),
-        used: (l$used as bool),
-        amount: (l$amount as String?),
-        service_id: (l$service_id as String),
-        bank_id: (l$bank_id as String),
-        created_at: (l$created_at as String?),
-        merchant: l$merchant == null
-            ? null
-            : Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant
-                .fromJson((l$merchant as Map<String, dynamic>)),
-        bank: l$bank == null
-            ? null
-            : Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank
-                .fromJson((l$bank as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      trn: (l$trn as String),
+      customer_ref: (l$customer_ref as String),
+      used: (l$used as bool),
+      amount: (l$amount as String?),
+      service_id: (l$service_id as String),
+      bank_id: (l$bank_id as String),
+      created_at: (l$created_at as String?),
+      merchant: l$merchant == null
+          ? null
+          : Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant
+              .fromJson((l$merchant as Map<String, dynamic>)),
+      bank: l$bank == null
+          ? null
+          : Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank
+              .fromJson((l$bank as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String trn;
@@ -691,7 +799,7 @@ class Query$getBankTransactionPaginated$bankTransactionRefPaginated {
       l$created_at,
       l$merchant,
       l$bank,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -765,34 +873,36 @@ extension UtilityExtension$Query$getBankTransactionPaginated$bankTransactionRefP
           Query$getBankTransactionPaginated$bankTransactionRefPaginated>
       get copyWith =>
           CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated<
     TRes> {
   factory CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated(
-          Query$getBankTransactionPaginated$bankTransactionRefPaginated instance,
-          TRes Function(
-                  Query$getBankTransactionPaginated$bankTransactionRefPaginated)
-              then) =
-      _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated;
+    Query$getBankTransactionPaginated$bankTransactionRefPaginated instance,
+    TRes Function(Query$getBankTransactionPaginated$bankTransactionRefPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated;
 
   factory CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated;
 
-  TRes call(
-      {String? trn,
-      String? customer_ref,
-      bool? used,
-      String? amount,
-      String? service_id,
-      String? bank_id,
-      String? created_at,
-      Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant?
-          merchant,
-      Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank? bank,
-      String? $__typename});
+  TRes call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant?
+        merchant,
+    Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank? bank,
+    String? $__typename,
+  });
   CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant<
       TRes> get merchant;
   CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank<
@@ -805,57 +915,59 @@ class _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginate
         CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated<
             TRes> {
   _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBankTransactionPaginated$bankTransactionRefPaginated _instance;
 
   final TRes Function(
       Query$getBankTransactionPaginated$bankTransactionRefPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? trn = _undefined,
-          Object? customer_ref = _undefined,
-          Object? used = _undefined,
-          Object? amount = _undefined,
-          Object? service_id = _undefined,
-          Object? bank_id = _undefined,
-          Object? created_at = _undefined,
-          Object? merchant = _undefined,
-          Object? bank = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? trn = _undefined,
+    Object? customer_ref = _undefined,
+    Object? used = _undefined,
+    Object? amount = _undefined,
+    Object? service_id = _undefined,
+    Object? bank_id = _undefined,
+    Object? created_at = _undefined,
+    Object? merchant = _undefined,
+    Object? bank = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBankTransactionPaginated$bankTransactionRefPaginated(
-          trn: trn == _undefined || trn == null
-              ? _instance.trn
-              : (trn as String),
-          customer_ref: customer_ref == _undefined || customer_ref == null
-              ? _instance.customer_ref
-              : (customer_ref as String),
-          used: used == _undefined || used == null
-              ? _instance.used
-              : (used as bool),
-          amount: amount == _undefined ? _instance.amount : (amount as String?),
-          service_id: service_id == _undefined || service_id == null
-              ? _instance.service_id
-              : (service_id as String),
-          bank_id: bank_id == _undefined || bank_id == null
-              ? _instance.bank_id
-              : (bank_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          merchant: merchant == _undefined
-              ? _instance.merchant
-              : (merchant
-                  as Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant?),
-          bank: bank == _undefined
-              ? _instance.bank
-              : (bank
-                  as Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        trn: trn == _undefined || trn == null ? _instance.trn : (trn as String),
+        customer_ref: customer_ref == _undefined || customer_ref == null
+            ? _instance.customer_ref
+            : (customer_ref as String),
+        used: used == _undefined || used == null
+            ? _instance.used
+            : (used as bool),
+        amount: amount == _undefined ? _instance.amount : (amount as String?),
+        service_id: service_id == _undefined || service_id == null
+            ? _instance.service_id
+            : (service_id as String),
+        bank_id: bank_id == _undefined || bank_id == null
+            ? _instance.bank_id
+            : (bank_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        merchant: merchant == _undefined
+            ? _instance.merchant
+            : (merchant
+                as Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant?),
+        bank: bank == _undefined
+            ? _instance.bank
+            : (bank
+                as Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant<
       TRes> get merchant {
     final local$merchant = _instance.merchant;
@@ -887,19 +999,19 @@ class _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPagi
 
   TRes _res;
 
-  call(
-          {String? trn,
-          String? customer_ref,
-          bool? used,
-          String? amount,
-          String? service_id,
-          String? bank_id,
-          String? created_at,
-          Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant?
-              merchant,
-          Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank?
-              bank,
-          String? $__typename}) =>
+  call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant?
+        merchant,
+    Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank? bank,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant<
           TRes>
@@ -914,11 +1026,12 @@ class _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPagi
 }
 
 class Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant {
-  Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'Merchant',
+  });
 
   factory Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant.fromJson(
       Map<String, dynamic> json) {
@@ -927,10 +1040,11 @@ class Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant {
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -960,7 +1074,12 @@ class Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant {
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1003,24 +1122,31 @@ extension UtilityExtension$Query$getBankTransactionPaginated$bankTransactionRefP
           Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant>
       get copyWith =>
           CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant<
     TRes> {
   factory CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant(
-          Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant
-              instance,
-          TRes Function(
-                  Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant)
-              then) =
-      _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant;
+    Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant
+        instance,
+    TRes Function(
+            Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant)
+        then,
+  ) = _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant;
 
   factory CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant<
@@ -1029,7 +1155,9 @@ class _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginate
         CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant<
             TRes> {
   _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant
       _instance;
@@ -1038,25 +1166,27 @@ class _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginate
           Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$merchant<
@@ -1069,15 +1199,22 @@ class _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPagi
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank {
-  Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank.fromJson(
       Map<String, dynamic> json) {
@@ -1086,10 +1223,11 @@ class Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank {
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -1119,7 +1257,12 @@ class Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank {
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1162,24 +1305,30 @@ extension UtilityExtension$Query$getBankTransactionPaginated$bankTransactionRefP
           Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank>
       get copyWith =>
           CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank<
     TRes> {
   factory CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank(
-          Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank
-              instance,
-          TRes Function(
-                  Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank)
-              then) =
-      _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank;
+    Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank instance,
+    TRes Function(
+            Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank)
+        then,
+  ) = _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank;
 
   factory CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank<
@@ -1188,7 +1337,9 @@ class _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginate
         CopyWith$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank<
             TRes> {
   _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank
       _instance;
@@ -1196,24 +1347,26 @@ class _CopyWithImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginate
   final TRes Function(
       Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          unique_id: unique_id == _undefined || unique_id == null
-              ? _instance.unique_id
-              : (unique_id as String),
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPaginated$bank<
@@ -1226,12 +1379,21 @@ class _CopyWithStubImpl$Query$getBankTransactionPaginated$bankTransactionRefPagi
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Query$getCustomerTransactionPaginated {
-  factory Variables$Query$getCustomerTransactionPaginated(
-          {String? customerRef, int? page, int? size}) =>
+  factory Variables$Query$getCustomerTransactionPaginated({
+    String? customerRef,
+    int? page,
+    int? size,
+  }) =>
       Variables$Query$getCustomerTransactionPaginated._({
         if (customerRef != null) r'customerRef': customerRef,
         if (page != null) r'page': page,
@@ -1283,7 +1445,9 @@ class Variables$Query$getCustomerTransactionPaginated {
   CopyWith$Variables$Query$getCustomerTransactionPaginated<
           Variables$Query$getCustomerTransactionPaginated>
       get copyWith => CopyWith$Variables$Query$getCustomerTransactionPaginated(
-          this, (i) => i);
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1329,39 +1493,46 @@ class Variables$Query$getCustomerTransactionPaginated {
     return Object.hashAll([
       _$data.containsKey('customerRef') ? l$customerRef : const {},
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getCustomerTransactionPaginated<TRes> {
   factory CopyWith$Variables$Query$getCustomerTransactionPaginated(
-          Variables$Query$getCustomerTransactionPaginated instance,
-          TRes Function(Variables$Query$getCustomerTransactionPaginated) then) =
-      _CopyWithImpl$Variables$Query$getCustomerTransactionPaginated;
+    Variables$Query$getCustomerTransactionPaginated instance,
+    TRes Function(Variables$Query$getCustomerTransactionPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getCustomerTransactionPaginated;
 
   factory CopyWith$Variables$Query$getCustomerTransactionPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Variables$Query$getCustomerTransactionPaginated;
 
-  TRes call({String? customerRef, int? page, int? size});
+  TRes call({
+    String? customerRef,
+    int? page,
+    int? size,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getCustomerTransactionPaginated<TRes>
     implements CopyWith$Variables$Query$getCustomerTransactionPaginated<TRes> {
   _CopyWithImpl$Variables$Query$getCustomerTransactionPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getCustomerTransactionPaginated _instance;
 
   final TRes Function(Variables$Query$getCustomerTransactionPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? customerRef = _undefined,
-          Object? page = _undefined,
-          Object? size = _undefined}) =>
+  TRes call({
+    Object? customerRef = _undefined,
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
       _then(Variables$Query$getCustomerTransactionPaginated._({
         ..._instance._$data,
         if (customerRef != _undefined) 'customerRef': (customerRef as String?),
@@ -1376,12 +1547,19 @@ class _CopyWithStubImpl$Variables$Query$getCustomerTransactionPaginated<TRes>
 
   TRes _res;
 
-  call({String? customerRef, int? page, int? size}) => _res;
+  call({
+    String? customerRef,
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
 class Query$getCustomerTransactionPaginated {
-  Query$getCustomerTransactionPaginated(
-      {this.customerTransactionRefPaginated, required this.$__typename});
+  Query$getCustomerTransactionPaginated({
+    this.customerTransactionRefPaginated,
+    this.$__typename = 'TransactionReferenceQuery',
+  });
 
   factory Query$getCustomerTransactionPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -1389,14 +1567,15 @@ class Query$getCustomerTransactionPaginated {
         json['customerTransactionRefPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getCustomerTransactionPaginated(
-        customerTransactionRefPaginated: (l$customerTransactionRefPaginated
-                as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getCustomerTransactionPaginated$customerTransactionRefPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      customerTransactionRefPaginated: (l$customerTransactionRefPaginated
+              as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getCustomerTransactionPaginated$customerTransactionRefPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<
@@ -1423,7 +1602,7 @@ class Query$getCustomerTransactionPaginated {
       l$customerTransactionRefPaginated == null
           ? null
           : Object.hashAll(l$customerTransactionRefPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -1472,23 +1651,26 @@ extension UtilityExtension$Query$getCustomerTransactionPaginated
     on Query$getCustomerTransactionPaginated {
   CopyWith$Query$getCustomerTransactionPaginated<
           Query$getCustomerTransactionPaginated>
-      get copyWith =>
-          CopyWith$Query$getCustomerTransactionPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getCustomerTransactionPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getCustomerTransactionPaginated<TRes> {
   factory CopyWith$Query$getCustomerTransactionPaginated(
-          Query$getCustomerTransactionPaginated instance,
-          TRes Function(Query$getCustomerTransactionPaginated) then) =
-      _CopyWithImpl$Query$getCustomerTransactionPaginated;
+    Query$getCustomerTransactionPaginated instance,
+    TRes Function(Query$getCustomerTransactionPaginated) then,
+  ) = _CopyWithImpl$Query$getCustomerTransactionPaginated;
 
   factory CopyWith$Query$getCustomerTransactionPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getCustomerTransactionPaginated;
 
-  TRes call(
-      {List<Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>?
-          customerTransactionRefPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>?
+        customerTransactionRefPaginated,
+    String? $__typename,
+  });
   TRes customerTransactionRefPaginated(
       Iterable<Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>? Function(
               Iterable<
@@ -1500,26 +1682,30 @@ abstract class CopyWith$Query$getCustomerTransactionPaginated<TRes> {
 class _CopyWithImpl$Query$getCustomerTransactionPaginated<TRes>
     implements CopyWith$Query$getCustomerTransactionPaginated<TRes> {
   _CopyWithImpl$Query$getCustomerTransactionPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getCustomerTransactionPaginated _instance;
 
   final TRes Function(Query$getCustomerTransactionPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? customerTransactionRefPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? customerTransactionRefPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getCustomerTransactionPaginated(
-          customerTransactionRefPaginated: customerTransactionRefPaginated ==
-                  _undefined
-              ? _instance.customerTransactionRefPaginated
-              : (customerTransactionRefPaginated as List<
-                  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        customerTransactionRefPaginated: customerTransactionRefPaginated ==
+                _undefined
+            ? _instance.customerTransactionRefPaginated
+            : (customerTransactionRefPaginated as List<
+                Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes customerTransactionRefPaginated(
           Iterable<Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>? Function(
                   Iterable<
@@ -1531,7 +1717,9 @@ class _CopyWithImpl$Query$getCustomerTransactionPaginated<TRes>
               _instance.customerTransactionRefPaginated?.map((e) => e == null
                   ? null
                   : CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
-                      e, (i) => i)))?.toList());
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getCustomerTransactionPaginated<TRes>
@@ -1540,10 +1728,11 @@ class _CopyWithStubImpl$Query$getCustomerTransactionPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>?
-              customerTransactionRefPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getCustomerTransactionPaginated$customerTransactionRefPaginated?>?
+        customerTransactionRefPaginated,
+    String? $__typename,
+  }) =>
       _res;
   customerTransactionRefPaginated(_fn) => _res;
 }
@@ -1551,231 +1740,299 @@ class _CopyWithStubImpl$Query$getCustomerTransactionPaginated<TRes>
 const documentNodeQuerygetCustomerTransactionPaginated =
     DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getCustomerTransactionPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'customerRef')),
-            type: NamedTypeNode(
-                name: NameNode(value: 'String'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'customerTransactionRefPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getCustomerTransactionPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'customerRef')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'customerTransactionRefPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'customerRef'),
+            value: VariableNode(name: NameNode(value: 'customerRef')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'trn'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'customerRef'),
-                  value: VariableNode(name: NameNode(value: 'customerRef'))),
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'customer_ref'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'used'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'amount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'service_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'merchant'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'trn'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'customer_ref'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'used'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'amount'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'service_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'bank_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'merchant'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: 'bank'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getCustomerTransactionPaginated
     _parserFn$Query$getCustomerTransactionPaginated(
             Map<String, dynamic> data) =>
         Query$getCustomerTransactionPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getCustomerTransactionPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getCustomerTransactionPaginated?,
+);
 
 class Options$Query$getCustomerTransactionPaginated
     extends graphql.QueryOptions<Query$getCustomerTransactionPaginated> {
-  Options$Query$getCustomerTransactionPaginated(
-      {String? operationName,
-      Variables$Query$getCustomerTransactionPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetCustomerTransactionPaginated,
-            parserFn: _parserFn$Query$getCustomerTransactionPaginated);
+  Options$Query$getCustomerTransactionPaginated({
+    String? operationName,
+    Variables$Query$getCustomerTransactionPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getCustomerTransactionPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getCustomerTransactionPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getCustomerTransactionPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetCustomerTransactionPaginated,
+          parserFn: _parserFn$Query$getCustomerTransactionPaginated,
+        );
+
+  final OnQueryComplete$Query$getCustomerTransactionPaginated?
+      onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getCustomerTransactionPaginated
     extends graphql.WatchQueryOptions<Query$getCustomerTransactionPaginated> {
-  WatchOptions$Query$getCustomerTransactionPaginated(
-      {String? operationName,
-      Variables$Query$getCustomerTransactionPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetCustomerTransactionPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getCustomerTransactionPaginated);
+  WatchOptions$Query$getCustomerTransactionPaginated({
+    String? operationName,
+    Variables$Query$getCustomerTransactionPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getCustomerTransactionPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetCustomerTransactionPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getCustomerTransactionPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getCustomerTransactionPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getCustomerTransactionPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getCustomerTransactionPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetCustomerTransactionPaginated);
+  FetchMoreOptions$Query$getCustomerTransactionPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getCustomerTransactionPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetCustomerTransactionPaginated,
+        );
 }
 
 extension ClientExtension$Query$getCustomerTransactionPaginated
@@ -1790,27 +2047,33 @@ extension ClientExtension$Query$getCustomerTransactionPaginated
               [WatchOptions$Query$getCustomerTransactionPaginated? options]) =>
           this.watchQuery(
               options ?? WatchOptions$Query$getCustomerTransactionPaginated());
-  void writeQuery$getCustomerTransactionPaginated(
-          {required Query$getCustomerTransactionPaginated data,
-          Variables$Query$getCustomerTransactionPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getCustomerTransactionPaginated({
+    required Query$getCustomerTransactionPaginated data,
+    Variables$Query$getCustomerTransactionPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetCustomerTransactionPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getCustomerTransactionPaginated?
-      readQuery$getCustomerTransactionPaginated(
-          {Variables$Query$getCustomerTransactionPaginated? variables,
-          bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetCustomerTransactionPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetCustomerTransactionPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getCustomerTransactionPaginated?
+      readQuery$getCustomerTransactionPaginated({
+    Variables$Query$getCustomerTransactionPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetCustomerTransactionPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
         : Query$getCustomerTransactionPaginated.fromJson(result);
@@ -1818,17 +2081,18 @@ extension ClientExtension$Query$getCustomerTransactionPaginated
 }
 
 class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated {
-  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
-      {required this.trn,
-      required this.customer_ref,
-      required this.used,
-      this.amount,
-      required this.service_id,
-      required this.bank_id,
-      this.created_at,
-      this.merchant,
-      this.bank,
-      required this.$__typename});
+  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated({
+    required this.trn,
+    required this.customer_ref,
+    required this.used,
+    this.amount,
+    required this.service_id,
+    required this.bank_id,
+    this.created_at,
+    this.merchant,
+    this.bank,
+    this.$__typename = 'TransactionReferenceNumber',
+  });
 
   factory Query$getCustomerTransactionPaginated$customerTransactionRefPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -1843,22 +2107,23 @@ class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated {
     final l$bank = json['bank'];
     final l$$__typename = json['__typename'];
     return Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
-        trn: (l$trn as String),
-        customer_ref: (l$customer_ref as String),
-        used: (l$used as bool),
-        amount: (l$amount as String?),
-        service_id: (l$service_id as String),
-        bank_id: (l$bank_id as String),
-        created_at: (l$created_at as String?),
-        merchant: l$merchant == null
-            ? null
-            : Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant
-                .fromJson((l$merchant as Map<String, dynamic>)),
-        bank: l$bank == null
-            ? null
-            : Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank
-                .fromJson((l$bank as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      trn: (l$trn as String),
+      customer_ref: (l$customer_ref as String),
+      used: (l$used as bool),
+      amount: (l$amount as String?),
+      service_id: (l$service_id as String),
+      bank_id: (l$bank_id as String),
+      created_at: (l$created_at as String?),
+      merchant: l$merchant == null
+          ? null
+          : Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant
+              .fromJson((l$merchant as Map<String, dynamic>)),
+      bank: l$bank == null
+          ? null
+          : Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank
+              .fromJson((l$bank as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String trn;
@@ -1930,7 +2195,7 @@ class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated {
       l$created_at,
       l$merchant,
       l$bank,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -2004,36 +2269,39 @@ extension UtilityExtension$Query$getCustomerTransactionPaginated$customerTransac
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated>
       get copyWith =>
           CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated<
     TRes> {
   factory CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
-          Query$getCustomerTransactionPaginated$customerTransactionRefPaginated
-              instance,
-          TRes Function(
-                  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated)
-              then) =
-      _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated;
+    Query$getCustomerTransactionPaginated$customerTransactionRefPaginated
+        instance,
+    TRes Function(
+            Query$getCustomerTransactionPaginated$customerTransactionRefPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated;
 
   factory CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated;
 
-  TRes call(
-      {String? trn,
-      String? customer_ref,
-      bool? used,
-      String? amount,
-      String? service_id,
-      String? bank_id,
-      String? created_at,
-      Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant?
-          merchant,
-      Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank?
-          bank,
-      String? $__typename});
+  TRes call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant?
+        merchant,
+    Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank?
+        bank,
+    String? $__typename,
+  });
   CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant<
       TRes> get merchant;
   CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank<
@@ -2046,7 +2314,9 @@ class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRef
         CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated<
             TRes> {
   _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getCustomerTransactionPaginated$customerTransactionRefPaginated
       _instance;
@@ -2055,50 +2325,51 @@ class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRef
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? trn = _undefined,
-          Object? customer_ref = _undefined,
-          Object? used = _undefined,
-          Object? amount = _undefined,
-          Object? service_id = _undefined,
-          Object? bank_id = _undefined,
-          Object? created_at = _undefined,
-          Object? merchant = _undefined,
-          Object? bank = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
-          trn: trn == _undefined || trn == null
-              ? _instance.trn
-              : (trn as String),
-          customer_ref: customer_ref == _undefined || customer_ref == null
-              ? _instance.customer_ref
-              : (customer_ref as String),
-          used: used == _undefined || used == null
-              ? _instance.used
-              : (used as bool),
-          amount: amount == _undefined ? _instance.amount : (amount as String?),
-          service_id: service_id == _undefined || service_id == null
-              ? _instance.service_id
-              : (service_id as String),
-          bank_id: bank_id == _undefined || bank_id == null
-              ? _instance.bank_id
-              : (bank_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          merchant: merchant == _undefined
-              ? _instance.merchant
-              : (merchant
-                  as Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant?),
-          bank: bank == _undefined
-              ? _instance.bank
-              : (bank
-                  as Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({
+    Object? trn = _undefined,
+    Object? customer_ref = _undefined,
+    Object? used = _undefined,
+    Object? amount = _undefined,
+    Object? service_id = _undefined,
+    Object? bank_id = _undefined,
+    Object? created_at = _undefined,
+    Object? merchant = _undefined,
+    Object? bank = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Query$getCustomerTransactionPaginated$customerTransactionRefPaginated(
+        trn: trn == _undefined || trn == null ? _instance.trn : (trn as String),
+        customer_ref: customer_ref == _undefined || customer_ref == null
+            ? _instance.customer_ref
+            : (customer_ref as String),
+        used: used == _undefined || used == null
+            ? _instance.used
+            : (used as bool),
+        amount: amount == _undefined ? _instance.amount : (amount as String?),
+        service_id: service_id == _undefined || service_id == null
+            ? _instance.service_id
+            : (service_id as String),
+        bank_id: bank_id == _undefined || bank_id == null
+            ? _instance.bank_id
+            : (bank_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        merchant: merchant == _undefined
+            ? _instance.merchant
+            : (merchant
+                as Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant?),
+        bank: bank == _undefined
+            ? _instance.bank
+            : (bank
+                as Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant<
       TRes> get merchant {
     final local$merchant = _instance.merchant;
@@ -2130,19 +2401,20 @@ class _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactio
 
   TRes _res;
 
-  call(
-          {String? trn,
-          String? customer_ref,
-          bool? used,
-          String? amount,
-          String? service_id,
-          String? bank_id,
-          String? created_at,
-          Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant?
-              merchant,
-          Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank?
-              bank,
-          String? $__typename}) =>
+  call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant?
+        merchant,
+    Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank?
+        bank,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant<
           TRes>
@@ -2157,11 +2429,12 @@ class _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactio
 }
 
 class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant {
-  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'Merchant',
+  });
 
   factory Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant.fromJson(
       Map<String, dynamic> json) {
@@ -2170,10 +2443,11 @@ class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merc
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -2203,7 +2477,12 @@ class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merc
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -2246,24 +2525,31 @@ extension UtilityExtension$Query$getCustomerTransactionPaginated$customerTransac
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant>
       get copyWith =>
           CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant<
     TRes> {
   factory CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant(
-          Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant
-              instance,
-          TRes Function(
-                  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant)
-              then) =
-      _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant;
+    Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant
+        instance,
+    TRes Function(
+            Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant)
+        then,
+  ) = _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant;
 
   factory CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant<
@@ -2272,7 +2558,9 @@ class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRef
         CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant<
             TRes> {
   _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant
       _instance;
@@ -2281,25 +2569,27 @@ class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRef
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$merchant<
@@ -2312,15 +2602,22 @@ class _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactio
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank {
-  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank.fromJson(
       Map<String, dynamic> json) {
@@ -2329,10 +2626,11 @@ class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -2362,7 +2660,12 @@ class Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -2405,24 +2708,31 @@ extension UtilityExtension$Query$getCustomerTransactionPaginated$customerTransac
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank>
       get copyWith =>
           CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank<
     TRes> {
   factory CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank(
-          Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank
-              instance,
-          TRes Function(
-                  Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank)
-              then) =
-      _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank;
+    Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank
+        instance,
+    TRes Function(
+            Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank)
+        then,
+  ) = _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank;
 
   factory CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank<
@@ -2431,7 +2741,9 @@ class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRef
         CopyWith$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank<
             TRes> {
   _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank
       _instance;
@@ -2440,25 +2752,27 @@ class _CopyWithImpl$Query$getCustomerTransactionPaginated$customerTransactionRef
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactionRefPaginated$bank<
@@ -2471,12 +2785,21 @@ class _CopyWithStubImpl$Query$getCustomerTransactionPaginated$customerTransactio
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Query$getMerchantTransactionPaginated {
-  factory Variables$Query$getMerchantTransactionPaginated(
-          {int? merchantRef, int? page, int? size}) =>
+  factory Variables$Query$getMerchantTransactionPaginated({
+    String? merchantRef,
+    int? page,
+    int? size,
+  }) =>
       Variables$Query$getMerchantTransactionPaginated._({
         if (merchantRef != null) r'merchantRef': merchantRef,
         if (page != null) r'page': page,
@@ -2490,7 +2813,7 @@ class Variables$Query$getMerchantTransactionPaginated {
     final result$data = <String, dynamic>{};
     if (data.containsKey('merchantRef')) {
       final l$merchantRef = data['merchantRef'];
-      result$data['merchantRef'] = (l$merchantRef as int?);
+      result$data['merchantRef'] = (l$merchantRef as String?);
     }
     if (data.containsKey('page')) {
       final l$page = data['page'];
@@ -2505,7 +2828,7 @@ class Variables$Query$getMerchantTransactionPaginated {
 
   Map<String, dynamic> _$data;
 
-  int? get merchantRef => (_$data['merchantRef'] as int?);
+  String? get merchantRef => (_$data['merchantRef'] as String?);
   int? get page => (_$data['page'] as int?);
   int? get size => (_$data['size'] as int?);
   Map<String, dynamic> toJson() {
@@ -2528,7 +2851,9 @@ class Variables$Query$getMerchantTransactionPaginated {
   CopyWith$Variables$Query$getMerchantTransactionPaginated<
           Variables$Query$getMerchantTransactionPaginated>
       get copyWith => CopyWith$Variables$Query$getMerchantTransactionPaginated(
-          this, (i) => i);
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -2574,42 +2899,49 @@ class Variables$Query$getMerchantTransactionPaginated {
     return Object.hashAll([
       _$data.containsKey('merchantRef') ? l$merchantRef : const {},
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getMerchantTransactionPaginated<TRes> {
   factory CopyWith$Variables$Query$getMerchantTransactionPaginated(
-          Variables$Query$getMerchantTransactionPaginated instance,
-          TRes Function(Variables$Query$getMerchantTransactionPaginated) then) =
-      _CopyWithImpl$Variables$Query$getMerchantTransactionPaginated;
+    Variables$Query$getMerchantTransactionPaginated instance,
+    TRes Function(Variables$Query$getMerchantTransactionPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getMerchantTransactionPaginated;
 
   factory CopyWith$Variables$Query$getMerchantTransactionPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Variables$Query$getMerchantTransactionPaginated;
 
-  TRes call({int? merchantRef, int? page, int? size});
+  TRes call({
+    String? merchantRef,
+    int? page,
+    int? size,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getMerchantTransactionPaginated<TRes>
     implements CopyWith$Variables$Query$getMerchantTransactionPaginated<TRes> {
   _CopyWithImpl$Variables$Query$getMerchantTransactionPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getMerchantTransactionPaginated _instance;
 
   final TRes Function(Variables$Query$getMerchantTransactionPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? merchantRef = _undefined,
-          Object? page = _undefined,
-          Object? size = _undefined}) =>
+  TRes call({
+    Object? merchantRef = _undefined,
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
       _then(Variables$Query$getMerchantTransactionPaginated._({
         ..._instance._$data,
-        if (merchantRef != _undefined) 'merchantRef': (merchantRef as int?),
+        if (merchantRef != _undefined) 'merchantRef': (merchantRef as String?),
         if (page != _undefined) 'page': (page as int?),
         if (size != _undefined) 'size': (size as int?),
       }));
@@ -2621,12 +2953,19 @@ class _CopyWithStubImpl$Variables$Query$getMerchantTransactionPaginated<TRes>
 
   TRes _res;
 
-  call({int? merchantRef, int? page, int? size}) => _res;
+  call({
+    String? merchantRef,
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
 class Query$getMerchantTransactionPaginated {
-  Query$getMerchantTransactionPaginated(
-      {this.merchantTransactionRefPaginated, required this.$__typename});
+  Query$getMerchantTransactionPaginated({
+    this.merchantTransactionRefPaginated,
+    this.$__typename = 'TransactionReferenceQuery',
+  });
 
   factory Query$getMerchantTransactionPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -2634,14 +2973,15 @@ class Query$getMerchantTransactionPaginated {
         json['merchantTransactionRefPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getMerchantTransactionPaginated(
-        merchantTransactionRefPaginated: (l$merchantTransactionRefPaginated
-                as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      merchantTransactionRefPaginated: (l$merchantTransactionRefPaginated
+              as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<
@@ -2668,7 +3008,7 @@ class Query$getMerchantTransactionPaginated {
       l$merchantTransactionRefPaginated == null
           ? null
           : Object.hashAll(l$merchantTransactionRefPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -2717,23 +3057,26 @@ extension UtilityExtension$Query$getMerchantTransactionPaginated
     on Query$getMerchantTransactionPaginated {
   CopyWith$Query$getMerchantTransactionPaginated<
           Query$getMerchantTransactionPaginated>
-      get copyWith =>
-          CopyWith$Query$getMerchantTransactionPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getMerchantTransactionPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getMerchantTransactionPaginated<TRes> {
   factory CopyWith$Query$getMerchantTransactionPaginated(
-          Query$getMerchantTransactionPaginated instance,
-          TRes Function(Query$getMerchantTransactionPaginated) then) =
-      _CopyWithImpl$Query$getMerchantTransactionPaginated;
+    Query$getMerchantTransactionPaginated instance,
+    TRes Function(Query$getMerchantTransactionPaginated) then,
+  ) = _CopyWithImpl$Query$getMerchantTransactionPaginated;
 
   factory CopyWith$Query$getMerchantTransactionPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getMerchantTransactionPaginated;
 
-  TRes call(
-      {List<Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>?
-          merchantTransactionRefPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>?
+        merchantTransactionRefPaginated,
+    String? $__typename,
+  });
   TRes merchantTransactionRefPaginated(
       Iterable<Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>? Function(
               Iterable<
@@ -2745,26 +3088,30 @@ abstract class CopyWith$Query$getMerchantTransactionPaginated<TRes> {
 class _CopyWithImpl$Query$getMerchantTransactionPaginated<TRes>
     implements CopyWith$Query$getMerchantTransactionPaginated<TRes> {
   _CopyWithImpl$Query$getMerchantTransactionPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getMerchantTransactionPaginated _instance;
 
   final TRes Function(Query$getMerchantTransactionPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? merchantTransactionRefPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? merchantTransactionRefPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getMerchantTransactionPaginated(
-          merchantTransactionRefPaginated: merchantTransactionRefPaginated ==
-                  _undefined
-              ? _instance.merchantTransactionRefPaginated
-              : (merchantTransactionRefPaginated as List<
-                  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        merchantTransactionRefPaginated: merchantTransactionRefPaginated ==
+                _undefined
+            ? _instance.merchantTransactionRefPaginated
+            : (merchantTransactionRefPaginated as List<
+                Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes merchantTransactionRefPaginated(
           Iterable<Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>? Function(
                   Iterable<
@@ -2776,7 +3123,9 @@ class _CopyWithImpl$Query$getMerchantTransactionPaginated<TRes>
               _instance.merchantTransactionRefPaginated?.map((e) => e == null
                   ? null
                   : CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
-                      e, (i) => i)))?.toList());
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getMerchantTransactionPaginated<TRes>
@@ -2785,10 +3134,11 @@ class _CopyWithStubImpl$Query$getMerchantTransactionPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>?
-              merchantTransactionRefPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated?>?
+        merchantTransactionRefPaginated,
+    String? $__typename,
+  }) =>
       _res;
   merchantTransactionRefPaginated(_fn) => _res;
 }
@@ -2796,230 +3146,299 @@ class _CopyWithStubImpl$Query$getMerchantTransactionPaginated<TRes>
 const documentNodeQuerygetMerchantTransactionPaginated =
     DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getMerchantTransactionPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'merchantRef')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'merchantTransactionRefPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getMerchantTransactionPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'merchantRef')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'String'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'merchantTransactionRefPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'merchantRef'),
+            value: VariableNode(name: NameNode(value: 'merchantRef')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'trn'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'merchantRef'),
-                  value: VariableNode(name: NameNode(value: 'merchantRef'))),
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'customer_ref'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'used'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'amount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'service_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'merchant'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'trn'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'customer_ref'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'used'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'amount'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'service_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'bank_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'merchant'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: 'bank'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getMerchantTransactionPaginated
     _parserFn$Query$getMerchantTransactionPaginated(
             Map<String, dynamic> data) =>
         Query$getMerchantTransactionPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getMerchantTransactionPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getMerchantTransactionPaginated?,
+);
 
 class Options$Query$getMerchantTransactionPaginated
     extends graphql.QueryOptions<Query$getMerchantTransactionPaginated> {
-  Options$Query$getMerchantTransactionPaginated(
-      {String? operationName,
-      Variables$Query$getMerchantTransactionPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetMerchantTransactionPaginated,
-            parserFn: _parserFn$Query$getMerchantTransactionPaginated);
+  Options$Query$getMerchantTransactionPaginated({
+    String? operationName,
+    Variables$Query$getMerchantTransactionPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantTransactionPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getMerchantTransactionPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getMerchantTransactionPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetMerchantTransactionPaginated,
+          parserFn: _parserFn$Query$getMerchantTransactionPaginated,
+        );
+
+  final OnQueryComplete$Query$getMerchantTransactionPaginated?
+      onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getMerchantTransactionPaginated
     extends graphql.WatchQueryOptions<Query$getMerchantTransactionPaginated> {
-  WatchOptions$Query$getMerchantTransactionPaginated(
-      {String? operationName,
-      Variables$Query$getMerchantTransactionPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetMerchantTransactionPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getMerchantTransactionPaginated);
+  WatchOptions$Query$getMerchantTransactionPaginated({
+    String? operationName,
+    Variables$Query$getMerchantTransactionPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantTransactionPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetMerchantTransactionPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getMerchantTransactionPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getMerchantTransactionPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getMerchantTransactionPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getMerchantTransactionPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetMerchantTransactionPaginated);
+  FetchMoreOptions$Query$getMerchantTransactionPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getMerchantTransactionPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetMerchantTransactionPaginated,
+        );
 }
 
 extension ClientExtension$Query$getMerchantTransactionPaginated
@@ -3034,27 +3453,33 @@ extension ClientExtension$Query$getMerchantTransactionPaginated
               [WatchOptions$Query$getMerchantTransactionPaginated? options]) =>
           this.watchQuery(
               options ?? WatchOptions$Query$getMerchantTransactionPaginated());
-  void writeQuery$getMerchantTransactionPaginated(
-          {required Query$getMerchantTransactionPaginated data,
-          Variables$Query$getMerchantTransactionPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getMerchantTransactionPaginated({
+    required Query$getMerchantTransactionPaginated data,
+    Variables$Query$getMerchantTransactionPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetMerchantTransactionPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getMerchantTransactionPaginated?
-      readQuery$getMerchantTransactionPaginated(
-          {Variables$Query$getMerchantTransactionPaginated? variables,
-          bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetMerchantTransactionPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetMerchantTransactionPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getMerchantTransactionPaginated?
+      readQuery$getMerchantTransactionPaginated({
+    Variables$Query$getMerchantTransactionPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetMerchantTransactionPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
         : Query$getMerchantTransactionPaginated.fromJson(result);
@@ -3062,17 +3487,18 @@ extension ClientExtension$Query$getMerchantTransactionPaginated
 }
 
 class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated {
-  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
-      {required this.trn,
-      required this.customer_ref,
-      required this.used,
-      this.amount,
-      required this.service_id,
-      required this.bank_id,
-      this.created_at,
-      this.merchant,
-      this.bank,
-      required this.$__typename});
+  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated({
+    required this.trn,
+    required this.customer_ref,
+    required this.used,
+    this.amount,
+    required this.service_id,
+    required this.bank_id,
+    this.created_at,
+    this.merchant,
+    this.bank,
+    this.$__typename = 'TransactionReferenceNumber',
+  });
 
   factory Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -3087,22 +3513,23 @@ class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated {
     final l$bank = json['bank'];
     final l$$__typename = json['__typename'];
     return Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
-        trn: (l$trn as String),
-        customer_ref: (l$customer_ref as String),
-        used: (l$used as bool),
-        amount: (l$amount as String?),
-        service_id: (l$service_id as String),
-        bank_id: (l$bank_id as String),
-        created_at: (l$created_at as String?),
-        merchant: l$merchant == null
-            ? null
-            : Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant
-                .fromJson((l$merchant as Map<String, dynamic>)),
-        bank: l$bank == null
-            ? null
-            : Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank
-                .fromJson((l$bank as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      trn: (l$trn as String),
+      customer_ref: (l$customer_ref as String),
+      used: (l$used as bool),
+      amount: (l$amount as String?),
+      service_id: (l$service_id as String),
+      bank_id: (l$bank_id as String),
+      created_at: (l$created_at as String?),
+      merchant: l$merchant == null
+          ? null
+          : Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant
+              .fromJson((l$merchant as Map<String, dynamic>)),
+      bank: l$bank == null
+          ? null
+          : Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank
+              .fromJson((l$bank as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String trn;
@@ -3174,7 +3601,7 @@ class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated {
       l$created_at,
       l$merchant,
       l$bank,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -3248,36 +3675,39 @@ extension UtilityExtension$Query$getMerchantTransactionPaginated$merchantTransac
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated>
       get copyWith =>
           CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated<
     TRes> {
   factory CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
-          Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated
-              instance,
-          TRes Function(
-                  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated)
-              then) =
-      _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated;
+    Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated
+        instance,
+    TRes Function(
+            Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated;
 
   factory CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated;
 
-  TRes call(
-      {String? trn,
-      String? customer_ref,
-      bool? used,
-      String? amount,
-      String? service_id,
-      String? bank_id,
-      String? created_at,
-      Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant?
-          merchant,
-      Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank?
-          bank,
-      String? $__typename});
+  TRes call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant?
+        merchant,
+    Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank?
+        bank,
+    String? $__typename,
+  });
   CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant<
       TRes> get merchant;
   CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank<
@@ -3290,7 +3720,9 @@ class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRef
         CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated<
             TRes> {
   _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated
       _instance;
@@ -3299,50 +3731,51 @@ class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRef
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? trn = _undefined,
-          Object? customer_ref = _undefined,
-          Object? used = _undefined,
-          Object? amount = _undefined,
-          Object? service_id = _undefined,
-          Object? bank_id = _undefined,
-          Object? created_at = _undefined,
-          Object? merchant = _undefined,
-          Object? bank = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
-          trn: trn == _undefined || trn == null
-              ? _instance.trn
-              : (trn as String),
-          customer_ref: customer_ref == _undefined || customer_ref == null
-              ? _instance.customer_ref
-              : (customer_ref as String),
-          used: used == _undefined || used == null
-              ? _instance.used
-              : (used as bool),
-          amount: amount == _undefined ? _instance.amount : (amount as String?),
-          service_id: service_id == _undefined || service_id == null
-              ? _instance.service_id
-              : (service_id as String),
-          bank_id: bank_id == _undefined || bank_id == null
-              ? _instance.bank_id
-              : (bank_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          merchant: merchant == _undefined
-              ? _instance.merchant
-              : (merchant
-                  as Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant?),
-          bank: bank == _undefined
-              ? _instance.bank
-              : (bank
-                  as Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({
+    Object? trn = _undefined,
+    Object? customer_ref = _undefined,
+    Object? used = _undefined,
+    Object? amount = _undefined,
+    Object? service_id = _undefined,
+    Object? bank_id = _undefined,
+    Object? created_at = _undefined,
+    Object? merchant = _undefined,
+    Object? bank = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated(
+        trn: trn == _undefined || trn == null ? _instance.trn : (trn as String),
+        customer_ref: customer_ref == _undefined || customer_ref == null
+            ? _instance.customer_ref
+            : (customer_ref as String),
+        used: used == _undefined || used == null
+            ? _instance.used
+            : (used as bool),
+        amount: amount == _undefined ? _instance.amount : (amount as String?),
+        service_id: service_id == _undefined || service_id == null
+            ? _instance.service_id
+            : (service_id as String),
+        bank_id: bank_id == _undefined || bank_id == null
+            ? _instance.bank_id
+            : (bank_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        merchant: merchant == _undefined
+            ? _instance.merchant
+            : (merchant
+                as Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant?),
+        bank: bank == _undefined
+            ? _instance.bank
+            : (bank
+                as Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant<
       TRes> get merchant {
     final local$merchant = _instance.merchant;
@@ -3374,19 +3807,20 @@ class _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactio
 
   TRes _res;
 
-  call(
-          {String? trn,
-          String? customer_ref,
-          bool? used,
-          String? amount,
-          String? service_id,
-          String? bank_id,
-          String? created_at,
-          Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant?
-              merchant,
-          Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank?
-              bank,
-          String? $__typename}) =>
+  call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant?
+        merchant,
+    Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank?
+        bank,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant<
           TRes>
@@ -3401,11 +3835,12 @@ class _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactio
 }
 
 class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant {
-  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'Merchant',
+  });
 
   factory Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant.fromJson(
       Map<String, dynamic> json) {
@@ -3414,10 +3849,11 @@ class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merc
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -3447,7 +3883,12 @@ class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merc
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -3490,24 +3931,31 @@ extension UtilityExtension$Query$getMerchantTransactionPaginated$merchantTransac
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant>
       get copyWith =>
           CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant<
     TRes> {
   factory CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant(
-          Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant
-              instance,
-          TRes Function(
-                  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant)
-              then) =
-      _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant;
+    Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant
+        instance,
+    TRes Function(
+            Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant)
+        then,
+  ) = _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant;
 
   factory CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant<
@@ -3516,7 +3964,9 @@ class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRef
         CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant<
             TRes> {
   _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant
       _instance;
@@ -3525,25 +3975,27 @@ class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRef
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$merchant<
@@ -3556,15 +4008,22 @@ class _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactio
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank {
-  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank.fromJson(
       Map<String, dynamic> json) {
@@ -3573,10 +4032,11 @@ class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -3606,7 +4066,12 @@ class Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -3649,24 +4114,31 @@ extension UtilityExtension$Query$getMerchantTransactionPaginated$merchantTransac
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank>
       get copyWith =>
           CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank<
     TRes> {
   factory CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank(
-          Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank
-              instance,
-          TRes Function(
-                  Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank)
-              then) =
-      _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank;
+    Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank
+        instance,
+    TRes Function(
+            Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank)
+        then,
+  ) = _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank;
 
   factory CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank<
@@ -3675,7 +4147,9 @@ class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRef
         CopyWith$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank<
             TRes> {
   _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank
       _instance;
@@ -3684,25 +4158,27 @@ class _CopyWithImpl$Query$getMerchantTransactionPaginated$merchantTransactionRef
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactionRefPaginated$bank<
@@ -3715,12 +4191,20 @@ class _CopyWithStubImpl$Query$getMerchantTransactionPaginated$merchantTransactio
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Query$getUnusedTransactionRefPaginated {
-  factory Variables$Query$getUnusedTransactionRefPaginated(
-          {int? page, int? size}) =>
+  factory Variables$Query$getUnusedTransactionRefPaginated({
+    int? page,
+    int? size,
+  }) =>
       Variables$Query$getUnusedTransactionRefPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
@@ -3762,7 +4246,9 @@ class Variables$Query$getUnusedTransactionRefPaginated {
   CopyWith$Variables$Query$getUnusedTransactionRefPaginated<
           Variables$Query$getUnusedTransactionRefPaginated>
       get copyWith => CopyWith$Variables$Query$getUnusedTransactionRefPaginated(
-          this, (i) => i);
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -3797,37 +4283,44 @@ class Variables$Query$getUnusedTransactionRefPaginated {
     final l$size = size;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getUnusedTransactionRefPaginated<TRes> {
   factory CopyWith$Variables$Query$getUnusedTransactionRefPaginated(
-          Variables$Query$getUnusedTransactionRefPaginated instance,
-          TRes Function(Variables$Query$getUnusedTransactionRefPaginated)
-              then) =
-      _CopyWithImpl$Variables$Query$getUnusedTransactionRefPaginated;
+    Variables$Query$getUnusedTransactionRefPaginated instance,
+    TRes Function(Variables$Query$getUnusedTransactionRefPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getUnusedTransactionRefPaginated;
 
   factory CopyWith$Variables$Query$getUnusedTransactionRefPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Variables$Query$getUnusedTransactionRefPaginated;
 
-  TRes call({int? page, int? size});
+  TRes call({
+    int? page,
+    int? size,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getUnusedTransactionRefPaginated<TRes>
     implements CopyWith$Variables$Query$getUnusedTransactionRefPaginated<TRes> {
   _CopyWithImpl$Variables$Query$getUnusedTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getUnusedTransactionRefPaginated _instance;
 
   final TRes Function(Variables$Query$getUnusedTransactionRefPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined, Object? size = _undefined}) =>
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
       _then(Variables$Query$getUnusedTransactionRefPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
@@ -3841,12 +4334,18 @@ class _CopyWithStubImpl$Variables$Query$getUnusedTransactionRefPaginated<TRes>
 
   TRes _res;
 
-  call({int? page, int? size}) => _res;
+  call({
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
 class Query$getUnusedTransactionRefPaginated {
-  Query$getUnusedTransactionRefPaginated(
-      {this.unusedTransactionRefPaginated, required this.$__typename});
+  Query$getUnusedTransactionRefPaginated({
+    this.unusedTransactionRefPaginated,
+    this.$__typename = 'TransactionReferenceQuery',
+  });
 
   factory Query$getUnusedTransactionRefPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -3854,14 +4353,15 @@ class Query$getUnusedTransactionRefPaginated {
         json['unusedTransactionRefPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getUnusedTransactionRefPaginated(
-        unusedTransactionRefPaginated: (l$unusedTransactionRefPaginated
-                as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      unusedTransactionRefPaginated: (l$unusedTransactionRefPaginated
+              as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<
@@ -3888,7 +4388,7 @@ class Query$getUnusedTransactionRefPaginated {
       l$unusedTransactionRefPaginated == null
           ? null
           : Object.hashAll(l$unusedTransactionRefPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -3937,23 +4437,26 @@ extension UtilityExtension$Query$getUnusedTransactionRefPaginated
     on Query$getUnusedTransactionRefPaginated {
   CopyWith$Query$getUnusedTransactionRefPaginated<
           Query$getUnusedTransactionRefPaginated>
-      get copyWith =>
-          CopyWith$Query$getUnusedTransactionRefPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getUnusedTransactionRefPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUnusedTransactionRefPaginated<TRes> {
   factory CopyWith$Query$getUnusedTransactionRefPaginated(
-          Query$getUnusedTransactionRefPaginated instance,
-          TRes Function(Query$getUnusedTransactionRefPaginated) then) =
-      _CopyWithImpl$Query$getUnusedTransactionRefPaginated;
+    Query$getUnusedTransactionRefPaginated instance,
+    TRes Function(Query$getUnusedTransactionRefPaginated) then,
+  ) = _CopyWithImpl$Query$getUnusedTransactionRefPaginated;
 
   factory CopyWith$Query$getUnusedTransactionRefPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated;
 
-  TRes call(
-      {List<Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>?
-          unusedTransactionRefPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>?
+        unusedTransactionRefPaginated,
+    String? $__typename,
+  });
   TRes unusedTransactionRefPaginated(
       Iterable<Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>? Function(
               Iterable<
@@ -3965,26 +4468,30 @@ abstract class CopyWith$Query$getUnusedTransactionRefPaginated<TRes> {
 class _CopyWithImpl$Query$getUnusedTransactionRefPaginated<TRes>
     implements CopyWith$Query$getUnusedTransactionRefPaginated<TRes> {
   _CopyWithImpl$Query$getUnusedTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUnusedTransactionRefPaginated _instance;
 
   final TRes Function(Query$getUnusedTransactionRefPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? unusedTransactionRefPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? unusedTransactionRefPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getUnusedTransactionRefPaginated(
-          unusedTransactionRefPaginated: unusedTransactionRefPaginated ==
-                  _undefined
-              ? _instance.unusedTransactionRefPaginated
-              : (unusedTransactionRefPaginated as List<
-                  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        unusedTransactionRefPaginated: unusedTransactionRefPaginated ==
+                _undefined
+            ? _instance.unusedTransactionRefPaginated
+            : (unusedTransactionRefPaginated as List<
+                Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes unusedTransactionRefPaginated(
           Iterable<Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>? Function(
                   Iterable<
@@ -3992,11 +4499,13 @@ class _CopyWithImpl$Query$getUnusedTransactionRefPaginated<TRes>
                           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated>?>?)
               _fn) =>
       call(
-          unusedTransactionRefPaginated: _fn(
-              _instance.unusedTransactionRefPaginated?.map((e) => e == null
+          unusedTransactionRefPaginated:
+              _fn(_instance.unusedTransactionRefPaginated?.map((e) => e == null
                   ? null
                   : CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
-                      e, (i) => i)))?.toList());
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated<TRes>
@@ -4005,10 +4514,11 @@ class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>?
-              unusedTransactionRefPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated?>?
+        unusedTransactionRefPaginated,
+    String? $__typename,
+  }) =>
       _res;
   unusedTransactionRefPaginated(_fn) => _res;
 }
@@ -4016,222 +4526,287 @@ class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated<TRes>
 const documentNodeQuerygetUnusedTransactionRefPaginated =
     DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getUnusedTransactionRefPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'unusedTransactionRefPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getUnusedTransactionRefPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'unusedTransactionRefPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'trn'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'customer_ref'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'used'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'amount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'service_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'merchant'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'trn'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'customer_ref'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'used'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'amount'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'service_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'bank_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'merchant'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: 'bank'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getUnusedTransactionRefPaginated
     _parserFn$Query$getUnusedTransactionRefPaginated(
             Map<String, dynamic> data) =>
         Query$getUnusedTransactionRefPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getUnusedTransactionRefPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getUnusedTransactionRefPaginated?,
+);
 
 class Options$Query$getUnusedTransactionRefPaginated
     extends graphql.QueryOptions<Query$getUnusedTransactionRefPaginated> {
-  Options$Query$getUnusedTransactionRefPaginated(
-      {String? operationName,
-      Variables$Query$getUnusedTransactionRefPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetUnusedTransactionRefPaginated,
-            parserFn: _parserFn$Query$getUnusedTransactionRefPaginated);
+  Options$Query$getUnusedTransactionRefPaginated({
+    String? operationName,
+    Variables$Query$getUnusedTransactionRefPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getUnusedTransactionRefPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getUnusedTransactionRefPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getUnusedTransactionRefPaginated(
+                            data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetUnusedTransactionRefPaginated,
+          parserFn: _parserFn$Query$getUnusedTransactionRefPaginated,
+        );
+
+  final OnQueryComplete$Query$getUnusedTransactionRefPaginated?
+      onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getUnusedTransactionRefPaginated
     extends graphql.WatchQueryOptions<Query$getUnusedTransactionRefPaginated> {
-  WatchOptions$Query$getUnusedTransactionRefPaginated(
-      {String? operationName,
-      Variables$Query$getUnusedTransactionRefPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetUnusedTransactionRefPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getUnusedTransactionRefPaginated);
+  WatchOptions$Query$getUnusedTransactionRefPaginated({
+    String? operationName,
+    Variables$Query$getUnusedTransactionRefPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getUnusedTransactionRefPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetUnusedTransactionRefPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getUnusedTransactionRefPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getUnusedTransactionRefPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getUnusedTransactionRefPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getUnusedTransactionRefPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetUnusedTransactionRefPaginated);
+  FetchMoreOptions$Query$getUnusedTransactionRefPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getUnusedTransactionRefPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetUnusedTransactionRefPaginated,
+        );
 }
 
 extension ClientExtension$Query$getUnusedTransactionRefPaginated
@@ -4247,27 +4822,33 @@ extension ClientExtension$Query$getUnusedTransactionRefPaginated
               [WatchOptions$Query$getUnusedTransactionRefPaginated? options]) =>
           this.watchQuery(
               options ?? WatchOptions$Query$getUnusedTransactionRefPaginated());
-  void writeQuery$getUnusedTransactionRefPaginated(
-          {required Query$getUnusedTransactionRefPaginated data,
-          Variables$Query$getUnusedTransactionRefPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getUnusedTransactionRefPaginated({
+    required Query$getUnusedTransactionRefPaginated data,
+    Variables$Query$getUnusedTransactionRefPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetUnusedTransactionRefPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getUnusedTransactionRefPaginated?
-      readQuery$getUnusedTransactionRefPaginated(
-          {Variables$Query$getUnusedTransactionRefPaginated? variables,
-          bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetUnusedTransactionRefPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetUnusedTransactionRefPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getUnusedTransactionRefPaginated?
+      readQuery$getUnusedTransactionRefPaginated({
+    Variables$Query$getUnusedTransactionRefPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetUnusedTransactionRefPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
         : Query$getUnusedTransactionRefPaginated.fromJson(result);
@@ -4275,17 +4856,18 @@ extension ClientExtension$Query$getUnusedTransactionRefPaginated
 }
 
 class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated {
-  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
-      {required this.trn,
-      required this.customer_ref,
-      required this.used,
-      this.amount,
-      required this.service_id,
-      required this.bank_id,
-      this.created_at,
-      this.merchant,
-      this.bank,
-      required this.$__typename});
+  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated({
+    required this.trn,
+    required this.customer_ref,
+    required this.used,
+    this.amount,
+    required this.service_id,
+    required this.bank_id,
+    this.created_at,
+    this.merchant,
+    this.bank,
+    this.$__typename = 'TransactionReferenceNumber',
+  });
 
   factory Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -4300,22 +4882,23 @@ class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated {
     final l$bank = json['bank'];
     final l$$__typename = json['__typename'];
     return Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
-        trn: (l$trn as String),
-        customer_ref: (l$customer_ref as String),
-        used: (l$used as bool),
-        amount: (l$amount as String?),
-        service_id: (l$service_id as String),
-        bank_id: (l$bank_id as String),
-        created_at: (l$created_at as String?),
-        merchant: l$merchant == null
-            ? null
-            : Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant
-                .fromJson((l$merchant as Map<String, dynamic>)),
-        bank: l$bank == null
-            ? null
-            : Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank
-                .fromJson((l$bank as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      trn: (l$trn as String),
+      customer_ref: (l$customer_ref as String),
+      used: (l$used as bool),
+      amount: (l$amount as String?),
+      service_id: (l$service_id as String),
+      bank_id: (l$bank_id as String),
+      created_at: (l$created_at as String?),
+      merchant: l$merchant == null
+          ? null
+          : Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant
+              .fromJson((l$merchant as Map<String, dynamic>)),
+      bank: l$bank == null
+          ? null
+          : Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank
+              .fromJson((l$bank as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String trn;
@@ -4387,7 +4970,7 @@ class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated {
       l$created_at,
       l$merchant,
       l$bank,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -4461,36 +5044,39 @@ extension UtilityExtension$Query$getUnusedTransactionRefPaginated$unusedTransact
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated>
       get copyWith =>
           CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated<
     TRes> {
   factory CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
-          Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated
-              instance,
-          TRes Function(
-                  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated)
-              then) =
-      _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated;
+    Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated
+        instance,
+    TRes Function(
+            Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated;
 
   factory CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated;
 
-  TRes call(
-      {String? trn,
-      String? customer_ref,
-      bool? used,
-      String? amount,
-      String? service_id,
-      String? bank_id,
-      String? created_at,
-      Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant?
-          merchant,
-      Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank?
-          bank,
-      String? $__typename});
+  TRes call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant?
+        merchant,
+    Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank?
+        bank,
+    String? $__typename,
+  });
   CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant<
       TRes> get merchant;
   CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank<
@@ -4503,7 +5089,9 @@ class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefP
         CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated<
             TRes> {
   _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated
       _instance;
@@ -4512,50 +5100,51 @@ class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefP
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? trn = _undefined,
-          Object? customer_ref = _undefined,
-          Object? used = _undefined,
-          Object? amount = _undefined,
-          Object? service_id = _undefined,
-          Object? bank_id = _undefined,
-          Object? created_at = _undefined,
-          Object? merchant = _undefined,
-          Object? bank = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
-          trn: trn == _undefined || trn == null
-              ? _instance.trn
-              : (trn as String),
-          customer_ref: customer_ref == _undefined || customer_ref == null
-              ? _instance.customer_ref
-              : (customer_ref as String),
-          used: used == _undefined || used == null
-              ? _instance.used
-              : (used as bool),
-          amount: amount == _undefined ? _instance.amount : (amount as String?),
-          service_id: service_id == _undefined || service_id == null
-              ? _instance.service_id
-              : (service_id as String),
-          bank_id: bank_id == _undefined || bank_id == null
-              ? _instance.bank_id
-              : (bank_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          merchant: merchant == _undefined
-              ? _instance.merchant
-              : (merchant
-                  as Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant?),
-          bank: bank == _undefined
-              ? _instance.bank
-              : (bank
-                  as Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+  TRes call({
+    Object? trn = _undefined,
+    Object? customer_ref = _undefined,
+    Object? used = _undefined,
+    Object? amount = _undefined,
+    Object? service_id = _undefined,
+    Object? bank_id = _undefined,
+    Object? created_at = _undefined,
+    Object? merchant = _undefined,
+    Object? bank = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated(
+        trn: trn == _undefined || trn == null ? _instance.trn : (trn as String),
+        customer_ref: customer_ref == _undefined || customer_ref == null
+            ? _instance.customer_ref
+            : (customer_ref as String),
+        used: used == _undefined || used == null
+            ? _instance.used
+            : (used as bool),
+        amount: amount == _undefined ? _instance.amount : (amount as String?),
+        service_id: service_id == _undefined || service_id == null
+            ? _instance.service_id
+            : (service_id as String),
+        bank_id: bank_id == _undefined || bank_id == null
+            ? _instance.bank_id
+            : (bank_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        merchant: merchant == _undefined
+            ? _instance.merchant
+            : (merchant
+                as Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant?),
+        bank: bank == _undefined
+            ? _instance.bank
+            : (bank
+                as Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant<
       TRes> get merchant {
     final local$merchant = _instance.merchant;
@@ -4587,19 +5176,20 @@ class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransaction
 
   TRes _res;
 
-  call(
-          {String? trn,
-          String? customer_ref,
-          bool? used,
-          String? amount,
-          String? service_id,
-          String? bank_id,
-          String? created_at,
-          Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant?
-              merchant,
-          Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank?
-              bank,
-          String? $__typename}) =>
+  call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant?
+        merchant,
+    Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank?
+        bank,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant<
           TRes>
@@ -4614,11 +5204,12 @@ class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransaction
 }
 
 class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant {
-  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'Merchant',
+  });
 
   factory Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant.fromJson(
       Map<String, dynamic> json) {
@@ -4627,10 +5218,11 @@ class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merch
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -4660,7 +5252,12 @@ class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merch
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -4703,24 +5300,31 @@ extension UtilityExtension$Query$getUnusedTransactionRefPaginated$unusedTransact
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant>
       get copyWith =>
           CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant<
     TRes> {
   factory CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant(
-          Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant
-              instance,
-          TRes Function(
-                  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant)
-              then) =
-      _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant;
+    Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant
+        instance,
+    TRes Function(
+            Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant)
+        then,
+  ) = _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant;
 
   factory CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant<
@@ -4729,7 +5333,9 @@ class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefP
         CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant<
             TRes> {
   _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant
       _instance;
@@ -4738,25 +5344,27 @@ class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefP
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$merchant<
@@ -4769,15 +5377,22 @@ class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransaction
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank {
-  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank.fromJson(
       Map<String, dynamic> json) {
@@ -4786,10 +5401,11 @@ class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank 
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -4819,7 +5435,12 @@ class Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank 
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -4862,24 +5483,31 @@ extension UtilityExtension$Query$getUnusedTransactionRefPaginated$unusedTransact
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank>
       get copyWith =>
           CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank<
     TRes> {
   factory CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank(
-          Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank
-              instance,
-          TRes Function(
-                  Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank)
-              then) =
-      _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank;
+    Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank
+        instance,
+    TRes Function(
+            Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank)
+        then,
+  ) = _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank;
 
   factory CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank<
@@ -4888,7 +5516,9 @@ class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefP
         CopyWith$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank<
             TRes> {
   _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank
       _instance;
@@ -4897,25 +5527,27 @@ class _CopyWithImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefP
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransactionRefPaginated$bank<
@@ -4928,12 +5560,20 @@ class _CopyWithStubImpl$Query$getUnusedTransactionRefPaginated$unusedTransaction
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Query$getUsedTransactionRefPaginated {
-  factory Variables$Query$getUsedTransactionRefPaginated(
-          {int? page, int? size}) =>
+  factory Variables$Query$getUsedTransactionRefPaginated({
+    int? page,
+    int? size,
+  }) =>
       Variables$Query$getUsedTransactionRefPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
@@ -4975,7 +5615,9 @@ class Variables$Query$getUsedTransactionRefPaginated {
   CopyWith$Variables$Query$getUsedTransactionRefPaginated<
           Variables$Query$getUsedTransactionRefPaginated>
       get copyWith => CopyWith$Variables$Query$getUsedTransactionRefPaginated(
-          this, (i) => i);
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -5010,36 +5652,44 @@ class Variables$Query$getUsedTransactionRefPaginated {
     final l$size = size;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getUsedTransactionRefPaginated<TRes> {
   factory CopyWith$Variables$Query$getUsedTransactionRefPaginated(
-          Variables$Query$getUsedTransactionRefPaginated instance,
-          TRes Function(Variables$Query$getUsedTransactionRefPaginated) then) =
-      _CopyWithImpl$Variables$Query$getUsedTransactionRefPaginated;
+    Variables$Query$getUsedTransactionRefPaginated instance,
+    TRes Function(Variables$Query$getUsedTransactionRefPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getUsedTransactionRefPaginated;
 
   factory CopyWith$Variables$Query$getUsedTransactionRefPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Variables$Query$getUsedTransactionRefPaginated;
 
-  TRes call({int? page, int? size});
+  TRes call({
+    int? page,
+    int? size,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getUsedTransactionRefPaginated<TRes>
     implements CopyWith$Variables$Query$getUsedTransactionRefPaginated<TRes> {
   _CopyWithImpl$Variables$Query$getUsedTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getUsedTransactionRefPaginated _instance;
 
   final TRes Function(Variables$Query$getUsedTransactionRefPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined, Object? size = _undefined}) =>
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
       _then(Variables$Query$getUsedTransactionRefPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
@@ -5053,26 +5703,33 @@ class _CopyWithStubImpl$Variables$Query$getUsedTransactionRefPaginated<TRes>
 
   TRes _res;
 
-  call({int? page, int? size}) => _res;
+  call({
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
 class Query$getUsedTransactionRefPaginated {
-  Query$getUsedTransactionRefPaginated(
-      {this.usedTransactionRefPaginated, required this.$__typename});
+  Query$getUsedTransactionRefPaginated({
+    this.usedTransactionRefPaginated,
+    this.$__typename = 'TransactionReferenceQuery',
+  });
 
   factory Query$getUsedTransactionRefPaginated.fromJson(
       Map<String, dynamic> json) {
     final l$usedTransactionRefPaginated = json['usedTransactionRefPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getUsedTransactionRefPaginated(
-        usedTransactionRefPaginated: (l$usedTransactionRefPaginated
-                as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      usedTransactionRefPaginated: (l$usedTransactionRefPaginated
+              as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>?
@@ -5098,7 +5755,7 @@ class Query$getUsedTransactionRefPaginated {
       l$usedTransactionRefPaginated == null
           ? null
           : Object.hashAll(l$usedTransactionRefPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -5147,23 +5804,26 @@ extension UtilityExtension$Query$getUsedTransactionRefPaginated
     on Query$getUsedTransactionRefPaginated {
   CopyWith$Query$getUsedTransactionRefPaginated<
           Query$getUsedTransactionRefPaginated>
-      get copyWith =>
-          CopyWith$Query$getUsedTransactionRefPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getUsedTransactionRefPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUsedTransactionRefPaginated<TRes> {
   factory CopyWith$Query$getUsedTransactionRefPaginated(
-          Query$getUsedTransactionRefPaginated instance,
-          TRes Function(Query$getUsedTransactionRefPaginated) then) =
-      _CopyWithImpl$Query$getUsedTransactionRefPaginated;
+    Query$getUsedTransactionRefPaginated instance,
+    TRes Function(Query$getUsedTransactionRefPaginated) then,
+  ) = _CopyWithImpl$Query$getUsedTransactionRefPaginated;
 
   factory CopyWith$Query$getUsedTransactionRefPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getUsedTransactionRefPaginated;
 
-  TRes call(
-      {List<Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>?
-          usedTransactionRefPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>?
+        usedTransactionRefPaginated,
+    String? $__typename,
+  });
   TRes usedTransactionRefPaginated(
       Iterable<Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>? Function(
               Iterable<
@@ -5175,25 +5835,29 @@ abstract class CopyWith$Query$getUsedTransactionRefPaginated<TRes> {
 class _CopyWithImpl$Query$getUsedTransactionRefPaginated<TRes>
     implements CopyWith$Query$getUsedTransactionRefPaginated<TRes> {
   _CopyWithImpl$Query$getUsedTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUsedTransactionRefPaginated _instance;
 
   final TRes Function(Query$getUsedTransactionRefPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? usedTransactionRefPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? usedTransactionRefPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getUsedTransactionRefPaginated(
-          usedTransactionRefPaginated: usedTransactionRefPaginated == _undefined
-              ? _instance.usedTransactionRefPaginated
-              : (usedTransactionRefPaginated as List<
-                  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        usedTransactionRefPaginated: usedTransactionRefPaginated == _undefined
+            ? _instance.usedTransactionRefPaginated
+            : (usedTransactionRefPaginated as List<
+                Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes usedTransactionRefPaginated(
           Iterable<Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>? Function(
                   Iterable<
@@ -5201,11 +5865,13 @@ class _CopyWithImpl$Query$getUsedTransactionRefPaginated<TRes>
                           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated>?>?)
               _fn) =>
       call(
-          usedTransactionRefPaginated: _fn(_instance.usedTransactionRefPaginated
-              ?.map((e) => e == null
+          usedTransactionRefPaginated:
+              _fn(_instance.usedTransactionRefPaginated?.map((e) => e == null
                   ? null
                   : CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated(
-                      e, (i) => i)))?.toList());
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated<TRes>
@@ -5214,10 +5880,11 @@ class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>?
-              usedTransactionRefPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated?>?
+        usedTransactionRefPaginated,
+    String? $__typename,
+  }) =>
       _res;
   usedTransactionRefPaginated(_fn) => _res;
 }
@@ -5225,221 +5892,285 @@ class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated<TRes>
 const documentNodeQuerygetUsedTransactionRefPaginated =
     DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getUsedTransactionRefPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'usedTransactionRefPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getUsedTransactionRefPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'usedTransactionRefPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'trn'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'customer_ref'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'used'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'amount'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'service_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'merchant'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'trn'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'customer_ref'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'used'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'amount'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'bank'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'service_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'bank_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'merchant'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: 'bank'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getUsedTransactionRefPaginated
     _parserFn$Query$getUsedTransactionRefPaginated(Map<String, dynamic> data) =>
         Query$getUsedTransactionRefPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getUsedTransactionRefPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getUsedTransactionRefPaginated?,
+);
 
 class Options$Query$getUsedTransactionRefPaginated
     extends graphql.QueryOptions<Query$getUsedTransactionRefPaginated> {
-  Options$Query$getUsedTransactionRefPaginated(
-      {String? operationName,
-      Variables$Query$getUsedTransactionRefPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetUsedTransactionRefPaginated,
-            parserFn: _parserFn$Query$getUsedTransactionRefPaginated);
+  Options$Query$getUsedTransactionRefPaginated({
+    String? operationName,
+    Variables$Query$getUsedTransactionRefPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getUsedTransactionRefPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getUsedTransactionRefPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getUsedTransactionRefPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetUsedTransactionRefPaginated,
+          parserFn: _parserFn$Query$getUsedTransactionRefPaginated,
+        );
+
+  final OnQueryComplete$Query$getUsedTransactionRefPaginated?
+      onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getUsedTransactionRefPaginated
     extends graphql.WatchQueryOptions<Query$getUsedTransactionRefPaginated> {
-  WatchOptions$Query$getUsedTransactionRefPaginated(
-      {String? operationName,
-      Variables$Query$getUsedTransactionRefPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetUsedTransactionRefPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getUsedTransactionRefPaginated);
+  WatchOptions$Query$getUsedTransactionRefPaginated({
+    String? operationName,
+    Variables$Query$getUsedTransactionRefPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getUsedTransactionRefPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetUsedTransactionRefPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getUsedTransactionRefPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getUsedTransactionRefPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getUsedTransactionRefPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getUsedTransactionRefPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetUsedTransactionRefPaginated);
+  FetchMoreOptions$Query$getUsedTransactionRefPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getUsedTransactionRefPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetUsedTransactionRefPaginated,
+        );
 }
 
 extension ClientExtension$Query$getUsedTransactionRefPaginated
@@ -5454,27 +6185,33 @@ extension ClientExtension$Query$getUsedTransactionRefPaginated
               [WatchOptions$Query$getUsedTransactionRefPaginated? options]) =>
           this.watchQuery(
               options ?? WatchOptions$Query$getUsedTransactionRefPaginated());
-  void writeQuery$getUsedTransactionRefPaginated(
-          {required Query$getUsedTransactionRefPaginated data,
-          Variables$Query$getUsedTransactionRefPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getUsedTransactionRefPaginated({
+    required Query$getUsedTransactionRefPaginated data,
+    Variables$Query$getUsedTransactionRefPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetUsedTransactionRefPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getUsedTransactionRefPaginated?
-      readQuery$getUsedTransactionRefPaginated(
-          {Variables$Query$getUsedTransactionRefPaginated? variables,
-          bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetUsedTransactionRefPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetUsedTransactionRefPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getUsedTransactionRefPaginated?
+      readQuery$getUsedTransactionRefPaginated({
+    Variables$Query$getUsedTransactionRefPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetUsedTransactionRefPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
         : Query$getUsedTransactionRefPaginated.fromJson(result);
@@ -5482,17 +6219,18 @@ extension ClientExtension$Query$getUsedTransactionRefPaginated
 }
 
 class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated {
-  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated(
-      {required this.trn,
-      required this.customer_ref,
-      required this.used,
-      this.amount,
-      required this.service_id,
-      required this.bank_id,
-      this.created_at,
-      this.merchant,
-      this.bank,
-      required this.$__typename});
+  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated({
+    required this.trn,
+    required this.customer_ref,
+    required this.used,
+    this.amount,
+    required this.service_id,
+    required this.bank_id,
+    this.created_at,
+    this.merchant,
+    this.bank,
+    this.$__typename = 'TransactionReferenceNumber',
+  });
 
   factory Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -5507,22 +6245,23 @@ class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated {
     final l$bank = json['bank'];
     final l$$__typename = json['__typename'];
     return Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated(
-        trn: (l$trn as String),
-        customer_ref: (l$customer_ref as String),
-        used: (l$used as bool),
-        amount: (l$amount as String?),
-        service_id: (l$service_id as String),
-        bank_id: (l$bank_id as String),
-        created_at: (l$created_at as String?),
-        merchant: l$merchant == null
-            ? null
-            : Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant
-                .fromJson((l$merchant as Map<String, dynamic>)),
-        bank: l$bank == null
-            ? null
-            : Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank
-                .fromJson((l$bank as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      trn: (l$trn as String),
+      customer_ref: (l$customer_ref as String),
+      used: (l$used as bool),
+      amount: (l$amount as String?),
+      service_id: (l$service_id as String),
+      bank_id: (l$bank_id as String),
+      created_at: (l$created_at as String?),
+      merchant: l$merchant == null
+          ? null
+          : Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant
+              .fromJson((l$merchant as Map<String, dynamic>)),
+      bank: l$bank == null
+          ? null
+          : Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank
+              .fromJson((l$bank as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String trn;
@@ -5594,7 +6333,7 @@ class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated {
       l$created_at,
       l$merchant,
       l$bank,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -5668,35 +6407,37 @@ extension UtilityExtension$Query$getUsedTransactionRefPaginated$usedTransactionR
           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated>
       get copyWith =>
           CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated<
     TRes> {
   factory CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated(
-          Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated instance,
-          TRes Function(
-                  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated)
-              then) =
-      _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated;
+    Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated instance,
+    TRes Function(
+            Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated;
 
   factory CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated;
 
-  TRes call(
-      {String? trn,
-      String? customer_ref,
-      bool? used,
-      String? amount,
-      String? service_id,
-      String? bank_id,
-      String? created_at,
-      Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant?
-          merchant,
-      Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank?
-          bank,
-      String? $__typename});
+  TRes call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant?
+        merchant,
+    Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank? bank,
+    String? $__typename,
+  });
   CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant<
       TRes> get merchant;
   CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank<
@@ -5709,7 +6450,9 @@ class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPagin
         CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated<
             TRes> {
   _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated
       _instance;
@@ -5717,50 +6460,50 @@ class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPagin
   final TRes Function(
       Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? trn = _undefined,
-          Object? customer_ref = _undefined,
-          Object? used = _undefined,
-          Object? amount = _undefined,
-          Object? service_id = _undefined,
-          Object? bank_id = _undefined,
-          Object? created_at = _undefined,
-          Object? merchant = _undefined,
-          Object? bank = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? trn = _undefined,
+    Object? customer_ref = _undefined,
+    Object? used = _undefined,
+    Object? amount = _undefined,
+    Object? service_id = _undefined,
+    Object? bank_id = _undefined,
+    Object? created_at = _undefined,
+    Object? merchant = _undefined,
+    Object? bank = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated(
-          trn: trn == _undefined || trn == null
-              ? _instance.trn
-              : (trn as String),
-          customer_ref: customer_ref == _undefined || customer_ref == null
-              ? _instance.customer_ref
-              : (customer_ref as String),
-          used: used == _undefined || used == null
-              ? _instance.used
-              : (used as bool),
-          amount: amount == _undefined ? _instance.amount : (amount as String?),
-          service_id: service_id == _undefined || service_id == null
-              ? _instance.service_id
-              : (service_id as String),
-          bank_id: bank_id == _undefined || bank_id == null
-              ? _instance.bank_id
-              : (bank_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          merchant: merchant == _undefined
-              ? _instance.merchant
-              : (merchant
-                  as Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant?),
-          bank: bank == _undefined
-              ? _instance.bank
-              : (bank
-                  as Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        trn: trn == _undefined || trn == null ? _instance.trn : (trn as String),
+        customer_ref: customer_ref == _undefined || customer_ref == null
+            ? _instance.customer_ref
+            : (customer_ref as String),
+        used: used == _undefined || used == null
+            ? _instance.used
+            : (used as bool),
+        amount: amount == _undefined ? _instance.amount : (amount as String?),
+        service_id: service_id == _undefined || service_id == null
+            ? _instance.service_id
+            : (service_id as String),
+        bank_id: bank_id == _undefined || bank_id == null
+            ? _instance.bank_id
+            : (bank_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        merchant: merchant == _undefined
+            ? _instance.merchant
+            : (merchant
+                as Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant?),
+        bank: bank == _undefined
+            ? _instance.bank
+            : (bank
+                as Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant<
       TRes> get merchant {
     final local$merchant = _instance.merchant;
@@ -5792,19 +6535,19 @@ class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefP
 
   TRes _res;
 
-  call(
-          {String? trn,
-          String? customer_ref,
-          bool? used,
-          String? amount,
-          String? service_id,
-          String? bank_id,
-          String? created_at,
-          Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant?
-              merchant,
-          Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank?
-              bank,
-          String? $__typename}) =>
+  call({
+    String? trn,
+    String? customer_ref,
+    bool? used,
+    String? amount,
+    String? service_id,
+    String? bank_id,
+    String? created_at,
+    Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant?
+        merchant,
+    Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank? bank,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant<
           TRes>
@@ -5819,11 +6562,12 @@ class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefP
 }
 
 class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant {
-  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'Merchant',
+  });
 
   factory Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant.fromJson(
       Map<String, dynamic> json) {
@@ -5832,10 +6576,11 @@ class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant 
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -5865,7 +6610,12 @@ class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant 
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -5908,24 +6658,31 @@ extension UtilityExtension$Query$getUsedTransactionRefPaginated$usedTransactionR
           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant>
       get copyWith =>
           CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant<
     TRes> {
   factory CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant(
-          Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant
-              instance,
-          TRes Function(
-                  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant)
-              then) =
-      _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant;
+    Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant
+        instance,
+    TRes Function(
+            Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant)
+        then,
+  ) = _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant;
 
   factory CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant<
@@ -5934,7 +6691,9 @@ class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPagin
         CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant<
             TRes> {
   _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant
       _instance;
@@ -5943,25 +6702,27 @@ class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPagin
           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$merchant<
@@ -5974,15 +6735,22 @@ class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefP
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank {
-  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank(
-      {required this.name,
-      required this.unique_id,
-      required this.id,
-      required this.$__typename});
+  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank({
+    required this.name,
+    required this.unique_id,
+    required this.id,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank.fromJson(
       Map<String, dynamic> json) {
@@ -5991,10 +6759,11 @@ class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank {
     final l$id = json['id'];
     final l$$__typename = json['__typename'];
     return Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank(
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        $__typename: (l$$__typename as String));
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -6024,7 +6793,12 @@ class Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank {
     final l$unique_id = unique_id;
     final l$id = id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$unique_id, l$id, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$unique_id,
+      l$id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -6067,24 +6841,31 @@ extension UtilityExtension$Query$getUsedTransactionRefPaginated$usedTransactionR
           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank>
       get copyWith =>
           CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank<
     TRes> {
   factory CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank(
-          Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank
-              instance,
-          TRes Function(
-                  Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank)
-              then) =
-      _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank;
+    Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank
+        instance,
+    TRes Function(
+            Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank)
+        then,
+  ) = _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank;
 
   factory CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank;
 
-  TRes call({String? name, String? unique_id, int? id, String? $__typename});
+  TRes call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank<
@@ -6093,7 +6874,9 @@ class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPagin
         CopyWith$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank<
             TRes> {
   _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank
       _instance;
@@ -6102,25 +6885,27 @@ class _CopyWithImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPagin
           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
           Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefPaginated$bank<
@@ -6133,5 +6918,11 @@ class _CopyWithStubImpl$Query$getUsedTransactionRefPaginated$usedTransactionRefP
 
   TRes _res;
 
-  call({String? name, String? unique_id, int? id, String? $__typename}) => _res;
+  call({
+    String? name,
+    String? unique_id,
+    int? id,
+    String? $__typename,
+  }) =>
+      _res;
 }

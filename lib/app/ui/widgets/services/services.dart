@@ -9,7 +9,7 @@ import 'package:nave_app/app/ui/widgets/common/custom_circular_progress_indicato
 import 'package:nave_app/app/ui/widgets/common/list_tile.dart';
 import 'package:nave_app/data/hive/models/generate_trn_temp.dart';
 import 'package:nave_app/data/remote/clients/api_constants.dart';
-import 'package:nave_app/domain/entities/Service.dart';
+import 'package:nave_app/domain/entities/Merchant.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
 
 class Services extends StatefulWidget {
@@ -57,7 +57,7 @@ class _ServicesState extends State<Services> {
 
     Size size = MediaQuery.of(context).size;
 
-    ListTile makeListTile(Service service, int number) => ListTile(
+    ListTile makeListTile(Merchant service, int number) => ListTile(
         tileColor: ColorConstants.kPrimaryDarkColor,
         contentPadding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
         leading: Container(
@@ -92,7 +92,7 @@ class _ServicesState extends State<Services> {
 
         }
     );
-    Card makeListItem(Service service,int number) => Card(
+    Card makeListItem(Merchant service,int number) => Card(
       elevation: 8.0,
       margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
       child: Container(

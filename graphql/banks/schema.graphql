@@ -15,10 +15,27 @@ type BankCategory {
     name: String!
 }
 
+type BankCategoryPaging {
+    "Categories"
+    bankCategories: [BankCategory]
+    " Count."
+    count: Int!
+}
+
+type BankPaging {
+    "Banks"
+    banks: [FinancialInstitution]
+    " Count."
+    count: Int!
+}
+
 type BankQuery {
     bankCategoriesPaginated(page: Int, size: Int): [BankCategory]
+    bankCategoriesPaging(page: Int, size: Int): BankCategoryPaging
     banksByCategoryPaginated(categoryId: Int, page: Int, size: Int): [FinancialInstitution]
+    banksByCategoryPaging(categoryId: Int, page: Int, size: Int): BankPaging
     banksPaginated(page: Int, size: Int): [FinancialInstitution]
+    banksPaging(page: Int, size: Int): BankPaging
 }
 
 type FinancialInstitution {

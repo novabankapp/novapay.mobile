@@ -28,16 +28,33 @@ type MerchantCategory {
     created_at: DateTime
     " Id."
     id: Int!
+    "Merchants"
+    merchants: [Merchant]
     " Name."
     name: String!
-    "Services"
-    services: [Merchant]
+}
+
+type MerchantCategoryPaging {
+    " Count."
+    count: Int!
+    "Categories"
+    merchantCategories: [MerchantCategory]
+}
+
+type MerchantPaging {
+    " Count."
+    count: Int!
+    "Merchants"
+    merchants: [Merchant]
 }
 
 type ServiceQuery {
-    serviceCategoriesPaginated(page: Int, size: Int): [MerchantCategory]
-    servicesByCategoryPaginated(categoryId: Int, page: Int, size: Int): [Merchant]
-    servicesPaginated(page: Int, size: Int): [Merchant]
+    merchantCategoriesPaginated(page: Int, size: Int): [MerchantCategory]
+    merchantCategoriesPaging(page: Int, size: Int): MerchantCategoryPaging
+    merchantsByCategoryPaginated(categoryId: Int, page: Int, size: Int): [Merchant]
+    merchantsByCategoryPaging(categoryId: Int, page: Int, size: Int): MerchantPaging
+    merchantsPaginated(page: Int, size: Int): [Merchant]
+    merchantsPaging(page: Int, size: Int): MerchantPaging
 }
 
 "The `DateTime` scalar type represents a date and time. `DateTime` expects timestamps to be formatted in accordance with the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard."

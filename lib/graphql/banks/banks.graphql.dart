@@ -1,8 +1,12 @@
+import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
 class Variables$Query$getBanksPaginated {
-  factory Variables$Query$getBanksPaginated({int? page, int? size}) =>
+  factory Variables$Query$getBanksPaginated({
+    int? page,
+    int? size,
+  }) =>
       Variables$Query$getBanksPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
@@ -42,8 +46,10 @@ class Variables$Query$getBanksPaginated {
   }
 
   CopyWith$Variables$Query$getBanksPaginated<Variables$Query$getBanksPaginated>
-      get copyWith =>
-          CopyWith$Variables$Query$getBanksPaginated(this, (i) => i);
+      get copyWith => CopyWith$Variables$Query$getBanksPaginated(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -78,34 +84,43 @@ class Variables$Query$getBanksPaginated {
     final l$size = size;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getBanksPaginated<TRes> {
   factory CopyWith$Variables$Query$getBanksPaginated(
-          Variables$Query$getBanksPaginated instance,
-          TRes Function(Variables$Query$getBanksPaginated) then) =
-      _CopyWithImpl$Variables$Query$getBanksPaginated;
+    Variables$Query$getBanksPaginated instance,
+    TRes Function(Variables$Query$getBanksPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getBanksPaginated;
 
   factory CopyWith$Variables$Query$getBanksPaginated.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$getBanksPaginated;
 
-  TRes call({int? page, int? size});
+  TRes call({
+    int? page,
+    int? size,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getBanksPaginated<TRes>
     implements CopyWith$Variables$Query$getBanksPaginated<TRes> {
-  _CopyWithImpl$Variables$Query$getBanksPaginated(this._instance, this._then);
+  _CopyWithImpl$Variables$Query$getBanksPaginated(
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getBanksPaginated _instance;
 
   final TRes Function(Variables$Query$getBanksPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined, Object? size = _undefined}) =>
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
       _then(Variables$Query$getBanksPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
@@ -119,23 +134,31 @@ class _CopyWithStubImpl$Variables$Query$getBanksPaginated<TRes>
 
   TRes _res;
 
-  call({int? page, int? size}) => _res;
+  call({
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
 class Query$getBanksPaginated {
-  Query$getBanksPaginated({this.banksPaginated, required this.$__typename});
+  Query$getBanksPaginated({
+    this.banksPaginated,
+    this.$__typename = 'BankQuery',
+  });
 
   factory Query$getBanksPaginated.fromJson(Map<String, dynamic> json) {
     final l$banksPaginated = json['banksPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getBanksPaginated(
-        banksPaginated: (l$banksPaginated as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getBanksPaginated$banksPaginated.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      banksPaginated: (l$banksPaginated as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getBanksPaginated$banksPaginated.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<Query$getBanksPaginated$banksPaginated?>? banksPaginated;
@@ -160,7 +183,7 @@ class Query$getBanksPaginated {
       l$banksPaginated == null
           ? null
           : Object.hashAll(l$banksPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -200,20 +223,25 @@ class Query$getBanksPaginated {
 
 extension UtilityExtension$Query$getBanksPaginated on Query$getBanksPaginated {
   CopyWith$Query$getBanksPaginated<Query$getBanksPaginated> get copyWith =>
-      CopyWith$Query$getBanksPaginated(this, (i) => i);
+      CopyWith$Query$getBanksPaginated(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$getBanksPaginated<TRes> {
-  factory CopyWith$Query$getBanksPaginated(Query$getBanksPaginated instance,
-          TRes Function(Query$getBanksPaginated) then) =
-      _CopyWithImpl$Query$getBanksPaginated;
+  factory CopyWith$Query$getBanksPaginated(
+    Query$getBanksPaginated instance,
+    TRes Function(Query$getBanksPaginated) then,
+  ) = _CopyWithImpl$Query$getBanksPaginated;
 
   factory CopyWith$Query$getBanksPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getBanksPaginated;
 
-  TRes call(
-      {List<Query$getBanksPaginated$banksPaginated?>? banksPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getBanksPaginated$banksPaginated?>? banksPaginated,
+    String? $__typename,
+  });
   TRes banksPaginated(
       Iterable<Query$getBanksPaginated$banksPaginated?>? Function(
               Iterable<
@@ -224,25 +252,30 @@ abstract class CopyWith$Query$getBanksPaginated<TRes> {
 
 class _CopyWithImpl$Query$getBanksPaginated<TRes>
     implements CopyWith$Query$getBanksPaginated<TRes> {
-  _CopyWithImpl$Query$getBanksPaginated(this._instance, this._then);
+  _CopyWithImpl$Query$getBanksPaginated(
+    this._instance,
+    this._then,
+  );
 
   final Query$getBanksPaginated _instance;
 
   final TRes Function(Query$getBanksPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? banksPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? banksPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBanksPaginated(
-          banksPaginated: banksPaginated == _undefined
-              ? _instance.banksPaginated
-              : (banksPaginated
-                  as List<Query$getBanksPaginated$banksPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        banksPaginated: banksPaginated == _undefined
+            ? _instance.banksPaginated
+            : (banksPaginated
+                as List<Query$getBanksPaginated$banksPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes banksPaginated(
           Iterable<Query$getBanksPaginated$banksPaginated?>? Function(
                   Iterable<
@@ -253,7 +286,9 @@ class _CopyWithImpl$Query$getBanksPaginated<TRes>
           banksPaginated: _fn(_instance.banksPaginated?.map((e) => e == null
               ? null
               : CopyWith$Query$getBanksPaginated$banksPaginated(
-                  e, (i) => i)))?.toList());
+                  e,
+                  (i) => i,
+                )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getBanksPaginated<TRes>
@@ -262,181 +297,236 @@ class _CopyWithStubImpl$Query$getBanksPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getBanksPaginated$banksPaginated?>? banksPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getBanksPaginated$banksPaginated?>? banksPaginated,
+    String? $__typename,
+  }) =>
       _res;
   banksPaginated(_fn) => _res;
 }
 
 const documentNodeQuerygetBanksPaginated = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getBanksPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'banksPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getBanksPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'banksPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'unique_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'active'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'category'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'unique_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'active'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'category'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getBanksPaginated _parserFn$Query$getBanksPaginated(
         Map<String, dynamic> data) =>
     Query$getBanksPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getBanksPaginated = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$getBanksPaginated?,
+);
 
 class Options$Query$getBanksPaginated
     extends graphql.QueryOptions<Query$getBanksPaginated> {
-  Options$Query$getBanksPaginated(
-      {String? operationName,
-      Variables$Query$getBanksPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetBanksPaginated,
-            parserFn: _parserFn$Query$getBanksPaginated);
+  Options$Query$getBanksPaginated({
+    String? operationName,
+    Variables$Query$getBanksPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBanksPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getBanksPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getBanksPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetBanksPaginated,
+          parserFn: _parserFn$Query$getBanksPaginated,
+        );
+
+  final OnQueryComplete$Query$getBanksPaginated? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getBanksPaginated
     extends graphql.WatchQueryOptions<Query$getBanksPaginated> {
-  WatchOptions$Query$getBanksPaginated(
-      {String? operationName,
-      Variables$Query$getBanksPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetBanksPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getBanksPaginated);
+  WatchOptions$Query$getBanksPaginated({
+    String? operationName,
+    Variables$Query$getBanksPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBanksPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetBanksPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getBanksPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getBanksPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getBanksPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getBanksPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetBanksPaginated);
+  FetchMoreOptions$Query$getBanksPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getBanksPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetBanksPaginated,
+        );
 }
 
 extension ClientExtension$Query$getBanksPaginated on graphql.GraphQLClient {
@@ -446,38 +536,46 @@ extension ClientExtension$Query$getBanksPaginated on graphql.GraphQLClient {
   graphql.ObservableQuery<Query$getBanksPaginated> watchQuery$getBanksPaginated(
           [WatchOptions$Query$getBanksPaginated? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$getBanksPaginated());
-  void writeQuery$getBanksPaginated(
-          {required Query$getBanksPaginated data,
-          Variables$Query$getBanksPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getBanksPaginated({
+    required Query$getBanksPaginated data,
+    Variables$Query$getBanksPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetBanksPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getBanksPaginated? readQuery$getBanksPaginated(
-      {Variables$Query$getBanksPaginated? variables, bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation:
-                graphql.Operation(document: documentNodeQuerygetBanksPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation:
+              graphql.Operation(document: documentNodeQuerygetBanksPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getBanksPaginated? readQuery$getBanksPaginated({
+    Variables$Query$getBanksPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation:
+            graphql.Operation(document: documentNodeQuerygetBanksPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null ? null : Query$getBanksPaginated.fromJson(result);
   }
 }
 
 class Query$getBanksPaginated$banksPaginated {
-  Query$getBanksPaginated$banksPaginated(
-      {required this.id,
-      required this.unique_id,
-      this.created_at,
-      required this.active,
-      required this.name,
-      this.category,
-      required this.$__typename});
+  Query$getBanksPaginated$banksPaginated({
+    required this.id,
+    required this.unique_id,
+    this.created_at,
+    required this.active,
+    required this.name,
+    this.category,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getBanksPaginated$banksPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -489,16 +587,17 @@ class Query$getBanksPaginated$banksPaginated {
     final l$category = json['category'];
     final l$$__typename = json['__typename'];
     return Query$getBanksPaginated$banksPaginated(
-        id: (l$id as int),
-        unique_id: (l$unique_id as String),
-        created_at: (l$created_at as String?),
-        active: (l$active as bool),
-        name: (l$name as String),
-        category: l$category == null
-            ? null
-            : Query$getBanksPaginated$banksPaginated$category.fromJson(
-                (l$category as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      id: (l$id as int),
+      unique_id: (l$unique_id as String),
+      created_at: (l$created_at as String?),
+      active: (l$active as bool),
+      name: (l$name as String),
+      category: l$category == null
+          ? null
+          : Query$getBanksPaginated$banksPaginated$category.fromJson(
+              (l$category as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int id;
@@ -550,7 +649,7 @@ class Query$getBanksPaginated$banksPaginated {
       l$active,
       l$name,
       l$category,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -606,69 +705,76 @@ extension UtilityExtension$Query$getBanksPaginated$banksPaginated
     on Query$getBanksPaginated$banksPaginated {
   CopyWith$Query$getBanksPaginated$banksPaginated<
           Query$getBanksPaginated$banksPaginated>
-      get copyWith =>
-          CopyWith$Query$getBanksPaginated$banksPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getBanksPaginated$banksPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBanksPaginated$banksPaginated<TRes> {
   factory CopyWith$Query$getBanksPaginated$banksPaginated(
-          Query$getBanksPaginated$banksPaginated instance,
-          TRes Function(Query$getBanksPaginated$banksPaginated) then) =
-      _CopyWithImpl$Query$getBanksPaginated$banksPaginated;
+    Query$getBanksPaginated$banksPaginated instance,
+    TRes Function(Query$getBanksPaginated$banksPaginated) then,
+  ) = _CopyWithImpl$Query$getBanksPaginated$banksPaginated;
 
   factory CopyWith$Query$getBanksPaginated$banksPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getBanksPaginated$banksPaginated;
 
-  TRes call(
-      {int? id,
-      String? unique_id,
-      String? created_at,
-      bool? active,
-      String? name,
-      Query$getBanksPaginated$banksPaginated$category? category,
-      String? $__typename});
+  TRes call({
+    int? id,
+    String? unique_id,
+    String? created_at,
+    bool? active,
+    String? name,
+    Query$getBanksPaginated$banksPaginated$category? category,
+    String? $__typename,
+  });
   CopyWith$Query$getBanksPaginated$banksPaginated$category<TRes> get category;
 }
 
 class _CopyWithImpl$Query$getBanksPaginated$banksPaginated<TRes>
     implements CopyWith$Query$getBanksPaginated$banksPaginated<TRes> {
   _CopyWithImpl$Query$getBanksPaginated$banksPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBanksPaginated$banksPaginated _instance;
 
   final TRes Function(Query$getBanksPaginated$banksPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? id = _undefined,
-          Object? unique_id = _undefined,
-          Object? created_at = _undefined,
-          Object? active = _undefined,
-          Object? name = _undefined,
-          Object? category = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? unique_id = _undefined,
+    Object? created_at = _undefined,
+    Object? active = _undefined,
+    Object? name = _undefined,
+    Object? category = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBanksPaginated$banksPaginated(
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          unique_id: unique_id == _undefined || unique_id == null
-              ? _instance.unique_id
-              : (unique_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          active: active == _undefined || active == null
-              ? _instance.active
-              : (active as bool),
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          category: category == _undefined
-              ? _instance.category
-              : (category as Query$getBanksPaginated$banksPaginated$category?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        active: active == _undefined || active == null
+            ? _instance.active
+            : (active as bool),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        category: category == _undefined
+            ? _instance.category
+            : (category as Query$getBanksPaginated$banksPaginated$category?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$getBanksPaginated$banksPaginated$category<TRes> get category {
     final local$category = _instance.category;
     return local$category == null
@@ -685,22 +791,26 @@ class _CopyWithStubImpl$Query$getBanksPaginated$banksPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {int? id,
-          String? unique_id,
-          String? created_at,
-          bool? active,
-          String? name,
-          Query$getBanksPaginated$banksPaginated$category? category,
-          String? $__typename}) =>
+  call({
+    int? id,
+    String? unique_id,
+    String? created_at,
+    bool? active,
+    String? name,
+    Query$getBanksPaginated$banksPaginated$category? category,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$getBanksPaginated$banksPaginated$category<TRes> get category =>
       CopyWith$Query$getBanksPaginated$banksPaginated$category.stub(_res);
 }
 
 class Query$getBanksPaginated$banksPaginated$category {
-  Query$getBanksPaginated$banksPaginated$category(
-      {required this.id, required this.name, required this.$__typename});
+  Query$getBanksPaginated$banksPaginated$category({
+    required this.id,
+    required this.name,
+    this.$__typename = 'BankCategory',
+  });
 
   factory Query$getBanksPaginated$banksPaginated$category.fromJson(
       Map<String, dynamic> json) {
@@ -708,9 +818,10 @@ class Query$getBanksPaginated$banksPaginated$category {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Query$getBanksPaginated$banksPaginated$category(
-        id: (l$id as int),
-        name: (l$name as String),
-        $__typename: (l$$__typename as String));
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int id;
@@ -735,7 +846,11 @@ class Query$getBanksPaginated$banksPaginated$category {
     final l$id = id;
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$id, l$name, l$$__typename]);
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -771,45 +886,55 @@ extension UtilityExtension$Query$getBanksPaginated$banksPaginated$category
   CopyWith$Query$getBanksPaginated$banksPaginated$category<
           Query$getBanksPaginated$banksPaginated$category>
       get copyWith => CopyWith$Query$getBanksPaginated$banksPaginated$category(
-          this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBanksPaginated$banksPaginated$category<TRes> {
   factory CopyWith$Query$getBanksPaginated$banksPaginated$category(
-          Query$getBanksPaginated$banksPaginated$category instance,
-          TRes Function(Query$getBanksPaginated$banksPaginated$category) then) =
-      _CopyWithImpl$Query$getBanksPaginated$banksPaginated$category;
+    Query$getBanksPaginated$banksPaginated$category instance,
+    TRes Function(Query$getBanksPaginated$banksPaginated$category) then,
+  ) = _CopyWithImpl$Query$getBanksPaginated$banksPaginated$category;
 
   factory CopyWith$Query$getBanksPaginated$banksPaginated$category.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBanksPaginated$banksPaginated$category;
 
-  TRes call({int? id, String? name, String? $__typename});
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getBanksPaginated$banksPaginated$category<TRes>
     implements CopyWith$Query$getBanksPaginated$banksPaginated$category<TRes> {
   _CopyWithImpl$Query$getBanksPaginated$banksPaginated$category(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBanksPaginated$banksPaginated$category _instance;
 
   final TRes Function(Query$getBanksPaginated$banksPaginated$category) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? id = _undefined,
-          Object? name = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBanksPaginated$banksPaginated$category(
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getBanksPaginated$banksPaginated$category<TRes>
@@ -818,12 +943,20 @@ class _CopyWithStubImpl$Query$getBanksPaginated$banksPaginated$category<TRes>
 
   TRes _res;
 
-  call({int? id, String? name, String? $__typename}) => _res;
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Query$getBanksByCategoryPaginated {
-  factory Variables$Query$getBanksByCategoryPaginated(
-          {int? page, int? size, int? categoryId}) =>
+  factory Variables$Query$getBanksByCategoryPaginated({
+    int? page,
+    int? size,
+    int? categoryId,
+  }) =>
       Variables$Query$getBanksByCategoryPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
@@ -874,8 +1007,10 @@ class Variables$Query$getBanksByCategoryPaginated {
 
   CopyWith$Variables$Query$getBanksByCategoryPaginated<
           Variables$Query$getBanksByCategoryPaginated>
-      get copyWith =>
-          CopyWith$Variables$Query$getBanksByCategoryPaginated(this, (i) => i);
+      get copyWith => CopyWith$Variables$Query$getBanksByCategoryPaginated(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -921,38 +1056,45 @@ class Variables$Query$getBanksByCategoryPaginated {
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('size') ? l$size : const {},
-      _$data.containsKey('categoryId') ? l$categoryId : const {}
+      _$data.containsKey('categoryId') ? l$categoryId : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getBanksByCategoryPaginated<TRes> {
   factory CopyWith$Variables$Query$getBanksByCategoryPaginated(
-          Variables$Query$getBanksByCategoryPaginated instance,
-          TRes Function(Variables$Query$getBanksByCategoryPaginated) then) =
-      _CopyWithImpl$Variables$Query$getBanksByCategoryPaginated;
+    Variables$Query$getBanksByCategoryPaginated instance,
+    TRes Function(Variables$Query$getBanksByCategoryPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getBanksByCategoryPaginated;
 
   factory CopyWith$Variables$Query$getBanksByCategoryPaginated.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$getBanksByCategoryPaginated;
 
-  TRes call({int? page, int? size, int? categoryId});
+  TRes call({
+    int? page,
+    int? size,
+    int? categoryId,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getBanksByCategoryPaginated<TRes>
     implements CopyWith$Variables$Query$getBanksByCategoryPaginated<TRes> {
   _CopyWithImpl$Variables$Query$getBanksByCategoryPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getBanksByCategoryPaginated _instance;
 
   final TRes Function(Variables$Query$getBanksByCategoryPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? page = _undefined,
-          Object? size = _undefined,
-          Object? categoryId = _undefined}) =>
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+    Object? categoryId = _undefined,
+  }) =>
       _then(Variables$Query$getBanksByCategoryPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
@@ -967,25 +1109,33 @@ class _CopyWithStubImpl$Variables$Query$getBanksByCategoryPaginated<TRes>
 
   TRes _res;
 
-  call({int? page, int? size, int? categoryId}) => _res;
+  call({
+    int? page,
+    int? size,
+    int? categoryId,
+  }) =>
+      _res;
 }
 
 class Query$getBanksByCategoryPaginated {
-  Query$getBanksByCategoryPaginated(
-      {this.banksByCategoryPaginated, required this.$__typename});
+  Query$getBanksByCategoryPaginated({
+    this.banksByCategoryPaginated,
+    this.$__typename = 'BankQuery',
+  });
 
   factory Query$getBanksByCategoryPaginated.fromJson(
       Map<String, dynamic> json) {
     final l$banksByCategoryPaginated = json['banksByCategoryPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getBanksByCategoryPaginated(
-        banksByCategoryPaginated: (l$banksByCategoryPaginated as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getBanksByCategoryPaginated$banksByCategoryPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      banksByCategoryPaginated: (l$banksByCategoryPaginated as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getBanksByCategoryPaginated$banksByCategoryPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>?
@@ -1011,7 +1161,7 @@ class Query$getBanksByCategoryPaginated {
       l$banksByCategoryPaginated == null
           ? null
           : Object.hashAll(l$banksByCategoryPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -1056,23 +1206,26 @@ class Query$getBanksByCategoryPaginated {
 extension UtilityExtension$Query$getBanksByCategoryPaginated
     on Query$getBanksByCategoryPaginated {
   CopyWith$Query$getBanksByCategoryPaginated<Query$getBanksByCategoryPaginated>
-      get copyWith =>
-          CopyWith$Query$getBanksByCategoryPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getBanksByCategoryPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBanksByCategoryPaginated<TRes> {
   factory CopyWith$Query$getBanksByCategoryPaginated(
-          Query$getBanksByCategoryPaginated instance,
-          TRes Function(Query$getBanksByCategoryPaginated) then) =
-      _CopyWithImpl$Query$getBanksByCategoryPaginated;
+    Query$getBanksByCategoryPaginated instance,
+    TRes Function(Query$getBanksByCategoryPaginated) then,
+  ) = _CopyWithImpl$Query$getBanksByCategoryPaginated;
 
   factory CopyWith$Query$getBanksByCategoryPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getBanksByCategoryPaginated;
 
-  TRes call(
-      {List<Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>?
-          banksByCategoryPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>?
+        banksByCategoryPaginated,
+    String? $__typename,
+  });
   TRes banksByCategoryPaginated(
       Iterable<Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>? Function(
               Iterable<
@@ -1083,25 +1236,30 @@ abstract class CopyWith$Query$getBanksByCategoryPaginated<TRes> {
 
 class _CopyWithImpl$Query$getBanksByCategoryPaginated<TRes>
     implements CopyWith$Query$getBanksByCategoryPaginated<TRes> {
-  _CopyWithImpl$Query$getBanksByCategoryPaginated(this._instance, this._then);
+  _CopyWithImpl$Query$getBanksByCategoryPaginated(
+    this._instance,
+    this._then,
+  );
 
   final Query$getBanksByCategoryPaginated _instance;
 
   final TRes Function(Query$getBanksByCategoryPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? banksByCategoryPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? banksByCategoryPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBanksByCategoryPaginated(
-          banksByCategoryPaginated: banksByCategoryPaginated == _undefined
-              ? _instance.banksByCategoryPaginated
-              : (banksByCategoryPaginated as List<
-                  Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        banksByCategoryPaginated: banksByCategoryPaginated == _undefined
+            ? _instance.banksByCategoryPaginated
+            : (banksByCategoryPaginated as List<
+                Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes banksByCategoryPaginated(
           Iterable<Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>? Function(
                   Iterable<
@@ -1109,11 +1267,13 @@ class _CopyWithImpl$Query$getBanksByCategoryPaginated<TRes>
                           Query$getBanksByCategoryPaginated$banksByCategoryPaginated>?>?)
               _fn) =>
       call(
-          banksByCategoryPaginated: _fn(_instance.banksByCategoryPaginated?.map(
-              (e) => e == null
+          banksByCategoryPaginated:
+              _fn(_instance.banksByCategoryPaginated?.map((e) => e == null
                   ? null
                   : CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated(
-                      e, (i) => i)))?.toList());
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getBanksByCategoryPaginated<TRes>
@@ -1122,190 +1282,251 @@ class _CopyWithStubImpl$Query$getBanksByCategoryPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>?
-              banksByCategoryPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getBanksByCategoryPaginated$banksByCategoryPaginated?>?
+        banksByCategoryPaginated,
+    String? $__typename,
+  }) =>
       _res;
   banksByCategoryPaginated(_fn) => _res;
 }
 
 const documentNodeQuerygetBanksByCategoryPaginated = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getBanksByCategoryPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'categoryId')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'banksByCategoryPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getBanksByCategoryPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'categoryId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'banksByCategoryPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'categoryId'),
+            value: VariableNode(name: NameNode(value: 'categoryId')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size'))),
-              ArgumentNode(
-                  name: NameNode(value: 'categoryId'),
-                  value: VariableNode(name: NameNode(value: 'categoryId')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'unique_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'active'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'category'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'unique_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'active'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'category'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getBanksByCategoryPaginated _parserFn$Query$getBanksByCategoryPaginated(
         Map<String, dynamic> data) =>
     Query$getBanksByCategoryPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getBanksByCategoryPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getBanksByCategoryPaginated?,
+);
 
 class Options$Query$getBanksByCategoryPaginated
     extends graphql.QueryOptions<Query$getBanksByCategoryPaginated> {
-  Options$Query$getBanksByCategoryPaginated(
-      {String? operationName,
-      Variables$Query$getBanksByCategoryPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetBanksByCategoryPaginated,
-            parserFn: _parserFn$Query$getBanksByCategoryPaginated);
+  Options$Query$getBanksByCategoryPaginated({
+    String? operationName,
+    Variables$Query$getBanksByCategoryPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBanksByCategoryPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getBanksByCategoryPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getBanksByCategoryPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetBanksByCategoryPaginated,
+          parserFn: _parserFn$Query$getBanksByCategoryPaginated,
+        );
+
+  final OnQueryComplete$Query$getBanksByCategoryPaginated? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getBanksByCategoryPaginated
     extends graphql.WatchQueryOptions<Query$getBanksByCategoryPaginated> {
-  WatchOptions$Query$getBanksByCategoryPaginated(
-      {String? operationName,
-      Variables$Query$getBanksByCategoryPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetBanksByCategoryPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getBanksByCategoryPaginated);
+  WatchOptions$Query$getBanksByCategoryPaginated({
+    String? operationName,
+    Variables$Query$getBanksByCategoryPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBanksByCategoryPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetBanksByCategoryPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getBanksByCategoryPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getBanksByCategoryPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getBanksByCategoryPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getBanksByCategoryPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetBanksByCategoryPaginated);
+  FetchMoreOptions$Query$getBanksByCategoryPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getBanksByCategoryPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetBanksByCategoryPaginated,
+        );
 }
 
 extension ClientExtension$Query$getBanksByCategoryPaginated
@@ -1320,26 +1541,32 @@ extension ClientExtension$Query$getBanksByCategoryPaginated
               [WatchOptions$Query$getBanksByCategoryPaginated? options]) =>
           this.watchQuery(
               options ?? WatchOptions$Query$getBanksByCategoryPaginated());
-  void writeQuery$getBanksByCategoryPaginated(
-          {required Query$getBanksByCategoryPaginated data,
-          Variables$Query$getBanksByCategoryPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getBanksByCategoryPaginated({
+    required Query$getBanksByCategoryPaginated data,
+    Variables$Query$getBanksByCategoryPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetBanksByCategoryPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getBanksByCategoryPaginated? readQuery$getBanksByCategoryPaginated(
-      {Variables$Query$getBanksByCategoryPaginated? variables,
-      bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetBanksByCategoryPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetBanksByCategoryPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getBanksByCategoryPaginated? readQuery$getBanksByCategoryPaginated({
+    Variables$Query$getBanksByCategoryPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetBanksByCategoryPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
         : Query$getBanksByCategoryPaginated.fromJson(result);
@@ -1347,14 +1574,15 @@ extension ClientExtension$Query$getBanksByCategoryPaginated
 }
 
 class Query$getBanksByCategoryPaginated$banksByCategoryPaginated {
-  Query$getBanksByCategoryPaginated$banksByCategoryPaginated(
-      {required this.id,
-      required this.unique_id,
-      this.created_at,
-      required this.active,
-      required this.name,
-      this.category,
-      required this.$__typename});
+  Query$getBanksByCategoryPaginated$banksByCategoryPaginated({
+    required this.id,
+    required this.unique_id,
+    this.created_at,
+    required this.active,
+    required this.name,
+    this.category,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getBanksByCategoryPaginated$banksByCategoryPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -1366,16 +1594,17 @@ class Query$getBanksByCategoryPaginated$banksByCategoryPaginated {
     final l$category = json['category'];
     final l$$__typename = json['__typename'];
     return Query$getBanksByCategoryPaginated$banksByCategoryPaginated(
-        id: (l$id as int),
-        unique_id: (l$unique_id as String),
-        created_at: (l$created_at as String?),
-        active: (l$active as bool),
-        name: (l$name as String),
-        category: l$category == null
-            ? null
-            : Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category
-                .fromJson((l$category as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+      id: (l$id as int),
+      unique_id: (l$unique_id as String),
+      created_at: (l$created_at as String?),
+      active: (l$active as bool),
+      name: (l$name as String),
+      category: l$category == null
+          ? null
+          : Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category
+              .fromJson((l$category as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int id;
@@ -1428,7 +1657,7 @@ class Query$getBanksByCategoryPaginated$banksByCategoryPaginated {
       l$active,
       l$name,
       l$category,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -1487,31 +1716,33 @@ extension UtilityExtension$Query$getBanksByCategoryPaginated$banksByCategoryPagi
           Query$getBanksByCategoryPaginated$banksByCategoryPaginated>
       get copyWith =>
           CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated<
     TRes> {
   factory CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated(
-          Query$getBanksByCategoryPaginated$banksByCategoryPaginated instance,
-          TRes Function(
-                  Query$getBanksByCategoryPaginated$banksByCategoryPaginated)
-              then) =
-      _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated;
+    Query$getBanksByCategoryPaginated$banksByCategoryPaginated instance,
+    TRes Function(Query$getBanksByCategoryPaginated$banksByCategoryPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated;
 
   factory CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated;
 
-  TRes call(
-      {int? id,
-      String? unique_id,
-      String? created_at,
-      bool? active,
-      String? name,
-      Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category?
-          category,
-      String? $__typename});
+  TRes call({
+    int? id,
+    String? unique_id,
+    String? created_at,
+    bool? active,
+    String? name,
+    Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category?
+        category,
+    String? $__typename,
+  });
   CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category<
       TRes> get category;
 }
@@ -1522,44 +1753,48 @@ class _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated<
         CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated<
             TRes> {
   _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBanksByCategoryPaginated$banksByCategoryPaginated _instance;
 
   final TRes Function(
       Query$getBanksByCategoryPaginated$banksByCategoryPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? id = _undefined,
-          Object? unique_id = _undefined,
-          Object? created_at = _undefined,
-          Object? active = _undefined,
-          Object? name = _undefined,
-          Object? category = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? unique_id = _undefined,
+    Object? created_at = _undefined,
+    Object? active = _undefined,
+    Object? name = _undefined,
+    Object? category = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBanksByCategoryPaginated$banksByCategoryPaginated(
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          unique_id: unique_id == _undefined || unique_id == null
-              ? _instance.unique_id
-              : (unique_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          active: active == _undefined || active == null
-              ? _instance.active
-              : (active as bool),
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          category: category == _undefined
-              ? _instance.category
-              : (category
-                  as Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        active: active == _undefined || active == null
+            ? _instance.active
+            : (active as bool),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        category: category == _undefined
+            ? _instance.category
+            : (category
+                as Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category<
       TRes> get category {
     final local$category = _instance.category;
@@ -1581,15 +1816,16 @@ class _CopyWithStubImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginat
 
   TRes _res;
 
-  call(
-          {int? id,
-          String? unique_id,
-          String? created_at,
-          bool? active,
-          String? name,
-          Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category?
-              category,
-          String? $__typename}) =>
+  call({
+    int? id,
+    String? unique_id,
+    String? created_at,
+    bool? active,
+    String? name,
+    Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category?
+        category,
+    String? $__typename,
+  }) =>
       _res;
   CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category<
           TRes>
@@ -1599,8 +1835,11 @@ class _CopyWithStubImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginat
 }
 
 class Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category {
-  Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category(
-      {required this.id, required this.name, required this.$__typename});
+  Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category({
+    required this.id,
+    required this.name,
+    this.$__typename = 'BankCategory',
+  });
 
   factory Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category.fromJson(
       Map<String, dynamic> json) {
@@ -1608,9 +1847,10 @@ class Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category {
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
     return Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category(
-        id: (l$id as int),
-        name: (l$name as String),
-        $__typename: (l$$__typename as String));
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int id;
@@ -1635,7 +1875,11 @@ class Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category {
     final l$id = id;
     final l$name = name;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$id, l$name, l$$__typename]);
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1673,24 +1917,30 @@ extension UtilityExtension$Query$getBanksByCategoryPaginated$banksByCategoryPagi
           Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category>
       get copyWith =>
           CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category<
     TRes> {
   factory CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category(
-          Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category
-              instance,
-          TRes Function(
-                  Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category)
-              then) =
-      _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category;
+    Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category
+        instance,
+    TRes Function(
+            Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category)
+        then,
+  ) = _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category;
 
   factory CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category;
 
-  TRes call({int? id, String? name, String? $__typename});
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category<
@@ -1699,7 +1949,9 @@ class _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$c
         CopyWith$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category<
             TRes> {
   _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category
       _instance;
@@ -1708,20 +1960,22 @@ class _CopyWithImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$c
           Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? id = _undefined,
-          Object? name = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category(
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginated$category<
@@ -1734,11 +1988,19 @@ class _CopyWithStubImpl$Query$getBanksByCategoryPaginated$banksByCategoryPaginat
 
   TRes _res;
 
-  call({int? id, String? name, String? $__typename}) => _res;
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Variables$Query$getBankCategoriesPaginated {
-  factory Variables$Query$getBankCategoriesPaginated({int? page, int? size}) =>
+  factory Variables$Query$getBankCategoriesPaginated({
+    int? page,
+    int? size,
+  }) =>
       Variables$Query$getBankCategoriesPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
@@ -1779,8 +2041,10 @@ class Variables$Query$getBankCategoriesPaginated {
 
   CopyWith$Variables$Query$getBankCategoriesPaginated<
           Variables$Query$getBankCategoriesPaginated>
-      get copyWith =>
-          CopyWith$Variables$Query$getBankCategoriesPaginated(this, (i) => i);
+      get copyWith => CopyWith$Variables$Query$getBankCategoriesPaginated(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
@@ -1815,35 +2079,43 @@ class Variables$Query$getBankCategoriesPaginated {
     final l$size = size;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
 abstract class CopyWith$Variables$Query$getBankCategoriesPaginated<TRes> {
   factory CopyWith$Variables$Query$getBankCategoriesPaginated(
-          Variables$Query$getBankCategoriesPaginated instance,
-          TRes Function(Variables$Query$getBankCategoriesPaginated) then) =
-      _CopyWithImpl$Variables$Query$getBankCategoriesPaginated;
+    Variables$Query$getBankCategoriesPaginated instance,
+    TRes Function(Variables$Query$getBankCategoriesPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getBankCategoriesPaginated;
 
   factory CopyWith$Variables$Query$getBankCategoriesPaginated.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$getBankCategoriesPaginated;
 
-  TRes call({int? page, int? size});
+  TRes call({
+    int? page,
+    int? size,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$getBankCategoriesPaginated<TRes>
     implements CopyWith$Variables$Query$getBankCategoriesPaginated<TRes> {
   _CopyWithImpl$Variables$Query$getBankCategoriesPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Variables$Query$getBankCategoriesPaginated _instance;
 
   final TRes Function(Variables$Query$getBankCategoriesPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined, Object? size = _undefined}) =>
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
       _then(Variables$Query$getBankCategoriesPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
@@ -1857,24 +2129,31 @@ class _CopyWithStubImpl$Variables$Query$getBankCategoriesPaginated<TRes>
 
   TRes _res;
 
-  call({int? page, int? size}) => _res;
+  call({
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
 class Query$getBankCategoriesPaginated {
-  Query$getBankCategoriesPaginated(
-      {this.bankCategoriesPaginated, required this.$__typename});
+  Query$getBankCategoriesPaginated({
+    this.bankCategoriesPaginated,
+    this.$__typename = 'BankQuery',
+  });
 
   factory Query$getBankCategoriesPaginated.fromJson(Map<String, dynamic> json) {
     final l$bankCategoriesPaginated = json['bankCategoriesPaginated'];
     final l$$__typename = json['__typename'];
     return Query$getBankCategoriesPaginated(
-        bankCategoriesPaginated: (l$bankCategoriesPaginated as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getBankCategoriesPaginated$bankCategoriesPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      bankCategoriesPaginated: (l$bankCategoriesPaginated as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getBankCategoriesPaginated$bankCategoriesPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final List<Query$getBankCategoriesPaginated$bankCategoriesPaginated?>?
@@ -1900,7 +2179,7 @@ class Query$getBankCategoriesPaginated {
       l$bankCategoriesPaginated == null
           ? null
           : Object.hashAll(l$bankCategoriesPaginated.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -1945,22 +2224,26 @@ class Query$getBankCategoriesPaginated {
 extension UtilityExtension$Query$getBankCategoriesPaginated
     on Query$getBankCategoriesPaginated {
   CopyWith$Query$getBankCategoriesPaginated<Query$getBankCategoriesPaginated>
-      get copyWith => CopyWith$Query$getBankCategoriesPaginated(this, (i) => i);
+      get copyWith => CopyWith$Query$getBankCategoriesPaginated(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBankCategoriesPaginated<TRes> {
   factory CopyWith$Query$getBankCategoriesPaginated(
-          Query$getBankCategoriesPaginated instance,
-          TRes Function(Query$getBankCategoriesPaginated) then) =
-      _CopyWithImpl$Query$getBankCategoriesPaginated;
+    Query$getBankCategoriesPaginated instance,
+    TRes Function(Query$getBankCategoriesPaginated) then,
+  ) = _CopyWithImpl$Query$getBankCategoriesPaginated;
 
   factory CopyWith$Query$getBankCategoriesPaginated.stub(TRes res) =
       _CopyWithStubImpl$Query$getBankCategoriesPaginated;
 
-  TRes call(
-      {List<Query$getBankCategoriesPaginated$bankCategoriesPaginated?>?
-          bankCategoriesPaginated,
-      String? $__typename});
+  TRes call({
+    List<Query$getBankCategoriesPaginated$bankCategoriesPaginated?>?
+        bankCategoriesPaginated,
+    String? $__typename,
+  });
   TRes bankCategoriesPaginated(
       Iterable<Query$getBankCategoriesPaginated$bankCategoriesPaginated?>? Function(
               Iterable<
@@ -1971,25 +2254,30 @@ abstract class CopyWith$Query$getBankCategoriesPaginated<TRes> {
 
 class _CopyWithImpl$Query$getBankCategoriesPaginated<TRes>
     implements CopyWith$Query$getBankCategoriesPaginated<TRes> {
-  _CopyWithImpl$Query$getBankCategoriesPaginated(this._instance, this._then);
+  _CopyWithImpl$Query$getBankCategoriesPaginated(
+    this._instance,
+    this._then,
+  );
 
   final Query$getBankCategoriesPaginated _instance;
 
   final TRes Function(Query$getBankCategoriesPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? bankCategoriesPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? bankCategoriesPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBankCategoriesPaginated(
-          bankCategoriesPaginated: bankCategoriesPaginated == _undefined
-              ? _instance.bankCategoriesPaginated
-              : (bankCategoriesPaginated as List<
-                  Query$getBankCategoriesPaginated$bankCategoriesPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        bankCategoriesPaginated: bankCategoriesPaginated == _undefined
+            ? _instance.bankCategoriesPaginated
+            : (bankCategoriesPaginated as List<
+                Query$getBankCategoriesPaginated$bankCategoriesPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes bankCategoriesPaginated(
           Iterable<Query$getBankCategoriesPaginated$bankCategoriesPaginated?>? Function(
                   Iterable<
@@ -1997,11 +2285,13 @@ class _CopyWithImpl$Query$getBankCategoriesPaginated<TRes>
                           Query$getBankCategoriesPaginated$bankCategoriesPaginated>?>?)
               _fn) =>
       call(
-          bankCategoriesPaginated: _fn(_instance.bankCategoriesPaginated?.map(
-              (e) => e == null
+          bankCategoriesPaginated:
+              _fn(_instance.bankCategoriesPaginated?.map((e) => e == null
                   ? null
                   : CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated(
-                      e, (i) => i)))?.toList());
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getBankCategoriesPaginated<TRes>
@@ -2010,176 +2300,231 @@ class _CopyWithStubImpl$Query$getBankCategoriesPaginated<TRes>
 
   TRes _res;
 
-  call(
-          {List<Query$getBankCategoriesPaginated$bankCategoriesPaginated?>?
-              bankCategoriesPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getBankCategoriesPaginated$bankCategoriesPaginated?>?
+        bankCategoriesPaginated,
+    String? $__typename,
+  }) =>
       _res;
   bankCategoriesPaginated(_fn) => _res;
 }
 
 const documentNodeQuerygetBankCategoriesPaginated = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getBankCategoriesPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'bankCategoriesPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getBankCategoriesPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'bankCategoriesPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'id'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'name'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'banks'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'banks'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
 Query$getBankCategoriesPaginated _parserFn$Query$getBankCategoriesPaginated(
         Map<String, dynamic> data) =>
     Query$getBankCategoriesPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getBankCategoriesPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getBankCategoriesPaginated?,
+);
 
 class Options$Query$getBankCategoriesPaginated
     extends graphql.QueryOptions<Query$getBankCategoriesPaginated> {
-  Options$Query$getBankCategoriesPaginated(
-      {String? operationName,
-      Variables$Query$getBankCategoriesPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetBankCategoriesPaginated,
-            parserFn: _parserFn$Query$getBankCategoriesPaginated);
+  Options$Query$getBankCategoriesPaginated({
+    String? operationName,
+    Variables$Query$getBankCategoriesPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBankCategoriesPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getBankCategoriesPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getBankCategoriesPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetBankCategoriesPaginated,
+          parserFn: _parserFn$Query$getBankCategoriesPaginated,
+        );
+
+  final OnQueryComplete$Query$getBankCategoriesPaginated? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
 class WatchOptions$Query$getBankCategoriesPaginated
     extends graphql.WatchQueryOptions<Query$getBankCategoriesPaginated> {
-  WatchOptions$Query$getBankCategoriesPaginated(
-      {String? operationName,
-      Variables$Query$getBankCategoriesPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetBankCategoriesPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getBankCategoriesPaginated);
+  WatchOptions$Query$getBankCategoriesPaginated({
+    String? operationName,
+    Variables$Query$getBankCategoriesPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getBankCategoriesPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetBankCategoriesPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getBankCategoriesPaginated,
+        );
 }
 
 class FetchMoreOptions$Query$getBankCategoriesPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getBankCategoriesPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getBankCategoriesPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetBankCategoriesPaginated);
+  FetchMoreOptions$Query$getBankCategoriesPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getBankCategoriesPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetBankCategoriesPaginated,
+        );
 }
 
 extension ClientExtension$Query$getBankCategoriesPaginated
@@ -2194,26 +2539,32 @@ extension ClientExtension$Query$getBankCategoriesPaginated
               [WatchOptions$Query$getBankCategoriesPaginated? options]) =>
           this.watchQuery(
               options ?? WatchOptions$Query$getBankCategoriesPaginated());
-  void writeQuery$getBankCategoriesPaginated(
-          {required Query$getBankCategoriesPaginated data,
-          Variables$Query$getBankCategoriesPaginated? variables,
-          bool broadcast = true}) =>
+  void writeQuery$getBankCategoriesPaginated({
+    required Query$getBankCategoriesPaginated data,
+    Variables$Query$getBankCategoriesPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetBankCategoriesPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getBankCategoriesPaginated? readQuery$getBankCategoriesPaginated(
-      {Variables$Query$getBankCategoriesPaginated? variables,
-      bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetBankCategoriesPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetBankCategoriesPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getBankCategoriesPaginated? readQuery$getBankCategoriesPaginated({
+    Variables$Query$getBankCategoriesPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetBankCategoriesPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
         : Query$getBankCategoriesPaginated.fromJson(result);
@@ -2221,12 +2572,13 @@ extension ClientExtension$Query$getBankCategoriesPaginated
 }
 
 class Query$getBankCategoriesPaginated$bankCategoriesPaginated {
-  Query$getBankCategoriesPaginated$bankCategoriesPaginated(
-      {required this.id,
-      required this.name,
-      this.created_at,
-      this.banks,
-      required this.$__typename});
+  Query$getBankCategoriesPaginated$bankCategoriesPaginated({
+    required this.id,
+    required this.name,
+    this.created_at,
+    this.banks,
+    this.$__typename = 'BankCategory',
+  });
 
   factory Query$getBankCategoriesPaginated$bankCategoriesPaginated.fromJson(
       Map<String, dynamic> json) {
@@ -2236,16 +2588,17 @@ class Query$getBankCategoriesPaginated$bankCategoriesPaginated {
     final l$banks = json['banks'];
     final l$$__typename = json['__typename'];
     return Query$getBankCategoriesPaginated$bankCategoriesPaginated(
-        id: (l$id as int),
-        name: (l$name as String),
-        created_at: (l$created_at as String?),
-        banks: (l$banks as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+      id: (l$id as int),
+      name: (l$name as String),
+      created_at: (l$created_at as String?),
+      banks: (l$banks as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int id;
@@ -2286,7 +2639,7 @@ class Query$getBankCategoriesPaginated$bankCategoriesPaginated {
       l$name,
       l$created_at,
       l$banks == null ? null : Object.hashAll(l$banks.map((v) => v)),
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -2345,29 +2698,31 @@ extension UtilityExtension$Query$getBankCategoriesPaginated$bankCategoriesPagina
           Query$getBankCategoriesPaginated$bankCategoriesPaginated>
       get copyWith =>
           CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated<
     TRes> {
   factory CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated(
-          Query$getBankCategoriesPaginated$bankCategoriesPaginated instance,
-          TRes Function(
-                  Query$getBankCategoriesPaginated$bankCategoriesPaginated)
-              then) =
-      _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated;
+    Query$getBankCategoriesPaginated$bankCategoriesPaginated instance,
+    TRes Function(Query$getBankCategoriesPaginated$bankCategoriesPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated;
 
   factory CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated;
 
-  TRes call(
-      {int? id,
-      String? name,
-      String? created_at,
-      List<Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>?
-          banks,
-      String? $__typename});
+  TRes call({
+    int? id,
+    String? name,
+    String? created_at,
+    List<Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>?
+        banks,
+    String? $__typename,
+  });
   TRes banks(
       Iterable<Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>? Function(
               Iterable<
@@ -2382,36 +2737,40 @@ class _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated<
         CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated<
             TRes> {
   _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBankCategoriesPaginated$bankCategoriesPaginated _instance;
 
   final TRes Function(Query$getBankCategoriesPaginated$bankCategoriesPaginated)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? id = _undefined,
-          Object? name = _undefined,
-          Object? created_at = _undefined,
-          Object? banks = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? created_at = _undefined,
+    Object? banks = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBankCategoriesPaginated$bankCategoriesPaginated(
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          banks: banks == _undefined
-              ? _instance.banks
-              : (banks as List<
-                  Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        banks: banks == _undefined
+            ? _instance.banks
+            : (banks as List<
+                Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
   TRes banks(
           Iterable<Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>? Function(
                   Iterable<
@@ -2422,7 +2781,9 @@ class _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated<
           banks: _fn(_instance.banks?.map((e) => e == null
               ? null
               : CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks(
-                  e, (i) => i)))?.toList());
+                  e,
+                  (i) => i,
+                )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated<
@@ -2435,23 +2796,25 @@ class _CopyWithStubImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated
 
   TRes _res;
 
-  call(
-          {int? id,
-          String? name,
-          String? created_at,
-          List<Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>?
-              banks,
-          String? $__typename}) =>
+  call({
+    int? id,
+    String? name,
+    String? created_at,
+    List<Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks?>?
+        banks,
+    String? $__typename,
+  }) =>
       _res;
   banks(_fn) => _res;
 }
 
 class Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks {
-  Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks(
-      {required this.id,
-      required this.name,
-      required this.unique_id,
-      required this.$__typename});
+  Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks({
+    required this.id,
+    required this.name,
+    required this.unique_id,
+    this.$__typename = 'FinancialInstitution',
+  });
 
   factory Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks.fromJson(
       Map<String, dynamic> json) {
@@ -2460,10 +2823,11 @@ class Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks {
     final l$unique_id = json['unique_id'];
     final l$$__typename = json['__typename'];
     return Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks(
-        id: (l$id as int),
-        name: (l$name as String),
-        unique_id: (l$unique_id as String),
-        $__typename: (l$$__typename as String));
+      id: (l$id as int),
+      name: (l$name as String),
+      unique_id: (l$unique_id as String),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final int id;
@@ -2493,7 +2857,12 @@ class Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks {
     final l$name = name;
     final l$unique_id = unique_id;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$id, l$name, l$unique_id, l$$__typename]);
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$unique_id,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -2536,23 +2905,30 @@ extension UtilityExtension$Query$getBankCategoriesPaginated$bankCategoriesPagina
           Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks>
       get copyWith =>
           CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks(
-              this, (i) => i);
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks<
     TRes> {
   factory CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks(
-          Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks instance,
-          TRes Function(
-                  Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks)
-              then) =
-      _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks;
+    Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks instance,
+    TRes Function(
+            Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks)
+        then,
+  ) = _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks;
 
   factory CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks.stub(
           TRes res) =
       _CopyWithStubImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks;
 
-  TRes call({int? id, String? name, String? unique_id, String? $__typename});
+  TRes call({
+    int? id,
+    String? name,
+    String? unique_id,
+    String? $__typename,
+  });
 }
 
 class _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks<
@@ -2561,7 +2937,9 @@ class _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$ban
         CopyWith$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks<
             TRes> {
   _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks(
-      this._instance, this._then);
+    this._instance,
+    this._then,
+  );
 
   final Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks
       _instance;
@@ -2569,24 +2947,26 @@ class _CopyWithImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$ban
   final TRes Function(
       Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? id = _undefined,
-          Object? name = _undefined,
-          Object? unique_id = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? unique_id = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks(
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          unique_id: unique_id == _undefined || unique_id == null
-              ? _instance.unique_id
-              : (unique_id as String),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
 class _CopyWithStubImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated$banks<
@@ -2599,5 +2979,11 @@ class _CopyWithStubImpl$Query$getBankCategoriesPaginated$bankCategoriesPaginated
 
   TRes _res;
 
-  call({int? id, String? name, String? unique_id, String? $__typename}) => _res;
+  call({
+    int? id,
+    String? name,
+    String? unique_id,
+    String? $__typename,
+  }) =>
+      _res;
 }

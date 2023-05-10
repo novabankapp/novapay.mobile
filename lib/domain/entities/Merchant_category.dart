@@ -1,21 +1,21 @@
-import 'package:nave_app/domain/entities/Service.dart';
+import 'package:nave_app/domain/entities/Merchant.dart';
 import 'package:nave_app/graphql/merchants/merchants.graphql.dart';
 
-class ServiceCategory {
-  ServiceCategory({
+class MerchantCategory {
+  MerchantCategory({
       this.recordId, 
       this.name, 
       this.createdAt,});
 
-  ServiceCategory.fromJson(dynamic json) {
+  MerchantCategory.fromJson(dynamic json) {
     recordId = json['recordId'];
     name = json['name'];
     createdAt = json['createdAt'];
   }
-  ServiceCategory.fromGetServiceCategoriesPaginated(Query$getServiceCategoriesPaginated$serviceCategoriesPaginated category){
+  MerchantCategory.fromGetServiceCategoriesPaginated(Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated category){
     recordId = category.id;
     name = category.name;
-    services = category.services?.map((e) => Service(
+    services = category.merchants?.map((e) => Merchant(
        recordId: e?.id,
        name: e?.name,
        uniqueIdentifier: e?.unique_id,
@@ -25,7 +25,7 @@ class ServiceCategory {
   int? recordId;
   String? name;
   String? createdAt;
-  List<Service>? services;
+  List<Merchant>? services;
 
   Map<String, dynamic> toJson() {
     final map = <String, dynamic>{};

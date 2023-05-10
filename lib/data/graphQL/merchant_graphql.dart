@@ -12,55 +12,55 @@ class MerchantGraphQLService {
     _client =
         GraphQLClient(link: link, cache: GraphQLCache(store: HiveStore()));
   }
-  Future<List<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated?>?>
-  getServiceCategories(int page, int size) async {
+  Future<List<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated?>?>
+  getMerchantCategories(int page, int size) async {
 
-    Options$Query$getServiceCategoriesPaginated? options = Options$Query$getServiceCategoriesPaginated(
-        variables: Variables$Query$getServiceCategoriesPaginated(page: page, size: size)
+    Options$Query$getMerchantCategoriesPaginated? options = Options$Query$getMerchantCategoriesPaginated(
+        variables: Variables$Query$getMerchantCategoriesPaginated(page: page, size: size)
     );
-    final result = await _client?.query$getServiceCategoriesPaginated(options);
+    final result = await _client?.query$getMerchantCategoriesPaginated(options);
     if(result != null) {
       if (result.hasException) {
         throw result.exception!;
       } else {
-        return Query$getServiceCategoriesPaginated
+        return Query$getMerchantCategoriesPaginated
             .fromJson(result.data!)
-            .serviceCategoriesPaginated;
+            .merchantCategoriesPaginated;
       }
     }
     return null;
   }
-  Future<List<Query$getServicesPaginated$servicesPaginated?>?> getServices(int page, int size) async {
+  Future<List<Query$getMerchantsPaginated$merchantsPaginated?>?> getMerchants(int page, int size) async {
 
-    Options$Query$getServicesPaginated? options = Options$Query$getServicesPaginated(
-        variables: Variables$Query$getServicesPaginated(page: page, size: size)
+    Options$Query$getMerchantsPaginated? options = Options$Query$getMerchantsPaginated(
+        variables: Variables$Query$getMerchantsPaginated(page: page, size: size)
     );
-    final result = await _client?.query$getServicesPaginated(options);
+    final result = await _client?.query$getMerchantsPaginated(options);
     if(result != null) {
       if (result.hasException) {
         throw result.exception!;
       } else {
-        return Query$getServicesPaginated
+        return Query$getMerchantsPaginated
             .fromJson(result.data!)
-            .servicesPaginated;
+            .merchantsPaginated;
       }
     }
     return null;
   }
 
-  Future<List<Query$getServicesByCategoryPaginated$servicesByCategoryPaginated?>?> getServicesByCategory(int categoryId,int page, int size) async {
+  Future<List<Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated?>?> getMerchantsByCategory(int categoryId,int page, int size) async {
 
-    Options$Query$getServicesByCategoryPaginated? options = Options$Query$getServicesByCategoryPaginated(
-        variables: Variables$Query$getServicesByCategoryPaginated(page: page, size: size)
+    Options$Query$getMerchantByCategoryPaginated? options = Options$Query$getMerchantByCategoryPaginated(
+        variables: Variables$Query$getMerchantByCategoryPaginated(page: page, size: size)
     );
-    final result = await _client?.query$getServicesByCategoryPaginated(options);
+    final result = await _client?.query$getMerchantByCategoryPaginated(options);
     if(result != null) {
       if (result.hasException) {
         throw result.exception!;
       } else {
-        return Query$getServicesByCategoryPaginated
+        return Query$getMerchantByCategoryPaginated
             .fromJson(result.data!)
-            .servicesByCategoryPaginated;
+            .merchantsByCategoryPaginated;
       }
     }
     return null;

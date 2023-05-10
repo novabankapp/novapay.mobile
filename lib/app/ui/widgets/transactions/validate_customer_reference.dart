@@ -19,7 +19,7 @@ import 'package:nave_app/data/remote/models/transaction/Generate_trn_request.dar
 import 'package:nave_app/data/remote/models/transaction/validate_customer_reference_reference.dart';
 import 'package:nave_app/data/remote/models/transaction/validate_customer_reference_response.dart';
 import 'package:nave_app/domain/entities/Bank.dart';
-import 'package:nave_app/domain/entities/Service.dart';
+import 'package:nave_app/domain/entities/Merchant.dart';
 import 'package:nave_app/infrastructure/constants/colors.dart';
 import 'package:rounded_loading_button/rounded_loading_button.dart';
 
@@ -72,12 +72,12 @@ class _ValidateCustomerReferenceState extends State<ValidateCustomerReference> {
                       color:  ColorConstants.kGrayColor,
                       margin: const EdgeInsets.symmetric(vertical: 10),
                       padding: const EdgeInsets.symmetric(vertical: 10),
-                      child: DropdownSearch<Service>(
-                        items: merchantState.myList.cast<Service>(),
-                        itemAsString: (Service s) => s.name!,
+                      child: DropdownSearch<Merchant>(
+                        items: merchantState.myList.cast<Merchant>(),
+                        itemAsString: (Merchant s) => s.name!,
                         //enabled: !_trnGenerated,
                         dropdownBuilder: (context, i) => Text("${i?.name}"),
-                        validator: (Service? service){
+                        validator: (Merchant? service){
                           if(service == null){
                             return "Please Select a service";
                           }

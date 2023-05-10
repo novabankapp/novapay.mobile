@@ -37,10 +37,14 @@ type Merchant {
     category: MerchantCategory
     " Created At."
     created_at: DateTime
+    "HasValidation."
+    has_validation: Boolean!
     " Id."
     id: Int!
     " Id."
     name: String!
+    " Short Code."
+    short_code: String!
     "Unique Id."
     unique_id: String!
 }
@@ -50,10 +54,17 @@ type MerchantCategory {
     created_at: DateTime
     " Id."
     id: Int!
+    "Merchants"
+    merchants: [Merchant]
     " Name."
     name: String!
-    "Services"
-    services: [Merchant]
+}
+
+type TransactionRefPaging {
+    " Count."
+    count: Int!
+    "Categories"
+    transactionRefs: [TransactionReferenceNumber]
 }
 
 type TransactionReferenceNumber {
@@ -71,20 +82,29 @@ type TransactionReferenceNumber {
     id: Int!
     "merchant"
     merchant: Merchant
+    " Metadata."
+    metadata: String
     " Service Id."
     service_id: String!
     " TRN."
     trn: String!
     " Used."
     used: Boolean!
+    " UserId."
+    userId: String!
 }
 
 type TransactionReferenceQuery {
     bankTransactionRefPaginated(bankRef: String, page: Int, size: Int): [TransactionReferenceNumber]
+    bankTransactionRefPaging(bankRef: String, page: Int, size: Int): [TransactionRefPaging]
     customerTransactionRefPaginated(customerRef: String, page: Int, size: Int): [TransactionReferenceNumber]
+    customerTransactionRefPaging(customerRef: String, page: Int, size: Int): [TransactionRefPaging]
     merchantTransactionRefPaginated(merchantRef: String, page: Int, size: Int): [TransactionReferenceNumber]
+    merchantTransactionRefPaging(merchantRef: String, page: Int, size: Int): TransactionRefPaging
     unusedTransactionRefPaginated(page: Int, size: Int): [TransactionReferenceNumber]
+    unusedTransactionRefPaging(page: Int, size: Int): TransactionRefPaging
     usedTransactionRefPaginated(page: Int, size: Int): [TransactionReferenceNumber]
+    usedTransactionRefPaging(page: Int, size: Int): TransactionRefPaging
 }
 
 "The `DateTime` scalar type represents a date and time. `DateTime` expects timestamps to be formatted in accordance with the [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) standard."

@@ -20,7 +20,7 @@ class AppRouter extends $AppRouter {
     ),
     AutoRoute(
       page: HomeRoute.page,
-      initial: false,
+      initial: true,
     ),
     AutoRoute(
         page: LoginRoute.page,
@@ -46,7 +46,7 @@ class AppRouter extends $AppRouter {
     AutoRoute(
       path: "/landing-page-screen",
       page: LandingRoute.page,
-      initial: true,
+      initial: false,
     ),
     AutoRoute(
       page: GenerateTRNRoute.page,

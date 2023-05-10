@@ -1,10 +1,10 @@
 
 
-import 'package:nave_app/domain/entities/Service.dart';
-import 'package:nave_app/domain/entities/Service_category.dart';
+import 'package:nave_app/domain/entities/Merchant.dart';
+import 'package:nave_app/domain/entities/Merchant_category.dart';
 
 abstract class ServiceRepository{
-    Future<List<Service>?> getServices({ required int page, required int size});
-    Future<List<Service>?> getServicesByCategory({ required int categoryId, required int page, required int size});
-    Future<List<ServiceCategory>?> getServiceCategories({ required int page, required int size});
+    Future<List<Merchant>?> getServices({ required int page, required int size});
+    Future<List<Merchant>?> getServicesByCategory({ required int categoryId, required int page, required int size});
+    Future<List<MerchantCategory>?> getServiceCategories({ required int page, required int size});
 }

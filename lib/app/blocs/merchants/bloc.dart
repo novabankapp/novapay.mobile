@@ -6,7 +6,7 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:injectable/injectable.dart';
 import 'package:nave_app/app/blocs/common/data_event.dart';
 import 'package:nave_app/app/blocs/common/data_state.dart';
-import 'package:nave_app/domain/entities/Service.dart';
+import 'package:nave_app/domain/entities/Merchant.dart';
 import 'package:nave_app/domain/repositories/service_repository.dart';
 
 
@@ -17,7 +17,7 @@ enum FetchType{
 
 @injectable
 class MerchantBloc extends Bloc<DataEvent, DataState> {
-  List<Service>? myList;
+  List<Merchant>? myList;
   int size = 10;
   int start = 0;
   int? categoryId;

@@ -1,5 +1,5 @@
-query getServicesPaginated($page:Int,$size:Int){
-    servicesPaginated(page: $page,size: $size){
+query getMerchantsPaginated($page:Int,$size:Int){
+    merchantsPaginated(page: $page,size: $size){
          name
          id
          unique_id
@@ -13,8 +13,8 @@ query getServicesPaginated($page:Int,$size:Int){
          }
     }
 }
-query getServicesByCategoryPaginated($page:Int,$size:Int,$categoryId:Int){
-    servicesByCategoryPaginated(page: $page,size: $size, categoryId: $categoryId){
+query getMerchantByCategoryPaginated($page:Int,$size:Int,$categoryId:Int){
+    merchantsByCategoryPaginated(page: $page,size: $size, categoryId: $categoryId){
         name
         id
         unique_id
@@ -28,11 +28,11 @@ query getServicesByCategoryPaginated($page:Int,$size:Int,$categoryId:Int){
         }
     }
 }
-query getServiceCategoriesPaginated($page:Int,$size:Int){
-    serviceCategoriesPaginated(page: $page,size: $size){
+query getMerchantCategoriesPaginated($page:Int,$size:Int){
+    merchantCategoriesPaginated(page: $page,size: $size){
         name
         id
-        services {
+        merchants {
             name
             has_validation
             unique_id

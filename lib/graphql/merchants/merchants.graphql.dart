@@ -1,16 +1,20 @@
+import 'dart:async';
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 
-class Variables$Query$getServicesPaginated {
-  factory Variables$Query$getServicesPaginated({int? page, int? size}) =>
-      Variables$Query$getServicesPaginated._({
+class Variables$Query$getMerchantsPaginated {
+  factory Variables$Query$getMerchantsPaginated({
+    int? page,
+    int? size,
+  }) =>
+      Variables$Query$getMerchantsPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
       });
 
-  Variables$Query$getServicesPaginated._(this._$data);
+  Variables$Query$getMerchantsPaginated._(this._$data);
 
-  factory Variables$Query$getServicesPaginated.fromJson(
+  factory Variables$Query$getMerchantsPaginated.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('page')) {
@@ -21,7 +25,7 @@ class Variables$Query$getServicesPaginated {
       final l$size = data['size'];
       result$data['size'] = (l$size as int?);
     }
-    return Variables$Query$getServicesPaginated._(result$data);
+    return Variables$Query$getMerchantsPaginated._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -41,16 +45,18 @@ class Variables$Query$getServicesPaginated {
     return result$data;
   }
 
-  CopyWith$Variables$Query$getServicesPaginated<
-          Variables$Query$getServicesPaginated>
-      get copyWith =>
-          CopyWith$Variables$Query$getServicesPaginated(this, (i) => i);
+  CopyWith$Variables$Query$getMerchantsPaginated<
+          Variables$Query$getMerchantsPaginated>
+      get copyWith => CopyWith$Variables$Query$getMerchantsPaginated(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$getServicesPaginated) ||
+    if (!(other is Variables$Query$getMerchantsPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -79,77 +85,93 @@ class Variables$Query$getServicesPaginated {
     final l$size = size;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
-abstract class CopyWith$Variables$Query$getServicesPaginated<TRes> {
-  factory CopyWith$Variables$Query$getServicesPaginated(
-          Variables$Query$getServicesPaginated instance,
-          TRes Function(Variables$Query$getServicesPaginated) then) =
-      _CopyWithImpl$Variables$Query$getServicesPaginated;
+abstract class CopyWith$Variables$Query$getMerchantsPaginated<TRes> {
+  factory CopyWith$Variables$Query$getMerchantsPaginated(
+    Variables$Query$getMerchantsPaginated instance,
+    TRes Function(Variables$Query$getMerchantsPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getMerchantsPaginated;
 
-  factory CopyWith$Variables$Query$getServicesPaginated.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$getServicesPaginated;
+  factory CopyWith$Variables$Query$getMerchantsPaginated.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$getMerchantsPaginated;
 
-  TRes call({int? page, int? size});
+  TRes call({
+    int? page,
+    int? size,
+  });
 }
 
-class _CopyWithImpl$Variables$Query$getServicesPaginated<TRes>
-    implements CopyWith$Variables$Query$getServicesPaginated<TRes> {
-  _CopyWithImpl$Variables$Query$getServicesPaginated(
-      this._instance, this._then);
+class _CopyWithImpl$Variables$Query$getMerchantsPaginated<TRes>
+    implements CopyWith$Variables$Query$getMerchantsPaginated<TRes> {
+  _CopyWithImpl$Variables$Query$getMerchantsPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Variables$Query$getServicesPaginated _instance;
+  final Variables$Query$getMerchantsPaginated _instance;
 
-  final TRes Function(Variables$Query$getServicesPaginated) _then;
+  final TRes Function(Variables$Query$getMerchantsPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined, Object? size = _undefined}) =>
-      _then(Variables$Query$getServicesPaginated._({
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
+      _then(Variables$Query$getMerchantsPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
         if (size != _undefined) 'size': (size as int?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$getServicesPaginated<TRes>
-    implements CopyWith$Variables$Query$getServicesPaginated<TRes> {
-  _CopyWithStubImpl$Variables$Query$getServicesPaginated(this._res);
+class _CopyWithStubImpl$Variables$Query$getMerchantsPaginated<TRes>
+    implements CopyWith$Variables$Query$getMerchantsPaginated<TRes> {
+  _CopyWithStubImpl$Variables$Query$getMerchantsPaginated(this._res);
 
   TRes _res;
 
-  call({int? page, int? size}) => _res;
+  call({
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
-class Query$getServicesPaginated {
-  Query$getServicesPaginated(
-      {this.servicesPaginated, required this.$__typename});
+class Query$getMerchantsPaginated {
+  Query$getMerchantsPaginated({
+    this.merchantsPaginated,
+    this.$__typename = 'ServiceQuery',
+  });
 
-  factory Query$getServicesPaginated.fromJson(Map<String, dynamic> json) {
-    final l$servicesPaginated = json['servicesPaginated'];
+  factory Query$getMerchantsPaginated.fromJson(Map<String, dynamic> json) {
+    final l$merchantsPaginated = json['merchantsPaginated'];
     final l$$__typename = json['__typename'];
-    return Query$getServicesPaginated(
-        servicesPaginated: (l$servicesPaginated as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getServicesPaginated$servicesPaginated.fromJson(
-                    (e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantsPaginated(
+      merchantsPaginated: (l$merchantsPaginated as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getMerchantsPaginated$merchantsPaginated.fromJson(
+                  (e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
-  final List<Query$getServicesPaginated$servicesPaginated?>? servicesPaginated;
+  final List<Query$getMerchantsPaginated$merchantsPaginated?>?
+      merchantsPaginated;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$servicesPaginated = servicesPaginated;
-    _resultData['servicesPaginated'] =
-        l$servicesPaginated?.map((e) => e?.toJson()).toList();
+    final l$merchantsPaginated = merchantsPaginated;
+    _resultData['merchantsPaginated'] =
+        l$merchantsPaginated?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -157,13 +179,13 @@ class Query$getServicesPaginated {
 
   @override
   int get hashCode {
-    final l$servicesPaginated = servicesPaginated;
+    final l$merchantsPaginated = merchantsPaginated;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$servicesPaginated == null
+      l$merchantsPaginated == null
           ? null
-          : Object.hashAll(l$servicesPaginated.map((v) => v)),
-      l$$__typename
+          : Object.hashAll(l$merchantsPaginated.map((v) => v)),
+      l$$__typename,
     ]);
   }
 
@@ -172,24 +194,24 @@ class Query$getServicesPaginated {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$getServicesPaginated) ||
+    if (!(other is Query$getMerchantsPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$servicesPaginated = servicesPaginated;
-    final lOther$servicesPaginated = other.servicesPaginated;
-    if (l$servicesPaginated != null && lOther$servicesPaginated != null) {
-      if (l$servicesPaginated.length != lOther$servicesPaginated.length) {
+    final l$merchantsPaginated = merchantsPaginated;
+    final lOther$merchantsPaginated = other.merchantsPaginated;
+    if (l$merchantsPaginated != null && lOther$merchantsPaginated != null) {
+      if (l$merchantsPaginated.length != lOther$merchantsPaginated.length) {
         return false;
       }
-      for (int i = 0; i < l$servicesPaginated.length; i++) {
-        final l$servicesPaginated$entry = l$servicesPaginated[i];
-        final lOther$servicesPaginated$entry = lOther$servicesPaginated[i];
-        if (l$servicesPaginated$entry != lOther$servicesPaginated$entry) {
+      for (int i = 0; i < l$merchantsPaginated.length; i++) {
+        final l$merchantsPaginated$entry = l$merchantsPaginated[i];
+        final lOther$merchantsPaginated$entry = lOther$merchantsPaginated[i];
+        if (l$merchantsPaginated$entry != lOther$merchantsPaginated$entry) {
           return false;
         }
       }
-    } else if (l$servicesPaginated != lOther$servicesPaginated) {
+    } else if (l$merchantsPaginated != lOther$merchantsPaginated) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -201,308 +223,382 @@ class Query$getServicesPaginated {
   }
 }
 
-extension UtilityExtension$Query$getServicesPaginated
-    on Query$getServicesPaginated {
-  CopyWith$Query$getServicesPaginated<Query$getServicesPaginated>
-      get copyWith => CopyWith$Query$getServicesPaginated(this, (i) => i);
+extension UtilityExtension$Query$getMerchantsPaginated
+    on Query$getMerchantsPaginated {
+  CopyWith$Query$getMerchantsPaginated<Query$getMerchantsPaginated>
+      get copyWith => CopyWith$Query$getMerchantsPaginated(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServicesPaginated<TRes> {
-  factory CopyWith$Query$getServicesPaginated(
-          Query$getServicesPaginated instance,
-          TRes Function(Query$getServicesPaginated) then) =
-      _CopyWithImpl$Query$getServicesPaginated;
+abstract class CopyWith$Query$getMerchantsPaginated<TRes> {
+  factory CopyWith$Query$getMerchantsPaginated(
+    Query$getMerchantsPaginated instance,
+    TRes Function(Query$getMerchantsPaginated) then,
+  ) = _CopyWithImpl$Query$getMerchantsPaginated;
 
-  factory CopyWith$Query$getServicesPaginated.stub(TRes res) =
-      _CopyWithStubImpl$Query$getServicesPaginated;
+  factory CopyWith$Query$getMerchantsPaginated.stub(TRes res) =
+      _CopyWithStubImpl$Query$getMerchantsPaginated;
 
-  TRes call(
-      {List<Query$getServicesPaginated$servicesPaginated?>? servicesPaginated,
-      String? $__typename});
-  TRes servicesPaginated(
-      Iterable<Query$getServicesPaginated$servicesPaginated?>? Function(
+  TRes call({
+    List<Query$getMerchantsPaginated$merchantsPaginated?>? merchantsPaginated,
+    String? $__typename,
+  });
+  TRes merchantsPaginated(
+      Iterable<Query$getMerchantsPaginated$merchantsPaginated?>? Function(
               Iterable<
-                  CopyWith$Query$getServicesPaginated$servicesPaginated<
-                      Query$getServicesPaginated$servicesPaginated>?>?)
+                  CopyWith$Query$getMerchantsPaginated$merchantsPaginated<
+                      Query$getMerchantsPaginated$merchantsPaginated>?>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$getServicesPaginated<TRes>
-    implements CopyWith$Query$getServicesPaginated<TRes> {
-  _CopyWithImpl$Query$getServicesPaginated(this._instance, this._then);
+class _CopyWithImpl$Query$getMerchantsPaginated<TRes>
+    implements CopyWith$Query$getMerchantsPaginated<TRes> {
+  _CopyWithImpl$Query$getMerchantsPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServicesPaginated _instance;
+  final Query$getMerchantsPaginated _instance;
 
-  final TRes Function(Query$getServicesPaginated) _then;
+  final TRes Function(Query$getMerchantsPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? servicesPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getServicesPaginated(
-          servicesPaginated: servicesPaginated == _undefined
-              ? _instance.servicesPaginated
-              : (servicesPaginated
-                  as List<Query$getServicesPaginated$servicesPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-  TRes servicesPaginated(
-          Iterable<Query$getServicesPaginated$servicesPaginated?>? Function(
+  TRes call({
+    Object? merchantsPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$getMerchantsPaginated(
+        merchantsPaginated: merchantsPaginated == _undefined
+            ? _instance.merchantsPaginated
+            : (merchantsPaginated
+                as List<Query$getMerchantsPaginated$merchantsPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes merchantsPaginated(
+          Iterable<Query$getMerchantsPaginated$merchantsPaginated?>? Function(
                   Iterable<
-                      CopyWith$Query$getServicesPaginated$servicesPaginated<
-                          Query$getServicesPaginated$servicesPaginated>?>?)
+                      CopyWith$Query$getMerchantsPaginated$merchantsPaginated<
+                          Query$getMerchantsPaginated$merchantsPaginated>?>?)
               _fn) =>
       call(
-          servicesPaginated: _fn(_instance.servicesPaginated?.map((e) =>
-              e == null
+          merchantsPaginated:
+              _fn(_instance.merchantsPaginated?.map((e) => e == null
                   ? null
-                  : CopyWith$Query$getServicesPaginated$servicesPaginated(
-                      e, (i) => i)))?.toList());
+                  : CopyWith$Query$getMerchantsPaginated$merchantsPaginated(
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$getServicesPaginated<TRes>
-    implements CopyWith$Query$getServicesPaginated<TRes> {
-  _CopyWithStubImpl$Query$getServicesPaginated(this._res);
+class _CopyWithStubImpl$Query$getMerchantsPaginated<TRes>
+    implements CopyWith$Query$getMerchantsPaginated<TRes> {
+  _CopyWithStubImpl$Query$getMerchantsPaginated(this._res);
 
   TRes _res;
 
-  call(
-          {List<Query$getServicesPaginated$servicesPaginated?>?
-              servicesPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getMerchantsPaginated$merchantsPaginated?>? merchantsPaginated,
+    String? $__typename,
+  }) =>
       _res;
-  servicesPaginated(_fn) => _res;
+  merchantsPaginated(_fn) => _res;
 }
 
-const documentNodeQuerygetServicesPaginated = DocumentNode(definitions: [
+const documentNodeQuerygetMerchantsPaginated = DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getServicesPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'servicesPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getMerchantsPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'merchantsPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'unique_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'active'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'has_validation'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'category'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'unique_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'created_at'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'active'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'has_validation'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'category'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'created_at'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
-Query$getServicesPaginated _parserFn$Query$getServicesPaginated(
+Query$getMerchantsPaginated _parserFn$Query$getMerchantsPaginated(
         Map<String, dynamic> data) =>
-    Query$getServicesPaginated.fromJson(data);
+    Query$getMerchantsPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getMerchantsPaginated = FutureOr<void> Function(
+  Map<String, dynamic>?,
+  Query$getMerchantsPaginated?,
+);
 
-class Options$Query$getServicesPaginated
-    extends graphql.QueryOptions<Query$getServicesPaginated> {
-  Options$Query$getServicesPaginated(
-      {String? operationName,
-      Variables$Query$getServicesPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetServicesPaginated,
-            parserFn: _parserFn$Query$getServicesPaginated);
+class Options$Query$getMerchantsPaginated
+    extends graphql.QueryOptions<Query$getMerchantsPaginated> {
+  Options$Query$getMerchantsPaginated({
+    String? operationName,
+    Variables$Query$getMerchantsPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantsPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getMerchantsPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getMerchantsPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetMerchantsPaginated,
+          parserFn: _parserFn$Query$getMerchantsPaginated,
+        );
+
+  final OnQueryComplete$Query$getMerchantsPaginated? onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
-class WatchOptions$Query$getServicesPaginated
-    extends graphql.WatchQueryOptions<Query$getServicesPaginated> {
-  WatchOptions$Query$getServicesPaginated(
-      {String? operationName,
-      Variables$Query$getServicesPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetServicesPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getServicesPaginated);
+class WatchOptions$Query$getMerchantsPaginated
+    extends graphql.WatchQueryOptions<Query$getMerchantsPaginated> {
+  WatchOptions$Query$getMerchantsPaginated({
+    String? operationName,
+    Variables$Query$getMerchantsPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantsPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetMerchantsPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getMerchantsPaginated,
+        );
 }
 
-class FetchMoreOptions$Query$getServicesPaginated
+class FetchMoreOptions$Query$getMerchantsPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getServicesPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getServicesPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetServicesPaginated);
+  FetchMoreOptions$Query$getMerchantsPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getMerchantsPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetMerchantsPaginated,
+        );
 }
 
-extension ClientExtension$Query$getServicesPaginated on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$getServicesPaginated>>
-      query$getServicesPaginated(
-              [Options$Query$getServicesPaginated? options]) async =>
-          await this.query(options ?? Options$Query$getServicesPaginated());
-  graphql.ObservableQuery<Query$getServicesPaginated>
-      watchQuery$getServicesPaginated(
-              [WatchOptions$Query$getServicesPaginated? options]) =>
-          this.watchQuery(options ?? WatchOptions$Query$getServicesPaginated());
-  void writeQuery$getServicesPaginated(
-          {required Query$getServicesPaginated data,
-          Variables$Query$getServicesPaginated? variables,
-          bool broadcast = true}) =>
+extension ClientExtension$Query$getMerchantsPaginated on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$getMerchantsPaginated>>
+      query$getMerchantsPaginated(
+              [Options$Query$getMerchantsPaginated? options]) async =>
+          await this.query(options ?? Options$Query$getMerchantsPaginated());
+  graphql.ObservableQuery<
+      Query$getMerchantsPaginated> watchQuery$getMerchantsPaginated(
+          [WatchOptions$Query$getMerchantsPaginated? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$getMerchantsPaginated());
+  void writeQuery$getMerchantsPaginated({
+    required Query$getMerchantsPaginated data,
+    Variables$Query$getMerchantsPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetServicesPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getServicesPaginated? readQuery$getServicesPaginated(
-      {Variables$Query$getServicesPaginated? variables,
-      bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetServicesPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
-    return result == null ? null : Query$getServicesPaginated.fromJson(result);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetMerchantsPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getMerchantsPaginated? readQuery$getMerchantsPaginated({
+    Variables$Query$getMerchantsPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation:
+            graphql.Operation(document: documentNodeQuerygetMerchantsPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
+    return result == null ? null : Query$getMerchantsPaginated.fromJson(result);
   }
 }
 
-class Query$getServicesPaginated$servicesPaginated {
-  Query$getServicesPaginated$servicesPaginated(
-      {required this.name,
-      required this.id,
-      required this.unique_id,
-      this.created_at,
-      required this.active,
-      required this.has_validation,
-      this.category,
-      required this.$__typename});
+class Query$getMerchantsPaginated$merchantsPaginated {
+  Query$getMerchantsPaginated$merchantsPaginated({
+    required this.name,
+    required this.id,
+    required this.unique_id,
+    this.created_at,
+    required this.active,
+    required this.has_validation,
+    this.category,
+    this.$__typename = 'Merchant',
+  });
 
-  factory Query$getServicesPaginated$servicesPaginated.fromJson(
+  factory Query$getMerchantsPaginated$merchantsPaginated.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$id = json['id'];
@@ -512,18 +608,19 @@ class Query$getServicesPaginated$servicesPaginated {
     final l$has_validation = json['has_validation'];
     final l$category = json['category'];
     final l$$__typename = json['__typename'];
-    return Query$getServicesPaginated$servicesPaginated(
-        name: (l$name as String),
-        id: (l$id as int),
-        unique_id: (l$unique_id as String),
-        created_at: (l$created_at as String?),
-        active: (l$active as bool),
-        has_validation: (l$has_validation as bool),
-        category: l$category == null
-            ? null
-            : Query$getServicesPaginated$servicesPaginated$category.fromJson(
-                (l$category as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantsPaginated$merchantsPaginated(
+      name: (l$name as String),
+      id: (l$id as int),
+      unique_id: (l$unique_id as String),
+      created_at: (l$created_at as String?),
+      active: (l$active as bool),
+      has_validation: (l$has_validation as bool),
+      category: l$category == null
+          ? null
+          : Query$getMerchantsPaginated$merchantsPaginated$category.fromJson(
+              (l$category as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -538,7 +635,7 @@ class Query$getServicesPaginated$servicesPaginated {
 
   final bool has_validation;
 
-  final Query$getServicesPaginated$servicesPaginated$category? category;
+  final Query$getMerchantsPaginated$merchantsPaginated$category? category;
 
   final String $__typename;
 
@@ -581,7 +678,7 @@ class Query$getServicesPaginated$servicesPaginated {
       l$active,
       l$has_validation,
       l$category,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -590,7 +687,7 @@ class Query$getServicesPaginated$servicesPaginated {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$getServicesPaginated$servicesPaginated) ||
+    if (!(other is Query$getMerchantsPaginated$merchantsPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -638,131 +735,142 @@ class Query$getServicesPaginated$servicesPaginated {
   }
 }
 
-extension UtilityExtension$Query$getServicesPaginated$servicesPaginated
-    on Query$getServicesPaginated$servicesPaginated {
-  CopyWith$Query$getServicesPaginated$servicesPaginated<
-          Query$getServicesPaginated$servicesPaginated>
-      get copyWith =>
-          CopyWith$Query$getServicesPaginated$servicesPaginated(this, (i) => i);
+extension UtilityExtension$Query$getMerchantsPaginated$merchantsPaginated
+    on Query$getMerchantsPaginated$merchantsPaginated {
+  CopyWith$Query$getMerchantsPaginated$merchantsPaginated<
+          Query$getMerchantsPaginated$merchantsPaginated>
+      get copyWith => CopyWith$Query$getMerchantsPaginated$merchantsPaginated(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServicesPaginated$servicesPaginated<TRes> {
-  factory CopyWith$Query$getServicesPaginated$servicesPaginated(
-          Query$getServicesPaginated$servicesPaginated instance,
-          TRes Function(Query$getServicesPaginated$servicesPaginated) then) =
-      _CopyWithImpl$Query$getServicesPaginated$servicesPaginated;
+abstract class CopyWith$Query$getMerchantsPaginated$merchantsPaginated<TRes> {
+  factory CopyWith$Query$getMerchantsPaginated$merchantsPaginated(
+    Query$getMerchantsPaginated$merchantsPaginated instance,
+    TRes Function(Query$getMerchantsPaginated$merchantsPaginated) then,
+  ) = _CopyWithImpl$Query$getMerchantsPaginated$merchantsPaginated;
 
-  factory CopyWith$Query$getServicesPaginated$servicesPaginated.stub(TRes res) =
-      _CopyWithStubImpl$Query$getServicesPaginated$servicesPaginated;
+  factory CopyWith$Query$getMerchantsPaginated$merchantsPaginated.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$getMerchantsPaginated$merchantsPaginated;
 
-  TRes call(
-      {String? name,
-      int? id,
-      String? unique_id,
-      String? created_at,
-      bool? active,
-      bool? has_validation,
-      Query$getServicesPaginated$servicesPaginated$category? category,
-      String? $__typename});
-  CopyWith$Query$getServicesPaginated$servicesPaginated$category<TRes>
+  TRes call({
+    String? name,
+    int? id,
+    String? unique_id,
+    String? created_at,
+    bool? active,
+    bool? has_validation,
+    Query$getMerchantsPaginated$merchantsPaginated$category? category,
+    String? $__typename,
+  });
+  CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category<TRes>
       get category;
 }
 
-class _CopyWithImpl$Query$getServicesPaginated$servicesPaginated<TRes>
-    implements CopyWith$Query$getServicesPaginated$servicesPaginated<TRes> {
-  _CopyWithImpl$Query$getServicesPaginated$servicesPaginated(
-      this._instance, this._then);
+class _CopyWithImpl$Query$getMerchantsPaginated$merchantsPaginated<TRes>
+    implements CopyWith$Query$getMerchantsPaginated$merchantsPaginated<TRes> {
+  _CopyWithImpl$Query$getMerchantsPaginated$merchantsPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServicesPaginated$servicesPaginated _instance;
+  final Query$getMerchantsPaginated$merchantsPaginated _instance;
 
-  final TRes Function(Query$getServicesPaginated$servicesPaginated) _then;
+  final TRes Function(Query$getMerchantsPaginated$merchantsPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? id = _undefined,
-          Object? unique_id = _undefined,
-          Object? created_at = _undefined,
-          Object? active = _undefined,
-          Object? has_validation = _undefined,
-          Object? category = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getServicesPaginated$servicesPaginated(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          unique_id: unique_id == _undefined || unique_id == null
-              ? _instance.unique_id
-              : (unique_id as String),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          active: active == _undefined || active == null
-              ? _instance.active
-              : (active as bool),
-          has_validation: has_validation == _undefined || has_validation == null
-              ? _instance.has_validation
-              : (has_validation as bool),
-          category: category == _undefined
-              ? _instance.category
-              : (category
-                  as Query$getServicesPaginated$servicesPaginated$category?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-  CopyWith$Query$getServicesPaginated$servicesPaginated$category<TRes>
+  TRes call({
+    Object? name = _undefined,
+    Object? id = _undefined,
+    Object? unique_id = _undefined,
+    Object? created_at = _undefined,
+    Object? active = _undefined,
+    Object? has_validation = _undefined,
+    Object? category = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$getMerchantsPaginated$merchantsPaginated(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        active: active == _undefined || active == null
+            ? _instance.active
+            : (active as bool),
+        has_validation: has_validation == _undefined || has_validation == null
+            ? _instance.has_validation
+            : (has_validation as bool),
+        category: category == _undefined
+            ? _instance.category
+            : (category
+                as Query$getMerchantsPaginated$merchantsPaginated$category?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category<TRes>
       get category {
     final local$category = _instance.category;
     return local$category == null
-        ? CopyWith$Query$getServicesPaginated$servicesPaginated$category.stub(
+        ? CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category.stub(
             _then(_instance))
-        : CopyWith$Query$getServicesPaginated$servicesPaginated$category(
+        : CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category(
             local$category, (e) => call(category: e));
   }
 }
 
-class _CopyWithStubImpl$Query$getServicesPaginated$servicesPaginated<TRes>
-    implements CopyWith$Query$getServicesPaginated$servicesPaginated<TRes> {
-  _CopyWithStubImpl$Query$getServicesPaginated$servicesPaginated(this._res);
+class _CopyWithStubImpl$Query$getMerchantsPaginated$merchantsPaginated<TRes>
+    implements CopyWith$Query$getMerchantsPaginated$merchantsPaginated<TRes> {
+  _CopyWithStubImpl$Query$getMerchantsPaginated$merchantsPaginated(this._res);
 
   TRes _res;
 
-  call(
-          {String? name,
-          int? id,
-          String? unique_id,
-          String? created_at,
-          bool? active,
-          bool? has_validation,
-          Query$getServicesPaginated$servicesPaginated$category? category,
-          String? $__typename}) =>
+  call({
+    String? name,
+    int? id,
+    String? unique_id,
+    String? created_at,
+    bool? active,
+    bool? has_validation,
+    Query$getMerchantsPaginated$merchantsPaginated$category? category,
+    String? $__typename,
+  }) =>
       _res;
-  CopyWith$Query$getServicesPaginated$servicesPaginated$category<TRes>
+  CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category<TRes>
       get category =>
-          CopyWith$Query$getServicesPaginated$servicesPaginated$category.stub(
+          CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category.stub(
               _res);
 }
 
-class Query$getServicesPaginated$servicesPaginated$category {
-  Query$getServicesPaginated$servicesPaginated$category(
-      {required this.name,
-      required this.id,
-      this.created_at,
-      required this.$__typename});
+class Query$getMerchantsPaginated$merchantsPaginated$category {
+  Query$getMerchantsPaginated$merchantsPaginated$category({
+    required this.name,
+    required this.id,
+    this.created_at,
+    this.$__typename = 'MerchantCategory',
+  });
 
-  factory Query$getServicesPaginated$servicesPaginated$category.fromJson(
+  factory Query$getMerchantsPaginated$merchantsPaginated$category.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$id = json['id'];
     final l$created_at = json['created_at'];
     final l$$__typename = json['__typename'];
-    return Query$getServicesPaginated$servicesPaginated$category(
-        name: (l$name as String),
-        id: (l$id as int),
-        created_at: (l$created_at as String?),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantsPaginated$merchantsPaginated$category(
+      name: (l$name as String),
+      id: (l$id as int),
+      created_at: (l$created_at as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -792,7 +900,12 @@ class Query$getServicesPaginated$servicesPaginated$category {
     final l$id = id;
     final l$created_at = created_at;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$id, l$created_at, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$id,
+      l$created_at,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -800,7 +913,7 @@ class Query$getServicesPaginated$servicesPaginated$category {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$getServicesPaginated$servicesPaginated$category) ||
+    if (!(other is Query$getMerchantsPaginated$merchantsPaginated$category) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -828,86 +941,105 @@ class Query$getServicesPaginated$servicesPaginated$category {
   }
 }
 
-extension UtilityExtension$Query$getServicesPaginated$servicesPaginated$category
-    on Query$getServicesPaginated$servicesPaginated$category {
-  CopyWith$Query$getServicesPaginated$servicesPaginated$category<
-          Query$getServicesPaginated$servicesPaginated$category>
+extension UtilityExtension$Query$getMerchantsPaginated$merchantsPaginated$category
+    on Query$getMerchantsPaginated$merchantsPaginated$category {
+  CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category<
+          Query$getMerchantsPaginated$merchantsPaginated$category>
       get copyWith =>
-          CopyWith$Query$getServicesPaginated$servicesPaginated$category(
-              this, (i) => i);
+          CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServicesPaginated$servicesPaginated$category<
+abstract class CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category<
     TRes> {
-  factory CopyWith$Query$getServicesPaginated$servicesPaginated$category(
-          Query$getServicesPaginated$servicesPaginated$category instance,
-          TRes Function(Query$getServicesPaginated$servicesPaginated$category)
-              then) =
-      _CopyWithImpl$Query$getServicesPaginated$servicesPaginated$category;
+  factory CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category(
+    Query$getMerchantsPaginated$merchantsPaginated$category instance,
+    TRes Function(Query$getMerchantsPaginated$merchantsPaginated$category) then,
+  ) = _CopyWithImpl$Query$getMerchantsPaginated$merchantsPaginated$category;
 
-  factory CopyWith$Query$getServicesPaginated$servicesPaginated$category.stub(
+  factory CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$getServicesPaginated$servicesPaginated$category;
+      _CopyWithStubImpl$Query$getMerchantsPaginated$merchantsPaginated$category;
 
-  TRes call({String? name, int? id, String? created_at, String? $__typename});
+  TRes call({
+    String? name,
+    int? id,
+    String? created_at,
+    String? $__typename,
+  });
 }
 
-class _CopyWithImpl$Query$getServicesPaginated$servicesPaginated$category<TRes>
-    implements
-        CopyWith$Query$getServicesPaginated$servicesPaginated$category<TRes> {
-  _CopyWithImpl$Query$getServicesPaginated$servicesPaginated$category(
-      this._instance, this._then);
-
-  final Query$getServicesPaginated$servicesPaginated$category _instance;
-
-  final TRes Function(Query$getServicesPaginated$servicesPaginated$category)
-      _then;
-
-  static const _undefined = {};
-
-  TRes call(
-          {Object? name = _undefined,
-          Object? id = _undefined,
-          Object? created_at = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getServicesPaginated$servicesPaginated$category(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-}
-
-class _CopyWithStubImpl$Query$getServicesPaginated$servicesPaginated$category<
+class _CopyWithImpl$Query$getMerchantsPaginated$merchantsPaginated$category<
         TRes>
     implements
-        CopyWith$Query$getServicesPaginated$servicesPaginated$category<TRes> {
-  _CopyWithStubImpl$Query$getServicesPaginated$servicesPaginated$category(
+        CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category<TRes> {
+  _CopyWithImpl$Query$getMerchantsPaginated$merchantsPaginated$category(
+    this._instance,
+    this._then,
+  );
+
+  final Query$getMerchantsPaginated$merchantsPaginated$category _instance;
+
+  final TRes Function(Query$getMerchantsPaginated$merchantsPaginated$category)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? id = _undefined,
+    Object? created_at = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$getMerchantsPaginated$merchantsPaginated$category(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$getMerchantsPaginated$merchantsPaginated$category<
+        TRes>
+    implements
+        CopyWith$Query$getMerchantsPaginated$merchantsPaginated$category<TRes> {
+  _CopyWithStubImpl$Query$getMerchantsPaginated$merchantsPaginated$category(
       this._res);
 
   TRes _res;
 
-  call({String? name, int? id, String? created_at, String? $__typename}) =>
+  call({
+    String? name,
+    int? id,
+    String? created_at,
+    String? $__typename,
+  }) =>
       _res;
 }
 
-class Variables$Query$getServicesByCategoryPaginated {
-  factory Variables$Query$getServicesByCategoryPaginated(
-          {int? page, int? size, int? categoryId}) =>
-      Variables$Query$getServicesByCategoryPaginated._({
+class Variables$Query$getMerchantByCategoryPaginated {
+  factory Variables$Query$getMerchantByCategoryPaginated({
+    int? page,
+    int? size,
+    int? categoryId,
+  }) =>
+      Variables$Query$getMerchantByCategoryPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
         if (categoryId != null) r'categoryId': categoryId,
       });
 
-  Variables$Query$getServicesByCategoryPaginated._(this._$data);
+  Variables$Query$getMerchantByCategoryPaginated._(this._$data);
 
-  factory Variables$Query$getServicesByCategoryPaginated.fromJson(
+  factory Variables$Query$getMerchantByCategoryPaginated.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('page')) {
@@ -922,7 +1054,7 @@ class Variables$Query$getServicesByCategoryPaginated {
       final l$categoryId = data['categoryId'];
       result$data['categoryId'] = (l$categoryId as int?);
     }
-    return Variables$Query$getServicesByCategoryPaginated._(result$data);
+    return Variables$Query$getMerchantByCategoryPaginated._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -947,16 +1079,18 @@ class Variables$Query$getServicesByCategoryPaginated {
     return result$data;
   }
 
-  CopyWith$Variables$Query$getServicesByCategoryPaginated<
-          Variables$Query$getServicesByCategoryPaginated>
-      get copyWith => CopyWith$Variables$Query$getServicesByCategoryPaginated(
-          this, (i) => i);
+  CopyWith$Variables$Query$getMerchantByCategoryPaginated<
+          Variables$Query$getMerchantByCategoryPaginated>
+      get copyWith => CopyWith$Variables$Query$getMerchantByCategoryPaginated(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$getServicesByCategoryPaginated) ||
+    if (!(other is Variables$Query$getMerchantByCategoryPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -996,40 +1130,47 @@ class Variables$Query$getServicesByCategoryPaginated {
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
       _$data.containsKey('size') ? l$size : const {},
-      _$data.containsKey('categoryId') ? l$categoryId : const {}
+      _$data.containsKey('categoryId') ? l$categoryId : const {},
     ]);
   }
 }
 
-abstract class CopyWith$Variables$Query$getServicesByCategoryPaginated<TRes> {
-  factory CopyWith$Variables$Query$getServicesByCategoryPaginated(
-          Variables$Query$getServicesByCategoryPaginated instance,
-          TRes Function(Variables$Query$getServicesByCategoryPaginated) then) =
-      _CopyWithImpl$Variables$Query$getServicesByCategoryPaginated;
+abstract class CopyWith$Variables$Query$getMerchantByCategoryPaginated<TRes> {
+  factory CopyWith$Variables$Query$getMerchantByCategoryPaginated(
+    Variables$Query$getMerchantByCategoryPaginated instance,
+    TRes Function(Variables$Query$getMerchantByCategoryPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getMerchantByCategoryPaginated;
 
-  factory CopyWith$Variables$Query$getServicesByCategoryPaginated.stub(
+  factory CopyWith$Variables$Query$getMerchantByCategoryPaginated.stub(
           TRes res) =
-      _CopyWithStubImpl$Variables$Query$getServicesByCategoryPaginated;
+      _CopyWithStubImpl$Variables$Query$getMerchantByCategoryPaginated;
 
-  TRes call({int? page, int? size, int? categoryId});
+  TRes call({
+    int? page,
+    int? size,
+    int? categoryId,
+  });
 }
 
-class _CopyWithImpl$Variables$Query$getServicesByCategoryPaginated<TRes>
-    implements CopyWith$Variables$Query$getServicesByCategoryPaginated<TRes> {
-  _CopyWithImpl$Variables$Query$getServicesByCategoryPaginated(
-      this._instance, this._then);
+class _CopyWithImpl$Variables$Query$getMerchantByCategoryPaginated<TRes>
+    implements CopyWith$Variables$Query$getMerchantByCategoryPaginated<TRes> {
+  _CopyWithImpl$Variables$Query$getMerchantByCategoryPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Variables$Query$getServicesByCategoryPaginated _instance;
+  final Variables$Query$getMerchantByCategoryPaginated _instance;
 
-  final TRes Function(Variables$Query$getServicesByCategoryPaginated) _then;
+  final TRes Function(Variables$Query$getMerchantByCategoryPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? page = _undefined,
-          Object? size = _undefined,
-          Object? categoryId = _undefined}) =>
-      _then(Variables$Query$getServicesByCategoryPaginated._({
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+    Object? categoryId = _undefined,
+  }) =>
+      _then(Variables$Query$getMerchantByCategoryPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
         if (size != _undefined) 'size': (size as int?),
@@ -1037,44 +1178,53 @@ class _CopyWithImpl$Variables$Query$getServicesByCategoryPaginated<TRes>
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$getServicesByCategoryPaginated<TRes>
-    implements CopyWith$Variables$Query$getServicesByCategoryPaginated<TRes> {
-  _CopyWithStubImpl$Variables$Query$getServicesByCategoryPaginated(this._res);
+class _CopyWithStubImpl$Variables$Query$getMerchantByCategoryPaginated<TRes>
+    implements CopyWith$Variables$Query$getMerchantByCategoryPaginated<TRes> {
+  _CopyWithStubImpl$Variables$Query$getMerchantByCategoryPaginated(this._res);
 
   TRes _res;
 
-  call({int? page, int? size, int? categoryId}) => _res;
+  call({
+    int? page,
+    int? size,
+    int? categoryId,
+  }) =>
+      _res;
 }
 
-class Query$getServicesByCategoryPaginated {
-  Query$getServicesByCategoryPaginated(
-      {this.servicesByCategoryPaginated, required this.$__typename});
+class Query$getMerchantByCategoryPaginated {
+  Query$getMerchantByCategoryPaginated({
+    this.merchantsByCategoryPaginated,
+    this.$__typename = 'ServiceQuery',
+  });
 
-  factory Query$getServicesByCategoryPaginated.fromJson(
+  factory Query$getMerchantByCategoryPaginated.fromJson(
       Map<String, dynamic> json) {
-    final l$servicesByCategoryPaginated = json['servicesByCategoryPaginated'];
+    final l$merchantsByCategoryPaginated = json['merchantsByCategoryPaginated'];
     final l$$__typename = json['__typename'];
-    return Query$getServicesByCategoryPaginated(
-        servicesByCategoryPaginated: (l$servicesByCategoryPaginated
-                as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getServicesByCategoryPaginated$servicesByCategoryPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantByCategoryPaginated(
+      merchantsByCategoryPaginated: (l$merchantsByCategoryPaginated
+              as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
-  final List<Query$getServicesByCategoryPaginated$servicesByCategoryPaginated?>?
-      servicesByCategoryPaginated;
+  final List<
+          Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated?>?
+      merchantsByCategoryPaginated;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$servicesByCategoryPaginated = servicesByCategoryPaginated;
-    _resultData['servicesByCategoryPaginated'] =
-        l$servicesByCategoryPaginated?.map((e) => e?.toJson()).toList();
+    final l$merchantsByCategoryPaginated = merchantsByCategoryPaginated;
+    _resultData['merchantsByCategoryPaginated'] =
+        l$merchantsByCategoryPaginated?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1082,13 +1232,13 @@ class Query$getServicesByCategoryPaginated {
 
   @override
   int get hashCode {
-    final l$servicesByCategoryPaginated = servicesByCategoryPaginated;
+    final l$merchantsByCategoryPaginated = merchantsByCategoryPaginated;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$servicesByCategoryPaginated == null
+      l$merchantsByCategoryPaginated == null
           ? null
-          : Object.hashAll(l$servicesByCategoryPaginated.map((v) => v)),
-      l$$__typename
+          : Object.hashAll(l$merchantsByCategoryPaginated.map((v) => v)),
+      l$$__typename,
     ]);
   }
 
@@ -1097,31 +1247,31 @@ class Query$getServicesByCategoryPaginated {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$getServicesByCategoryPaginated) ||
+    if (!(other is Query$getMerchantByCategoryPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$servicesByCategoryPaginated = servicesByCategoryPaginated;
-    final lOther$servicesByCategoryPaginated =
-        other.servicesByCategoryPaginated;
-    if (l$servicesByCategoryPaginated != null &&
-        lOther$servicesByCategoryPaginated != null) {
-      if (l$servicesByCategoryPaginated.length !=
-          lOther$servicesByCategoryPaginated.length) {
+    final l$merchantsByCategoryPaginated = merchantsByCategoryPaginated;
+    final lOther$merchantsByCategoryPaginated =
+        other.merchantsByCategoryPaginated;
+    if (l$merchantsByCategoryPaginated != null &&
+        lOther$merchantsByCategoryPaginated != null) {
+      if (l$merchantsByCategoryPaginated.length !=
+          lOther$merchantsByCategoryPaginated.length) {
         return false;
       }
-      for (int i = 0; i < l$servicesByCategoryPaginated.length; i++) {
-        final l$servicesByCategoryPaginated$entry =
-            l$servicesByCategoryPaginated[i];
-        final lOther$servicesByCategoryPaginated$entry =
-            lOther$servicesByCategoryPaginated[i];
-        if (l$servicesByCategoryPaginated$entry !=
-            lOther$servicesByCategoryPaginated$entry) {
+      for (int i = 0; i < l$merchantsByCategoryPaginated.length; i++) {
+        final l$merchantsByCategoryPaginated$entry =
+            l$merchantsByCategoryPaginated[i];
+        final lOther$merchantsByCategoryPaginated$entry =
+            lOther$merchantsByCategoryPaginated[i];
+        if (l$merchantsByCategoryPaginated$entry !=
+            lOther$merchantsByCategoryPaginated$entry) {
           return false;
         }
       }
-    } else if (l$servicesByCategoryPaginated !=
-        lOther$servicesByCategoryPaginated) {
+    } else if (l$merchantsByCategoryPaginated !=
+        lOther$merchantsByCategoryPaginated) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1133,327 +1283,407 @@ class Query$getServicesByCategoryPaginated {
   }
 }
 
-extension UtilityExtension$Query$getServicesByCategoryPaginated
-    on Query$getServicesByCategoryPaginated {
-  CopyWith$Query$getServicesByCategoryPaginated<
-          Query$getServicesByCategoryPaginated>
-      get copyWith =>
-          CopyWith$Query$getServicesByCategoryPaginated(this, (i) => i);
+extension UtilityExtension$Query$getMerchantByCategoryPaginated
+    on Query$getMerchantByCategoryPaginated {
+  CopyWith$Query$getMerchantByCategoryPaginated<
+          Query$getMerchantByCategoryPaginated>
+      get copyWith => CopyWith$Query$getMerchantByCategoryPaginated(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServicesByCategoryPaginated<TRes> {
-  factory CopyWith$Query$getServicesByCategoryPaginated(
-          Query$getServicesByCategoryPaginated instance,
-          TRes Function(Query$getServicesByCategoryPaginated) then) =
-      _CopyWithImpl$Query$getServicesByCategoryPaginated;
+abstract class CopyWith$Query$getMerchantByCategoryPaginated<TRes> {
+  factory CopyWith$Query$getMerchantByCategoryPaginated(
+    Query$getMerchantByCategoryPaginated instance,
+    TRes Function(Query$getMerchantByCategoryPaginated) then,
+  ) = _CopyWithImpl$Query$getMerchantByCategoryPaginated;
 
-  factory CopyWith$Query$getServicesByCategoryPaginated.stub(TRes res) =
-      _CopyWithStubImpl$Query$getServicesByCategoryPaginated;
+  factory CopyWith$Query$getMerchantByCategoryPaginated.stub(TRes res) =
+      _CopyWithStubImpl$Query$getMerchantByCategoryPaginated;
 
-  TRes call(
-      {List<Query$getServicesByCategoryPaginated$servicesByCategoryPaginated?>?
-          servicesByCategoryPaginated,
-      String? $__typename});
-  TRes servicesByCategoryPaginated(
-      Iterable<Query$getServicesByCategoryPaginated$servicesByCategoryPaginated?>? Function(
+  TRes call({
+    List<Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated?>?
+        merchantsByCategoryPaginated,
+    String? $__typename,
+  });
+  TRes merchantsByCategoryPaginated(
+      Iterable<Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated?>? Function(
               Iterable<
-                  CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
-                      Query$getServicesByCategoryPaginated$servicesByCategoryPaginated>?>?)
+                  CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
+                      Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated>?>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$getServicesByCategoryPaginated<TRes>
-    implements CopyWith$Query$getServicesByCategoryPaginated<TRes> {
-  _CopyWithImpl$Query$getServicesByCategoryPaginated(
-      this._instance, this._then);
+class _CopyWithImpl$Query$getMerchantByCategoryPaginated<TRes>
+    implements CopyWith$Query$getMerchantByCategoryPaginated<TRes> {
+  _CopyWithImpl$Query$getMerchantByCategoryPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServicesByCategoryPaginated _instance;
+  final Query$getMerchantByCategoryPaginated _instance;
 
-  final TRes Function(Query$getServicesByCategoryPaginated) _then;
+  final TRes Function(Query$getMerchantByCategoryPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? servicesByCategoryPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getServicesByCategoryPaginated(
-          servicesByCategoryPaginated: servicesByCategoryPaginated == _undefined
-              ? _instance.servicesByCategoryPaginated
-              : (servicesByCategoryPaginated as List<
-                  Query$getServicesByCategoryPaginated$servicesByCategoryPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-  TRes servicesByCategoryPaginated(
-          Iterable<Query$getServicesByCategoryPaginated$servicesByCategoryPaginated?>? Function(
+  TRes call({
+    Object? merchantsByCategoryPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$getMerchantByCategoryPaginated(
+        merchantsByCategoryPaginated: merchantsByCategoryPaginated == _undefined
+            ? _instance.merchantsByCategoryPaginated
+            : (merchantsByCategoryPaginated as List<
+                Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes merchantsByCategoryPaginated(
+          Iterable<Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated?>? Function(
                   Iterable<
-                      CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
-                          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated>?>?)
+                      CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
+                          Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated>?>?)
               _fn) =>
       call(
-          servicesByCategoryPaginated: _fn(_instance.servicesByCategoryPaginated
-              ?.map((e) => e == null
+          merchantsByCategoryPaginated:
+              _fn(_instance.merchantsByCategoryPaginated?.map((e) => e == null
                   ? null
-                  : CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
-                      e, (i) => i)))?.toList());
+                  : CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated(
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$getServicesByCategoryPaginated<TRes>
-    implements CopyWith$Query$getServicesByCategoryPaginated<TRes> {
-  _CopyWithStubImpl$Query$getServicesByCategoryPaginated(this._res);
+class _CopyWithStubImpl$Query$getMerchantByCategoryPaginated<TRes>
+    implements CopyWith$Query$getMerchantByCategoryPaginated<TRes> {
+  _CopyWithStubImpl$Query$getMerchantByCategoryPaginated(this._res);
 
   TRes _res;
 
-  call(
-          {List<Query$getServicesByCategoryPaginated$servicesByCategoryPaginated?>?
-              servicesByCategoryPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated?>?
+        merchantsByCategoryPaginated,
+    String? $__typename,
+  }) =>
       _res;
-  servicesByCategoryPaginated(_fn) => _res;
+  merchantsByCategoryPaginated(_fn) => _res;
 }
 
-const documentNodeQuerygetServicesByCategoryPaginated =
+const documentNodeQuerygetMerchantByCategoryPaginated =
     DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getServicesByCategoryPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'categoryId')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'servicesByCategoryPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getMerchantByCategoryPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'categoryId')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'merchantsByCategoryPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'categoryId'),
+            value: VariableNode(name: NameNode(value: 'categoryId')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size'))),
-              ArgumentNode(
-                  name: NameNode(value: 'categoryId'),
-                  value: VariableNode(name: NameNode(value: 'categoryId')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'unique_id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'has_validation'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'created_at'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'active'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'category'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'unique_id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'created_at'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'has_validation'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'created_at'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'active'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
-              FieldNode(
-                  name: NameNode(value: 'category'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'created_at'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
-              FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
-Query$getServicesByCategoryPaginated
-    _parserFn$Query$getServicesByCategoryPaginated(Map<String, dynamic> data) =>
-        Query$getServicesByCategoryPaginated.fromJson(data);
+Query$getMerchantByCategoryPaginated
+    _parserFn$Query$getMerchantByCategoryPaginated(Map<String, dynamic> data) =>
+        Query$getMerchantByCategoryPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getMerchantByCategoryPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getMerchantByCategoryPaginated?,
+);
 
-class Options$Query$getServicesByCategoryPaginated
-    extends graphql.QueryOptions<Query$getServicesByCategoryPaginated> {
-  Options$Query$getServicesByCategoryPaginated(
-      {String? operationName,
-      Variables$Query$getServicesByCategoryPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetServicesByCategoryPaginated,
-            parserFn: _parserFn$Query$getServicesByCategoryPaginated);
+class Options$Query$getMerchantByCategoryPaginated
+    extends graphql.QueryOptions<Query$getMerchantByCategoryPaginated> {
+  Options$Query$getMerchantByCategoryPaginated({
+    String? operationName,
+    Variables$Query$getMerchantByCategoryPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantByCategoryPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getMerchantByCategoryPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getMerchantByCategoryPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetMerchantByCategoryPaginated,
+          parserFn: _parserFn$Query$getMerchantByCategoryPaginated,
+        );
+
+  final OnQueryComplete$Query$getMerchantByCategoryPaginated?
+      onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
-class WatchOptions$Query$getServicesByCategoryPaginated
-    extends graphql.WatchQueryOptions<Query$getServicesByCategoryPaginated> {
-  WatchOptions$Query$getServicesByCategoryPaginated(
-      {String? operationName,
-      Variables$Query$getServicesByCategoryPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetServicesByCategoryPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getServicesByCategoryPaginated);
+class WatchOptions$Query$getMerchantByCategoryPaginated
+    extends graphql.WatchQueryOptions<Query$getMerchantByCategoryPaginated> {
+  WatchOptions$Query$getMerchantByCategoryPaginated({
+    String? operationName,
+    Variables$Query$getMerchantByCategoryPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantByCategoryPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetMerchantByCategoryPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getMerchantByCategoryPaginated,
+        );
 }
 
-class FetchMoreOptions$Query$getServicesByCategoryPaginated
+class FetchMoreOptions$Query$getMerchantByCategoryPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getServicesByCategoryPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getServicesByCategoryPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetServicesByCategoryPaginated);
+  FetchMoreOptions$Query$getMerchantByCategoryPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getMerchantByCategoryPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetMerchantByCategoryPaginated,
+        );
 }
 
-extension ClientExtension$Query$getServicesByCategoryPaginated
+extension ClientExtension$Query$getMerchantByCategoryPaginated
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$getServicesByCategoryPaginated>>
-      query$getServicesByCategoryPaginated(
-              [Options$Query$getServicesByCategoryPaginated? options]) async =>
+  Future<graphql.QueryResult<Query$getMerchantByCategoryPaginated>>
+      query$getMerchantByCategoryPaginated(
+              [Options$Query$getMerchantByCategoryPaginated? options]) async =>
           await this
-              .query(options ?? Options$Query$getServicesByCategoryPaginated());
-  graphql.ObservableQuery<Query$getServicesByCategoryPaginated>
-      watchQuery$getServicesByCategoryPaginated(
-              [WatchOptions$Query$getServicesByCategoryPaginated? options]) =>
+              .query(options ?? Options$Query$getMerchantByCategoryPaginated());
+  graphql.ObservableQuery<Query$getMerchantByCategoryPaginated>
+      watchQuery$getMerchantByCategoryPaginated(
+              [WatchOptions$Query$getMerchantByCategoryPaginated? options]) =>
           this.watchQuery(
-              options ?? WatchOptions$Query$getServicesByCategoryPaginated());
-  void writeQuery$getServicesByCategoryPaginated(
-          {required Query$getServicesByCategoryPaginated data,
-          Variables$Query$getServicesByCategoryPaginated? variables,
-          bool broadcast = true}) =>
+              options ?? WatchOptions$Query$getMerchantByCategoryPaginated());
+  void writeQuery$getMerchantByCategoryPaginated({
+    required Query$getMerchantByCategoryPaginated data,
+    Variables$Query$getMerchantByCategoryPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetServicesByCategoryPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getServicesByCategoryPaginated?
-      readQuery$getServicesByCategoryPaginated(
-          {Variables$Query$getServicesByCategoryPaginated? variables,
-          bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetServicesByCategoryPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetMerchantByCategoryPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getMerchantByCategoryPaginated?
+      readQuery$getMerchantByCategoryPaginated({
+    Variables$Query$getMerchantByCategoryPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetMerchantByCategoryPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
-        : Query$getServicesByCategoryPaginated.fromJson(result);
+        : Query$getMerchantByCategoryPaginated.fromJson(result);
   }
 }
 
-class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
-  Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
-      {required this.name,
-      required this.id,
-      required this.unique_id,
-      required this.has_validation,
-      this.created_at,
-      required this.active,
-      this.category,
-      required this.$__typename});
+class Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated {
+  Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated({
+    required this.name,
+    required this.id,
+    required this.unique_id,
+    required this.has_validation,
+    this.created_at,
+    required this.active,
+    this.category,
+    this.$__typename = 'Merchant',
+  });
 
-  factory Query$getServicesByCategoryPaginated$servicesByCategoryPaginated.fromJson(
+  factory Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$id = json['id'];
@@ -1463,18 +1693,19 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
     final l$active = json['active'];
     final l$category = json['category'];
     final l$$__typename = json['__typename'];
-    return Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
-        name: (l$name as String),
-        id: (l$id as int),
-        unique_id: (l$unique_id as String),
-        has_validation: (l$has_validation as bool),
-        created_at: (l$created_at as String?),
-        active: (l$active as bool),
-        category: l$category == null
-            ? null
-            : Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category
-                .fromJson((l$category as Map<String, dynamic>)),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated(
+      name: (l$name as String),
+      id: (l$id as int),
+      unique_id: (l$unique_id as String),
+      has_validation: (l$has_validation as bool),
+      created_at: (l$created_at as String?),
+      active: (l$active as bool),
+      category: l$category == null
+          ? null
+          : Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category
+              .fromJson((l$category as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -1489,7 +1720,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
 
   final bool active;
 
-  final Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category?
+  final Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category?
       category;
 
   final String $__typename;
@@ -1533,7 +1764,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
       l$created_at,
       l$active,
       l$category,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -1543,7 +1774,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
       return true;
     }
     if (!(other
-            is Query$getServicesByCategoryPaginated$servicesByCategoryPaginated) ||
+            is Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1591,148 +1822,158 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
   }
 }
 
-extension UtilityExtension$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated
-    on Query$getServicesByCategoryPaginated$servicesByCategoryPaginated {
-  CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
-          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated>
+extension UtilityExtension$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated
+    on Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated {
+  CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
+          Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated>
       get copyWith =>
-          CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
-              this, (i) => i);
+          CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
+abstract class CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
     TRes> {
-  factory CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
-          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated instance,
-          TRes Function(
-                  Query$getServicesByCategoryPaginated$servicesByCategoryPaginated)
-              then) =
-      _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated;
+  factory CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated(
+    Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated instance,
+    TRes Function(
+            Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated;
 
-  factory CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated.stub(
+  factory CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated;
+      _CopyWithStubImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated;
 
-  TRes call(
-      {String? name,
-      int? id,
-      String? unique_id,
-      bool? has_validation,
-      String? created_at,
-      bool? active,
-      Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category?
-          category,
-      String? $__typename});
-  CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+  TRes call({
+    String? name,
+    int? id,
+    String? unique_id,
+    bool? has_validation,
+    String? created_at,
+    bool? active,
+    Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category?
+        category,
+    String? $__typename,
+  });
+  CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
       TRes> get category;
 }
 
-class _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
+class _CopyWithImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
         TRes>
     implements
-        CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
+        CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
             TRes> {
-  _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
-      this._instance, this._then);
+  _CopyWithImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServicesByCategoryPaginated$servicesByCategoryPaginated
+  final Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated
       _instance;
 
   final TRes Function(
-      Query$getServicesByCategoryPaginated$servicesByCategoryPaginated) _then;
+      Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? id = _undefined,
-          Object? unique_id = _undefined,
-          Object? has_validation = _undefined,
-          Object? created_at = _undefined,
-          Object? active = _undefined,
-          Object? category = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          unique_id: unique_id == _undefined || unique_id == null
-              ? _instance.unique_id
-              : (unique_id as String),
-          has_validation: has_validation == _undefined || has_validation == null
-              ? _instance.has_validation
-              : (has_validation as bool),
-          created_at: created_at == _undefined
-              ? _instance.created_at
-              : (created_at as String?),
-          active: active == _undefined || active == null
-              ? _instance.active
-              : (active as bool),
-          category: category == _undefined
-              ? _instance.category
-              : (category
-                  as Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-  CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+  TRes call({
+    Object? name = _undefined,
+    Object? id = _undefined,
+    Object? unique_id = _undefined,
+    Object? has_validation = _undefined,
+    Object? created_at = _undefined,
+    Object? active = _undefined,
+    Object? category = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        has_validation: has_validation == _undefined || has_validation == null
+            ? _instance.has_validation
+            : (has_validation as bool),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        active: active == _undefined || active == null
+            ? _instance.active
+            : (active as bool),
+        category: category == _undefined
+            ? _instance.category
+            : (category
+                as Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
       TRes> get category {
     final local$category = _instance.category;
     return local$category == null
-        ? CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category
+        ? CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category
             .stub(_then(_instance))
-        : CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
+        : CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category(
             local$category, (e) => call(category: e));
   }
 }
 
-class _CopyWithStubImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
+class _CopyWithStubImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
         TRes>
     implements
-        CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated<
+        CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated<
             TRes> {
-  _CopyWithStubImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated(
+  _CopyWithStubImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated(
       this._res);
 
   TRes _res;
 
-  call(
-          {String? name,
-          int? id,
-          String? unique_id,
-          bool? has_validation,
-          String? created_at,
-          bool? active,
-          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category?
-              category,
-          String? $__typename}) =>
+  call({
+    String? name,
+    int? id,
+    String? unique_id,
+    bool? has_validation,
+    String? created_at,
+    bool? active,
+    Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category?
+        category,
+    String? $__typename,
+  }) =>
       _res;
-  CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+  CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
           TRes>
       get category =>
-          CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category
+          CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category
               .stub(_res);
 }
 
-class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category {
-  Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
-      {required this.name,
-      required this.id,
-      this.created_at,
-      required this.$__typename});
+class Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category {
+  Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category({
+    required this.name,
+    required this.id,
+    this.created_at,
+    this.$__typename = 'MerchantCategory',
+  });
 
-  factory Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category.fromJson(
+  factory Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$id = json['id'];
     final l$created_at = json['created_at'];
     final l$$__typename = json['__typename'];
-    return Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
-        name: (l$name as String),
-        id: (l$id as int),
-        created_at: (l$created_at as String?),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category(
+      name: (l$name as String),
+      id: (l$id as int),
+      created_at: (l$created_at as String?),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -1762,7 +2003,12 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category 
     final l$id = id;
     final l$created_at = created_at;
     final l$$__typename = $__typename;
-    return Object.hashAll([l$name, l$id, l$created_at, l$$__typename]);
+    return Object.hashAll([
+      l$name,
+      l$id,
+      l$created_at,
+      l$$__typename,
+    ]);
   }
 
   @override
@@ -1771,7 +2017,7 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category 
       return true;
     }
     if (!(other
-            is Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category) ||
+            is Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1799,93 +2045,111 @@ class Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category 
   }
 }
 
-extension UtilityExtension$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category
-    on Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category {
-  CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
-          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category>
+extension UtilityExtension$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category
+    on Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category {
+  CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
+          Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category>
       get copyWith =>
-          CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
-              this, (i) => i);
+          CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+abstract class CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
     TRes> {
-  factory CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
-          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category
-              instance,
-          TRes Function(
-                  Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category)
-              then) =
-      _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category;
+  factory CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category(
+    Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category
+        instance,
+    TRes Function(
+            Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category)
+        then,
+  ) = _CopyWithImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category;
 
-  factory CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category.stub(
+  factory CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category;
+      _CopyWithStubImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category;
 
-  TRes call({String? name, int? id, String? created_at, String? $__typename});
+  TRes call({
+    String? name,
+    int? id,
+    String? created_at,
+    String? $__typename,
+  });
 }
 
-class _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+class _CopyWithImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
         TRes>
     implements
-        CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+        CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
             TRes> {
-  _CopyWithImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
-      this._instance, this._then);
+  _CopyWithImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category
+  final Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category
       _instance;
 
   final TRes Function(
-          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category)
+          Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? id = _undefined,
-          Object? created_at = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? id = _undefined,
+    Object? created_at = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
-          Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              created_at: created_at == _undefined
-                  ? _instance.created_at
-                  : (created_at as String?),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+          Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
-class _CopyWithStubImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+class _CopyWithStubImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
         TRes>
     implements
-        CopyWith$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category<
+        CopyWith$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category<
             TRes> {
-  _CopyWithStubImpl$Query$getServicesByCategoryPaginated$servicesByCategoryPaginated$category(
+  _CopyWithStubImpl$Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated$category(
       this._res);
 
   TRes _res;
 
-  call({String? name, int? id, String? created_at, String? $__typename}) =>
+  call({
+    String? name,
+    int? id,
+    String? created_at,
+    String? $__typename,
+  }) =>
       _res;
 }
 
-class Variables$Query$getServiceCategoriesPaginated {
-  factory Variables$Query$getServiceCategoriesPaginated(
-          {int? page, int? size}) =>
-      Variables$Query$getServiceCategoriesPaginated._({
+class Variables$Query$getMerchantCategoriesPaginated {
+  factory Variables$Query$getMerchantCategoriesPaginated({
+    int? page,
+    int? size,
+  }) =>
+      Variables$Query$getMerchantCategoriesPaginated._({
         if (page != null) r'page': page,
         if (size != null) r'size': size,
       });
 
-  Variables$Query$getServiceCategoriesPaginated._(this._$data);
+  Variables$Query$getMerchantCategoriesPaginated._(this._$data);
 
-  factory Variables$Query$getServiceCategoriesPaginated.fromJson(
+  factory Variables$Query$getMerchantCategoriesPaginated.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('page')) {
@@ -1896,7 +2160,7 @@ class Variables$Query$getServiceCategoriesPaginated {
       final l$size = data['size'];
       result$data['size'] = (l$size as int?);
     }
-    return Variables$Query$getServiceCategoriesPaginated._(result$data);
+    return Variables$Query$getMerchantCategoriesPaginated._(result$data);
   }
 
   Map<String, dynamic> _$data;
@@ -1916,16 +2180,18 @@ class Variables$Query$getServiceCategoriesPaginated {
     return result$data;
   }
 
-  CopyWith$Variables$Query$getServiceCategoriesPaginated<
-          Variables$Query$getServiceCategoriesPaginated>
-      get copyWith => CopyWith$Variables$Query$getServiceCategoriesPaginated(
-          this, (i) => i);
+  CopyWith$Variables$Query$getMerchantCategoriesPaginated<
+          Variables$Query$getMerchantCategoriesPaginated>
+      get copyWith => CopyWith$Variables$Query$getMerchantCategoriesPaginated(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$getServiceCategoriesPaginated) ||
+    if (!(other is Variables$Query$getMerchantCategoriesPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1954,81 +2220,96 @@ class Variables$Query$getServiceCategoriesPaginated {
     final l$size = size;
     return Object.hashAll([
       _$data.containsKey('page') ? l$page : const {},
-      _$data.containsKey('size') ? l$size : const {}
+      _$data.containsKey('size') ? l$size : const {},
     ]);
   }
 }
 
-abstract class CopyWith$Variables$Query$getServiceCategoriesPaginated<TRes> {
-  factory CopyWith$Variables$Query$getServiceCategoriesPaginated(
-          Variables$Query$getServiceCategoriesPaginated instance,
-          TRes Function(Variables$Query$getServiceCategoriesPaginated) then) =
-      _CopyWithImpl$Variables$Query$getServiceCategoriesPaginated;
+abstract class CopyWith$Variables$Query$getMerchantCategoriesPaginated<TRes> {
+  factory CopyWith$Variables$Query$getMerchantCategoriesPaginated(
+    Variables$Query$getMerchantCategoriesPaginated instance,
+    TRes Function(Variables$Query$getMerchantCategoriesPaginated) then,
+  ) = _CopyWithImpl$Variables$Query$getMerchantCategoriesPaginated;
 
-  factory CopyWith$Variables$Query$getServiceCategoriesPaginated.stub(
+  factory CopyWith$Variables$Query$getMerchantCategoriesPaginated.stub(
           TRes res) =
-      _CopyWithStubImpl$Variables$Query$getServiceCategoriesPaginated;
+      _CopyWithStubImpl$Variables$Query$getMerchantCategoriesPaginated;
 
-  TRes call({int? page, int? size});
+  TRes call({
+    int? page,
+    int? size,
+  });
 }
 
-class _CopyWithImpl$Variables$Query$getServiceCategoriesPaginated<TRes>
-    implements CopyWith$Variables$Query$getServiceCategoriesPaginated<TRes> {
-  _CopyWithImpl$Variables$Query$getServiceCategoriesPaginated(
-      this._instance, this._then);
+class _CopyWithImpl$Variables$Query$getMerchantCategoriesPaginated<TRes>
+    implements CopyWith$Variables$Query$getMerchantCategoriesPaginated<TRes> {
+  _CopyWithImpl$Variables$Query$getMerchantCategoriesPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Variables$Query$getServiceCategoriesPaginated _instance;
+  final Variables$Query$getMerchantCategoriesPaginated _instance;
 
-  final TRes Function(Variables$Query$getServiceCategoriesPaginated) _then;
+  final TRes Function(Variables$Query$getMerchantCategoriesPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? page = _undefined, Object? size = _undefined}) =>
-      _then(Variables$Query$getServiceCategoriesPaginated._({
+  TRes call({
+    Object? page = _undefined,
+    Object? size = _undefined,
+  }) =>
+      _then(Variables$Query$getMerchantCategoriesPaginated._({
         ..._instance._$data,
         if (page != _undefined) 'page': (page as int?),
         if (size != _undefined) 'size': (size as int?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$getServiceCategoriesPaginated<TRes>
-    implements CopyWith$Variables$Query$getServiceCategoriesPaginated<TRes> {
-  _CopyWithStubImpl$Variables$Query$getServiceCategoriesPaginated(this._res);
+class _CopyWithStubImpl$Variables$Query$getMerchantCategoriesPaginated<TRes>
+    implements CopyWith$Variables$Query$getMerchantCategoriesPaginated<TRes> {
+  _CopyWithStubImpl$Variables$Query$getMerchantCategoriesPaginated(this._res);
 
   TRes _res;
 
-  call({int? page, int? size}) => _res;
+  call({
+    int? page,
+    int? size,
+  }) =>
+      _res;
 }
 
-class Query$getServiceCategoriesPaginated {
-  Query$getServiceCategoriesPaginated(
-      {this.serviceCategoriesPaginated, required this.$__typename});
+class Query$getMerchantCategoriesPaginated {
+  Query$getMerchantCategoriesPaginated({
+    this.merchantCategoriesPaginated,
+    this.$__typename = 'ServiceQuery',
+  });
 
-  factory Query$getServiceCategoriesPaginated.fromJson(
+  factory Query$getMerchantCategoriesPaginated.fromJson(
       Map<String, dynamic> json) {
-    final l$serviceCategoriesPaginated = json['serviceCategoriesPaginated'];
+    final l$merchantCategoriesPaginated = json['merchantCategoriesPaginated'];
     final l$$__typename = json['__typename'];
-    return Query$getServiceCategoriesPaginated(
-        serviceCategoriesPaginated: (l$serviceCategoriesPaginated
-                as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getServiceCategoriesPaginated$serviceCategoriesPaginated
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantCategoriesPaginated(
+      merchantCategoriesPaginated: (l$merchantCategoriesPaginated
+              as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
-  final List<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated?>?
-      serviceCategoriesPaginated;
+  final List<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated?>?
+      merchantCategoriesPaginated;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$serviceCategoriesPaginated = serviceCategoriesPaginated;
-    _resultData['serviceCategoriesPaginated'] =
-        l$serviceCategoriesPaginated?.map((e) => e?.toJson()).toList();
+    final l$merchantCategoriesPaginated = merchantCategoriesPaginated;
+    _resultData['merchantCategoriesPaginated'] =
+        l$merchantCategoriesPaginated?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2036,13 +2317,13 @@ class Query$getServiceCategoriesPaginated {
 
   @override
   int get hashCode {
-    final l$serviceCategoriesPaginated = serviceCategoriesPaginated;
+    final l$merchantCategoriesPaginated = merchantCategoriesPaginated;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$serviceCategoriesPaginated == null
+      l$merchantCategoriesPaginated == null
           ? null
-          : Object.hashAll(l$serviceCategoriesPaginated.map((v) => v)),
-      l$$__typename
+          : Object.hashAll(l$merchantCategoriesPaginated.map((v) => v)),
+      l$$__typename,
     ]);
   }
 
@@ -2051,30 +2332,31 @@ class Query$getServiceCategoriesPaginated {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$getServiceCategoriesPaginated) ||
+    if (!(other is Query$getMerchantCategoriesPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$serviceCategoriesPaginated = serviceCategoriesPaginated;
-    final lOther$serviceCategoriesPaginated = other.serviceCategoriesPaginated;
-    if (l$serviceCategoriesPaginated != null &&
-        lOther$serviceCategoriesPaginated != null) {
-      if (l$serviceCategoriesPaginated.length !=
-          lOther$serviceCategoriesPaginated.length) {
+    final l$merchantCategoriesPaginated = merchantCategoriesPaginated;
+    final lOther$merchantCategoriesPaginated =
+        other.merchantCategoriesPaginated;
+    if (l$merchantCategoriesPaginated != null &&
+        lOther$merchantCategoriesPaginated != null) {
+      if (l$merchantCategoriesPaginated.length !=
+          lOther$merchantCategoriesPaginated.length) {
         return false;
       }
-      for (int i = 0; i < l$serviceCategoriesPaginated.length; i++) {
-        final l$serviceCategoriesPaginated$entry =
-            l$serviceCategoriesPaginated[i];
-        final lOther$serviceCategoriesPaginated$entry =
-            lOther$serviceCategoriesPaginated[i];
-        if (l$serviceCategoriesPaginated$entry !=
-            lOther$serviceCategoriesPaginated$entry) {
+      for (int i = 0; i < l$merchantCategoriesPaginated.length; i++) {
+        final l$merchantCategoriesPaginated$entry =
+            l$merchantCategoriesPaginated[i];
+        final lOther$merchantCategoriesPaginated$entry =
+            lOther$merchantCategoriesPaginated[i];
+        if (l$merchantCategoriesPaginated$entry !=
+            lOther$merchantCategoriesPaginated$entry) {
           return false;
         }
       }
-    } else if (l$serviceCategoriesPaginated !=
-        lOther$serviceCategoriesPaginated) {
+    } else if (l$merchantCategoriesPaginated !=
+        lOther$merchantCategoriesPaginated) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -2086,322 +2368,399 @@ class Query$getServiceCategoriesPaginated {
   }
 }
 
-extension UtilityExtension$Query$getServiceCategoriesPaginated
-    on Query$getServiceCategoriesPaginated {
-  CopyWith$Query$getServiceCategoriesPaginated<
-          Query$getServiceCategoriesPaginated>
-      get copyWith =>
-          CopyWith$Query$getServiceCategoriesPaginated(this, (i) => i);
+extension UtilityExtension$Query$getMerchantCategoriesPaginated
+    on Query$getMerchantCategoriesPaginated {
+  CopyWith$Query$getMerchantCategoriesPaginated<
+          Query$getMerchantCategoriesPaginated>
+      get copyWith => CopyWith$Query$getMerchantCategoriesPaginated(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServiceCategoriesPaginated<TRes> {
-  factory CopyWith$Query$getServiceCategoriesPaginated(
-          Query$getServiceCategoriesPaginated instance,
-          TRes Function(Query$getServiceCategoriesPaginated) then) =
-      _CopyWithImpl$Query$getServiceCategoriesPaginated;
+abstract class CopyWith$Query$getMerchantCategoriesPaginated<TRes> {
+  factory CopyWith$Query$getMerchantCategoriesPaginated(
+    Query$getMerchantCategoriesPaginated instance,
+    TRes Function(Query$getMerchantCategoriesPaginated) then,
+  ) = _CopyWithImpl$Query$getMerchantCategoriesPaginated;
 
-  factory CopyWith$Query$getServiceCategoriesPaginated.stub(TRes res) =
-      _CopyWithStubImpl$Query$getServiceCategoriesPaginated;
+  factory CopyWith$Query$getMerchantCategoriesPaginated.stub(TRes res) =
+      _CopyWithStubImpl$Query$getMerchantCategoriesPaginated;
 
-  TRes call(
-      {List<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated?>?
-          serviceCategoriesPaginated,
-      String? $__typename});
-  TRes serviceCategoriesPaginated(
-      Iterable<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated?>? Function(
+  TRes call({
+    List<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated?>?
+        merchantCategoriesPaginated,
+    String? $__typename,
+  });
+  TRes merchantCategoriesPaginated(
+      Iterable<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated?>? Function(
               Iterable<
-                  CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
-                      Query$getServiceCategoriesPaginated$serviceCategoriesPaginated>?>?)
+                  CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
+                      Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated>?>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$getServiceCategoriesPaginated<TRes>
-    implements CopyWith$Query$getServiceCategoriesPaginated<TRes> {
-  _CopyWithImpl$Query$getServiceCategoriesPaginated(this._instance, this._then);
+class _CopyWithImpl$Query$getMerchantCategoriesPaginated<TRes>
+    implements CopyWith$Query$getMerchantCategoriesPaginated<TRes> {
+  _CopyWithImpl$Query$getMerchantCategoriesPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServiceCategoriesPaginated _instance;
+  final Query$getMerchantCategoriesPaginated _instance;
 
-  final TRes Function(Query$getServiceCategoriesPaginated) _then;
+  final TRes Function(Query$getMerchantCategoriesPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? serviceCategoriesPaginated = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getServiceCategoriesPaginated(
-          serviceCategoriesPaginated: serviceCategoriesPaginated == _undefined
-              ? _instance.serviceCategoriesPaginated
-              : (serviceCategoriesPaginated as List<
-                  Query$getServiceCategoriesPaginated$serviceCategoriesPaginated?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-  TRes serviceCategoriesPaginated(
-          Iterable<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated?>? Function(
+  TRes call({
+    Object? merchantCategoriesPaginated = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$getMerchantCategoriesPaginated(
+        merchantCategoriesPaginated: merchantCategoriesPaginated == _undefined
+            ? _instance.merchantCategoriesPaginated
+            : (merchantCategoriesPaginated as List<
+                Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes merchantCategoriesPaginated(
+          Iterable<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated?>? Function(
                   Iterable<
-                      CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
-                          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated>?>?)
+                      CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
+                          Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated>?>?)
               _fn) =>
       call(
-          serviceCategoriesPaginated: _fn(_instance.serviceCategoriesPaginated
-              ?.map((e) => e == null
+          merchantCategoriesPaginated:
+              _fn(_instance.merchantCategoriesPaginated?.map((e) => e == null
                   ? null
-                  : CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
-                      e, (i) => i)))?.toList());
+                  : CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated(
+                      e,
+                      (i) => i,
+                    )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$getServiceCategoriesPaginated<TRes>
-    implements CopyWith$Query$getServiceCategoriesPaginated<TRes> {
-  _CopyWithStubImpl$Query$getServiceCategoriesPaginated(this._res);
+class _CopyWithStubImpl$Query$getMerchantCategoriesPaginated<TRes>
+    implements CopyWith$Query$getMerchantCategoriesPaginated<TRes> {
+  _CopyWithStubImpl$Query$getMerchantCategoriesPaginated(this._res);
 
   TRes _res;
 
-  call(
-          {List<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated?>?
-              serviceCategoriesPaginated,
-          String? $__typename}) =>
+  call({
+    List<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated?>?
+        merchantCategoriesPaginated,
+    String? $__typename,
+  }) =>
       _res;
-  serviceCategoriesPaginated(_fn) => _res;
+  merchantCategoriesPaginated(_fn) => _res;
 }
 
-const documentNodeQuerygetServiceCategoriesPaginated =
+const documentNodeQuerygetMerchantCategoriesPaginated =
     DocumentNode(definitions: [
   OperationDefinitionNode(
-      type: OperationType.query,
-      name: NameNode(value: 'getServiceCategoriesPaginated'),
-      variableDefinitions: [
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'page')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: []),
-        VariableDefinitionNode(
-            variable: VariableNode(name: NameNode(value: 'size')),
-            type: NamedTypeNode(name: NameNode(value: 'Int'), isNonNull: false),
-            defaultValue: DefaultValueNode(value: null),
-            directives: [])
-      ],
-      directives: [],
-      selectionSet: SelectionSetNode(selections: [
-        FieldNode(
-            name: NameNode(value: 'serviceCategoriesPaginated'),
+    type: OperationType.query,
+    name: NameNode(value: 'getMerchantCategoriesPaginated'),
+    variableDefinitions: [
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'page')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'size')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+    ],
+    directives: [],
+    selectionSet: SelectionSetNode(selections: [
+      FieldNode(
+        name: NameNode(value: 'merchantCategoriesPaginated'),
+        alias: null,
+        arguments: [
+          ArgumentNode(
+            name: NameNode(value: 'page'),
+            value: VariableNode(name: NameNode(value: 'page')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'size'),
+            value: VariableNode(name: NameNode(value: 'size')),
+          ),
+        ],
+        directives: [],
+        selectionSet: SelectionSetNode(selections: [
+          FieldNode(
+            name: NameNode(value: 'name'),
             alias: null,
-            arguments: [
-              ArgumentNode(
-                  name: NameNode(value: 'page'),
-                  value: VariableNode(name: NameNode(value: 'page'))),
-              ArgumentNode(
-                  name: NameNode(value: 'size'),
-                  value: VariableNode(name: NameNode(value: 'size')))
-            ],
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'id'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'merchants'),
+            alias: null,
+            arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
-                  name: NameNode(value: 'name'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'id'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null),
+                name: NameNode(value: 'has_validation'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: 'services'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: SelectionSetNode(selections: [
-                    FieldNode(
-                        name: NameNode(value: 'name'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'has_validation'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'unique_id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'id'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'created_at'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: 'active'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null),
-                    FieldNode(
-                        name: NameNode(value: '__typename'),
-                        alias: null,
-                        arguments: [],
-                        directives: [],
-                        selectionSet: null)
-                  ])),
+                name: NameNode(value: 'unique_id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
               FieldNode(
-                  name: NameNode(value: '__typename'),
-                  alias: null,
-                  arguments: [],
-                  directives: [],
-                  selectionSet: null)
-            ])),
-        FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'created_at'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'active'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: '__typename'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null)
-      ])),
+            selectionSet: null,
+          ),
+        ]),
+      ),
+      FieldNode(
+        name: NameNode(value: '__typename'),
+        alias: null,
+        arguments: [],
+        directives: [],
+        selectionSet: null,
+      ),
+    ]),
+  ),
 ]);
-Query$getServiceCategoriesPaginated
-    _parserFn$Query$getServiceCategoriesPaginated(Map<String, dynamic> data) =>
-        Query$getServiceCategoriesPaginated.fromJson(data);
+Query$getMerchantCategoriesPaginated
+    _parserFn$Query$getMerchantCategoriesPaginated(Map<String, dynamic> data) =>
+        Query$getMerchantCategoriesPaginated.fromJson(data);
+typedef OnQueryComplete$Query$getMerchantCategoriesPaginated = FutureOr<void>
+    Function(
+  Map<String, dynamic>?,
+  Query$getMerchantCategoriesPaginated?,
+);
 
-class Options$Query$getServiceCategoriesPaginated
-    extends graphql.QueryOptions<Query$getServiceCategoriesPaginated> {
-  Options$Query$getServiceCategoriesPaginated(
-      {String? operationName,
-      Variables$Query$getServiceCategoriesPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      Duration? pollInterval,
-      graphql.Context? context})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            pollInterval: pollInterval,
-            context: context,
-            document: documentNodeQuerygetServiceCategoriesPaginated,
-            parserFn: _parserFn$Query$getServiceCategoriesPaginated);
+class Options$Query$getMerchantCategoriesPaginated
+    extends graphql.QueryOptions<Query$getMerchantCategoriesPaginated> {
+  Options$Query$getMerchantCategoriesPaginated({
+    String? operationName,
+    Variables$Query$getMerchantCategoriesPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantCategoriesPaginated? typedOptimisticResult,
+    Duration? pollInterval,
+    graphql.Context? context,
+    OnQueryComplete$Query$getMerchantCategoriesPaginated? onComplete,
+    graphql.OnQueryError? onError,
+  })  : onCompleteWithParsed = onComplete,
+        super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          pollInterval: pollInterval,
+          context: context,
+          onComplete: onComplete == null
+              ? null
+              : (data) => onComplete(
+                    data,
+                    data == null
+                        ? null
+                        : _parserFn$Query$getMerchantCategoriesPaginated(data),
+                  ),
+          onError: onError,
+          document: documentNodeQuerygetMerchantCategoriesPaginated,
+          parserFn: _parserFn$Query$getMerchantCategoriesPaginated,
+        );
+
+  final OnQueryComplete$Query$getMerchantCategoriesPaginated?
+      onCompleteWithParsed;
+
+  @override
+  List<Object?> get properties => [
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
+        onCompleteWithParsed,
+      ];
 }
 
-class WatchOptions$Query$getServiceCategoriesPaginated
-    extends graphql.WatchQueryOptions<Query$getServiceCategoriesPaginated> {
-  WatchOptions$Query$getServiceCategoriesPaginated(
-      {String? operationName,
-      Variables$Query$getServiceCategoriesPaginated? variables,
-      graphql.FetchPolicy? fetchPolicy,
-      graphql.ErrorPolicy? errorPolicy,
-      graphql.CacheRereadPolicy? cacheRereadPolicy,
-      Object? optimisticResult,
-      graphql.Context? context,
-      Duration? pollInterval,
-      bool? eagerlyFetchResults,
-      bool carryForwardDataOnException = true,
-      bool fetchResults = false})
-      : super(
-            variables: variables?.toJson() ?? {},
-            operationName: operationName,
-            fetchPolicy: fetchPolicy,
-            errorPolicy: errorPolicy,
-            cacheRereadPolicy: cacheRereadPolicy,
-            optimisticResult: optimisticResult,
-            context: context,
-            document: documentNodeQuerygetServiceCategoriesPaginated,
-            pollInterval: pollInterval,
-            eagerlyFetchResults: eagerlyFetchResults,
-            carryForwardDataOnException: carryForwardDataOnException,
-            fetchResults: fetchResults,
-            parserFn: _parserFn$Query$getServiceCategoriesPaginated);
+class WatchOptions$Query$getMerchantCategoriesPaginated
+    extends graphql.WatchQueryOptions<Query$getMerchantCategoriesPaginated> {
+  WatchOptions$Query$getMerchantCategoriesPaginated({
+    String? operationName,
+    Variables$Query$getMerchantCategoriesPaginated? variables,
+    graphql.FetchPolicy? fetchPolicy,
+    graphql.ErrorPolicy? errorPolicy,
+    graphql.CacheRereadPolicy? cacheRereadPolicy,
+    Object? optimisticResult,
+    Query$getMerchantCategoriesPaginated? typedOptimisticResult,
+    graphql.Context? context,
+    Duration? pollInterval,
+    bool? eagerlyFetchResults,
+    bool carryForwardDataOnException = true,
+    bool fetchResults = false,
+  }) : super(
+          variables: variables?.toJson() ?? {},
+          operationName: operationName,
+          fetchPolicy: fetchPolicy,
+          errorPolicy: errorPolicy,
+          cacheRereadPolicy: cacheRereadPolicy,
+          optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+          context: context,
+          document: documentNodeQuerygetMerchantCategoriesPaginated,
+          pollInterval: pollInterval,
+          eagerlyFetchResults: eagerlyFetchResults,
+          carryForwardDataOnException: carryForwardDataOnException,
+          fetchResults: fetchResults,
+          parserFn: _parserFn$Query$getMerchantCategoriesPaginated,
+        );
 }
 
-class FetchMoreOptions$Query$getServiceCategoriesPaginated
+class FetchMoreOptions$Query$getMerchantCategoriesPaginated
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$getServiceCategoriesPaginated(
-      {required graphql.UpdateQuery updateQuery,
-      Variables$Query$getServiceCategoriesPaginated? variables})
-      : super(
-            updateQuery: updateQuery,
-            variables: variables?.toJson() ?? {},
-            document: documentNodeQuerygetServiceCategoriesPaginated);
+  FetchMoreOptions$Query$getMerchantCategoriesPaginated({
+    required graphql.UpdateQuery updateQuery,
+    Variables$Query$getMerchantCategoriesPaginated? variables,
+  }) : super(
+          updateQuery: updateQuery,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerygetMerchantCategoriesPaginated,
+        );
 }
 
-extension ClientExtension$Query$getServiceCategoriesPaginated
+extension ClientExtension$Query$getMerchantCategoriesPaginated
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$getServiceCategoriesPaginated>>
-      query$getServiceCategoriesPaginated(
-              [Options$Query$getServiceCategoriesPaginated? options]) async =>
+  Future<graphql.QueryResult<Query$getMerchantCategoriesPaginated>>
+      query$getMerchantCategoriesPaginated(
+              [Options$Query$getMerchantCategoriesPaginated? options]) async =>
           await this
-              .query(options ?? Options$Query$getServiceCategoriesPaginated());
-  graphql.ObservableQuery<Query$getServiceCategoriesPaginated>
-      watchQuery$getServiceCategoriesPaginated(
-              [WatchOptions$Query$getServiceCategoriesPaginated? options]) =>
+              .query(options ?? Options$Query$getMerchantCategoriesPaginated());
+  graphql.ObservableQuery<Query$getMerchantCategoriesPaginated>
+      watchQuery$getMerchantCategoriesPaginated(
+              [WatchOptions$Query$getMerchantCategoriesPaginated? options]) =>
           this.watchQuery(
-              options ?? WatchOptions$Query$getServiceCategoriesPaginated());
-  void writeQuery$getServiceCategoriesPaginated(
-          {required Query$getServiceCategoriesPaginated data,
-          Variables$Query$getServiceCategoriesPaginated? variables,
-          bool broadcast = true}) =>
+              options ?? WatchOptions$Query$getMerchantCategoriesPaginated());
+  void writeQuery$getMerchantCategoriesPaginated({
+    required Query$getMerchantCategoriesPaginated data,
+    Variables$Query$getMerchantCategoriesPaginated? variables,
+    bool broadcast = true,
+  }) =>
       this.writeQuery(
-          graphql.Request(
-              operation: graphql.Operation(
-                  document: documentNodeQuerygetServiceCategoriesPaginated),
-              variables: variables?.toJson() ?? const {}),
-          data: data.toJson(),
-          broadcast: broadcast);
-  Query$getServiceCategoriesPaginated? readQuery$getServiceCategoriesPaginated(
-      {Variables$Query$getServiceCategoriesPaginated? variables,
-      bool optimistic = true}) {
-    final result = this.readQuery(
         graphql.Request(
-            operation: graphql.Operation(
-                document: documentNodeQuerygetServiceCategoriesPaginated),
-            variables: variables?.toJson() ?? const {}),
-        optimistic: optimistic);
+          operation: graphql.Operation(
+              document: documentNodeQuerygetMerchantCategoriesPaginated),
+          variables: variables?.toJson() ?? const {},
+        ),
+        data: data.toJson(),
+        broadcast: broadcast,
+      );
+  Query$getMerchantCategoriesPaginated?
+      readQuery$getMerchantCategoriesPaginated({
+    Variables$Query$getMerchantCategoriesPaginated? variables,
+    bool optimistic = true,
+  }) {
+    final result = this.readQuery(
+      graphql.Request(
+        operation: graphql.Operation(
+            document: documentNodeQuerygetMerchantCategoriesPaginated),
+        variables: variables?.toJson() ?? const {},
+      ),
+      optimistic: optimistic,
+    );
     return result == null
         ? null
-        : Query$getServiceCategoriesPaginated.fromJson(result);
+        : Query$getMerchantCategoriesPaginated.fromJson(result);
   }
 }
 
-class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
-  Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
-      {required this.name,
-      required this.id,
-      this.services,
-      required this.$__typename});
+class Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated {
+  Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated({
+    required this.name,
+    required this.id,
+    this.merchants,
+    this.$__typename = 'MerchantCategory',
+  });
 
-  factory Query$getServiceCategoriesPaginated$serviceCategoriesPaginated.fromJson(
+  factory Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$id = json['id'];
-    final l$services = json['services'];
+    final l$merchants = json['merchants'];
     final l$$__typename = json['__typename'];
-    return Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
-        name: (l$name as String),
-        id: (l$id as int),
-        services: (l$services as List<dynamic>?)
-            ?.map((e) => e == null
-                ? null
-                : Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services
-                    .fromJson((e as Map<String, dynamic>)))
-            .toList(),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated(
+      name: (l$name as String),
+      id: (l$id as int),
+      merchants: (l$merchants as List<dynamic>?)
+          ?.map((e) => e == null
+              ? null
+              : Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants
+                  .fromJson((e as Map<String, dynamic>)))
+          .toList(),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -2409,8 +2768,8 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
   final int id;
 
   final List<
-          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services?>?
-      services;
+          Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants?>?
+      merchants;
 
   final String $__typename;
 
@@ -2420,8 +2779,8 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
     _resultData['name'] = l$name;
     final l$id = id;
     _resultData['id'] = l$id;
-    final l$services = services;
-    _resultData['services'] = l$services?.map((e) => e?.toJson()).toList();
+    final l$merchants = merchants;
+    _resultData['merchants'] = l$merchants?.map((e) => e?.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -2431,13 +2790,13 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
   int get hashCode {
     final l$name = name;
     final l$id = id;
-    final l$services = services;
+    final l$merchants = merchants;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$name,
       l$id,
-      l$services == null ? null : Object.hashAll(l$services.map((v) => v)),
-      l$$__typename
+      l$merchants == null ? null : Object.hashAll(l$merchants.map((v) => v)),
+      l$$__typename,
     ]);
   }
 
@@ -2447,7 +2806,7 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
       return true;
     }
     if (!(other
-            is Query$getServiceCategoriesPaginated$serviceCategoriesPaginated) ||
+            is Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2461,20 +2820,20 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$services = services;
-    final lOther$services = other.services;
-    if (l$services != null && lOther$services != null) {
-      if (l$services.length != lOther$services.length) {
+    final l$merchants = merchants;
+    final lOther$merchants = other.merchants;
+    if (l$merchants != null && lOther$merchants != null) {
+      if (l$merchants.length != lOther$merchants.length) {
         return false;
       }
-      for (int i = 0; i < l$services.length; i++) {
-        final l$services$entry = l$services[i];
-        final lOther$services$entry = lOther$services[i];
-        if (l$services$entry != lOther$services$entry) {
+      for (int i = 0; i < l$merchants.length; i++) {
+        final l$merchants$entry = l$merchants[i];
+        final lOther$merchants$entry = lOther$merchants[i];
+        if (l$merchants$entry != lOther$merchants$entry) {
           return false;
         }
       }
-    } else if (l$services != lOther$services) {
+    } else if (l$merchants != lOther$merchants) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -2486,119 +2845,130 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
   }
 }
 
-extension UtilityExtension$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated
-    on Query$getServiceCategoriesPaginated$serviceCategoriesPaginated {
-  CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
-          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated>
+extension UtilityExtension$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated
+    on Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated {
+  CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
+          Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated>
       get copyWith =>
-          CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
-              this, (i) => i);
+          CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
+abstract class CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
     TRes> {
-  factory CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
-          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated instance,
-          TRes Function(
-                  Query$getServiceCategoriesPaginated$serviceCategoriesPaginated)
-              then) =
-      _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated;
+  factory CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated(
+    Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated instance,
+    TRes Function(
+            Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated)
+        then,
+  ) = _CopyWithImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated;
 
-  factory CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated.stub(
+  factory CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated;
+      _CopyWithStubImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated;
 
-  TRes call(
-      {String? name,
-      int? id,
-      List<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services?>?
-          services,
-      String? $__typename});
-  TRes services(
-      Iterable<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services?>? Function(
+  TRes call({
+    String? name,
+    int? id,
+    List<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants?>?
+        merchants,
+    String? $__typename,
+  });
+  TRes merchants(
+      Iterable<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants?>? Function(
               Iterable<
-                  CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
-                      Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services>?>?)
+                  CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
+                      Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants>?>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
+class _CopyWithImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
         TRes>
     implements
-        CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
+        CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
             TRes> {
-  _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
-      this._instance, this._then);
+  _CopyWithImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServiceCategoriesPaginated$serviceCategoriesPaginated
+  final Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated
       _instance;
 
   final TRes Function(
-      Query$getServiceCategoriesPaginated$serviceCategoriesPaginated) _then;
+      Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated) _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? id = _undefined,
-          Object? services = _undefined,
-          Object? $__typename = _undefined}) =>
-      _then(Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
-          name: name == _undefined || name == null
-              ? _instance.name
-              : (name as String),
-          id: id == _undefined || id == null ? _instance.id : (id as int),
-          services: services == _undefined
-              ? _instance.services
-              : (services as List<
-                  Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services?>?),
-          $__typename: $__typename == _undefined || $__typename == null
-              ? _instance.$__typename
-              : ($__typename as String)));
-  TRes services(
-          Iterable<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services?>? Function(
+  TRes call({
+    Object? name = _undefined,
+    Object? id = _undefined,
+    Object? merchants = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        merchants: merchants == _undefined
+            ? _instance.merchants
+            : (merchants as List<
+                Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants?>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  TRes merchants(
+          Iterable<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants?>? Function(
                   Iterable<
-                      CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
-                          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services>?>?)
+                      CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
+                          Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants>?>?)
               _fn) =>
       call(
-          services: _fn(_instance.services?.map((e) => e == null
+          merchants: _fn(_instance.merchants?.map((e) => e == null
               ? null
-              : CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
-                  e, (i) => i)))?.toList());
+              : CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants(
+                  e,
+                  (i) => i,
+                )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
+class _CopyWithStubImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
         TRes>
     implements
-        CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated<
+        CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated<
             TRes> {
-  _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated(
+  _CopyWithStubImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated(
       this._res);
 
   TRes _res;
 
-  call(
-          {String? name,
-          int? id,
-          List<Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services?>?
-              services,
-          String? $__typename}) =>
+  call({
+    String? name,
+    int? id,
+    List<Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants?>?
+        merchants,
+    String? $__typename,
+  }) =>
       _res;
-  services(_fn) => _res;
+  merchants(_fn) => _res;
 }
 
-class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
-  Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
-      {required this.name,
-      required this.has_validation,
-      required this.unique_id,
-      required this.id,
-      this.created_at,
-      required this.active,
-      required this.$__typename});
+class Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants {
+  Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants({
+    required this.name,
+    required this.has_validation,
+    required this.unique_id,
+    required this.id,
+    this.created_at,
+    required this.active,
+    this.$__typename = 'Merchant',
+  });
 
-  factory Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services.fromJson(
+  factory Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants.fromJson(
       Map<String, dynamic> json) {
     final l$name = json['name'];
     final l$has_validation = json['has_validation'];
@@ -2607,14 +2977,15 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
     final l$created_at = json['created_at'];
     final l$active = json['active'];
     final l$$__typename = json['__typename'];
-    return Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
-        name: (l$name as String),
-        has_validation: (l$has_validation as bool),
-        unique_id: (l$unique_id as String),
-        id: (l$id as int),
-        created_at: (l$created_at as String?),
-        active: (l$active as bool),
-        $__typename: (l$$__typename as String));
+    return Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants(
+      name: (l$name as String),
+      has_validation: (l$has_validation as bool),
+      unique_id: (l$unique_id as String),
+      id: (l$id as int),
+      created_at: (l$created_at as String?),
+      active: (l$active as bool),
+      $__typename: (l$$__typename as String),
+    );
   }
 
   final String name;
@@ -2666,7 +3037,7 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
       l$id,
       l$created_at,
       l$active,
-      l$$__typename
+      l$$__typename,
     ]);
   }
 
@@ -2676,7 +3047,7 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
       return true;
     }
     if (!(other
-            is Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services) ||
+            is Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -2719,105 +3090,112 @@ class Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
   }
 }
 
-extension UtilityExtension$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services
-    on Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services {
-  CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
-          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services>
+extension UtilityExtension$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants
+    on Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants {
+  CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
+          Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants>
       get copyWith =>
-          CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
-              this, (i) => i);
+          CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
+abstract class CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
     TRes> {
-  factory CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
-          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services
-              instance,
-          TRes Function(
-                  Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services)
-              then) =
-      _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services;
+  factory CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants(
+    Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants
+        instance,
+    TRes Function(
+            Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants)
+        then,
+  ) = _CopyWithImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants;
 
-  factory CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services.stub(
+  factory CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services;
+      _CopyWithStubImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants;
 
-  TRes call(
-      {String? name,
-      bool? has_validation,
-      String? unique_id,
-      int? id,
-      String? created_at,
-      bool? active,
-      String? $__typename});
+  TRes call({
+    String? name,
+    bool? has_validation,
+    String? unique_id,
+    int? id,
+    String? created_at,
+    bool? active,
+    String? $__typename,
+  });
 }
 
-class _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
+class _CopyWithImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
         TRes>
     implements
-        CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
+        CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
             TRes> {
-  _CopyWithImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
-      this._instance, this._then);
+  _CopyWithImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants(
+    this._instance,
+    this._then,
+  );
 
-  final Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services
+  final Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants
       _instance;
 
   final TRes Function(
-          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services)
+          Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants)
       _then;
 
-  static const _undefined = {};
+  static const _undefined = <dynamic, dynamic>{};
 
-  TRes call(
-          {Object? name = _undefined,
-          Object? has_validation = _undefined,
-          Object? unique_id = _undefined,
-          Object? id = _undefined,
-          Object? created_at = _undefined,
-          Object? active = _undefined,
-          Object? $__typename = _undefined}) =>
+  TRes call({
+    Object? name = _undefined,
+    Object? has_validation = _undefined,
+    Object? unique_id = _undefined,
+    Object? id = _undefined,
+    Object? created_at = _undefined,
+    Object? active = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
       _then(
-          Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
-              name: name == _undefined || name == null
-                  ? _instance.name
-                  : (name as String),
-              has_validation:
-                  has_validation == _undefined || has_validation == null
-                      ? _instance.has_validation
-                      : (has_validation as bool),
-              unique_id: unique_id == _undefined || unique_id == null
-                  ? _instance.unique_id
-                  : (unique_id as String),
-              id: id == _undefined || id == null ? _instance.id : (id as int),
-              created_at: created_at == _undefined
-                  ? _instance.created_at
-                  : (created_at as String?),
-              active: active == _undefined || active == null
-                  ? _instance.active
-                  : (active as bool),
-              $__typename: $__typename == _undefined || $__typename == null
-                  ? _instance.$__typename
-                  : ($__typename as String)));
+          Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        has_validation: has_validation == _undefined || has_validation == null
+            ? _instance.has_validation
+            : (has_validation as bool),
+        unique_id: unique_id == _undefined || unique_id == null
+            ? _instance.unique_id
+            : (unique_id as String),
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        created_at: created_at == _undefined
+            ? _instance.created_at
+            : (created_at as String?),
+        active: active == _undefined || active == null
+            ? _instance.active
+            : (active as bool),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
 }
 
-class _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
+class _CopyWithStubImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
         TRes>
     implements
-        CopyWith$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services<
+        CopyWith$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants<
             TRes> {
-  _CopyWithStubImpl$Query$getServiceCategoriesPaginated$serviceCategoriesPaginated$services(
+  _CopyWithStubImpl$Query$getMerchantCategoriesPaginated$merchantCategoriesPaginated$merchants(
       this._res);
 
   TRes _res;
 
-  call(
-          {String? name,
-          bool? has_validation,
-          String? unique_id,
-          int? id,
-          String? created_at,
-          bool? active,
-          String? $__typename}) =>
+  call({
+    String? name,
+    bool? has_validation,
+    String? unique_id,
+    int? id,
+    String? created_at,
+    bool? active,
+    String? $__typename,
+  }) =>
       _res;
 }

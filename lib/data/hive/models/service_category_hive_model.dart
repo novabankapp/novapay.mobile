@@ -1,6 +1,6 @@
 import 'package:hive/hive.dart';
-import 'package:nave_app/domain/entities/Service.dart';
-import 'package:nave_app/domain/entities/Service_category.dart';
+import 'package:nave_app/domain/entities/Merchant.dart';
+import 'package:nave_app/domain/entities/Merchant_category.dart';
 
 
 @HiveType(typeId: 2)
@@ -15,7 +15,7 @@ class ServiceCategoryHiveModel extends HiveObject {
     name = json['name'];
     createdAt = json['createdAt'];
   }
-  ServiceCategoryHiveModel.fromServiceCategory(ServiceCategory category){
+  ServiceCategoryHiveModel.fromServiceCategory(MerchantCategory category){
     recordId = category.recordId;
     name = category.name;
     services = category.services?.map((e) => ServiceHiveModel(
@@ -64,7 +64,7 @@ class ServiceHiveModel extends HiveObject {
     createdAt = json['createdAt'];
   }
 
-  ServiceHiveModel.fromService(Service service){
+  ServiceHiveModel.fromService(Merchant service){
     recordId = service.recordId;
     shortCode = service.uniqueIdentifier;
     uniqueIdentifier = service.uniqueIdentifier;

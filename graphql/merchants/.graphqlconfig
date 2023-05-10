@@ -4,7 +4,7 @@
   "extensions": {
     "endpoints": {
       "Default GraphQL Endpoint": {
-        "url": "https://0dc5-102-70-2-74.ngrok-free.app/api/merchantql",
+        "url": "https://b7c6-102-70-2-135.ngrok-free.app/api/merchantql",
         "headers": {
           "user-agent": "JS GraphQL"
         },

@@ -1,7 +1,7 @@
 import 'package:nave_app/graphql/merchants/merchants.graphql.dart';
 
-class Service {
-  Service({
+class Merchant {
+  Merchant({
       this.recordId, 
       this.shortCode, 
       this.uniqueIdentifier,
@@ -11,7 +11,7 @@ class Service {
       this.serviceName, 
       this.createdAt,});
 
-  Service.fromJson(dynamic json) {
+  Merchant.fromJson(dynamic json) {
     recordId = json['recordId'];
     shortCode = json['shortCode'];
     uniqueIdentifier = json['uniqueIdentifier'];
@@ -22,25 +22,25 @@ class Service {
     createdAt = json['createdAt'];
   }
 
-  Service.fromGetServicesPaginated(Query$getServicesPaginated$servicesPaginated service){
-    recordId = service.id;
-    shortCode = service.unique_id;
-    uniqueIdentifier = service.unique_id;
-    hasValidation = service.has_validation;
-    name = service.name;
-    isActive = service.active;
-    serviceName = service.name;
-    createdAt = service.created_at;
+  Merchant.fromGetMerchantsPaginated(Query$getMerchantsPaginated$merchantsPaginated merchant){
+    recordId = merchant.id;
+    shortCode = merchant.unique_id;
+    uniqueIdentifier = merchant.unique_id;
+    hasValidation = merchant.has_validation;
+    name = merchant.name;
+    isActive = merchant.active;
+    serviceName = merchant.name;
+    createdAt = merchant.created_at;
   }
-  Service.fromGetServicesByCategoryPaginated(Query$getServicesByCategoryPaginated$servicesByCategoryPaginated service){
-    recordId = service.id;
-    shortCode = service.unique_id;
-    uniqueIdentifier = service.unique_id;
-    hasValidation = service.has_validation;
-    name = service.name;
-    isActive = service.active;
-    serviceName = service.name;
-    createdAt = service.created_at;
+  Merchant.fromGetMerchantsByCategoryPaginated(Query$getMerchantByCategoryPaginated$merchantsByCategoryPaginated merchant){
+    recordId = merchant.id;
+    shortCode = merchant.unique_id;
+    uniqueIdentifier = merchant.unique_id;
+    hasValidation = merchant.has_validation;
+    name = merchant.name;
+    isActive = merchant.active;
+    serviceName = merchant.name;
+    createdAt = merchant.created_at;
   }
 
   int? recordId;

@@ -11,23 +11,23 @@
 import 'package:auto_route/auto_route.dart' as _i13;
 import 'package:flutter/material.dart' as _i14;
 import 'package:nave_app/app/ui/screens/authentication/change_password_screen.dart'
-    as _i11;
-import 'package:nave_app/app/ui/screens/authentication/enter_code_screen.dart'
     as _i1;
-import 'package:nave_app/app/ui/screens/authentication/login/login_screen.dart'
+import 'package:nave_app/app/ui/screens/authentication/enter_code_screen.dart'
     as _i2;
-import 'package:nave_app/app/ui/screens/authentication/login/recover_password_screen.dart'
+import 'package:nave_app/app/ui/screens/authentication/login/login_screen.dart'
     as _i3;
-import 'package:nave_app/app/ui/screens/authentication/login/reset_password_screen.dart'
-    as _i10;
-import 'package:nave_app/app/ui/screens/authentication/registration/registration_screen.dart'
+import 'package:nave_app/app/ui/screens/authentication/login/recover_password_screen.dart'
     as _i4;
-import 'package:nave_app/app/ui/screens/home/home_screen.dart' as _i5;
-import 'package:nave_app/app/ui/screens/in_transit_screen.dart' as _i6;
-import 'package:nave_app/app/ui/screens/landing_page_screen.dart' as _i7;
-import 'package:nave_app/app/ui/screens/services/services_screen.dart' as _i8;
+import 'package:nave_app/app/ui/screens/authentication/login/reset_password_screen.dart'
+    as _i5;
+import 'package:nave_app/app/ui/screens/authentication/registration/registration_screen.dart'
+    as _i6;
+import 'package:nave_app/app/ui/screens/home/home_screen.dart' as _i7;
+import 'package:nave_app/app/ui/screens/in_transit_screen.dart' as _i8;
+import 'package:nave_app/app/ui/screens/landing_page_screen.dart' as _i9;
+import 'package:nave_app/app/ui/screens/services/services_screen.dart' as _i10;
 import 'package:nave_app/app/ui/screens/transactions/generate_trn_screen.dart'
-    as _i9;
+    as _i11;
 import 'package:nave_app/app/ui/screens/transactions/validate_customer_reference_screen.dart'
     as _i12;
 
@@ -36,52 +36,64 @@ abstract class $AppRouter extends _i13.RootStackRouter {
 
   @override
   final Map<String, _i13.PageFactory> pagesMap = {
+    ChangePasswordRoute.name: (routeData) {
+      return _i13.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i1.ChangePasswordScreen(),
+      );
+    },
     EnterCodeRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i1.EnterCodeScreen(),
+        child: const _i2.EnterCodeScreen(),
       );
     },
     LoginRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i2.LoginScreen(),
+        child: _i3.LoginScreen(),
       );
     },
     RecoverPasswordRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.RecoverPasswordScreen(),
+        child: const _i4.RecoverPasswordScreen(),
+      );
+    },
+    ResetPasswordRoute.name: (routeData) {
+      return _i13.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i5.ResetPasswordScreen(),
       );
     },
     RegistrationRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.RegistrationScreen(),
+        child: const _i6.RegistrationScreen(),
       );
     },
     HomeRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.HomeScreen(),
+        child: const _i7.HomeScreen(),
       );
     },
     InTransitRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.InTransitScreen(),
+        child: const _i8.InTransitScreen(),
       );
     },
     LandingRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i7.LandingScreen(),
+        child: const _i9.LandingScreen(),
       );
     },
     ServicesRoute.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i8.ServicesScreen(),
+        child: const _i10.ServicesScreen(),
       );
     },
     GenerateTRNRoute.name: (routeData) {
@@ -91,22 +103,10 @@ abstract class $AppRouter extends _i13.RootStackRouter {
               categoryId: pathParams.optString('categoryId')));
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i9.GenerateTRNScreen(
+        child: _i11.GenerateTRNScreen(
           key: args.key,
           categoryId: args.categoryId,
         ),
-      );
-    },
-    ResetPasswordRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i10.ResetPasswordScreen(),
-      );
-    },
-    ChangePasswordRoute.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i11.ChangePasswordScreen(),
       );
     },
     ValidateCustomerReferenceRoute.name: (routeData) {
@@ -119,7 +119,21 @@ abstract class $AppRouter extends _i13.RootStackRouter {
 }
 
 /// generated route for
-/// [_i1.EnterCodeScreen]
+/// [_i1.ChangePasswordScreen]
+class ChangePasswordRoute extends _i13.PageRouteInfo<void> {
+  const ChangePasswordRoute({List<_i13.PageRouteInfo>? children})
+      : super(
+          ChangePasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ChangePasswordRoute';
+
+  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i2.EnterCodeScreen]
 class EnterCodeRoute extends _i13.PageRouteInfo<void> {
   const EnterCodeRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -133,7 +147,7 @@ class EnterCodeRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i2.LoginScreen]
+/// [_i3.LoginScreen]
 class LoginRoute extends _i13.PageRouteInfo<void> {
   const LoginRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -147,7 +161,7 @@ class LoginRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.RecoverPasswordScreen]
+/// [_i4.RecoverPasswordScreen]
 class RecoverPasswordRoute extends _i13.PageRouteInfo<void> {
   const RecoverPasswordRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -161,7 +175,21 @@ class RecoverPasswordRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.RegistrationScreen]
+/// [_i5.ResetPasswordScreen]
+class ResetPasswordRoute extends _i13.PageRouteInfo<void> {
+  const ResetPasswordRoute({List<_i13.PageRouteInfo>? children})
+      : super(
+          ResetPasswordRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ResetPasswordRoute';
+
+  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i6.RegistrationScreen]
 class RegistrationRoute extends _i13.PageRouteInfo<void> {
   const RegistrationRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -175,7 +203,7 @@ class RegistrationRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.HomeScreen]
+/// [_i7.HomeScreen]
 class HomeRoute extends _i13.PageRouteInfo<void> {
   const HomeRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -189,7 +217,7 @@ class HomeRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.InTransitScreen]
+/// [_i8.InTransitScreen]
 class InTransitRoute extends _i13.PageRouteInfo<void> {
   const InTransitRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -203,7 +231,7 @@ class InTransitRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.LandingScreen]
+/// [_i9.LandingScreen]
 class LandingRoute extends _i13.PageRouteInfo<void> {
   const LandingRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -217,7 +245,7 @@ class LandingRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i8.ServicesScreen]
+/// [_i10.ServicesScreen]
 class ServicesRoute extends _i13.PageRouteInfo<void> {
   const ServicesRoute({List<_i13.PageRouteInfo>? children})
       : super(
@@ -231,7 +259,7 @@ class ServicesRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.GenerateTRNScreen]
+/// [_i11.GenerateTRNScreen]
 class GenerateTRNRoute extends _i13.PageRouteInfo<GenerateTRNRouteArgs> {
   GenerateTRNRoute({
     _i14.Key? key,
@@ -267,34 +295,6 @@ class GenerateTRNRouteArgs {
   String toString() {
     return 'GenerateTRNRouteArgs{key: $key, categoryId: $categoryId}';
   }
-}
-
-/// generated route for
-/// [_i10.ResetPasswordScreen]
-class ResetPasswordRoute extends _i13.PageRouteInfo<void> {
-  const ResetPasswordRoute({List<_i13.PageRouteInfo>? children})
-      : super(
-          ResetPasswordRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ResetPasswordRoute';
-
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i11.ChangePasswordScreen]
-class ChangePasswordRoute extends _i13.PageRouteInfo<void> {
-  const ChangePasswordRoute({List<_i13.PageRouteInfo>? children})
-      : super(
-          ChangePasswordRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'ChangePasswordRoute';
-
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
 }
 
 /// generated route for
